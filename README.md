@@ -1,4 +1,4 @@
-## **H19 Code Challenge ­ Marvel API **
+## H19 Code Challenge ­ Marvel API 
 
 
 ### **App Description**
