@@ -18,6 +18,7 @@
 		9A16663E1CF7A40800C1283F /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A16663C1CF7A40800C1283F /* Protocols.swift */; };
 		9A1666401CF7A86600C1283F /* LinkURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A16663F1CF7A86600C1283F /* LinkURL.swift */; };
 		9A1666421CF7B3C400C1283F /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1666411CF7B3C400C1283F /* ImageService.swift */; };
+		9A1666431CF7BA7A00C1283F /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AE3B43C1CF6C9AB0087CAC6 /* RxCocoa.framework */; };
 		9A2E6C2C1CF744BB000E0EA7 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A2E6C2B1CF744BB000E0EA7 /* Alamofire.framework */; };
 		9A2E6C2F1CF782AB000E0EA7 /* CharacterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2E6C2E1CF782AB000E0EA7 /* CharacterCell.swift */; };
 		9ADBF3361CF6298F005F1F51 /* Marvel_CharactersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ADBF3351CF6298F005F1F51 /* Marvel_CharactersTests.swift */; };
@@ -123,6 +124,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A1666431CF7BA7A00C1283F /* RxCocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -634,6 +636,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "Marvel CharactersTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "halonsoluis.Marvel-CharactersTests";
@@ -646,6 +652,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "Marvel CharactersTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "halonsoluis.Marvel-CharactersTests";

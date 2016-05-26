@@ -42,9 +42,10 @@ class CharacterListViewController: UIViewController {
                 
                 cell.nameLabel.setTitle(character.name, forState: UIControlState.Normal)
                 print(character.name)
-           //     cell.bannerImage.image = nil
+                cell.bannerImage.image = nil
                 
-         //       ImageSource.Resource(id: Int64(meetingRoom.id!), small: true).downloadImageAndSetIn(cell.bannerImage)
+                guard let url = character.thumbnail?.url(), let nsurl = NSURL(string: url), let modified = character.modified else { return }
+                ImageSource.downloadImageAndSetIn(cell.bannerImage, imageURL: nsurl, withUniqueKey: modified)
             }
             .addDisposableTo(disposeBag)
         
