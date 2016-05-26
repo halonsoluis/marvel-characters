@@ -15,7 +15,7 @@ class APIHandlerTests: XCTestCase {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
         
-        guard let tuple = APIHandler().getTimeStampAndHash(1.description, privateAPIKey: "abcd", publicAPIKey: "1234") else {
+        guard let tuple = APIHandler().getSecurityFootprint(1.description, privateAPIKey: "abcd", publicAPIKey: "1234") else {
             XCTAssert(false)
             return
         }
@@ -26,7 +26,7 @@ class APIHandlerTests: XCTestCase {
     func testPerformanceExample() {
         // This is an example of a performance test case.
         self.measureBlock {
-            let _ = APIHandler().getTimeStampAndHash(1.description, privateAPIKey: "abcd", publicAPIKey: "1234")
+            let _ = APIHandler().getSecurityFootprint(1.description, privateAPIKey: "abcd", publicAPIKey: "1234")
         }
     }
 
