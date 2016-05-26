@@ -1,5 +1,5 @@
 //
-//  MD5Provider.swift
+//  MD5Digester.swift
 //  Marvel Characters
 //
 //  Created by Hugo Alonso on 5/25/16.
