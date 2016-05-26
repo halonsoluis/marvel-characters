@@ -1,0 +1,6 @@
+github "Alamofire/Alamofire" ~> 3.3
+github "onevcat/Kingfisher" ~> 2.4
+github "Hearst-DD/ObjectMapper" ~> 1.2
+github "antitypical/Result" "master"
+github "ReactiveX/RxSwift" ~> 2.1
+github "RxSwiftCommunity/RxAlamofire" "master"
