@@ -88,14 +88,11 @@ class CharacterListViewController: UIViewController {
                 
                 if let nameLabel = cell.nameLabel as? UIButton {
                     nameLabel.setTitle(character.name, forState: UIControlState.Normal)
-                    
-                    nameLabel.sizeToFit()
-                    
                 } else if let nameLabel = cell.nameLabel as? UILabel {
                     nameLabel.text = character.name
-                    cell.nameLabel.sizeToFit()
                 }
         
+                cell.nameLabel.sizeToFit()
                 cell.bannerImage.image = nil
                 
                 guard let url = character.thumbnail?.url(), let nsurl = NSURL(string: url), let modified = character.modified else { return }
@@ -107,7 +104,6 @@ class CharacterListViewController: UIViewController {
             .flatMapLatest(errorValidation)
             .driveNext { (newPage) in
                 self.dataSource.value.appendContentsOf(newPage)
-            //    self.dataSource.value = values
             }
             .addDisposableTo(disposeBag)
     }
