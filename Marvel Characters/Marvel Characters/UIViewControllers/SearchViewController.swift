@@ -43,6 +43,7 @@ class SearchViewController: CharacterListViewController {
         super.viewDidLoad()
         
         navigationController?.setNavigationBarHidden(true, animated: true)
+        setLayoutForKeyboard()
         searchBar.becomeFirstResponder()
         
         searchBar
@@ -53,8 +54,32 @@ class SearchViewController: CharacterListViewController {
             }.addDisposableTo(disposeBag)
         
         loadingMore = false
-       
+        
     }
+    
+    private func setLayoutForKeyboard() {
+        
+        NSNotificationCenter.defaultCenter()
+            .rx_notification(UIKeyboardWillShowNotification, object: nil)
+            .observeOn(MainScheduler.instance)
+            .subscribeNext { [weak self] notification in
+                
+                guard let info = notification.userInfo else { return }
+                guard let strongSelf = self else { return }
+                
+                let keyboardFrame: CGRect = (info[UIKeyboardFrameBeginUserInfoKey] as! NSValue).CGRectValue()
+                let tableViewInset = strongSelf.tableView.contentInset
+                let contentInsets = UIEdgeInsetsMake(tableViewInset.top, 0.0, keyboardFrame.height, 0.0);
+                strongSelf.tableView.contentInset = contentInsets
+                strongSelf.tableView.scrollIndicatorInsets = contentInsets
+                
+                var frame = strongSelf.view.frame
+                frame.size.height -= keyboardFrame.height
+                strongSelf.view.frame = frame
+            }
+            .addDisposableTo(disposeBag)
+    }
+    
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return UIStatusBarStyle.LightContent
