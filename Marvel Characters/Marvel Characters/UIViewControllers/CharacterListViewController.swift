@@ -44,7 +44,8 @@ class CharacterListViewController: UIViewController {
         
         createCharacterService()
         appendSubscribers()
-    //    appendTestSuscriber()
+        setupPagination()
+       //    appendTestSuscriber()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -56,33 +57,45 @@ class CharacterListViewController: UIViewController {
         chs = CharacterService(pageObservable: currentPageObservable)
     }
     
+    func setupPagination() {
+        
+        tableView.rx_contentOffset
+            .delaySubscription(3, scheduler: MainScheduler.instance)
+            .throttle(0.2, scheduler: MainScheduler.instance)
+            .distinctUntilChanged()
+            .bindNext { [weak self] (offset) in
+                guard let `self` = self else {return}
+                
+                print("offset = \(offset)")
+                let bounds = self.tableView.bounds
+                let size = self.tableView.contentSize
+                let inset = self.tableView.contentInset
+                let y = offset.y + bounds.size.height - inset.bottom
+                let h = size.height
+                let reload_distance : CGFloat = UIScreen.mainScreen().bounds.height * 2
+                if y > (h - reload_distance) {
+                    self.currentPage.value = self.currentPage.value + 1
+                    print("load page = \(self.currentPage.value)")
+                }
+
+            }
+            .addDisposableTo(disposeBag)
+    }
+    
     func appendSubscribers() {
-        chs.rx_characters
-            .flatMapLatest(errorValidation)
+        dataSource.asDriver()
             .drive(tableView.rx_itemsWithCellIdentifier("CharacterCell", cellType: CharacterCell.self)) { (_, character, cell) in
                 
                 if let nameLabel = cell.nameLabel as? UIButton {
                     nameLabel.setTitle(character.name, forState: UIControlState.Normal)
-                  
-                    print("intrinsic label \(nameLabel.titleLabel?.intrinsicContentSize().width)")
-                    print("intrinsic button\(nameLabel.intrinsicContentSize().width)")
-                    print("intrinsic button frame\(nameLabel.frame.width)")
                     
                     nameLabel.sizeToFit()
-                    print("size to Fit")
-                    
-                    print("intrinsic label \(nameLabel.titleLabel?.intrinsicContentSize().width)")
-                    print("intrinsic button\(nameLabel.intrinsicContentSize().width)")
-                    print("intrinsic button frame\(nameLabel.frame.width)")
-                    
                     
                 } else if let nameLabel = cell.nameLabel as? UILabel {
                     nameLabel.text = character.name
-                     cell.nameLabel.sizeToFit()
+                    cell.nameLabel.sizeToFit()
                 }
-               
-                
-               // cell.nameLabel.updateConstraints()
+        
                 cell.bannerImage.image = nil
                 
                 guard let url = character.thumbnail?.url(), let nsurl = NSURL(string: url), let modified = character.modified else { return }
@@ -92,7 +105,10 @@ class CharacterListViewController: UIViewController {
         
         chs.rx_characters
             .flatMapLatest(errorValidation)
-            .drive(dataSource)
+            .driveNext { (newPage) in
+                self.dataSource.value.appendContentsOf(newPage)
+            //    self.dataSource.value = values
+            }
             .addDisposableTo(disposeBag)
     }
     
