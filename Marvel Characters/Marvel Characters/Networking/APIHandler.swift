@@ -9,7 +9,7 @@
 import Foundation
 
 struct APIHandler {
-    private static let itemsPerPage = 20
+    static let itemsPerPage = 20
     
     //This should not be here, here only for debugging and testing purposes
     //This should even not be versionated
