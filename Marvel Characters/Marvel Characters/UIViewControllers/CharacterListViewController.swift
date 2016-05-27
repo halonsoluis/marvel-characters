@@ -61,8 +61,28 @@ class CharacterListViewController: UIViewController {
             .flatMapLatest(errorValidation)
             .drive(tableView.rx_itemsWithCellIdentifier("CharacterCell", cellType: CharacterCell.self)) { (_, character, cell) in
                 
-                cell.nameLabel.setTitle(character.name, forState: UIControlState.Normal)
-                cell.nameLabel.sizeToFit()
+                if let nameLabel = cell.nameLabel as? UIButton {
+                    nameLabel.setTitle(character.name, forState: UIControlState.Normal)
+                  
+                    print("intrinsic label \(nameLabel.titleLabel?.intrinsicContentSize().width)")
+                    print("intrinsic button\(nameLabel.intrinsicContentSize().width)")
+                    print("intrinsic button frame\(nameLabel.frame.width)")
+                    
+                    nameLabel.sizeToFit()
+                    print("size to Fit")
+                    
+                    print("intrinsic label \(nameLabel.titleLabel?.intrinsicContentSize().width)")
+                    print("intrinsic button\(nameLabel.intrinsicContentSize().width)")
+                    print("intrinsic button frame\(nameLabel.frame.width)")
+                    
+                    
+                } else if let nameLabel = cell.nameLabel as? UILabel {
+                    nameLabel.text = character.name
+                     cell.nameLabel.sizeToFit()
+                }
+               
+                
+               // cell.nameLabel.updateConstraints()
                 cell.bannerImage.image = nil
                 
                 guard let url = character.thumbnail?.url(), let nsurl = NSURL(string: url), let modified = character.modified else { return }
