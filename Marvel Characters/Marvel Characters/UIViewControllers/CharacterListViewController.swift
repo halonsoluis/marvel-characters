@@ -19,12 +19,16 @@ class CharacterListViewController: UIViewController {
     
     let dataSource = Variable<[Character]>([])
     
-    var currentPage = 0
+    /// Value of current page
+    var currentPage = Variable<Int>(0)
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let chs = CharacterService()
+        let currentPageObservable = currentPage.asObservable()
+        
+        let chs = CharacterService(pageObservable: currentPageObservable)
         
         let errorValidation = { (result: Result<[Character],RequestError>) -> Driver<[Character]> in
             switch result {
@@ -34,9 +38,8 @@ class CharacterListViewController: UIViewController {
                 return Driver.empty()
             }
         }
-        let charactersForCurrentPage = chs.getCharacters(currentPage)
         
-        charactersForCurrentPage
+        chs.rx_characters
             .flatMapLatest(errorValidation)
             .drive(tableView.rx_itemsWithCellIdentifier("CharacterCell", cellType: CharacterCell.self)) { (_, character, cell) in
                 
@@ -49,22 +52,30 @@ class CharacterListViewController: UIViewController {
             }
             .addDisposableTo(disposeBag)
         
-        charactersForCurrentPage
+        chs.rx_characters
             .flatMapLatest(errorValidation)
             .drive(dataSource)
             .addDisposableTo(disposeBag)
-
+        
+        Observable.of(0,1,2,3)
+            .buffer(timeSpan: RxTimeInterval(3500), count: 1, scheduler: MainScheduler.asyncInstance)
+            .filter { $0.first != nil }
+            .map { $0.first! }
+            .doOnNext() { print("emits \($0)") }
+            .bindTo(currentPage)
+            .addDisposableTo(disposeBag)
     }
+    
     /*
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let characterDetails = segue.destinationViewController as! CharacterDetailsViewController
-        
-        guard
-            let indexPath = tableView.indexPathForSelectedRow,
-            let character = dataSource.value[indexPath.row]
-        else { return }
-        
-        characterDetails.character = character
-    }*/
+     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+     let characterDetails = segue.destinationViewController as! CharacterDetailsViewController
+     
+     guard
+     let indexPath = tableView.indexPathForSelectedRow,
+     let character = dataSource.value[indexPath.row]
+     else { return }
+     
+     characterDetails.character = character
+     }*/
 }
 
