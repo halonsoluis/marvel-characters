@@ -17,49 +17,47 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="150" sectionHeaderHeight="1" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2ZE-1b-vFe">
-                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="150" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="2ZE-1b-vFe">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexTrackingBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationWidth="0.0" reuseIdentifier="CharacterCell" id="rsT-gg-te4" customClass="CharacterCell" customModule="Marvel_Characters" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationWidth="0.0" reuseIdentifier="CharacterCell" rowHeight="150" id="rsT-gg-te4" customClass="CharacterCell" customModule="Marvel_Characters" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="65" width="600" height="150"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rsT-gg-te4" id="jQ3-96-e3L">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="150"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button clipsSubviews="YES" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fWD-ZT-UAh" userLabel="Character Name">
-                                                    <rect key="frame" x="30" y="89" width="180" height="36"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cjb-0c-8Pg" userLabel="Character Image">
+                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="150"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                </imageView>
+                                                <button autoresizesSubviews="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="fWD-ZT-UAh" userLabel="Character Name">
+                                                    <rect key="frame" x="30" y="89" width="160" height="36"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="36" id="d5X-rN-trA"/>
-                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="36" id="ev9-oK-PIr"/>
-                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="180" id="tNt-72-r9E"/>
+                                                        <constraint firstAttribute="height" priority="999" constant="36" id="d5X-rN-trA"/>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" priority="750" constant="160" id="tNt-72-r9E"/>
                                                     </constraints>
+                                                    <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
                                                     <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="18"/>
                                                     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
+                                                    <inset key="titleEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
                                                     <state key="normal" title="3-D Man" backgroundImage="bg-cell-title">
-                                                        <color key="titleColor" red="0.23921568630000001" green="0.94901960780000005" blue="0.63529411759999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
-                                                    <variation key="default">
-                                                        <mask key="constraints">
-                                                            <exclude reference="ev9-oK-PIr"/>
-                                                        </mask>
-                                                    </variation>
                                                 </button>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cjb-0c-8Pg" userLabel="Character Image">
-                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="150"/>
-                                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                                </imageView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="cjb-0c-8Pg" secondAttribute="bottom" id="72Y-U4-Y64"/>
                                                 <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="fWD-ZT-UAh" secondAttribute="trailing" constant="22" id="HW6-rN-hNB"/>
                                                 <constraint firstItem="cjb-0c-8Pg" firstAttribute="top" secondItem="jQ3-96-e3L" secondAttribute="top" id="Hea-my-ShB"/>
                                                 <constraint firstAttribute="trailing" secondItem="cjb-0c-8Pg" secondAttribute="trailing" id="KbC-dW-p1E"/>
+                                                <constraint firstItem="fWD-ZT-UAh" firstAttribute="top" relation="greaterThanOrEqual" secondItem="jQ3-96-e3L" secondAttribute="topMargin" constant="17" id="RwZ-dL-cUQ"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="fWD-ZT-UAh" secondAttribute="bottom" constant="17" id="Xf2-rR-umr"/>
                                                 <constraint firstItem="cjb-0c-8Pg" firstAttribute="leading" secondItem="jQ3-96-e3L" secondAttribute="leading" id="Y0Z-Bb-WkC"/>
                                                 <constraint firstItem="fWD-ZT-UAh" firstAttribute="leading" secondItem="jQ3-96-e3L" secondAttribute="leadingMargin" constant="22" id="xmE-pl-QTf"/>
@@ -77,21 +75,11 @@
                         </subviews>
                         <color key="backgroundColor" white="0.13" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="2ZE-1b-vFe" secondAttribute="trailing" id="A0I-Xc-tXc"/>
-                            <constraint firstItem="2ZE-1b-vFe" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="DkK-Pc-cZK"/>
-                            <constraint firstItem="2ZE-1b-vFe" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="NrD-3E-u4L"/>
+                            <constraint firstItem="2ZE-1b-vFe" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-64" id="NrD-3E-u4L"/>
                             <constraint firstItem="2ZE-1b-vFe" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Xj1-9d-kNf"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="2ZE-1b-vFe" secondAttribute="bottom" id="a1A-9X-Jtb"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="2ZE-1b-vFe" secondAttribute="bottom" id="fNb-fX-r4U"/>
                             <constraint firstAttribute="trailing" secondItem="2ZE-1b-vFe" secondAttribute="trailing" id="iUv-iz-zMl"/>
-                            <constraint firstItem="2ZE-1b-vFe" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="qPP-de-Y5x"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="A0I-Xc-tXc"/>
-                                <exclude reference="DkK-Pc-cZK"/>
-                            </mask>
-                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="IKB-nX-Yit">
                         <barButtonItem key="rightBarButtonItem" image="icn-nav-search" id="iZ8-Jo-Seh">

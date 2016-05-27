@@ -41,7 +41,7 @@ class CharacterListViewController: UIViewController {
             .drive(tableView.rx_itemsWithCellIdentifier("CharacterCell", cellType: CharacterCell.self)) { (_, character, cell) in
                 
                 cell.nameLabel.setTitle(character.name, forState: UIControlState.Normal)
-                print(character.name)
+                cell.nameLabel.sizeToFit()
                 cell.bannerImage.image = nil
                 
                 guard let url = character.thumbnail?.url(), let nsurl = NSURL(string: url), let modified = character.modified else { return }
