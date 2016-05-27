@@ -88,7 +88,7 @@
                                         <connections>
                                             <outlet property="bannerImage" destination="cjb-0c-8Pg" id="d1F-Dn-J9K"/>
                                             <outlet property="nameLabel" destination="fWD-ZT-UAh" id="7r8-Ro-JQc"/>
-                                            <segue destination="UxB-h1-Qxd" kind="showDetail" trigger="accessoryAction" id="xDR-kz-n4z"/>
+                                            <segue destination="UxB-h1-Qxd" kind="show" identifier="showDetails" id="ggY-I8-Y2B"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -225,7 +225,7 @@
                                         <connections>
                                             <outlet property="bannerImage" destination="bmL-E6-Wwy" id="zno-HP-lGE"/>
                                             <outlet property="nameLabel" destination="qpB-4v-TOb" id="yBG-gz-fdF"/>
-                                            <segue destination="UxB-h1-Qxd" kind="showDetail" id="H25-7q-a9b"/>
+                                            <segue destination="UxB-h1-Qxd" kind="show" identifier="showDetails" id="qlO-LO-eGS"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -266,10 +266,10 @@
             </objects>
             <point key="canvasLocation" x="1832" y="847"/>
         </scene>
-        <!--View Controller-->
+        <!--Details-->
         <scene sceneID="V1d-VY-tb6">
             <objects>
-                <viewController id="UxB-h1-Qxd" sceneMemberID="viewController">
+                <viewController id="UxB-h1-Qxd" customClass="CharacterDetailsViewController" customModule="Marvel_Characters" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="LP2-Fi-IN7"/>
                         <viewControllerLayoutGuide type="bottom" id="I2P-P5-yKU"/>
@@ -278,7 +278,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Details" id="aLO-af-kve">
+                        <barButtonItem key="backBarButtonItem" image="icn-nav-back-white" id="sHD-dd-2bQ">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mH9-Rg-yXg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -292,6 +298,6 @@
         <image name="icn-nav-search" width="28" height="28"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="xDR-kz-n4z"/>
+        <segue reference="ggY-I8-Y2B"/>
     </inferredMetricsTieBreakers>
 </document>

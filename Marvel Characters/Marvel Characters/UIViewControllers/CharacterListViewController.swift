@@ -15,7 +15,7 @@ class CharacterListViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var footerView: UIView!
-   
+    
     
     let disposeBag = DisposeBag()
     
@@ -53,6 +53,7 @@ class CharacterListViewController: UIViewController {
         createCharacterService()
         appendSubscribers()
         setupPagination()
+        
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -68,14 +69,14 @@ class CharacterListViewController: UIViewController {
         
         tableView.rx_contentOffset
             .debounce(0.1, scheduler: MainScheduler.instance)
-          //  .throttle(0.05, scheduler: MainScheduler.instance)
+            //  .throttle(0.05, scheduler: MainScheduler.instance)
             .distinctUntilChanged()
             .skipWhile { [weak self] (offset) -> Bool in
                 guard let `self` = self else {return true }
                 
                 guard
                     !self.loadingMore &&
-                    offset.y > UIScreen.mainScreen().bounds.height
+                        offset.y > UIScreen.mainScreen().bounds.height
                     else {return true}
                 self.loadingMore = true
                 
@@ -84,7 +85,7 @@ class CharacterListViewController: UIViewController {
             .observeOn(MainScheduler.instance)
             .bindNext { [weak self] (offset) in
                 guard let `self` = self else { return }
-               
+                
                 print("offset = \(offset)")
                 let bounds = self.tableView.bounds
                 let size = self.tableView.contentSize
@@ -100,7 +101,7 @@ class CharacterListViewController: UIViewController {
             }
             .addDisposableTo(disposeBag)
         
-      //  tableView.tableFooterView = footerView
+        //  tableView.tableFooterView = footerView
     }
     
     func appendSubscribers() {
@@ -124,22 +125,22 @@ class CharacterListViewController: UIViewController {
         chs.rx_characters
             .flatMapLatest(errorValidation)
             .driveNext { (newPage) in
-                    self.dataSource.value.appendContentsOf(newPage)
-                    if newPage.count < APIHandler.itemsPerPage { self.loadingMore = false }
+                self.dataSource.value.appendContentsOf(newPage)
+                if newPage.count < APIHandler.itemsPerPage { self.loadingMore = false }
             }
             .addDisposableTo(disposeBag)
+        
     }
     
-    /*
-     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-     let characterDetails = segue.destinationViewController as! CharacterDetailsViewController
-     
-     guard
-     let indexPath = tableView.indexPathForSelectedRow,
-     let character = dataSource.value[indexPath.row]
-     else { return }
-     
-     characterDetails.character = character
-     }*/
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "showDetails" {
+            let characterDetails = segue.destinationViewController as! CharacterDetailsViewController
+            
+            guard let indexPath = tableView.indexPathForSelectedRow else { return }
+            let character = dataSource.value[indexPath.row]
+            characterDetails.character = character
+        }
+    }
 }
 
