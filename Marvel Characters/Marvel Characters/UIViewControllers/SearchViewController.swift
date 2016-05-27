@@ -21,10 +21,13 @@ class SearchViewController: CharacterListViewController {
             .filter { !$0.isEmpty } // notice the filter new line
             .throttle(0.5, scheduler: MainScheduler.instance)
             .distinctUntilChanged()
+            .doOnNext { (_) in
+                self.currentPage.value = 0
+            }
     }
     
     override func createCharacterService() {
-        chs = CharacterService(withNameObservable: rx_characterName, pageObservable: currentPage.asObservable())
+        chs = CharacterService(withNameObservable: rx_characterName, pageObservable: currentPageObservable)
     }
     
     override func viewDidLoad() {

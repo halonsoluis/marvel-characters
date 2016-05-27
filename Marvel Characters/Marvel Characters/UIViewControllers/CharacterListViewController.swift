@@ -33,8 +33,14 @@ class CharacterListViewController: UIViewController {
         }
     }
     
+    var currentPageObservable : Observable<Int>!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        currentPageObservable = currentPage
+            .asObservable()
+            .distinctUntilChanged()
+            .filter { $0 >= 0 }
         
         createCharacterService()
         appendSubscribers()
@@ -47,7 +53,7 @@ class CharacterListViewController: UIViewController {
     }
     
     func createCharacterService() {
-       chs = CharacterService(pageObservable: currentPage.asObservable())
+        chs = CharacterService(pageObservable: currentPageObservable)
     }
     
     func appendSubscribers() {
@@ -72,7 +78,7 @@ class CharacterListViewController: UIViewController {
     
     
     func appendTestSuscriber(){
-        Observable.of(0,1,2,3)
+        Observable.of(0,1,2, 2, 1, 4, 3)
             .buffer(timeSpan: RxTimeInterval(3500), count: 1, scheduler: MainScheduler.asyncInstance)
             .filter { $0.first != nil }
             .map { $0.first! }
