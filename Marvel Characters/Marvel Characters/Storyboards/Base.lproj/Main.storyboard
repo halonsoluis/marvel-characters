@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="k8k-K2-vJz">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Character List View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Marvel_Characters" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="CharacterListViewController" customModule="Marvel_Characters" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +16,119 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="150" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="2ZE-1b-vFe">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="sectionIndexTrackingBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationWidth="0.0" reuseIdentifier="CharacterCell" rowHeight="150" id="rsT-gg-te4" customClass="CharacterCell" customModule="Marvel_Characters" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="65" width="600" height="150"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rsT-gg-te4" id="jQ3-96-e3L">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="150"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cjb-0c-8Pg" userLabel="Character Image">
+                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="150"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                </imageView>
+                                                <button autoresizesSubviews="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="fWD-ZT-UAh" userLabel="Character Name">
+                                                    <rect key="frame" x="30" y="89" width="160" height="36"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" priority="999" constant="36" id="d5X-rN-trA"/>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" priority="750" constant="160" id="tNt-72-r9E"/>
+                                                    </constraints>
+                                                    <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="18"/>
+                                                    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
+                                                    <inset key="titleEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
+                                                    <state key="normal" title="3-D Man" backgroundImage="bg-cell-title">
+                                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="cjb-0c-8Pg" secondAttribute="bottom" id="72Y-U4-Y64"/>
+                                                <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="fWD-ZT-UAh" secondAttribute="trailing" constant="22" id="HW6-rN-hNB"/>
+                                                <constraint firstItem="cjb-0c-8Pg" firstAttribute="top" secondItem="jQ3-96-e3L" secondAttribute="top" id="Hea-my-ShB"/>
+                                                <constraint firstAttribute="trailing" secondItem="cjb-0c-8Pg" secondAttribute="trailing" id="KbC-dW-p1E"/>
+                                                <constraint firstItem="fWD-ZT-UAh" firstAttribute="top" relation="greaterThanOrEqual" secondItem="jQ3-96-e3L" secondAttribute="topMargin" constant="17" id="RwZ-dL-cUQ"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="fWD-ZT-UAh" secondAttribute="bottom" constant="17" id="Xf2-rR-umr"/>
+                                                <constraint firstItem="cjb-0c-8Pg" firstAttribute="leading" secondItem="jQ3-96-e3L" secondAttribute="leading" id="Y0Z-Bb-WkC"/>
+                                                <constraint firstItem="fWD-ZT-UAh" firstAttribute="leading" secondItem="jQ3-96-e3L" secondAttribute="leadingMargin" constant="22" id="xmE-pl-QTf"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <connections>
+                                            <outlet property="bannerImage" destination="cjb-0c-8Pg" id="d1F-Dn-J9K"/>
+                                            <outlet property="nameLabel" destination="fWD-ZT-UAh" id="7r8-Ro-JQc"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.13" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="2ZE-1b-vFe" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-64" id="NrD-3E-u4L"/>
+                            <constraint firstItem="2ZE-1b-vFe" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Xj1-9d-kNf"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="2ZE-1b-vFe" secondAttribute="bottom" id="a1A-9X-Jtb"/>
+                            <constraint firstAttribute="trailing" secondItem="2ZE-1b-vFe" secondAttribute="trailing" id="iUv-iz-zMl"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="IKB-nX-Yit">
+                        <barButtonItem key="rightBarButtonItem" image="icn-nav-search" id="iZ8-Jo-Seh">
+                            <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        </barButtonItem>
+                        <connections>
+                            <outlet property="titleView" destination="s0P-au-Y0v" id="EmH-T8-ZL5"/>
+                        </connections>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="2ZE-1b-vFe" id="7mk-5E-b0q"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icn-nav-marvel" id="s0P-au-Y0v">
+                    <rect key="frame" x="0.0" y="0.0" width="120" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
             </objects>
+            <point key="canvasLocation" x="1832" y="67"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Re4-EB-h5J">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="k8k-K2-vJz" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" opaque="NO" contentMode="scaleToFill" barStyle="black" backIndicatorImage="icn-nav-back-white" id="rpr-40-aGh">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="iOf-a4-nzs"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fyT-Hb-VC4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1047" y="67"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="bg-cell-title" width="160" height="36"/>
+        <image name="icn-nav-back-white" width="28" height="28"/>
+        <image name="icn-nav-marvel" width="62" height="28"/>
+        <image name="icn-nav-search" width="28" height="28"/>
+    </resources>
 </document>

@@ -9,7 +9,6 @@
 import Foundation
 
 struct MD5Digester {
-    
     // return MD5 digest of string provided
     static func digest(string: String) -> String? {
        
