@@ -64,6 +64,7 @@
                                         <connections>
                                             <outlet property="bannerImage" destination="cjb-0c-8Pg" id="d1F-Dn-J9K"/>
                                             <outlet property="nameLabel" destination="fWD-ZT-UAh" id="7r8-Ro-JQc"/>
+                                            <segue destination="UxB-h1-Qxd" kind="showDetail" trigger="accessoryAction" id="xDR-kz-n4z"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -80,6 +81,9 @@
                     <navigationItem key="navigationItem" id="IKB-nX-Yit">
                         <barButtonItem key="rightBarButtonItem" image="icn-nav-search" id="iZ8-Jo-Seh">
                             <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <segue destination="lff-MJ-nqy" kind="show" id="GC7-pF-Czf"/>
+                            </connections>
                         </barButtonItem>
                         <connections>
                             <outlet property="titleView" destination="s0P-au-Y0v" id="EmH-T8-ZL5"/>
@@ -120,6 +124,83 @@
             </objects>
             <point key="canvasLocation" x="1095" y="67"/>
         </scene>
+        <!--Search View Controller-->
+        <scene sceneID="J8r-Sl-oSN">
+            <objects>
+                <viewController id="lff-MJ-nqy" customClass="SearchViewController" customModule="Marvel_Characters" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Gfo-tv-3yd"/>
+                        <viewControllerLayoutGuide type="bottom" id="AHB-A5-Dnd"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="jrW-7T-uVN">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2nh-Ic-xvy">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="repositoryCell" id="e04-u2-2J3">
+                                        <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="e04-u2-2J3" id="hWx-uY-5Lt">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="UxB-h1-Qxd" kind="showDetail" id="H25-7q-a9b"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <searchBar contentMode="redraw" placeholder="Search ..." showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bhQ-L0-gxt">
+                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                                <color key="tintColor" red="1" green="0.0093617555430000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="barTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardAppearance="alert" returnKeyType="done"/>
+                            </searchBar>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="2nh-Ic-xvy" firstAttribute="leading" secondItem="jrW-7T-uVN" secondAttribute="leading" id="Blc-It-Y1e"/>
+                            <constraint firstItem="bhQ-L0-gxt" firstAttribute="leading" secondItem="jrW-7T-uVN" secondAttribute="leading" id="Bp4-8i-bbe"/>
+                            <constraint firstItem="bhQ-L0-gxt" firstAttribute="top" secondItem="Gfo-tv-3yd" secondAttribute="bottom" id="GN9-Ii-I30"/>
+                            <constraint firstItem="2nh-Ic-xvy" firstAttribute="top" secondItem="bhQ-L0-gxt" secondAttribute="bottom" id="QSD-S2-p9F"/>
+                            <constraint firstItem="AHB-A5-Dnd" firstAttribute="top" secondItem="2nh-Ic-xvy" secondAttribute="bottom" id="Wos-sn-lPl"/>
+                            <constraint firstAttribute="trailing" secondItem="bhQ-L0-gxt" secondAttribute="trailing" id="l1m-5o-BKn"/>
+                            <constraint firstAttribute="trailing" secondItem="2nh-Ic-xvy" secondAttribute="trailing" id="tHU-Ps-HFo"/>
+                            <constraint firstItem="2nh-Ic-xvy" firstAttribute="top" secondItem="bhQ-L0-gxt" secondAttribute="bottom" id="vVR-ba-g3r"/>
+                        </constraints>
+                    </view>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <outlet property="searchBar" destination="bhQ-L0-gxt" id="JvS-09-2Zf"/>
+                        <outlet property="tableView" destination="2nh-Ic-xvy" id="mzt-gi-oLS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zjK-ng-3Dz" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1832" y="847"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="V1d-VY-tb6">
+            <objects>
+                <viewController id="UxB-h1-Qxd" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="LP2-Fi-IN7"/>
+                        <viewControllerLayoutGuide type="bottom" id="I2P-P5-yKU"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="O2f-fV-c9H">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mH9-Rg-yXg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2746" y="261"/>
+        </scene>
     </scenes>
     <resources>
         <image name="bg-cell-title" width="160" height="36"/>
@@ -127,4 +208,7 @@
         <image name="icn-nav-marvel" width="62" height="28"/>
         <image name="icn-nav-search" width="28" height="28"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="H25-7q-a9b"/>
+    </inferredMetricsTieBreakers>
 </document>

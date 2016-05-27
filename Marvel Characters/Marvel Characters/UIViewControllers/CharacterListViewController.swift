@@ -22,23 +22,35 @@ class CharacterListViewController: UIViewController {
     /// Value of current page
     var currentPage = Variable<Int>(0)
     
+    var chs : CharacterService!
+    
+    let errorValidation = { (result: Result<[Character],RequestError>) -> Driver<[Character]> in
+        switch result {
+        case .Success(let character):
+            return Driver.just(character)
+        case .Failure(_):
+            return Driver.empty()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let currentPageObservable = currentPage.asObservable()
-        
-        let chs = CharacterService(pageObservable: currentPageObservable)
-        
-        let errorValidation = { (result: Result<[Character],RequestError>) -> Driver<[Character]> in
-            switch result {
-            case .Success(let character):
-                return Driver.just(character)
-            case .Failure(_):
-                return Driver.empty()
-            }
-        }
-        
+        createCharacterService()
+        appendSubscribers()
+    //    appendTestSuscriber()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+    
+    func createCharacterService() {
+       chs = CharacterService(pageObservable: currentPage.asObservable())
+    }
+    
+    func appendSubscribers() {
         chs.rx_characters
             .flatMapLatest(errorValidation)
             .drive(tableView.rx_itemsWithCellIdentifier("CharacterCell", cellType: CharacterCell.self)) { (_, character, cell) in
@@ -56,7 +68,10 @@ class CharacterListViewController: UIViewController {
             .flatMapLatest(errorValidation)
             .drive(dataSource)
             .addDisposableTo(disposeBag)
-        
+    }
+    
+    
+    func appendTestSuscriber(){
         Observable.of(0,1,2,3)
             .buffer(timeSpan: RxTimeInterval(3500), count: 1, scheduler: MainScheduler.asyncInstance)
             .filter { $0.first != nil }
@@ -65,7 +80,6 @@ class CharacterListViewController: UIViewController {
             .bindTo(currentPage)
             .addDisposableTo(disposeBag)
     }
-    
     /*
      override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
      let characterDetails = segue.destinationViewController as! CharacterDetailsViewController
