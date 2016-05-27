@@ -30,7 +30,7 @@ class CharacterService {
             
             var parameters = APIHandler().getDefaultParamsAsDictForPage(page)!
             if !name.isEmpty {
-                parameters["name"] = name
+                parameters["nameStartsWith"] = name
             }
             
             print("for name= \(name) and page = \(page). parameters: \n \(parameters.description) \n")
