@@ -24,7 +24,6 @@ struct ImageSource {
      */
     static func downloadImageAndSetIn(imageView: UIImageView, imageURL: NSURL, withUniqueKey uniqueKey :String, completionHandler: ((Image?)->())? = nil){
         let resourceKey = "\(imageURL.absoluteString)-\(uniqueKey)"
-        print(resourceKey)
         
         let resource = Kingfisher.Resource(downloadURL: imageURL, cacheKey: resourceKey)
         
@@ -41,6 +40,6 @@ struct ImageSource {
      - returns: a placeholder Image
      */
     static private func getPlaceholderImage() -> UIImage? {
-       return nil
+        return MockupNetworking.mockupEnabled ? UIImage(data: MockupNetworking().getPostImage()!) : nil
     }
 }

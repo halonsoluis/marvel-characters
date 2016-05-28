@@ -41,7 +41,7 @@ class CharacterService {
     
     func getCharacters() -> Driver<Result<[Character],RequestError>>  {
         
-        let route = Routes.ListCharacters.getRoute()!
+        let route = Routes.ListCharacters
         
         return rx_params
             .subscribeOn(MainScheduler.instance)
@@ -49,21 +49,7 @@ class CharacterService {
                 UIApplication.sharedApplication().networkActivityIndicatorVisible = true
             })
             .flatMapLatest { parameters in
-                return RxAlamofire
-                    .requestJSON(.GET, route, parameters: parameters)
-                    .debug()
-                    .observeOn(ConcurrentDispatchQueueScheduler(globalConcurrentQueueQOS: .Background))
-                    .flatMapLatest { (response: NSHTTPURLResponse, json: AnyObject) -> Observable<Result<[Character],RequestError>> in
-                        
-                        guard response.statusCode == 200 else {
-                            return Observable.just(Result.Failure(RequestError.Unknown))
-                        }
-                        
-                        let charactersBox = Mapper<ResponseEnclosure<Character>>().map(json)!
-                        let characters = charactersBox.data?.results ?? []
-                        
-                        return Observable.just(Result.Success(characters))
-                }
+                return RxAPICaller.requestWithParams(parameters, route: route)
             }
             .observeOn(MainScheduler.instance)
             .doOn({ response in

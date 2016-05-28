@@ -24,6 +24,10 @@
 		9A2E6C2F1CF782AB000E0EA7 /* CharacterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2E6C2E1CF782AB000E0EA7 /* CharacterCell.swift */; };
 		9A5FA36D1CF82ABA00D203C3 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5FA36C1CF82ABA00D203C3 /* SearchViewController.swift */; };
 		9A61C3FF1CF893BD000EC54E /* UIImageGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A61C3FE1CF893BD000EC54E /* UIImageGradient.swift */; };
+		9A9333B21CF9388F00932676 /* RxAPICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A9333B11CF9388F00932676 /* RxAPICaller.swift */; };
+		9A9333BB1CF9400700932676 /* MockupNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A9333BA1CF9400700932676 /* MockupNetworking.swift */; };
+		9A9333BF1CF9401D00932676 /* characterListUnfilteredPage.json in Resources */ = {isa = PBXBuildFile; fileRef = 9A9333BD1CF9401D00932676 /* characterListUnfilteredPage.json */; };
+		9A9333C21CF940CA00932676 /* characterImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9A9333C11CF940CA00932676 /* characterImage.jpg */; };
 		9ADBF3361CF6298F005F1F51 /* Marvel_CharactersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ADBF3351CF6298F005F1F51 /* Marvel_CharactersTests.swift */; };
 		9ADBF3411CF6298F005F1F51 /* Marvel_CharactersUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ADBF3401CF6298F005F1F51 /* Marvel_CharactersUITests.swift */; };
 		9AE3B4281CF695B90087CAC6 /* MD5Digester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE3B4271CF695B90087CAC6 /* MD5Digester.swift */; };
@@ -81,6 +85,10 @@
 		9A2E6C2E1CF782AB000E0EA7 /* CharacterCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CharacterCell.swift; path = UIViews/Cells/CharacterCell.swift; sourceTree = "<group>"; };
 		9A5FA36C1CF82ABA00D203C3 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchViewController.swift; path = UIViewControllers/SearchViewController.swift; sourceTree = "<group>"; };
 		9A61C3FE1CF893BD000EC54E /* UIImageGradient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIImageGradient.swift; path = UIViews/UIImageGradient.swift; sourceTree = "<group>"; };
+		9A9333B11CF9388F00932676 /* RxAPICaller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RxAPICaller.swift; path = Networking/RxAPICaller.swift; sourceTree = "<group>"; };
+		9A9333BA1CF9400700932676 /* MockupNetworking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MockupNetworking.swift; path = Networking/Mockup/MockupNetworking.swift; sourceTree = "<group>"; };
+		9A9333BD1CF9401D00932676 /* characterListUnfilteredPage.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = characterListUnfilteredPage.json; path = Networking/Mockup/resources/characterListUnfilteredPage.json; sourceTree = "<group>"; };
+		9A9333C11CF940CA00932676 /* characterImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = characterImage.jpg; path = Networking/Mockup/resources/characterImage.jpg; sourceTree = "<group>"; };
 		9ADBF31D1CF62988005F1F51 /* Marvel Characters.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Marvel Characters.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9ADBF3311CF6298F005F1F51 /* Marvel CharactersTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Marvel CharactersTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9ADBF3351CF6298F005F1F51 /* Marvel_CharactersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Marvel_CharactersTests.swift; sourceTree = "<group>"; };
@@ -168,6 +176,24 @@
 			name = UIViews;
 			sourceTree = "<group>";
 		};
+		9A9333B51CF93EBF00932676 /* Mockup */ = {
+			isa = PBXGroup;
+			children = (
+				9A9333C01CF9402200932676 /* resources */,
+				9A9333BA1CF9400700932676 /* MockupNetworking.swift */,
+			);
+			name = Mockup;
+			sourceTree = "<group>";
+		};
+		9A9333C01CF9402200932676 /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				9A9333C11CF940CA00932676 /* characterImage.jpg */,
+				9A9333BD1CF9401D00932676 /* characterListUnfilteredPage.json */,
+			);
+			name = resources;
+			sourceTree = "<group>";
+		};
 		9ADBF3141CF62986005F1F51 = {
 			isa = PBXGroup;
 			children = (
@@ -240,6 +266,8 @@
 				9A16662B1CF7922800C1283F /* CharacterService.swift */,
 				9A16662D1CF79A3100C1283F /* BreakError.swift */,
 				9A1666411CF7B3C400C1283F /* ImageService.swift */,
+				9A9333B11CF9388F00932676 /* RxAPICaller.swift */,
+				9A9333B51CF93EBF00932676 /* Mockup */,
 			);
 			name = Networking;
 			sourceTree = "<group>";
@@ -395,7 +423,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A9333C21CF940CA00932676 /* characterImage.jpg in Resources */,
 				9AE3B4511CF71AE80087CAC6 /* Main.storyboard in Resources */,
+				9A9333BF1CF9401D00932676 /* characterListUnfilteredPage.json in Resources */,
 				9AE3B4501CF71AE80087CAC6 /* LaunchScreen.storyboard in Resources */,
 				9AE3B4561CF71AFC0087CAC6 /* Assets.xcassets in Resources */,
 				9AE3B4571CF71AFC0087CAC6 /* Info.plist in Resources */,
@@ -454,6 +484,7 @@
 				9AE3B44B1CF6CEFA0087CAC6 /* CharacterListViewController.swift in Sources */,
 				9A1666341CF79EF900C1283F /* Thumbnail.swift in Sources */,
 				9A16663D1CF7A40800C1283F /* CrossReferenceBox.swift in Sources */,
+				9A9333B21CF9388F00932676 /* RxAPICaller.swift in Sources */,
 				9AE3B4281CF695B90087CAC6 /* MD5Digester.swift in Sources */,
 				9A1666291CF791E100C1283F /* Character.swift in Sources */,
 				9AE3B4321CF6ADDB0087CAC6 /* APIHandler.swift in Sources */,
@@ -468,6 +499,7 @@
 				9A0B18581CF8F79D00B0AF3F /* CharacterDetailsViewController.swift in Sources */,
 				9A16662E1CF79A3100C1283F /* BreakError.swift in Sources */,
 				9A16662C1CF7922800C1283F /* CharacterService.swift in Sources */,
+				9A9333BB1CF9400700932676 /* MockupNetworking.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,7 +8,9 @@
 
 import Foundation
 
+
 struct APIHandler {
+    
     static let itemsPerPage = 20
     
     //This should not be here, here only for debugging and testing purposes
@@ -55,7 +57,5 @@ struct APIHandler {
         
         return (timeStamp: tuple.timeStamp, hash: hash, APIKey: APIHandler.publicAPIKey)
     }
-    
-    
     
 }
