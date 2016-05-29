@@ -42,7 +42,6 @@ class SearchViewController: CharacterListViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationController?.setNavigationBarHidden(true, animated: true)
         setLayoutForKeyboard()
         searchBar.becomeFirstResponder()
         
@@ -86,6 +85,7 @@ class SearchViewController: CharacterListViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: animated)
     }
 }

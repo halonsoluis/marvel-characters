@@ -103,10 +103,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="IKB-nX-Yit">
+                        <barButtonItem key="backBarButtonItem" title=" " id="ska-Xe-6cr"/>
                         <barButtonItem key="rightBarButtonItem" image="icn-nav-search" id="iZ8-Jo-Seh">
                             <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <connections>
-                                <segue destination="lff-MJ-nqy" kind="show" id="GC7-pF-Czf"/>
+                                <segue destination="lff-MJ-nqy" kind="show" id="c8L-mT-5nn"/>
                             </connections>
                         </barButtonItem>
                         <connections>
@@ -179,7 +180,7 @@
                             <constraint firstItem="n73-AD-VB1" firstAttribute="top" secondItem="7cb-GG-VfM" secondAttribute="bottom" id="rsk-ef-99T"/>
                         </constraints>
                     </view>
-                    <nil key="simulatedTopBarMetrics"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="blurredImage" destination="7cb-GG-VfM" id="30H-pi-8Jx"/>
                     </connections>
@@ -287,6 +288,7 @@
                                         <connections>
                                             <outlet property="bannerImage" destination="bmL-E6-Wwy" id="zno-HP-lGE"/>
                                             <outlet property="nameLabel" destination="qpB-4v-TOb" id="yBG-gz-fdF"/>
+                                            <segue destination="6FA-rM-b1D" kind="show" id="IZu-ZC-aed"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -324,6 +326,9 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zjK-ng-3Dz" sceneMemberID="firstResponder"/>
+                <navigationItem id="nTF-dZ-aNL">
+                    <barButtonItem key="backBarButtonItem" title="  " id="4MO-u2-gqi"/>
+                </navigationItem>
             </objects>
             <point key="canvasLocation" x="1832" y="847"/>
         </scene>
@@ -331,10 +336,11 @@
         <scene sceneID="gPQ-Fo-Waz">
             <objects>
                 <tableViewController extendedLayoutIncludesOpaqueBars="YES" id="Svf-Rx-gPl" customClass="CharacterDetailsViewController" customModule="Marvel_Characters" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" bouncesZoom="NO" dataMode="static" style="grouped" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="bYA-pa-83D">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" bouncesZoom="NO" dataMode="static" style="grouped" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="bYA-pa-83D">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <imageView key="tableHeaderView" opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="characterImage.jpg" id="r5A-qU-Bgb">
                             <rect key="frame" x="0.0" y="0.0" width="600" height="450"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -541,23 +547,6 @@
             </objects>
             <point key="canvasLocation" x="3273" y="190"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="WWx-bz-qwR">
-            <objects>
-                <viewController id="V3F-NG-1eH" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="ZaE-4R-RyP"/>
-                        <viewControllerLayoutGuide type="bottom" id="xT4-ku-q7G"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Vt2-ov-nYr">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xZP-Ky-h9E" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-        </scene>
     </scenes>
     <resources>
         <image name="bg-cell-title" width="160" height="36"/>
@@ -566,4 +555,7 @@
         <image name="icn-nav-marvel" width="62" height="28"/>
         <image name="icn-nav-search" width="28" height="28"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="ojX-te-uzF"/>
+    </inferredMetricsTieBreakers>
 </document>
