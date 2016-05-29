@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class CharacterDetailsViewController: UITableViewController {
     
@@ -14,7 +16,9 @@ class CharacterDetailsViewController: UITableViewController {
     @IBOutlet weak var characterDescription: UILabel!
     @IBOutlet weak var characterName: UILabel!
     
+    let disposeBag = DisposeBag()
     weak var delegate: CharacterProviderDelegate?
+    weak var delegateBar : BlurredNavigationBarAlphaChangerProtocol?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +26,25 @@ class CharacterDetailsViewController: UITableViewController {
         fillData()
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 500 //Put just any approximate average height for cell. This will just be used to show scroll bar offset.
+        
+        tableView
+            .rx_contentOffset
+            .map { (contentOffset) -> CGFloat in
+                let offset = contentOffset.y
+                let imageHeight = self.largeImage.bounds.height
+                let normalisedOffset = min(max(offset, 0), imageHeight)
+                let percent = normalisedOffset / imageHeight
+                
+                let shortenedValue = String(format: "%.2f", percent)
+                return CGFloat(Float(shortenedValue)!)
+            }
+            .distinctUntilChanged()
+            .asDriver(onErrorJustReturn: 0)
+            .driveNext { [weak self] (alpha) in
+               self?.delegateBar?.navigationBarAlpha = alpha
+            }
+            .addDisposableTo(disposeBag)
+        
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

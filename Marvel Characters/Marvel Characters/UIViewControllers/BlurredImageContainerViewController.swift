@@ -13,9 +13,24 @@ protocol CharacterProviderDelegate: class {
     var characterImage: UIImage? { get set}
 }
 
-class BlurredImageContainerViewController : UIViewController, CharacterProviderDelegate {
+protocol BlurredNavigationBarAlphaChangerProtocol: class {
+    var navigationBarAlpha : CGFloat { get set }
+}
+
+class BlurredImageContainerViewController : UIViewController, CharacterProviderDelegate ,BlurredNavigationBarAlphaChangerProtocol {
     var character : Character?
     var characterImage : UIImage?
+    
+    var navigationBarAlpha : CGFloat = 0 {
+        didSet {
+            print("alpha = \(navigationBarAlpha)")
+            
+            self.viewWithBlur?.alpha = navigationBarAlpha
+            self.navigationItem.titleView?.alpha = navigationBarAlpha
+            
+            self.title = navigationBarAlpha == 1 ? character?.name : " "
+        }
+    }
     
     @IBOutlet weak var blurredImage: UIImageView!
     
