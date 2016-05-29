@@ -10,7 +10,6 @@ import UIKit
 
 import RxSwift
 import RxCocoa
-import Result
 
 protocol LinksPresenterProtocol : class {
     var characterLinks: [LinkURL]? { get set }
@@ -33,7 +32,7 @@ class RelatedLinksUITableViewController: UITableViewController, LinksPresenterPr
         dataSource.asDriver()
             .drive(self.tableView.rx_itemsWithCellIdentifier("relatedLinksCell", cellType: RelatedLinksCell.self)) { (_, link, cell) in
                 
-                if let nameLabel = cell.nameLabel as? UILabel {
+                if let nameLabel = cell.nameLabel {
                     nameLabel.text = link.type.capitalizedString
                 }
             }

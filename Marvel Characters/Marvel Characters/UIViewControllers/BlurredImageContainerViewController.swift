@@ -13,9 +13,22 @@ protocol CharacterProviderDelegate: class {
     var characterImage: UIImage? { get set}
 }
 
-class BlurredImageContainerViewController : UIViewController, CharacterProviderDelegate {
+protocol BlurredNavigationBarAlphaChangerProtocol: class {
+    var navigationBarAlpha : CGFloat { get set }
+}
+
+class BlurredImageContainerViewController : UIViewController, CharacterProviderDelegate ,BlurredNavigationBarAlphaChangerProtocol {
     var character : Character?
     var characterImage : UIImage?
+    
+    var navigationBarAlpha : CGFloat = 0 {
+        didSet {
+            self.viewWithBlur?.alpha = navigationBarAlpha
+            self.navigationItem.titleView?.alpha = navigationBarAlpha
+            
+            self.title = navigationBarAlpha == 1 ? character?.name : " "
+        }
+    }
     
     @IBOutlet weak var blurredImage: UIImageView!
     
@@ -27,60 +40,51 @@ class BlurredImageContainerViewController : UIViewController, CharacterProviderD
     }
     
     override func viewDidLoad() {
-       
+        
         navigationController?.setNavigationBarHidden(false, animated: false)
         
         blurredImage?.image = characterImage
         
         
         self.title = character?.name
-      
+        
         
         guard let bar = navigationController?.navigationBar else { return }
-       
-        let makeNavigationBarTransparent = {
-              bar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
-              bar.shadowImage = UIImage()
-            
+        
+        //makeNavigationBarTransparent
+        _ = {
+            bar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
+            bar.shadowImage = UIImage()
         }()
         
         viewWithBlur = {
-                let blur =  UIBlurEffect(style: UIBlurEffectStyle.Dark)
-                let viewWithBlur = UIVisualEffectView(frame: CGRectMake(0, -20, bar.bounds.width, bar.bounds.height + 20))
-                viewWithBlur.effect = blur
-                viewWithBlur.userInteractionEnabled = false
-                bar.addSubview(viewWithBlur)
-                bar.sendSubviewToBack(viewWithBlur)
+            let blur =  UIBlurEffect(style: UIBlurEffectStyle.Dark)
+            let viewWithBlur = UIVisualEffectView(frame: CGRectMake(0, -20, bar.bounds.width, bar.bounds.height + 20))
+            viewWithBlur.effect = blur
+            
+            let vibrancy = UIVibrancyEffect(forBlurEffect: blur)
+            
+            let viewWithVibrancy = UIVisualEffectView(frame: CGRectMake(0, -20, bar.bounds.width, bar.bounds.height + 20))
+            viewWithVibrancy.effect = vibrancy
+            
+            viewWithBlur.addSubview(viewWithVibrancy)
+            
+            viewWithBlur.userInteractionEnabled = false
+            
+            bar.addSubview(viewWithBlur)
+            bar.sendSubviewToBack(viewWithBlur)
             return viewWithBlur
-       }()
+        }()
         
-        
-        togleVisibleTitleAndBlur(hidden: true)
-        
-        
+        navigationBarAlpha = 0
         super.viewDidLoad()
-        
-      //  bar.alpha = 0.0
-     //   navigationController.navigationBar.backgroundColor = UIColor.clearColor()
-    }
-    
-    
-    func togleVisibleTitleAndBlur(hidden hidden: Bool){
-        let value: CGFloat = hidden ? 0 : 1
-        
-        viewWithBlur?.alpha = value
-        navigationItem.titleView?.alpha = value
-        self.title = hidden ? " " : character?.name
-        
    }
-    
-    
-
-    
+        
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-            if let embedded = segue.destinationViewController as? CharacterDetailsViewController {
-                embedded.delegate = self
-            }
+        if let embedded = segue.destinationViewController as? CharacterDetailsViewController {
+            embedded.delegate = self
+            embedded.delegateBar = self
+        }
         super.prepareForSegue(segue, sender: sender)
-     }
+    }
 }

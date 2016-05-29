@@ -12,5 +12,5 @@ import UIKit
 
 class RelatedLinksCell: UITableViewCell {
     
-    @IBOutlet weak var nameLabel : UIView!
+    @IBOutlet weak var nameLabel : UILabel!
 }

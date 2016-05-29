@@ -13,5 +13,5 @@ import UIKit
 class RelatedPublicationCell: UICollectionViewCell {
     
     @IBOutlet weak var image : UIImageView!
-    @IBOutlet weak var nameLabel : UIView!
+    @IBOutlet weak var nameLabel : UILabel!
 }

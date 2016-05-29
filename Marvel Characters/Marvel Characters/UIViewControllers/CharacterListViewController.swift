@@ -56,6 +56,7 @@ class CharacterListViewController: UIViewController {
         appendSubscribers()
         setupPagination()
         
+    
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -121,6 +122,9 @@ class CharacterListViewController: UIViewController {
                 cell.nameLabel.sizeToFit()
                 cell.bannerImage.image = nil
                 
+                cell.setEditing(false, animated: false)
+                
+                
                 guard let url = character.thumbnail?.url(), let nsurl = NSURL(string: url), let modified = character.modified else { return }
                 ImageSource.downloadImageAndSetIn(cell.bannerImage, imageURL: nsurl, withUniqueKey: modified)
             }
@@ -136,6 +140,8 @@ class CharacterListViewController: UIViewController {
             .addDisposableTo(disposeBag)
         
     }
+    
+    
     
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
