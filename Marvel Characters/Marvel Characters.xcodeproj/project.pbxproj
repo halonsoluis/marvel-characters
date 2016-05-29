@@ -22,6 +22,7 @@
 		9A1666431CF7BA7A00C1283F /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AE3B43C1CF6C9AB0087CAC6 /* RxCocoa.framework */; };
 		9A2E6C2C1CF744BB000E0EA7 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A2E6C2B1CF744BB000E0EA7 /* Alamofire.framework */; };
 		9A2E6C2F1CF782AB000E0EA7 /* CharacterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2E6C2E1CF782AB000E0EA7 /* CharacterCell.swift */; };
+		9A33B7AC1CFAA04000A7C46E /* BlurredImageContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A33B7AB1CFAA04000A7C46E /* BlurredImageContainerViewController.swift */; };
 		9A5FA36D1CF82ABA00D203C3 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5FA36C1CF82ABA00D203C3 /* SearchViewController.swift */; };
 		9A61C3FF1CF893BD000EC54E /* UIImageGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A61C3FE1CF893BD000EC54E /* UIImageGradient.swift */; };
 		9A9333B21CF9388F00932676 /* RxAPICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A9333B11CF9388F00932676 /* RxAPICaller.swift */; };
@@ -83,6 +84,7 @@
 		9A1666411CF7B3C400C1283F /* ImageService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageService.swift; path = Networking/ImageService.swift; sourceTree = "<group>"; };
 		9A2E6C2B1CF744BB000E0EA7 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		9A2E6C2E1CF782AB000E0EA7 /* CharacterCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CharacterCell.swift; path = UIViews/Cells/CharacterCell.swift; sourceTree = "<group>"; };
+		9A33B7AB1CFAA04000A7C46E /* BlurredImageContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BlurredImageContainerViewController.swift; path = UIViewControllers/BlurredImageContainerViewController.swift; sourceTree = "<group>"; };
 		9A5FA36C1CF82ABA00D203C3 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchViewController.swift; path = UIViewControllers/SearchViewController.swift; sourceTree = "<group>"; };
 		9A61C3FE1CF893BD000EC54E /* UIImageGradient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIImageGradient.swift; path = UIViews/UIImageGradient.swift; sourceTree = "<group>"; };
 		9A9333B11CF9388F00932676 /* RxAPICaller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RxAPICaller.swift; path = Networking/RxAPICaller.swift; sourceTree = "<group>"; };
@@ -313,6 +315,7 @@
 				9AE3B44A1CF6CEF90087CAC6 /* CharacterListViewController.swift */,
 				9A5FA36C1CF82ABA00D203C3 /* SearchViewController.swift */,
 				9A0B18571CF8F79D00B0AF3F /* CharacterDetailsViewController.swift */,
+				9A33B7AB1CFAA04000A7C46E /* BlurredImageContainerViewController.swift */,
 			);
 			name = UIViewControllers;
 			sourceTree = "<group>";
@@ -478,6 +481,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A33B7AC1CFAA04000A7C46E /* BlurredImageContainerViewController.swift in Sources */,
 				9A16663E1CF7A40800C1283F /* Protocols.swift in Sources */,
 				9A16663A1CF7A3E000C1283F /* CrossReferenceItem.swift in Sources */,
 				9A1666301CF79C9800C1283F /* ResultDataBox.swift in Sources */,

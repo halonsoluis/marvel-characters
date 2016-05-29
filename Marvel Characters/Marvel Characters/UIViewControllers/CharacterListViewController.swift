@@ -134,13 +134,22 @@ class CharacterListViewController: UIViewController {
     
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "showDetails" {
-            let characterDetails = segue.destinationViewController as! CharacterDetailsViewController
+        
+        if let characterDetails = segue.destinationViewController as? CharacterProviderDelegate {
             
-            guard let indexPath = tableView.indexPathForSelectedRow else { return }
+            guard
+                let indexPath = tableView.indexPathForSelectedRow,
+                let cell = tableView.cellForRowAtIndexPath(indexPath) as? CharacterCell
+            else { return }
+            
             let character = dataSource.value[indexPath.row]
+            
             characterDetails.character = character
+            characterDetails.characterImage = cell.bannerImage?.image
         }
+        
+        super.prepareForSegue(segue, sender: sender)
+        
     }
 }
 
