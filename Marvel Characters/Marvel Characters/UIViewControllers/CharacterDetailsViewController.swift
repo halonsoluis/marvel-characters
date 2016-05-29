@@ -25,7 +25,25 @@ class CharacterDetailsViewController: UITableViewController {
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 500 //Put just any approximate average height for cell. This will just be used to show scroll bar offset.
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        guard let identifier = segue.identifier else { return }
         
+        switch identifier {
+            
+            
+        case "relatedComics": break
+        case "relatedSeries": break
+        case "relatedStories": break
+        case "relatedEvents": break
+        case "relatedLinks":
+            guard let relatedLinks = segue.destinationViewController as? LinksPresenterProtocol else {return}
+            relatedLinks.characterLinks = delegate?.character?.urls
+        default : break
+            
+        }
+    }
+    
     func fillData() {
         guard let character = delegate?.character else { return }
         
