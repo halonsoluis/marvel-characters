@@ -28,6 +28,7 @@ class BlurredImageContainerViewController : UIViewController, CharacterProviderD
     
     override func viewDidLoad() {
        
+        navigationController?.setNavigationBarHidden(false, animated: false)
         
         blurredImage?.image = characterImage
         

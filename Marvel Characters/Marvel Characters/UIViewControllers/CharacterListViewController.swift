@@ -151,8 +151,6 @@ class CharacterListViewController: UIViewController {
             
             characterDetails.character = character
             characterDetails.characterImage = cell.bannerImage?.image
-            
-             navigationController?.setNavigationBarHidden(false, animated: false)
         }
         super.prepareForSegue(segue, sender: sender)
         
