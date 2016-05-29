@@ -17,28 +17,45 @@ class CharacterDetailsViewController: UITableViewController {
     
     weak var delegate: CharacterProviderDelegate?
     
-   // private static var containerSize = CGFloat(0)
+    // private static var containerSize = CGFloat(0)
     override func viewDidLoad() {
         super.viewDidLoad()
         
         fillData()
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 500 //Put just any approximate average height for cell. This will just be used to show scroll bar offset.
+        /*
+         tableView.rx_contentOffset
+         .subscribeNext { [weak self] (offset) in
+         guard let `self` = self else { return }
+         
+         print("offset = \(offset)")
+         
+         let imageSize = largeImage.bounds.height
+         
+         if y > imageSize {
+         
+         }
+         }
+         .addDisposableTo(disposeBag)
+         */
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        guard let identifier = segue.identifier else { return }
+        guard
+            let related = segue.destinationViewController as? CrossReferencePresenterProtocol
         
-        switch identifier {
-            
-            
-        case "relatedComics": break
-        case "relatedSeries": break
-        case "relatedStories": break
-        case "relatedEvents": break
-        case "relatedLinks":
+        else {
             guard let relatedLinks = segue.destinationViewController as? LinksPresenterProtocol else {return}
             relatedLinks.characterLinks = delegate?.character?.urls
+            return
+        }
+        let identifier = segue.identifier!
+        switch identifier {
+        case "relatedComics": related.elements = delegate?.character?.comics?.items
+        case "relatedSeries": related.elements = delegate?.character?.series?.items
+        case "relatedStories": related.elements = delegate?.character?.stories?.items
+        case "relatedEvents": related.elements = delegate?.character?.events?.items
         default : break
             
         }

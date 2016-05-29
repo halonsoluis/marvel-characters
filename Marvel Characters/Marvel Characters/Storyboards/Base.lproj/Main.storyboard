@@ -625,13 +625,14 @@
             </objects>
             <point key="canvasLocation" x="3273" y="190"/>
         </scene>
-        <!--Collection View Controller-->
+        <!--Cross ReferenceUI Collection View Controller-->
         <scene sceneID="gOC-b3-5U7">
             <objects>
-                <collectionViewController id="7bY-y7-keZ" sceneMemberID="viewController">
+                <collectionViewController id="7bY-y7-keZ" customClass="CrossReferenceUICollectionViewController" customModule="Marvel_Characters" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="600" placeholderIntrinsicHeight="250" alwaysBounceHorizontal="YES" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" id="JmI-D2-wuu">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="250"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="20" minimumInteritemSpacing="20" id="cA2-jb-7wh">
                             <size key="itemSize" width="150" height="212"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -658,6 +659,7 @@
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <size key="customSize" width="150" height="212"/>
                             </collectionViewCell>
                         </cells>

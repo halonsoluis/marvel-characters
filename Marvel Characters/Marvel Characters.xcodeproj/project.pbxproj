@@ -26,7 +26,7 @@
 		9A33B7AE1CFADF6800A7C46E /* RelatedLinksCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A33B7AD1CFADF6800A7C46E /* RelatedLinksCell.swift */; };
 		9A33B7B01CFADF8E00A7C46E /* RelatedPublicationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A33B7AF1CFADF8E00A7C46E /* RelatedPublicationCell.swift */; };
 		9A33B7B31CFAE23200A7C46E /* RelatedLinksUITableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A33B7B21CFAE23200A7C46E /* RelatedLinksUITableViewController.swift */; };
-		9A33B7B51CFAE25300A7C46E /* RelatedSeriesUICollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A33B7B41CFAE25300A7C46E /* RelatedSeriesUICollectionViewController.swift */; };
+		9A33B7B51CFAE25300A7C46E /* CrossReferenceUICollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A33B7B41CFAE25300A7C46E /* CrossReferenceUICollectionViewController.swift */; };
 		9A5FA36D1CF82ABA00D203C3 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5FA36C1CF82ABA00D203C3 /* SearchViewController.swift */; };
 		9A61C3FF1CF893BD000EC54E /* UIImageGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A61C3FE1CF893BD000EC54E /* UIImageGradient.swift */; };
 		9A9333B21CF9388F00932676 /* RxAPICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A9333B11CF9388F00932676 /* RxAPICaller.swift */; };
@@ -92,7 +92,7 @@
 		9A33B7AD1CFADF6800A7C46E /* RelatedLinksCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RelatedLinksCell.swift; path = UIViews/Cells/RelatedLinksCell.swift; sourceTree = "<group>"; };
 		9A33B7AF1CFADF8E00A7C46E /* RelatedPublicationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RelatedPublicationCell.swift; path = UIViews/Cells/RelatedPublicationCell.swift; sourceTree = "<group>"; };
 		9A33B7B21CFAE23200A7C46E /* RelatedLinksUITableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RelatedLinksUITableViewController.swift; path = UIViewControllers/RelatedLinksUITableViewController.swift; sourceTree = "<group>"; };
-		9A33B7B41CFAE25300A7C46E /* RelatedSeriesUICollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RelatedSeriesUICollectionViewController.swift; path = UIViewControllers/RelatedSeriesUICollectionViewController.swift; sourceTree = "<group>"; };
+		9A33B7B41CFAE25300A7C46E /* CrossReferenceUICollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CrossReferenceUICollectionViewController.swift; path = UIViewControllers/CrossReferenceUICollectionViewController.swift; sourceTree = "<group>"; };
 		9A5FA36C1CF82ABA00D203C3 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchViewController.swift; path = UIViewControllers/SearchViewController.swift; sourceTree = "<group>"; };
 		9A61C3FE1CF893BD000EC54E /* UIImageGradient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIImageGradient.swift; path = UIViews/UIImageGradient.swift; sourceTree = "<group>"; };
 		9A9333B11CF9388F00932676 /* RxAPICaller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RxAPICaller.swift; path = Networking/RxAPICaller.swift; sourceTree = "<group>"; };
@@ -335,7 +335,7 @@
 				9A0B18571CF8F79D00B0AF3F /* CharacterDetailsViewController.swift */,
 				9A33B7AB1CFAA04000A7C46E /* BlurredImageContainerViewController.swift */,
 				9A33B7B21CFAE23200A7C46E /* RelatedLinksUITableViewController.swift */,
-				9A33B7B41CFAE25300A7C46E /* RelatedSeriesUICollectionViewController.swift */,
+				9A33B7B41CFAE25300A7C46E /* CrossReferenceUICollectionViewController.swift */,
 			);
 			name = UIViewControllers;
 			sourceTree = "<group>";
@@ -508,7 +508,7 @@
 				9AE3B44B1CF6CEFA0087CAC6 /* CharacterListViewController.swift in Sources */,
 				9A33B7B31CFAE23200A7C46E /* RelatedLinksUITableViewController.swift in Sources */,
 				9A1666341CF79EF900C1283F /* Thumbnail.swift in Sources */,
-				9A33B7B51CFAE25300A7C46E /* RelatedSeriesUICollectionViewController.swift in Sources */,
+				9A33B7B51CFAE25300A7C46E /* CrossReferenceUICollectionViewController.swift in Sources */,
 				9A16663D1CF7A40800C1283F /* CrossReferenceBox.swift in Sources */,
 				9A9333B21CF9388F00932676 /* RxAPICaller.swift in Sources */,
 				9AE3B4281CF695B90087CAC6 /* MD5Digester.swift in Sources */,
