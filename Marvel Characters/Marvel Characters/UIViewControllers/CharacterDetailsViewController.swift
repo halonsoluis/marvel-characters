@@ -6,7 +6,6 @@
 //  Copyright © 2016 halonsoluis. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 class CharacterDetailsViewController: UITableViewController {
@@ -17,38 +16,22 @@ class CharacterDetailsViewController: UITableViewController {
     
     weak var delegate: CharacterProviderDelegate?
     
-    // private static var containerSize = CGFloat(0)
     override func viewDidLoad() {
         super.viewDidLoad()
         
         fillData()
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 500 //Put just any approximate average height for cell. This will just be used to show scroll bar offset.
-        /*
-         tableView.rx_contentOffset
-         .subscribeNext { [weak self] (offset) in
-         guard let `self` = self else { return }
-         
-         print("offset = \(offset)")
-         
-         let imageSize = largeImage.bounds.height
-         
-         if y > imageSize {
-         
-         }
-         }
-         .addDisposableTo(disposeBag)
-         */
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         guard
             let related = segue.destinationViewController as? CrossReferencePresenterProtocol
-        
-        else {
-            guard let relatedLinks = segue.destinationViewController as? LinksPresenterProtocol else {return}
-            relatedLinks.characterLinks = delegate?.character?.urls
-            return
+            
+            else {
+                guard let relatedLinks = segue.destinationViewController as? LinksPresenterProtocol else {return}
+                relatedLinks.characterLinks = delegate?.character?.urls
+                return
         }
         let identifier = segue.identifier!
         switch identifier {
