@@ -39,6 +39,8 @@ class CharacterListViewController: UIViewController {
             footerView.hidden = !loadingMore
         }
     }
+    var readyToLoadMore = true
+    
     var currentPageObservable : Observable<Int>!
     
     override func viewDidLoad() {
@@ -71,16 +73,15 @@ class CharacterListViewController: UIViewController {
             .debounce(0.1, scheduler: MainScheduler.instance)
             //  .throttle(0.05, scheduler: MainScheduler.instance)
             .distinctUntilChanged()
-            .skipWhile { [weak self] (offset) -> Bool in
-                guard let `self` = self else {return true }
+            .filter { [weak self] (offset)  in
+                guard let `self` = self else {return false }
                 
                 guard
-                    !self.loadingMore &&
+                    self.readyToLoadMore &&
                         offset.y > UIScreen.mainScreen().bounds.height
-                    else {return true}
-                self.loadingMore = true
-                
-                return false
+                    else {return false}
+                self.readyToLoadMore = false
+                return true
             }
             .observeOn(MainScheduler.instance)
             .bindNext { [weak self] (offset) in
@@ -94,9 +95,12 @@ class CharacterListViewController: UIViewController {
                 let h = size.height
                 let reload_distance : CGFloat = UIScreen.mainScreen().bounds.height * 2
                 if y > (h - reload_distance) {
+                    self.loadingMore = true
                     
                     self.currentPage.value = self.currentPage.value + 1
                     print("load page = \(self.currentPage.value)")
+                } else {
+                     self.readyToLoadMore = true
                 }
             }
             .addDisposableTo(disposeBag)
@@ -127,6 +131,7 @@ class CharacterListViewController: UIViewController {
             .driveNext { (newPage) in
                 self.dataSource.value.appendContentsOf(newPage)
                 if newPage.count < APIHandler.itemsPerPage { self.loadingMore = false }
+                self.readyToLoadMore = true
             }
             .addDisposableTo(disposeBag)
         
