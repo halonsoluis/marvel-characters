@@ -45,6 +45,7 @@ class CharacterDetailsViewController: UITableViewController {
             }
             .addDisposableTo(disposeBag)
         
+        
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -74,6 +75,7 @@ class CharacterDetailsViewController: UITableViewController {
         self.characterDescription?.text = character.description
         
         self.largeImage.image = delegate?.characterImage
+        
         
     }
     

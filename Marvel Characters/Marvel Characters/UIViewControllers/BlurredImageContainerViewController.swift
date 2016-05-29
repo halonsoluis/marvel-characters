@@ -23,8 +23,6 @@ class BlurredImageContainerViewController : UIViewController, CharacterProviderD
     
     var navigationBarAlpha : CGFloat = 0 {
         didSet {
-            print("alpha = \(navigationBarAlpha)")
-            
             self.viewWithBlur?.alpha = navigationBarAlpha
             self.navigationItem.titleView?.alpha = navigationBarAlpha
             
