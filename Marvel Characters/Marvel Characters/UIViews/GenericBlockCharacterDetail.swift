@@ -12,11 +12,10 @@ class GenericBlockCharacterDetail: UIViewController {
     
     @IBOutlet weak var sectionName: UILabel!
     
-    var nameForSection : String = ""
+    var nameForSection : String? = ""
     
-    
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidLoad() {
+        super.viewDidLoad()
         sectionName?.text = nameForSection
     }
 }
