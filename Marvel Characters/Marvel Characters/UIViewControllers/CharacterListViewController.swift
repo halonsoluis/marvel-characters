@@ -61,7 +61,12 @@ class CharacterListViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(false, animated: animated)
+        navigationController?.navigationBar.backgroundColor = UIColor.blackColor()
+        navigationController?.navigationBar.setBackgroundImage(nil, forBarMetrics: UIBarMetrics.Default)
+        navigationController?.navigationBar.shadowImage = nil
+        
+        navigationController?.setNavigationBarHidden(false, animated: false)
+        
     }
     
     func createCharacterService() {
@@ -105,8 +110,6 @@ class CharacterListViewController: UIViewController {
                 }
             }
             .addDisposableTo(disposeBag)
-        
-        //  tableView.tableFooterView = footerView
     }
     
     func appendSubscribers() {

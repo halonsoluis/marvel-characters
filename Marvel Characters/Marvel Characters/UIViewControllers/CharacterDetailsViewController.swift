@@ -10,11 +10,22 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class CharacterDetailsViewController: UITableViewController {
+class CharacterDetailsViewController: UIViewController {
     
     @IBOutlet weak var largeImage: UIImageView!
-    @IBOutlet weak var characterDescription: UILabel!
-    @IBOutlet weak var characterName: UILabel!
+    @IBOutlet weak var scrollView: UIScrollView!
+    
+    @IBOutlet weak var parentViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var parentView: UIView!
+    
+    @IBOutlet weak var nameContainer: UIView!
+    @IBOutlet weak var descriptionContainer: UIView!
+    @IBOutlet weak var comicsContainer: UIView!
+    @IBOutlet weak var seriesContainer: UIView!
+    @IBOutlet weak var storiesContainer: UIView!
+    @IBOutlet weak var eventsContainer: UIView!
+    @IBOutlet weak var linksContainer: UIView!
+    
     
     let disposeBag = DisposeBag()
     weak var delegate: CharacterProviderDelegate?
@@ -23,11 +34,7 @@ class CharacterDetailsViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        fillData()
-        tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = 500 //Put just any approximate average height for cell. This will just be used to show scroll bar offset.
-        
-        tableView
+        scrollView
             .rx_contentOffset
             .map { (contentOffset) -> CGFloat in
                 let offset = contentOffset.y
@@ -41,42 +48,67 @@ class CharacterDetailsViewController: UITableViewController {
             .distinctUntilChanged()
             .asDriver(onErrorJustReturn: 0)
             .driveNext { [weak self] (alpha) in
-               self?.delegateBar?.navigationBarAlpha = alpha
+                self?.delegateBar?.navigationBarAlpha = alpha
             }
             .addDisposableTo(disposeBag)
         
-        
+        let _ = fillData()
     }
+    
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        guard
-            let related = segue.destinationViewController as? CrossReferencePresenterProtocol
+        guard let identifier = segue.identifier else { return }
+        
+        if let detail = segue.destinationViewController as? CharacterDetailContainer {
             
-            else {
-                guard let relatedLinks = segue.destinationViewController as? LinksPresenterProtocol else {return}
-                relatedLinks.characterLinks = delegate?.character?.urls
-                return
+            switch identifier {
+            case "name":
+                detail.text = delegate?.character?.name
+                detail.nameForSection = "NAME"
+            case "description":
+                detail.text = delegate?.character?.description
+                detail.nameForSection = "DESCRIPTION"
+            default: break
+            }
+            return
         }
-        let identifier = segue.identifier!
+        
+        
+        if let relatedLinks = segue.destinationViewController as? CharacterRelatedLinksContainer where identifier == "links" {
+            relatedLinks.nameForSection = "RELATED LINKS" ;
+            relatedLinks.characterLinks = delegate?.character?.urls
+            return
+        }
+        
+        
+        guard let related = segue.destinationViewController as? CharacterCrossReferenceContainer else { return }
+        
+        
         switch identifier {
-        case "relatedComics": related.elements = delegate?.character?.comics?.items
-        case "relatedSeries": related.elements = delegate?.character?.series?.items
-        case "relatedStories": related.elements = delegate?.character?.stories?.items
-        case "relatedEvents": related.elements = delegate?.character?.events?.items
-        default : break
-            
+        case "comics":   related.nameForSection = "COMICS" ; related.elements = delegate?.character?.comics?.items
+        case "series":  related.nameForSection = "SERIES" ; related.elements = delegate?.character?.series?.items
+        case "stories":  related.nameForSection = "STORIES" ; related.elements = delegate?.character?.stories?.items
+        case "events":  related.nameForSection = "EVENTS" ; related.elements = delegate?.character?.events?.items
+        default: break
         }
     }
     
-    func fillData() {
-        guard let character = delegate?.character else { return }
+    func fillData() -> CGFloat {
         
-        self.characterName?.text = character.name
-        self.characterDescription?.text = character.description
+        guard let character = delegate?.character else { return 0 }
         
         self.largeImage.image = delegate?.characterImage
+        var height = largeImage.bounds.height
+        if let items = character.name where items.isEmpty { nameContainer.removeFromSuperview() } else { height += 120}
+        if let items = character.description where items.isEmpty { descriptionContainer.removeFromSuperview() } else { height += 180}
         
+        if let items = character.comics?.items where items.isEmpty { comicsContainer.removeFromSuperview() } else { height += 280}
+        if let items = character.series?.items where items.isEmpty { seriesContainer.removeFromSuperview() } else { height += 280}
+        if let items = character.events?.items where items.isEmpty { eventsContainer.removeFromSuperview() } else { height += 280}
+        if let items = character.stories?.items where items.isEmpty { storiesContainer.removeFromSuperview() } else { height += 280}
         
+        if let items = character.urls where items.isEmpty { linksContainer.removeFromSuperview() } else { height += 230}
+       
+        return height
     }
-    
 }

@@ -26,7 +26,10 @@
 		9A33B7AE1CFADF6800A7C46E /* RelatedLinksCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A33B7AD1CFADF6800A7C46E /* RelatedLinksCell.swift */; };
 		9A33B7B01CFADF8E00A7C46E /* RelatedPublicationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A33B7AF1CFADF8E00A7C46E /* RelatedPublicationCell.swift */; };
 		9A33B7B31CFAE23200A7C46E /* RelatedLinksUITableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A33B7B21CFAE23200A7C46E /* RelatedLinksUITableViewController.swift */; };
-		9A33B7B51CFAE25300A7C46E /* CrossReferenceUICollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A33B7B41CFAE25300A7C46E /* CrossReferenceUICollectionViewController.swift */; };
+		9A33B7B71CFBA2F500A7C46E /* CharacterDetailContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A33B7B61CFBA2F500A7C46E /* CharacterDetailContainer.swift */; };
+		9A33B7B91CFBA30800A7C46E /* CharacterRelatedLinksContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A33B7B81CFBA30800A7C46E /* CharacterRelatedLinksContainer.swift */; };
+		9A33B7BB1CFBA31C00A7C46E /* CharacterCrossReferenceContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A33B7BA1CFBA31C00A7C46E /* CharacterCrossReferenceContainer.swift */; };
+		9A33B7BD1CFBA3DB00A7C46E /* GenericBlockCharacterDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A33B7BC1CFBA3DB00A7C46E /* GenericBlockCharacterDetail.swift */; };
 		9A5FA36D1CF82ABA00D203C3 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5FA36C1CF82ABA00D203C3 /* SearchViewController.swift */; };
 		9A61C3FF1CF893BD000EC54E /* UIImageGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A61C3FE1CF893BD000EC54E /* UIImageGradient.swift */; };
 		9A9333B21CF9388F00932676 /* RxAPICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A9333B11CF9388F00932676 /* RxAPICaller.swift */; };
@@ -92,7 +95,10 @@
 		9A33B7AD1CFADF6800A7C46E /* RelatedLinksCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RelatedLinksCell.swift; path = UIViews/Cells/RelatedLinksCell.swift; sourceTree = "<group>"; };
 		9A33B7AF1CFADF8E00A7C46E /* RelatedPublicationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RelatedPublicationCell.swift; path = UIViews/Cells/RelatedPublicationCell.swift; sourceTree = "<group>"; };
 		9A33B7B21CFAE23200A7C46E /* RelatedLinksUITableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RelatedLinksUITableViewController.swift; path = UIViewControllers/RelatedLinksUITableViewController.swift; sourceTree = "<group>"; };
-		9A33B7B41CFAE25300A7C46E /* CrossReferenceUICollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CrossReferenceUICollectionViewController.swift; path = UIViewControllers/CrossReferenceUICollectionViewController.swift; sourceTree = "<group>"; };
+		9A33B7B61CFBA2F500A7C46E /* CharacterDetailContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CharacterDetailContainer.swift; path = UIViews/CharacterDetailContainer.swift; sourceTree = "<group>"; };
+		9A33B7B81CFBA30800A7C46E /* CharacterRelatedLinksContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CharacterRelatedLinksContainer.swift; path = UIViews/CharacterRelatedLinksContainer.swift; sourceTree = "<group>"; };
+		9A33B7BA1CFBA31C00A7C46E /* CharacterCrossReferenceContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CharacterCrossReferenceContainer.swift; path = UIViews/CharacterCrossReferenceContainer.swift; sourceTree = "<group>"; };
+		9A33B7BC1CFBA3DB00A7C46E /* GenericBlockCharacterDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GenericBlockCharacterDetail.swift; path = UIViews/GenericBlockCharacterDetail.swift; sourceTree = "<group>"; };
 		9A5FA36C1CF82ABA00D203C3 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchViewController.swift; path = UIViewControllers/SearchViewController.swift; sourceTree = "<group>"; };
 		9A61C3FE1CF893BD000EC54E /* UIImageGradient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIImageGradient.swift; path = UIViews/UIImageGradient.swift; sourceTree = "<group>"; };
 		9A9333B11CF9388F00932676 /* RxAPICaller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RxAPICaller.swift; path = Networking/RxAPICaller.swift; sourceTree = "<group>"; };
@@ -182,6 +188,10 @@
 			children = (
 				9A33B7B11CFADF9600A7C46E /* Cells */,
 				9A61C3FE1CF893BD000EC54E /* UIImageGradient.swift */,
+				9A33B7B61CFBA2F500A7C46E /* CharacterDetailContainer.swift */,
+				9A33B7B81CFBA30800A7C46E /* CharacterRelatedLinksContainer.swift */,
+				9A33B7BA1CFBA31C00A7C46E /* CharacterCrossReferenceContainer.swift */,
+				9A33B7BC1CFBA3DB00A7C46E /* GenericBlockCharacterDetail.swift */,
 			);
 			name = UIViews;
 			sourceTree = "<group>";
@@ -335,7 +345,6 @@
 				9A0B18571CF8F79D00B0AF3F /* CharacterDetailsViewController.swift */,
 				9A33B7AB1CFAA04000A7C46E /* BlurredImageContainerViewController.swift */,
 				9A33B7B21CFAE23200A7C46E /* RelatedLinksUITableViewController.swift */,
-				9A33B7B41CFAE25300A7C46E /* CrossReferenceUICollectionViewController.swift */,
 			);
 			name = UIViewControllers;
 			sourceTree = "<group>";
@@ -503,12 +512,13 @@
 			files = (
 				9A33B7AC1CFAA04000A7C46E /* BlurredImageContainerViewController.swift in Sources */,
 				9A16663E1CF7A40800C1283F /* Protocols.swift in Sources */,
+				9A33B7B91CFBA30800A7C46E /* CharacterRelatedLinksContainer.swift in Sources */,
 				9A16663A1CF7A3E000C1283F /* CrossReferenceItem.swift in Sources */,
 				9A1666301CF79C9800C1283F /* ResultDataBox.swift in Sources */,
 				9AE3B44B1CF6CEFA0087CAC6 /* CharacterListViewController.swift in Sources */,
+				9A33B7BD1CFBA3DB00A7C46E /* GenericBlockCharacterDetail.swift in Sources */,
 				9A33B7B31CFAE23200A7C46E /* RelatedLinksUITableViewController.swift in Sources */,
 				9A1666341CF79EF900C1283F /* Thumbnail.swift in Sources */,
-				9A33B7B51CFAE25300A7C46E /* CrossReferenceUICollectionViewController.swift in Sources */,
 				9A16663D1CF7A40800C1283F /* CrossReferenceBox.swift in Sources */,
 				9A9333B21CF9388F00932676 /* RxAPICaller.swift in Sources */,
 				9AE3B4281CF695B90087CAC6 /* MD5Digester.swift in Sources */,
@@ -525,6 +535,8 @@
 				9AE3B42D1CF6A0E60087CAC6 /* Routes.swift in Sources */,
 				9A0B18581CF8F79D00B0AF3F /* CharacterDetailsViewController.swift in Sources */,
 				9A33B7B01CFADF8E00A7C46E /* RelatedPublicationCell.swift in Sources */,
+				9A33B7BB1CFBA31C00A7C46E /* CharacterCrossReferenceContainer.swift in Sources */,
+				9A33B7B71CFBA2F500A7C46E /* CharacterDetailContainer.swift in Sources */,
 				9A16662E1CF79A3100C1283F /* BreakError.swift in Sources */,
 				9A16662C1CF7922800C1283F /* CharacterService.swift in Sources */,
 				9A9333BB1CF9400700932676 /* MockupNetworking.swift in Sources */,

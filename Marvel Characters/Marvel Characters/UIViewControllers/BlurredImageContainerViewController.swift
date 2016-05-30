@@ -23,6 +23,7 @@ class BlurredImageContainerViewController : UIViewController, CharacterProviderD
     
     var navigationBarAlpha : CGFloat = 0 {
         didSet {
+            print(navigationBarAlpha)
             self.viewWithBlur?.alpha = navigationBarAlpha
             self.navigationItem.titleView?.alpha = navigationBarAlpha
             
@@ -53,6 +54,7 @@ class BlurredImageContainerViewController : UIViewController, CharacterProviderD
         
         //makeNavigationBarTransparent
         _ = {
+            bar.backgroundColor = UIColor.clearColor()
             bar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
             bar.shadowImage = UIImage()
         }()
