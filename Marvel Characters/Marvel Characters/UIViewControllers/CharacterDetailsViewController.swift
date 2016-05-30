@@ -17,6 +17,7 @@ class CharacterDetailsViewController: UIViewController {
     
     @IBOutlet weak var parentViewHeight: NSLayoutConstraint!
     @IBOutlet weak var parentView: UIView!
+    @IBOutlet weak var descriptionContainerHeight: NSLayoutConstraint!
     
     @IBOutlet weak var nameContainer: UIView!
     @IBOutlet weak var descriptionContainer: UIView!
@@ -26,6 +27,7 @@ class CharacterDetailsViewController: UIViewController {
     @IBOutlet weak var eventsContainer: UIView!
     @IBOutlet weak var linksContainer: UIView!
     
+    weak var descriptionTextContainer : CharacterDetailContainer?
     
     let disposeBag = DisposeBag()
     weak var delegate: CharacterProviderDelegate?
@@ -68,6 +70,7 @@ class CharacterDetailsViewController: UIViewController {
             case "description":
                 detail.text = delegate?.character?.description
                 detail.nameForSection = "DESCRIPTION"
+                descriptionTextContainer = detail
             default: break
             }
             return
@@ -100,7 +103,16 @@ class CharacterDetailsViewController: UIViewController {
         self.largeImage.image = delegate?.characterImage
         var height = largeImage.bounds.height
         if let items = character.name where items.isEmpty { nameContainer.removeFromSuperview() } else { height += 120}
-        if let items = character.description where items.isEmpty { descriptionContainer.removeFromSuperview() } else { height += 180}
+        if let items = character.description where items.isEmpty { descriptionContainer.removeFromSuperview() } else {
+            
+            if let descriptionText = descriptionTextContainer/*?.textDescription*/ {
+                descriptionText.textDescription.sizeToFit()
+             //   print("bounds = \(descriptionText.bounds)")
+              descriptionContainerHeight.constant = 60 + descriptionText.textDescription.bounds.height + 100
+            }
+            height += 180
+        
+        }
         
         if let items = character.comics?.items where items.isEmpty { comicsContainer.removeFromSuperview() } else { height += 280}
         if let items = character.series?.items where items.isEmpty { seriesContainer.removeFromSuperview() } else { height += 280}
