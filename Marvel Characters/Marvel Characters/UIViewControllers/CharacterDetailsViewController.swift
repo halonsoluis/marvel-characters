@@ -9,12 +9,14 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import AVFoundation
 
 class CharacterDetailsViewController: UIViewController {
     
     @IBOutlet weak var largeImage: UIImageView!
     @IBOutlet weak var scrollView: UIScrollView!
     
+    @IBOutlet weak var largeImageHeight: NSLayoutConstraint!
     @IBOutlet weak var parentViewHeight: NSLayoutConstraint!
     @IBOutlet weak var parentView: UIView!
     @IBOutlet weak var descriptionContainerHeight: NSLayoutConstraint!
@@ -54,9 +56,20 @@ class CharacterDetailsViewController: UIViewController {
             }
             .addDisposableTo(disposeBag)
         
+        scrollView
+            .rx_contentOffset
+            .asDriver()
+            .filter { $0.y < 0 }
+            .distinctUntilChanged()
+            .driveNext { [weak self] (offset) in
+                let progress:CGFloat = fabs(offset.y ) / 100
+                self?.largeImage.transform = CGAffineTransformMakeScale(1 + progress, 1 + progress)
+            }
+            .addDisposableTo(disposeBag)
+        
+        
         let _ = fillData()
     }
-    
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         guard let identifier = segue.identifier else { return }
@@ -98,20 +111,32 @@ class CharacterDetailsViewController: UIViewController {
     
     func fillData() -> CGFloat {
         
-        guard let character = delegate?.character else { return 0 }
+        guard
+            let character = delegate?.character,
+            let characterImage = delegate?.characterImage
+            else { return 0 }
         
-        self.largeImage.image = delegate?.characterImage
-        var height = largeImage.bounds.height
+        self.largeImage.image = characterImage
+        self.largeImage.sizeToFit()
+        
+        let imageSize = characterImage.size
+        let widthFactor = UIScreen.mainScreen().bounds.width / imageSize.width
+        let newHeight = imageSize.height * widthFactor
+        largeImageHeight.constant = newHeight
+        parentView.setNeedsLayout()
+        
+        var height = newHeight
+        
         if let items = character.name where items.isEmpty { nameContainer.removeFromSuperview() } else { height += 120}
         if let items = character.description where items.isEmpty { descriptionContainer.removeFromSuperview() } else {
             
             if let descriptionText = descriptionTextContainer/*?.textDescription*/ {
                 descriptionText.textDescription.sizeToFit()
-             //   print("bounds = \(descriptionText.bounds)")
-              descriptionContainerHeight.constant = 60 + descriptionText.textDescription.bounds.height + 100
+                //   print("bounds = \(descriptionText.bounds)")
+                descriptionContainerHeight.constant = 60 + descriptionText.textDescription.bounds.height + 100
             }
             height += 180
-        
+            
         }
         
         if let items = character.comics?.items where items.isEmpty { comicsContainer.removeFromSuperview() } else { height += 280}
@@ -120,7 +145,7 @@ class CharacterDetailsViewController: UIViewController {
         if let items = character.stories?.items where items.isEmpty { storiesContainer.removeFromSuperview() } else { height += 280}
         
         if let items = character.urls where items.isEmpty { linksContainer.removeFromSuperview() } else { height += 230}
-       
+        
         return height
     }
 }

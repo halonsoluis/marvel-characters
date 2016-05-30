@@ -23,7 +23,7 @@ class BlurredImageContainerViewController : UIViewController, CharacterProviderD
     
     var navigationBarAlpha : CGFloat = 0 {
         didSet {
-            print(navigationBarAlpha)
+          //  print(navigationBarAlpha)
             self.viewWithBlur?.alpha = navigationBarAlpha
             self.navigationItem.titleView?.alpha = navigationBarAlpha
             
@@ -33,7 +33,7 @@ class BlurredImageContainerViewController : UIViewController, CharacterProviderD
     
     @IBOutlet weak var blurredImage: UIImageView!
     
-    var viewWithBlur : UIVisualEffectView?
+    var viewWithBlur : UIView?
     
     override func viewDidDisappear(animated: Bool) {
         super.viewDidDisappear(animated)
@@ -60,22 +60,26 @@ class BlurredImageContainerViewController : UIViewController, CharacterProviderD
         }()
         
         viewWithBlur = {
+            let viewHoldingBlur = UIView(frame: CGRectMake(0, -20, bar.bounds.width, bar.bounds.height + 20))
             let blur =  UIBlurEffect(style: UIBlurEffectStyle.Dark)
-            let viewWithBlur = UIVisualEffectView(frame: CGRectMake(0, -20, bar.bounds.width, bar.bounds.height + 20))
+            let viewWithBlur = UIVisualEffectView(frame: CGRectMake(0, 0, viewHoldingBlur.bounds.width, viewHoldingBlur.bounds.height))
             viewWithBlur.effect = blur
             
             let vibrancy = UIVibrancyEffect(forBlurEffect: blur)
             
-            let viewWithVibrancy = UIVisualEffectView(frame: CGRectMake(0, -20, bar.bounds.width, bar.bounds.height + 20))
+            let viewWithVibrancy = UIVisualEffectView(frame: CGRectMake(0, 0, viewHoldingBlur.bounds.width, viewHoldingBlur.bounds.height))
             viewWithVibrancy.effect = vibrancy
             
             viewWithBlur.addSubview(viewWithVibrancy)
             
-            viewWithBlur.userInteractionEnabled = false
+            viewHoldingBlur.userInteractionEnabled = false
             
-            bar.addSubview(viewWithBlur)
-            bar.sendSubviewToBack(viewWithBlur)
-            return viewWithBlur
+            viewHoldingBlur.addSubview(viewWithBlur)
+            viewHoldingBlur.opaque = false
+            viewHoldingBlur.backgroundColor = UIColor.clearColor()
+            bar.addSubview(viewHoldingBlur)
+            bar.sendSubviewToBack(viewHoldingBlur)
+            return viewHoldingBlur
         }()
         
         navigationBarAlpha = 0
