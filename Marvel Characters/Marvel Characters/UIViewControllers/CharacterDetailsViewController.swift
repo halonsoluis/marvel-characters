@@ -9,7 +9,6 @@
 import UIKit
 import RxSwift
 import RxCocoa
-import AVFoundation
 
 class CharacterDetailsViewController: UIViewController {
     
@@ -38,6 +37,16 @@ class CharacterDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        //Stretchy Code
+        
+        // Make sure the contentMode is set to scale proportionally
+        largeImage.contentMode = UIViewContentMode.ScaleAspectFill
+        // Clip the parts of the image that are not in frame
+        largeImage.clipsToBounds = true
+        // Set the autoresizingMask to always be the same height as the header
+        largeImage.autoresizingMask = UIViewAutoresizing.FlexibleTopMargin
+        
         scrollView
             .rx_contentOffset
             .map { (contentOffset) -> CGFloat in
@@ -62,15 +71,18 @@ class CharacterDetailsViewController: UIViewController {
             .filter { $0.y < 0 }
             .distinctUntilChanged()
             .driveNext { [weak self] (offset) in
-                let progress:CGFloat = fabs(offset.y ) / 100
+                let progress:CGFloat = fabs(offset.y ) / 250
                 self?.largeImage.transform = CGAffineTransformMakeScale(1 + progress, 1 + progress)
+                self?.largeImage.frame.origin.y = offset.y * CGFloat(self!.factor)
+      //          self?.largeImageHeight.constant = self!.largeImageHeight.constant * (1 + progress)
             }
             .addDisposableTo(disposeBag)
         
         
+        
         let _ = fillData()
     }
-    
+    var factor : CGFloat = 1
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         guard let identifier = segue.identifier else { return }
         
@@ -126,7 +138,7 @@ class CharacterDetailsViewController: UIViewController {
         parentView.setNeedsLayout()
         
         var height = newHeight
-        
+        factor = self.largeImage.frame.height > self.largeImage.frame.width ? 2 : 1.7
         if let items = character.name where items.isEmpty { nameContainer.removeFromSuperview() } else { height += 120}
         if let items = character.description where items.isEmpty { descriptionContainer.removeFromSuperview() } else {
             
