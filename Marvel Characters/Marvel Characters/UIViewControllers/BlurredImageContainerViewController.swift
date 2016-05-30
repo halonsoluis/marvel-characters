@@ -54,6 +54,7 @@ class BlurredImageContainerViewController : UIViewController, CharacterProviderD
         
         //makeNavigationBarTransparent
         _ = {
+            bar.backgroundColor = UIColor.clearColor()
             bar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
             bar.shadowImage = UIImage()
         }()
