@@ -52,8 +52,7 @@ class CharacterDetailsViewController: UIViewController {
             }
             .addDisposableTo(disposeBag)
         
-        let height = fillData()
-     //   parentViewHeight.constant = largeImage.bounds.height + height
+        let _ = fillData()
     }
     
     
@@ -112,97 +111,4 @@ class CharacterDetailsViewController: UIViewController {
        
         return height
     }
-    //
-    //    func fillData() {
-    //        guard let character = delegate?.character else { return }
-    //
-    //        self.largeImage.image = delegate?.characterImage
-    //
-    //        parentView.translatesAutoresizingMaskIntoConstraints = false
-    //
-    //        let _ = [
-    //            createContainer("NAME", data: character.name,type: .Text),
-    //            createContainer("DESCRIPTION", data: character.description,type: .Text),
-    //
-    //            createContainer("COMICS", data: character.comics?.items,type: .CrossReference),
-    //            createContainer("SERIES", data: character.series?.items,type: .CrossReference),
-    //            createContainer("STORIES", data: character.stories?.items,type: .CrossReference),
-    //            createContainer("EVENTS", data: character.events?.items,type: .CrossReference),
-    //
-    //            createContainer("RELATED LINKS",data: character.urls,type: .Link)
-    //            ]
-    //            .flatMap { $0 }
-    //            .reduce(largeImage) { (lastView, container) -> UIView in
-    //                layoutContainer(container.0, containerType: container.1, below: lastView, onParent: self.parentView)
-    //                return container.0
-    //        }
-    //        parentView.setNeedsUpdateConstraints()
-    //        parentView.setNeedsLayout()
-    //        print(parentViewHeight.constant)
-    //    }
-    //
-    ////    enum ItemContainer: CGFloat {
-    ////        case Text = 150
-    ////        case CrossReference = 350
-    ////        case Link =  250
-    ////    }
-    ////
-    ////    func layoutContainer(containerView: UIView? , containerType: ItemContainer, below lastAddedView: UIView, onParent parent: UIView) {
-    ////        guard let view = containerView else { return }
-    ////
-    ////        parent.addSubview(view)
-    ////        parent.bringSubviewToFront(view)
-    ////        view.translatesAutoresizingMaskIntoConstraints = false
-    ////
-    ////
-    ////        self.view.addConstraints([
-    ////            NSLayoutConstraint(item: view, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: lastAddedView, attribute: NSLayoutAttribute.Bottom, multiplier: 1, constant: 0),
-    ////
-    ////            NSLayoutConstraint(item: view, attribute: NSLayoutAttribute.Leading, relatedBy: NSLayoutRelation.Equal, toItem: parent, attribute: NSLayoutAttribute.Leading, multiplier: 1, constant: 0),
-    ////
-    ////            NSLayoutConstraint(item: view, attribute: NSLayoutAttribute.Trailing, relatedBy: NSLayoutRelation.Equal, toItem: parent, attribute: NSLayoutAttribute.Trailing, multiplier: 1, constant: 0),
-    ////
-    ////            NSLayoutConstraint(item: view, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1, constant: containerType.rawValue)
-    ////            ])
-    ////
-    ////
-    ////        parentViewHeight.constant = parentViewHeight.constant + containerType.rawValue
-    ////        view.setNeedsDisplay()
-    ////
-    ////    }
-    ////
-    ////    func createContainer(sectionName: String, data: AnyObject?, type: ItemContainer) -> (UIView, ItemContainer)? {
-    ////        guard let data = data else { return nil }
-    ////        let view : UIView
-    ////        switch type {
-    ////        case .Text:
-    ////            guard let data = data as? String where !data.isEmpty else { return nil }
-    ////
-    ////            guard let container = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("CharacterDetailContainer") as? CharacterDetailContainer else { return nil }
-    ////
-    ////            container.text = data
-    ////            container.nameForSection = sectionName
-    ////            view = container.view
-    ////        case .CrossReference:
-    ////
-    ////            guard let data = data as? [CrossReferenceItem] where !data.isEmpty else { return nil }
-    ////
-    ////            guard let container = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("CharacterCrossReferenceContainer") as? CharacterCrossReferenceContainer else { return nil}
-    ////
-    ////            container.elements = data
-    ////            container.nameForSection = sectionName
-    ////            view = container.view
-    ////        case .Link:
-    ////            guard let data = data as? [LinkURL] where !data.isEmpty else { return nil }
-    ////
-    ////            guard let container = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("CharacterRelatedLinksContainer") as? CharacterRelatedLinksContainer else { return nil}
-    ////
-    ////            container.characterLinks = data
-    ////            container.nameForSection = sectionName
-    ////            view = container.view
-    ////        }
-    ////
-    ////
-    ////        return (view, type)
-    ////    }
 }

@@ -110,8 +110,6 @@ class CharacterListViewController: UIViewController {
                 }
             }
             .addDisposableTo(disposeBag)
-        
-        //  tableView.tableFooterView = footerView
     }
     
     func appendSubscribers() {

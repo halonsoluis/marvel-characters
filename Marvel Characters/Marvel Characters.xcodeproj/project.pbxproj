@@ -26,7 +26,6 @@
 		9A33B7AE1CFADF6800A7C46E /* RelatedLinksCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A33B7AD1CFADF6800A7C46E /* RelatedLinksCell.swift */; };
 		9A33B7B01CFADF8E00A7C46E /* RelatedPublicationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A33B7AF1CFADF8E00A7C46E /* RelatedPublicationCell.swift */; };
 		9A33B7B31CFAE23200A7C46E /* RelatedLinksUITableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A33B7B21CFAE23200A7C46E /* RelatedLinksUITableViewController.swift */; };
-		9A33B7B51CFAE25300A7C46E /* CrossReferenceUICollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A33B7B41CFAE25300A7C46E /* CrossReferenceUICollectionViewController.swift */; };
 		9A33B7B71CFBA2F500A7C46E /* CharacterDetailContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A33B7B61CFBA2F500A7C46E /* CharacterDetailContainer.swift */; };
 		9A33B7B91CFBA30800A7C46E /* CharacterRelatedLinksContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A33B7B81CFBA30800A7C46E /* CharacterRelatedLinksContainer.swift */; };
 		9A33B7BB1CFBA31C00A7C46E /* CharacterCrossReferenceContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A33B7BA1CFBA31C00A7C46E /* CharacterCrossReferenceContainer.swift */; };
@@ -96,7 +95,6 @@
 		9A33B7AD1CFADF6800A7C46E /* RelatedLinksCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RelatedLinksCell.swift; path = UIViews/Cells/RelatedLinksCell.swift; sourceTree = "<group>"; };
 		9A33B7AF1CFADF8E00A7C46E /* RelatedPublicationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RelatedPublicationCell.swift; path = UIViews/Cells/RelatedPublicationCell.swift; sourceTree = "<group>"; };
 		9A33B7B21CFAE23200A7C46E /* RelatedLinksUITableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RelatedLinksUITableViewController.swift; path = UIViewControllers/RelatedLinksUITableViewController.swift; sourceTree = "<group>"; };
-		9A33B7B41CFAE25300A7C46E /* CrossReferenceUICollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CrossReferenceUICollectionViewController.swift; path = UIViewControllers/CrossReferenceUICollectionViewController.swift; sourceTree = "<group>"; };
 		9A33B7B61CFBA2F500A7C46E /* CharacterDetailContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CharacterDetailContainer.swift; path = UIViews/CharacterDetailContainer.swift; sourceTree = "<group>"; };
 		9A33B7B81CFBA30800A7C46E /* CharacterRelatedLinksContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CharacterRelatedLinksContainer.swift; path = UIViews/CharacterRelatedLinksContainer.swift; sourceTree = "<group>"; };
 		9A33B7BA1CFBA31C00A7C46E /* CharacterCrossReferenceContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CharacterCrossReferenceContainer.swift; path = UIViews/CharacterCrossReferenceContainer.swift; sourceTree = "<group>"; };
@@ -347,7 +345,6 @@
 				9A0B18571CF8F79D00B0AF3F /* CharacterDetailsViewController.swift */,
 				9A33B7AB1CFAA04000A7C46E /* BlurredImageContainerViewController.swift */,
 				9A33B7B21CFAE23200A7C46E /* RelatedLinksUITableViewController.swift */,
-				9A33B7B41CFAE25300A7C46E /* CrossReferenceUICollectionViewController.swift */,
 			);
 			name = UIViewControllers;
 			sourceTree = "<group>";
@@ -522,7 +519,6 @@
 				9A33B7BD1CFBA3DB00A7C46E /* GenericBlockCharacterDetail.swift in Sources */,
 				9A33B7B31CFAE23200A7C46E /* RelatedLinksUITableViewController.swift in Sources */,
 				9A1666341CF79EF900C1283F /* Thumbnail.swift in Sources */,
-				9A33B7B51CFAE25300A7C46E /* CrossReferenceUICollectionViewController.swift in Sources */,
 				9A16663D1CF7A40800C1283F /* CrossReferenceBox.swift in Sources */,
 				9A9333B21CF9388F00932676 /* RxAPICaller.swift in Sources */,
 				9AE3B4281CF695B90087CAC6 /* MD5Digester.swift in Sources */,

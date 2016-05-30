@@ -26,31 +26,6 @@ class CharacterCrossReferenceContainer: GenericBlockCharacterDetail, CrossRefere
         super.viewDidLoad()
         
         self.collectionView.dataSource = self
-       
-        Observable.just("a")
-        .asDriver(onErrorJustReturn: "")
-            .driveNext { _ in  self.collectionView.reloadData() }
-        .addDisposableTo(disposeBag)
-       
-        
-//        
-//        dataSource.asDriver()
-//            .drive(self.collectionView.rx_itemsWithCellIdentifier("RelatedPublicationCell", cellType: RelatedPublicationCell.self)) { (_, crossReference, cell) in
-//        
-//                        if let nameLabel = cell.nameLabel {
-//                            nameLabel.text = crossReference.name
-//                        }
-//        
-//                        if let image = cell.image {
-//                            guard let url = crossReference.resourceURI, let nsurl = NSURL(string: url)/*, let modified = character.modified*/ else { return }
-//                            ImageSource.downloadImageAndSetIn(image, imageURL: nsurl, withUniqueKey: "")
-//        
-//                        }
-//                        
-//                    }
-//                   .addDisposableTo(disposeBag)
-//        
-//        dataSource.value = elements!
     }
     
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
@@ -86,14 +61,3 @@ class CharacterCrossReferenceContainer: GenericBlockCharacterDetail, CrossRefere
         return cell
     }
 }
-
-/*
- self.collectionView!.rx_itemSelected
- .asDriver()
- .map { self.elements?[$0.row].image }
- .driveNext {link in
- guard let url = link, let nsurl = NSURL(string: url) else { return }
- UIApplication.sharedApplication().openURL(nsurl)
- 
- }.addDisposableTo(disposeBag)
- */
