@@ -121,18 +121,22 @@ class CharacterDetailsViewController: UIViewController {
             related.nameForSection = "COMICS" ;
           //  related.elements = character.comics?.items
             related.route = Routes.ListComicsByCharacter(characterID: id)
+            related.total = character.comics!.available
         case "series":
             related.nameForSection = "SERIES" ;
           //  related.elements = delegate?.character?.series?.items
             related.route = Routes.ListSeriesByCharacter(characterID: id)
+            related.total = character.series!.available
         case "stories":
             related.nameForSection = "STORIES" ;
           //  related.elements = delegate?.character?.stories?.items
             related.route = Routes.ListStoriesByCharacter(characterID: id)
+            related.total = character.stories!.available
         case "events":
             related.nameForSection = "EVENTS" ;
           //  related.elements = delegate?.character?.events?.items
             related.route = Routes.ListEventsByCharacter(characterID: id)
+            related.total = character.events!.available
             
         default: break
         }

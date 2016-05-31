@@ -48,7 +48,7 @@ class FocusOnCustomTransition : NSObject, UIViewControllerAnimatedTransitioning 
             startOn.navigationController?.navigationBar.alpha = 0
             snapShot.opaque = true
        
-            let frameFullHeight = CGRect(x: 0, y: snapShot.frame.origin.y, width: snapShot.frame.width, height: newHeight)
+            let frameFullHeight = CGRect(x: 0, y: 0, width: snapShot.frame.width, height: newHeight)
             
             UIView.animateWithDuration(0.35, animations: {
                 startOn.view.alpha = 0

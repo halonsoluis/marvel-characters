@@ -1,8 +1,8 @@
 //
-//  CharacteCrossReferenceContainer.swift
+//  CharacterCrossLargeCells.swift
 //  Marvel Characters
 //
-//  Created by Hugo Alonso on 5/29/16.
+//  Created by Hugo on 5/31/16.
 //  Copyright © 2016 halonsoluis. All rights reserved.
 //
 
@@ -11,21 +11,17 @@ import RxCocoa
 import RxSwift
 import Result
 
-
-
-class CharacterCrossReferenceContainer: GenericBlockCharacterDetail, UICollectionViewDelegate, UICollectionViewDataSource {
+class CharacterCrossLargeCells: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
-    var dataSource = Variable<[CrossReference]>([])
-    var route: Routes!
-    var total: Int!
-    var crossReferencNetworService: NetworkService!
+    weak var dataSource : Variable<[CrossReference]>!
     let disposeBag = DisposeBag()
     
     /// Value of current page
-    var currentPage = Variable<Int>(0)
-   
+    weak var currentPage : Variable<Int>!
+    
+    var totalItems : Int!
     var chs : NetworkService!
     var rx_crossreference: Driver<Result<[CrossReference],RequestError>>!
     
@@ -38,65 +34,57 @@ class CharacterCrossReferenceContainer: GenericBlockCharacterDetail, UICollectio
         }
     }
     
+    
+    var currentCoverIndex = 0
     var loadingMore = false
     var readyToLoadMore = true
     
-    var currentPageObservable : Observable<Int>!
+    @IBAction func closeButtonTapped(sender: AnyObject) {
+     //   navigationController?.popViewControllerAnimated(true)
+        dismissViewControllerAnimated(true, completion: nil)
+    }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-      //  self.collectionView.dataSource = self
-       
-        currentPageObservable = currentPage
-            .asObservable()
-            .distinctUntilChanged()
-            .filter { $0 >= 0 }
-        
-        
-        createCharacterService()
-        
-        rx_crossreference = chs.getData(route)
+        //  self.collectionView.dataSource = self
         appendSubscribers()
         setupPagination()
-        
         
         collectionView.rx_dataSource.setForwardToDelegate(self, retainDelegate: false)
         collectionView.rx_dataSource.forwardToDelegate()
         
         collectionView.reloadData()
+        
     }
     
-    func createCharacterService() {
-        chs = NetworkService(pageObservable: currentPageObservable)
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        scrollToPage(currentCoverIndex, animated: false)
+    }
+    
+    
+    func scrollToPage(page: Int, animated: Bool) {
+        var frame: CGRect = self.collectionView.frame
+        frame.origin.x = frame.size.width * CGFloat(page);
+        frame.origin.y = 0;
+        self.collectionView.scrollRectToVisible(frame, animated: animated)
+    }
+    
+    
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return .LightContent
     }
     
     func appendSubscribers() {
-//        dataSource.asDriver()
-//            .drive(collectionView.rx_itemsWithCellIdentifier("RelatedPublicationCell", cellType: RelatedPublicationCell.self)) { (_, crossReference, cell) in
-//                
-//                if let nameLabel = cell.nameLabel {
-//                    nameLabel.text = crossReference.title
-//                }
-//                
-//                if let image = cell.image {
-//                    guard let url = crossReference.resourceURI, let nsurl = NSURL(string: url), let modified = crossReference.modified else { return }
-//                    ImageSource.downloadImageAndSetIn(image, imageURL: nsurl, withUniqueKey: modified)
-//                    
-//                }
-//                return
-//            }
-//            .addDisposableTo(disposeBag)
-        
         dataSource.asDriver()
             .driveNext { _ in
                 self.collectionView.reloadData()
-        }.addDisposableTo(disposeBag)
+            }.addDisposableTo(disposeBag)
         
         rx_crossreference?
             .flatMapLatest(errorValidation)
             .driveNext { (newPage) in
-                self.dataSource.value.appendContentsOf(newPage)
                 if newPage.count < APIHandler.itemsPerPage { self.loadingMore = false }
                 self.readyToLoadMore = true
             }
@@ -142,16 +130,27 @@ class CharacterCrossReferenceContainer: GenericBlockCharacterDetail, UICollectio
             }
             .addDisposableTo(disposeBag)
     }
-
+    
+    
+    func collectionView(collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                               sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        let kWhateverHeightYouWant = 4/6 * collectionView.bounds.size.width
+        return CGSizeMake(collectionView.bounds.size.width, CGFloat(kWhateverHeightYouWant))
+    }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCellWithReuseIdentifier("RelatedPublicationCell", forIndexPath: indexPath) as? RelatedPublicationCell
-        else  { return UICollectionViewCell()}
-       
+        guard let cell = collectionView.dequeueReusableCellWithReuseIdentifier("RelatedPublicationLargeCell", forIndexPath: indexPath) as? RelatedPublicationLargeCell
+            else  { return UICollectionViewCell()}
+        
         let crossReference = dataSource.value[indexPath.row]
-       
+        
         if let nameLabel = cell.nameLabel {
             nameLabel.text = crossReference.title
+        }
+        
+        if let totalLabel = cell.total {
+            totalLabel.text = "\(indexPath.row + 1)/\(totalItems)"
         }
         
         if let image = cell.image {
@@ -161,29 +160,15 @@ class CharacterCrossReferenceContainer: GenericBlockCharacterDetail, UICollectio
         }
         return cell
     }
-
-
-
+    
+    
+    
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 1
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return dataSource.value.count
-    }
-    
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        print("selected \(indexPath.row)")
-    }
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if let largeImages = segue.destinationViewController as? CharacterCrossLargeCells {
-            largeImages.rx_crossreference = self.rx_crossreference
-            largeImages.dataSource = self.dataSource
-            largeImages.currentPage = currentPage
-            largeImages.totalItems = total
-            largeImages.currentCoverIndex = self.collectionView.indexPathsForSelectedItems()![0].row
-        }
     }
     
 }
