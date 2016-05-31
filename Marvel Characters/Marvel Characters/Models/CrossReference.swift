@@ -9,7 +9,7 @@
 import Foundation
 import ObjectMapper
 
-class CrossReference: Mappable {
+class CrossReference: Mappable, MainAPISubject {
     
     var id: Int?
     var modified: String?
