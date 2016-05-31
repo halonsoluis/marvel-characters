@@ -36,7 +36,7 @@ class SearchViewController: CharacterListViewController {
     }
     
     override func createCharacterService() {
-        chs = CharacterService(withNameObservable: rx_characterName, pageObservable: currentPageObservable)
+        chs = NetworkService(withNameObservable: rx_characterName, pageObservable: currentPageObservable)
     }
     
     override func viewDidLoad() {

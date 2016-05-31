@@ -6,32 +6,39 @@
 //  Copyright © 2016 halonsoluis. All rights reserved.
 //
 
-import Foundation
 import RxSwift
 import RxAlamofire
 import Result
 import ObjectMapper
 
 struct RxAPICaller {
-    static func requestWithParams<T:Mappable>(parameters: [String:String], route: Routes) -> Observable<Result<[T],RequestError>> {
-        let isCharacter = T.self is Character.Type
+    static func requestWithParams<T:MainAPISubject>(parameters: [String:String], route: Routes) -> Observable<Result<[T],RequestError>> {
+        
         guard !mockupEnabled else {
-            let json = RxAPICaller.buildJSON(isCharacter ? MockupResource.Character.getMockupData()! : MockupResource.CrossReference.getMockupData()!)
-            let box = Mapper<ResponseEnclosure<T>>().map(json)
-            let items = box?.data?.results ?? []
-            
-            return Observable.just(Result.Success(items))
+            return requestMockupData(parameters, route: route)
         }
-        return RxAPICaller.requestItemWithParams(parameters, route: route)
+        
+        return RxAPICaller.requestNetworkData(parameters, route: route)
     }
     
-    static private func buildJSON(data:NSData) -> NSDictionary {
-        return try! NSJSONSerialization.JSONObjectWithData(data, options: .MutableContainers) as! NSDictionary
+    static private func requestMockupData<T:MainAPISubject>(parameters: [String:String], route: Routes) -> Observable<Result<[T],RequestError>> {
+        
+        let buildJSON = { (data:NSData)-> NSDictionary in
+            return try! NSJSONSerialization.JSONObjectWithData(data, options: .MutableContainers) as! NSDictionary
+        }
+        
+        let isCharacter = T.self is Character.Type
+        let json = buildJSON(isCharacter ? MockupResource.Character.getMockupData()! : MockupResource.CrossReference.getMockupData()!)
+        
+        let box = Mapper<ResponseEnclosure<T>>().map(json)
+        let items = box?.data?.results ?? []
+        
+        return Observable.just(Result.Success(items))
     }
-   
-    private static func requestItemWithParams<T: Mappable>(parameters: [String:String], route: Routes) -> Observable<Result<[T],RequestError>> {
+    
+    private static func requestNetworkData<T: MainAPISubject>(parameters: [String:String], route: Routes) -> Observable<Result<[T],RequestError>> {
         return RxAlamofire
-            .requestJSON(.GET, route.getRoute()!, parameters: parameters)
+            .requestJSON(.GET, route.getRoute(), parameters: parameters)
             .debug()
             .observeOn(ConcurrentDispatchQueueScheduler(globalConcurrentQueueQOS: .Background))
             .flatMapLatest { (response: NSHTTPURLResponse, json: AnyObject) -> Observable<Result<[T],RequestError>> in
@@ -47,5 +54,5 @@ struct RxAPICaller {
         }
         
     }
-
+    
 }

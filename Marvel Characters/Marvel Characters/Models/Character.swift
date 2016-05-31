@@ -9,7 +9,7 @@
 import Foundation
 import ObjectMapper
 
-class Character: Mappable {
+class Character: Mappable, MainAPISubject {
     
     var id: Int?
     var name: String?

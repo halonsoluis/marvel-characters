@@ -12,9 +12,8 @@ import ObjectMapper
 import RxCocoa
 import Result
 
-class CharacterService {
+class NetworkService {
     
-    lazy var rx_characters: Driver<Result<[Character],RequestError>> = self.getCharacters()
     private lazy var rx_params: Observable<[String:String]> = self.getParams()
     
     private var characterName: Observable<String>
@@ -39,10 +38,7 @@ class CharacterService {
         }
     }
     
-    func getCharacters() -> Driver<Result<[Character],RequestError>>  {
-        
-        let route = Routes.ListCharacters
-        
+    func getData<T:MainAPISubject>(route: Routes) -> Driver<Result<[T],RequestError>>  {
         return rx_params
             .subscribeOn(MainScheduler.instance)
             .doOn({ response in

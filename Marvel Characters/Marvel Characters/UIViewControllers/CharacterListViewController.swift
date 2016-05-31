@@ -24,8 +24,9 @@ class CharacterListViewController: UIViewController {
     /// Value of current page
     var currentPage = Variable<Int>(0)
     
-    var chs : CharacterService!
-    
+    var chs : NetworkService?
+    var rx_characters: Driver<Result<[Character],RequestError>>?
+
     let errorValidation = { (result: Result<[Character],RequestError>) -> Driver<[Character]> in
         switch result {
         case .Success(let character):
@@ -53,10 +54,9 @@ class CharacterListViewController: UIViewController {
         
         
         createCharacterService()
+        rx_characters = chs?.getData(Routes.ListCharacters)
         appendSubscribers()
         setupPagination()
-        
-        
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -79,7 +79,7 @@ class CharacterListViewController: UIViewController {
     }
     
     func createCharacterService() {
-        chs = CharacterService(pageObservable: currentPageObservable)
+        chs = NetworkService(pageObservable: currentPageObservable)
     }
     
     func setupPagination() {
@@ -142,7 +142,7 @@ class CharacterListViewController: UIViewController {
             }
             .addDisposableTo(disposeBag)
         
-        chs.rx_characters
+        rx_characters?
             .flatMapLatest(errorValidation)
             .driveNext { (newPage) in
                 self.dataSource.value.appendContentsOf(newPage)
