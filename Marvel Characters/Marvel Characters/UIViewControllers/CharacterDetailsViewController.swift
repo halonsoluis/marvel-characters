@@ -74,7 +74,7 @@ class CharacterDetailsViewController: UIViewController {
                 let progress:CGFloat = fabs(offset.y ) / 250
                 self?.largeImage.transform = CGAffineTransformMakeScale(1 + progress, 1 + progress)
                 self?.largeImage.frame.origin.y = offset.y * CGFloat(self!.factor)
-      //          self?.largeImageHeight.constant = self!.largeImageHeight.constant * (1 + progress)
+                //          self?.largeImageHeight.constant = self!.largeImageHeight.constant * (1 + progress)
             }
             .addDisposableTo(disposeBag)
         
@@ -84,16 +84,20 @@ class CharacterDetailsViewController: UIViewController {
     }
     var factor : CGFloat = 1
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        guard let identifier = segue.identifier else { return }
+        guard
+            let identifier = segue.identifier,
+            let character = delegate?.character,
+            let id = character.id
+            else { return }
         
         if let detail = segue.destinationViewController as? CharacterDetailContainer {
             
             switch identifier {
             case "name":
-                detail.text = delegate?.character?.name
+                detail.text = character.name
                 detail.nameForSection = "NAME"
             case "description":
-                detail.text = delegate?.character?.description
+                detail.text = character.description
                 detail.nameForSection = "DESCRIPTION"
                 descriptionTextContainer = detail
             default: break
@@ -104,7 +108,7 @@ class CharacterDetailsViewController: UIViewController {
         
         if let relatedLinks = segue.destinationViewController as? CharacterRelatedLinksContainer where identifier == "links" {
             relatedLinks.nameForSection = "RELATED LINKS" ;
-            relatedLinks.characterLinks = delegate?.character?.urls
+            relatedLinks.characterLinks = character.urls
             return
         }
         
@@ -113,10 +117,23 @@ class CharacterDetailsViewController: UIViewController {
         
         
         switch identifier {
-        case "comics":   related.nameForSection = "COMICS" ; related.elements = delegate?.character?.comics?.items
-        case "series":  related.nameForSection = "SERIES" ; related.elements = delegate?.character?.series?.items
-        case "stories":  related.nameForSection = "STORIES" ; related.elements = delegate?.character?.stories?.items
-        case "events":  related.nameForSection = "EVENTS" ; related.elements = delegate?.character?.events?.items
+        case "comics":
+            related.nameForSection = "COMICS" ;
+          //  related.elements = character.comics?.items
+            related.route = Routes.ListComicsByCharacter(characterID: id)
+        case "series":
+            related.nameForSection = "SERIES" ;
+          //  related.elements = delegate?.character?.series?.items
+            related.route = Routes.ListSeriesByCharacter(characterID: id)
+        case "stories":
+            related.nameForSection = "STORIES" ;
+          //  related.elements = delegate?.character?.stories?.items
+            related.route = Routes.ListStoriesByCharacter(characterID: id)
+        case "events":
+            related.nameForSection = "EVENTS" ;
+          //  related.elements = delegate?.character?.events?.items
+            related.route = Routes.ListEventsByCharacter(characterID: id)
+            
         default: break
         }
     }

@@ -12,6 +12,7 @@ import ObjectMapper
 class CrossReference: Mappable, MainAPISubject {
     
     var id: Int?
+    var title: String?
     var modified: String?
     var thumbnail: Thumbnail?
     var resourceURI: String?
@@ -23,6 +24,7 @@ class CrossReference: Mappable, MainAPISubject {
     func mapping(map: Map) {
         
         id <- map["id"]
+        title <- map["title"]
         modified <- map["modified"]
         thumbnail <- map["thumbnail"]
         resourceURI <- map["resourceURI"]
