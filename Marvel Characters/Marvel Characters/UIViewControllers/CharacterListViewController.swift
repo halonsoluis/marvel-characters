@@ -56,7 +56,7 @@ class CharacterListViewController: UIViewController {
         appendSubscribers()
         setupPagination()
         
-    
+        
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -67,6 +67,15 @@ class CharacterListViewController: UIViewController {
         
         navigationController?.setNavigationBarHidden(false, animated: false)
         
+        navigationController?.delegate = self
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        if let nav = navigationController?.delegate as? CharacterListViewController where nav == self {
+            navigationController?.delegate = nil
+        }
     }
     
     func createCharacterService() {
@@ -106,7 +115,7 @@ class CharacterListViewController: UIViewController {
                     self.currentPage.value = self.currentPage.value + 1
                     print("load page = \(self.currentPage.value)")
                 } else {
-                     self.readyToLoadMore = true
+                    self.readyToLoadMore = true
                 }
             }
             .addDisposableTo(disposeBag)
@@ -148,20 +157,33 @@ class CharacterListViewController: UIViewController {
     
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+       
+        
         
         if let characterDetails = segue.destinationViewController as? CharacterProviderDelegate {
             
             guard
                 let indexPath = tableView.indexPathForSelectedRow,
                 let cell = tableView.cellForRowAtIndexPath(indexPath) as? CharacterCell
-            else { return }
+                else { return }
             
             let character = dataSource.value[indexPath.row]
             
             characterDetails.character = character
             characterDetails.characterImage = cell.bannerImage?.image
         }
-        super.prepareForSegue(segue, sender: sender)
         
+        
+    }
+}
+
+extension CharacterListViewController: UINavigationControllerDelegate {
+  
+    
+    func navigationController(navigationController: UINavigationController, animationControllerForOperation operation: UINavigationControllerOperation, fromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        if self == fromVC && toVC is BlurredImageContainerViewController {
+            return FocusOnCustomTransition()
+        }
+        return nil
     }
 }

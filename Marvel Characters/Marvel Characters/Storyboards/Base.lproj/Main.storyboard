@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="k8k-K2-vJz">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="k8k-K2-vJz">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -49,10 +49,6 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="150"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cjb-0c-8Pg" userLabel="Character Image" customClass="UIGradientImageView" customModule="Marvel_Characters" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="150"/>
-                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                </imageView>
                                                 <button autoresizesSubviews="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="fWD-ZT-UAh" userLabel="Character Name">
                                                     <rect key="frame" x="30" y="88" width="160" height="42"/>
                                                     <constraints>
@@ -71,6 +67,10 @@
                                                         </mask>
                                                     </variation>
                                                 </button>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cjb-0c-8Pg" userLabel="Character Image" customClass="UIGradientImageView" customModule="Marvel_Characters" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="150"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="cjb-0c-8Pg" secondAttribute="bottom" id="72Y-U4-Y64"/>
@@ -361,7 +361,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" reuseIdentifier="RelatedPublicationCell" id="5wR-3W-O5O" customClass="RelatedPublicationCell" customModule="Marvel_Characters" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="24" width="126" height="219"/>
+                                        <rect key="frame" x="0.0" y="17" width="126" height="219"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="126" height="219"/>
@@ -814,8 +814,8 @@
         <image name="icn-nav-search" width="28" height="28"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ojX-te-uzF"/>
-        <segue reference="cc0-xj-4rq"/>
+        <segue reference="IZu-ZC-aed"/>
         <segue reference="K9r-kU-rxu"/>
+        <segue reference="cc0-xj-4rq"/>
     </inferredMetricsTieBreakers>
 </document>

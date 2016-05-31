@@ -57,6 +57,7 @@
 		9AE3B4551CF71AFC0087CAC6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE3B4521CF71AFC0087CAC6 /* AppDelegate.swift */; };
 		9AE3B4561CF71AFC0087CAC6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9AE3B4531CF71AFC0087CAC6 /* Assets.xcassets */; };
 		9AE3B4571CF71AFC0087CAC6 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9AE3B4541CF71AFC0087CAC6 /* Info.plist */; };
+		9AEDA40D1CFD2A9400197F48 /* FocusOnCustomTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEDA40C1CFD2A9400197F48 /* FocusOnCustomTransition.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -132,6 +133,7 @@
 		9AE3B4521CF71AFC0087CAC6 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = AppInternals/AppDelegate.swift; sourceTree = "<group>"; };
 		9AE3B4531CF71AFC0087CAC6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = AppInternals/Assets.xcassets; sourceTree = "<group>"; };
 		9AE3B4541CF71AFC0087CAC6 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = AppInternals/Info.plist; sourceTree = "<group>"; };
+		9AEDA40C1CFD2A9400197F48 /* FocusOnCustomTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FocusOnCustomTransition.swift; path = UIViews/FocusOnCustomTransition.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,6 +194,7 @@
 				9A33B7B81CFBA30800A7C46E /* CharacterRelatedLinksContainer.swift */,
 				9A33B7BA1CFBA31C00A7C46E /* CharacterCrossReferenceContainer.swift */,
 				9A33B7BC1CFBA3DB00A7C46E /* GenericBlockCharacterDetail.swift */,
+				9AEDA40C1CFD2A9400197F48 /* FocusOnCustomTransition.swift */,
 			);
 			name = UIViews;
 			sourceTree = "<group>";
@@ -516,6 +519,7 @@
 				9A16663A1CF7A3E000C1283F /* CrossReferenceItem.swift in Sources */,
 				9A1666301CF79C9800C1283F /* ResultDataBox.swift in Sources */,
 				9AE3B44B1CF6CEFA0087CAC6 /* CharacterListViewController.swift in Sources */,
+				9AEDA40D1CFD2A9400197F48 /* FocusOnCustomTransition.swift in Sources */,
 				9A33B7BD1CFBA3DB00A7C46E /* GenericBlockCharacterDetail.swift in Sources */,
 				9A33B7B31CFAE23200A7C46E /* RelatedLinksUITableViewController.swift in Sources */,
 				9A1666341CF79EF900C1283F /* Thumbnail.swift in Sources */,

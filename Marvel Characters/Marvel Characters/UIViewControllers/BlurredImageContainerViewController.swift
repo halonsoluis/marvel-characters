@@ -31,6 +31,8 @@ class BlurredImageContainerViewController : UIViewController, CharacterProviderD
         }
     }
     
+    weak var embeddedVC : CharacterDetailsViewController?
+    
     @IBOutlet weak var blurredImage: UIImageView!
     
     var viewWithBlur : UIView?
@@ -90,6 +92,7 @@ class BlurredImageContainerViewController : UIViewController, CharacterProviderD
         if let embedded = segue.destinationViewController as? CharacterDetailsViewController {
             embedded.delegate = self
             embedded.delegateBar = self
+            embeddedVC = embedded
         }
         super.prepareForSegue(segue, sender: sender)
     }
