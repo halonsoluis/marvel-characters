@@ -10,36 +10,52 @@
  Store all the URLs used for networking requests
  
  */
-enum Routes : String {
+enum Routes {
     
     private static let baseURL = "http://gateway.marvel.com:80"
     private static let apiSubURL = "/v1/public/"
     private static let characterIdPlaceHolder = "{characterId}"
-    
     //Fetches lists of characters.
-    case ListCharacters = "characters"
+    case ListCharacters
     
     //Fetches a single character by id.
-    case SingleCharacter = "characters/{characterId}"
+    case SingleCharacter(characterID:Int)
     
     //Fetches lists of comics filtered by a character id.
-    case ListComicsByCharacter = "characters/{characterId}/comics"
- 
-    //Fetches lists of events filtered by a character id.
-    case ListEventsByCharacter = "characters/{characterId}/events"
-  
-    //Fetches lists of series filtered by a character id.
-    case ListSeriesByCharacter = "characters/{characterId}/series"
-  
-    //Fetches lists of stories filtered by a character id.
-    case ListStoriesByCharacter = "characters/{characterId}/stories"
+    case ListComicsByCharacter(characterID:Int)
     
-    func getRoute(characterID: Int? = nil ) -> String? {
-        let characterID = characterID?.description ?? ""
-        
-        //If there's no id entered then only valid is the first call
-        guard self == .ListCharacters || !characterID.isEmpty else { return nil }
-  
-        return Routes.baseURL + Routes.apiSubURL + self.rawValue.stringByReplacingOccurrencesOfString(Routes.characterIdPlaceHolder, withString: characterID)
+    //Fetches lists of events filtered by a character id.
+    case ListEventsByCharacter(characterID:Int)
+    
+    //Fetches lists of series filtered by a character id.
+    case ListSeriesByCharacter(characterID:Int)
+    
+    //Fetches lists of stories filtered by a character id.
+    case ListStoriesByCharacter(characterID:Int)
+    
+    func getRoute() -> String {
+        return Routes.baseURL + Routes.apiSubURL + getGenericAPIPath()
+    }
+    
+    private func getGenericAPIPath() -> String {
+        switch self {
+        case ListCharacters: return "characters"
+            
+        //Fetches a single character by id.
+        case let .SingleCharacter(characterID): return "characters/\(characterID)"
+            
+        //Fetches lists of comics filtered by a character id.
+        case let .ListComicsByCharacter(characterID): return "characters/\(characterID)/comics"
+            
+        //Fetches lists of events filtered by a character id.
+        case let .ListEventsByCharacter(characterID): return "characters/\(characterID)/events"
+            
+        //Fetches lists of series filtered by a character id.
+        case let .ListSeriesByCharacter(characterID): return "characters/\(characterID)/series"
+            
+        //Fetches lists of stories filtered by a character id.
+        case let .ListStoriesByCharacter(characterID): return "characters/\(characterID)/stories"
+            
+        }
     }
 }
