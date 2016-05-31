@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		9A0B18581CF8F79D00B0AF3F /* CharacterDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0B18571CF8F79D00B0AF3F /* CharacterDetailsViewController.swift */; };
 		9A1666291CF791E100C1283F /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1666281CF791E100C1283F /* Character.swift */; };
-		9A16662C1CF7922800C1283F /* CharacterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A16662B1CF7922800C1283F /* CharacterService.swift */; };
+		9A16662C1CF7922800C1283F /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A16662B1CF7922800C1283F /* NetworkService.swift */; };
 		9A16662E1CF79A3100C1283F /* BreakError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A16662D1CF79A3100C1283F /* BreakError.swift */; };
 		9A1666301CF79C9800C1283F /* ResultDataBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A16662F1CF79C9800C1283F /* ResultDataBox.swift */; };
 		9A1666321CF79DB700C1283F /* ResponseEnclosure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1666311CF79DB700C1283F /* ResponseEnclosure.swift */; };
@@ -82,7 +82,7 @@
 /* Begin PBXFileReference section */
 		9A0B18571CF8F79D00B0AF3F /* CharacterDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CharacterDetailsViewController.swift; path = UIViewControllers/CharacterDetailsViewController.swift; sourceTree = "<group>"; };
 		9A1666281CF791E100C1283F /* Character.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Character.swift; path = Models/Character.swift; sourceTree = "<group>"; };
-		9A16662B1CF7922800C1283F /* CharacterService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CharacterService.swift; path = Networking/CharacterService.swift; sourceTree = "<group>"; };
+		9A16662B1CF7922800C1283F /* NetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkService.swift; path = Networking/NetworkService.swift; sourceTree = "<group>"; };
 		9A16662D1CF79A3100C1283F /* BreakError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BreakError.swift; path = Networking/BreakError.swift; sourceTree = "<group>"; };
 		9A16662F1CF79C9800C1283F /* ResultDataBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ResultDataBox.swift; path = Models/ResultDataBox.swift; sourceTree = "<group>"; };
 		9A1666311CF79DB700C1283F /* ResponseEnclosure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ResponseEnclosure.swift; path = Models/ResponseEnclosure.swift; sourceTree = "<group>"; };
@@ -302,7 +302,7 @@
 			children = (
 				9AE3B42C1CF6A0E60087CAC6 /* Routes.swift */,
 				9AE3B4311CF6ADDB0087CAC6 /* APIHandler.swift */,
-				9A16662B1CF7922800C1283F /* CharacterService.swift */,
+				9A16662B1CF7922800C1283F /* NetworkService.swift */,
 				9A16662D1CF79A3100C1283F /* BreakError.swift */,
 				9A1666411CF7B3C400C1283F /* ImageService.swift */,
 				9A9333B11CF9388F00932676 /* RxAPICaller.swift */,
@@ -550,7 +550,7 @@
 				9A33B7BB1CFBA31C00A7C46E /* CharacterCrossReferenceContainer.swift in Sources */,
 				9A33B7B71CFBA2F500A7C46E /* CharacterDetailContainer.swift in Sources */,
 				9A16662E1CF79A3100C1283F /* BreakError.swift in Sources */,
-				9A16662C1CF7922800C1283F /* CharacterService.swift in Sources */,
+				9A16662C1CF7922800C1283F /* NetworkService.swift in Sources */,
 				9A9333BB1CF9400700932676 /* MockupNetworking.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -13,7 +13,7 @@ import Result
 import ObjectMapper
 
 struct RxAPICaller {
-    static func requestWithParams<T:Mappable>(parameters: [String:String], route: Routes) -> Observable<Result<[T],RequestError>> {
+    static func requestWithParams<T:MainAPISubject>(parameters: [String:String], route: Routes) -> Observable<Result<[T],RequestError>> {
         let isCharacter = T.self is Character.Type
         guard !mockupEnabled else {
             let json = RxAPICaller.buildJSON(isCharacter ? MockupResource.Character.getMockupData()! : MockupResource.CrossReference.getMockupData()!)
@@ -29,9 +29,9 @@ struct RxAPICaller {
         return try! NSJSONSerialization.JSONObjectWithData(data, options: .MutableContainers) as! NSDictionary
     }
    
-    private static func requestItemWithParams<T: Mappable>(parameters: [String:String], route: Routes) -> Observable<Result<[T],RequestError>> {
+    private static func requestItemWithParams<T: MainAPISubject>(parameters: [String:String], route: Routes) -> Observable<Result<[T],RequestError>> {
         return RxAlamofire
-            .requestJSON(.GET, route.getRoute()!, parameters: parameters)
+            .requestJSON(.GET, route.getRoute(), parameters: parameters)
             .debug()
             .observeOn(ConcurrentDispatchQueueScheduler(globalConcurrentQueueQOS: .Background))
             .flatMapLatest { (response: NSHTTPURLResponse, json: AnyObject) -> Observable<Result<[T],RequestError>> in
