@@ -40,6 +40,6 @@ struct ImageSource {
      - returns: a placeholder Image
      */
     static private func getPlaceholderImage() -> UIImage? {
-        return MockupNetworking.mockupEnabled ? UIImage(data: MockupNetworking().getPostImage()!) : nil
+        return mockupEnabled ? UIImage(data: MockupResource.Image.getMockupData()!) : nil
     }
 }
