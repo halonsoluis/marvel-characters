@@ -13,38 +13,39 @@ import Result
 import ObjectMapper
 
 struct RxAPICaller {
-    static func requestWithParams(parameters: [String:String], route: Routes) -> Observable<Result<[Character],RequestError>> {
-        
-        guard !MockupNetworking.mockupEnabled else {
-            let json = RxAPICaller.buildJSON(MockupNetworking().getCharactersList()!)
-            let charactersBox = Mapper<ResponseEnclosure<Character>>().map(json)
-            let characters = charactersBox?.data?.results ?? []
+    static func requestWithParams<T:Mappable>(parameters: [String:String], route: Routes) -> Observable<Result<[T],RequestError>> {
+        let isCharacter = T.self is Character.Type
+        guard !mockupEnabled else {
+            let json = RxAPICaller.buildJSON(isCharacter ? MockupResource.Character.getMockupData()! : MockupResource.CrossReference.getMockupData()!)
+            let box = Mapper<ResponseEnclosure<T>>().map(json)
+            let items = box?.data?.results ?? []
             
-            return Observable.just(Result.Success(characters))
+            return Observable.just(Result.Success(items))
         }
-        return RxAPICaller.requestCharactersWithParams(parameters, route: route)
+        return RxAPICaller.requestItemWithParams(parameters, route: route)
     }
     
     static private func buildJSON(data:NSData) -> NSDictionary {
         return try! NSJSONSerialization.JSONObjectWithData(data, options: .MutableContainers) as! NSDictionary
     }
-    
-    private static func requestCharactersWithParams(parameters: [String:String], route: Routes = Routes.ListCharacters) -> Observable<Result<[Character],RequestError>> {
+   
+    private static func requestItemWithParams<T: Mappable>(parameters: [String:String], route: Routes) -> Observable<Result<[T],RequestError>> {
         return RxAlamofire
             .requestJSON(.GET, route.getRoute()!, parameters: parameters)
             .debug()
             .observeOn(ConcurrentDispatchQueueScheduler(globalConcurrentQueueQOS: .Background))
-            .flatMapLatest { (response: NSHTTPURLResponse, json: AnyObject) -> Observable<Result<[Character],RequestError>> in
+            .flatMapLatest { (response: NSHTTPURLResponse, json: AnyObject) -> Observable<Result<[T],RequestError>> in
                 
                 guard response.statusCode == 200 else {
                     return Observable.just(Result.Failure(RequestError.Unknown))
                 }
                 
-                let charactersBox = Mapper<ResponseEnclosure<Character>>().map(json)
-                let characters = charactersBox?.data?.results ?? []
+                let box = Mapper<ResponseEnclosure<T>>().map(json)
+                let items = box?.data?.results ?? []
                 
-                return Observable.just(Result.Success(characters))
+                return Observable.just(Result.Success(items))
         }
         
     }
+
 }

@@ -7,10 +7,24 @@
 //
 
 import Foundation
+import ObjectMapper
+
+
+let mockupEnabled = true
 
 //Mark: Network Access Mockup
-struct MockupNetworking {
-    static let mockupEnabled = true
+enum MockupResource {
+    case Image, CrossReference, Character
+    
+    func getMockupData() -> NSData? {
+        let locator : (path:String, ext: String)!
+        switch self  {
+        case .CrossReference: locator = (path: "collectionResponsePage", ext: "json")
+        case .Character: locator = (path: "characterListUnfilteredPage", ext: "json")
+        case .Image: locator = (path: "characterImage", ext: "jpg")
+        }
+        return loadFileData(locator.path, ext: locator.ext)
+    }
     
     private func loadFileData(name:String, ext: String) -> NSData? {
         let bundle = NSBundle.mainBundle()
@@ -18,18 +32,9 @@ struct MockupNetworking {
         guard
             let path = bundle.pathForResource(name, ofType: ext) ,
             let data = NSData(contentsOfFile: path) else {
-            
-            return nil
+                
+                return nil
         }
         return data
-    }
-    
-    
-    func getCharactersList()-> NSData? {
-        return loadFileData("characterListUnfilteredPage", ext: "json")
-    }
-    
-    func getPostImage()-> NSData? {
-        return loadFileData("characterImage", ext: "jpg")
     }
 }
