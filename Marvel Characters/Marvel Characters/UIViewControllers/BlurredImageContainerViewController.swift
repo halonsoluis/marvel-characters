@@ -23,7 +23,7 @@ class BlurredImageContainerViewController : UIViewController, CharacterProviderD
     
     var navigationBarAlpha : CGFloat = 0 {
         didSet {
-          //  print(navigationBarAlpha)
+            //  print(navigationBarAlpha)
             self.viewWithBlur?.alpha = navigationBarAlpha
             self.navigationItem.titleView?.alpha = navigationBarAlpha
             
@@ -43,14 +43,20 @@ class BlurredImageContainerViewController : UIViewController, CharacterProviderD
     }
     
     override func viewDidLoad() {
+        setUpNavigatorAppearance()
+        super.viewDidLoad()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         
+        addViewWithBlur()
+    }
+    
+    func setUpNavigatorAppearance() {
         navigationController?.setNavigationBarHidden(false, animated: false)
         
         blurredImage?.image = characterImage
-        
-        
-        self.title = character?.name
-        
         
         guard let bar = navigationController?.navigationBar else { return }
         
@@ -59,7 +65,9 @@ class BlurredImageContainerViewController : UIViewController, CharacterProviderD
             bar.backgroundColor = UIColor.clearColor()
             bar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
             bar.shadowImage = UIImage()
-        }()
+            }()
+        
+        self.title = character?.name
         
         viewWithBlur = {
             let viewHoldingBlur = UIView(frame: CGRectMake(0, -20, bar.bounds.width, bar.bounds.height + 20))
@@ -79,15 +87,20 @@ class BlurredImageContainerViewController : UIViewController, CharacterProviderD
             viewHoldingBlur.addSubview(viewWithBlur)
             viewHoldingBlur.opaque = false
             viewHoldingBlur.backgroundColor = UIColor.clearColor()
-            bar.addSubview(viewHoldingBlur)
-            bar.sendSubviewToBack(viewHoldingBlur)
             return viewHoldingBlur
-        }()
+            }()
         
+        addViewWithBlur()
         navigationBarAlpha = 0
-        super.viewDidLoad()
-   }
+    }
+    
+    func addViewWithBlur() {
+        guard let bar = navigationController?.navigationBar, let viewWithBlur = viewWithBlur else { setUpNavigatorAppearance() ; return }
         
+        bar.addSubview(viewWithBlur)
+        bar.sendSubviewToBack(viewWithBlur)
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let embedded = segue.destinationViewController as? CharacterDetailsViewController {
             embedded.delegate = self
