@@ -55,28 +55,7 @@ class CharacterCrossLargeCells: UIViewController, UICollectionViewDelegate, UICo
         collectionView.rx_dataSource.forwardToDelegate()
         
         collectionView.reloadData()
-        /*
-        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        layout.estimatedItemSize = CGSize(width: 200, height: 50)
-        collectionView.collectionViewLayout = layout
-        */
-        /*
-         
-         let layout = UICollectionViewFlowLayout()
-         
-         let screenSize = UIScreen.mainScreen().bounds
-         let screenRatio = screenSize.width / screenSize.height
-         
-         layout.itemSize.width = self.collectionView.bounds.width - 80
-         layout.itemSize.height = self.collectionView.scrobounds.height - 60
-         
-         /* layout.minimumInteritemSpacing = 20*/
-         layout.scrollDirection = UICollectionViewScrollDirection.Horizontal
-         
-         collectionView.collectionViewLayout = layout*/
-        //
-        //
-        //collectionView.delegate = self
+        
         
         collectionView.rx_contentOffset
             .asDriver()
@@ -85,16 +64,23 @@ class CharacterCrossLargeCells: UIViewController, UICollectionViewDelegate, UICo
             .driveNext { offset in
                 let displacement = self.collectionView.contentSize.width / CGFloat(self.dataSource.value.count)
                 let value  = offset.x / displacement
-             /*   let moveDown = value - floor(value)
-                let moveUp = ceil(value) - value
-                
-                if moveUp*/
                 self.scrollToPage(Int(round(value)), animated: true)
             }.addDisposableTo(disposeBag)
         
     }
     
-
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        let layout = UICollectionViewFlowLayout()
+       
+        layout.itemSize.width = self.collectionView.bounds.width
+        layout.itemSize.height =  self.collectionView.bounds.height
+        
+        layout.scrollDirection = UICollectionViewScrollDirection.Horizontal
+           collectionView.collectionViewLayout = layout
+    }
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         scrollToPage(currentCoverIndex, animated: false)
