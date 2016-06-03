@@ -40,7 +40,7 @@ class CharacterCrossLargeCells: UIViewController, UICollectionViewDelegate, UICo
     var readyToLoadMore = true
     
     @IBAction func closeButtonTapped(sender: AnyObject) {
-     //   navigationController?.popViewControllerAnimated(true)
+        //   navigationController?.popViewControllerAnimated(true)
         dismissViewControllerAnimated(true, completion: nil)
     }
     
@@ -55,21 +55,55 @@ class CharacterCrossLargeCells: UIViewController, UICollectionViewDelegate, UICo
         collectionView.rx_dataSource.forwardToDelegate()
         
         collectionView.reloadData()
+        /*
+        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        layout.estimatedItemSize = CGSize(width: 200, height: 50)
+        collectionView.collectionViewLayout = layout
+        */
+        /*
+         
+         let layout = UICollectionViewFlowLayout()
+         
+         let screenSize = UIScreen.mainScreen().bounds
+         let screenRatio = screenSize.width / screenSize.height
+         
+         layout.itemSize.width = self.collectionView.bounds.width - 80
+         layout.itemSize.height = self.collectionView.scrobounds.height - 60
+         
+         /* layout.minimumInteritemSpacing = 20*/
+         layout.scrollDirection = UICollectionViewScrollDirection.Horizontal
+         
+         collectionView.collectionViewLayout = layout*/
+        //
+        //
+        //collectionView.delegate = self
+        
+        collectionView.rx_contentOffset
+            .asDriver()
+            .throttle(0.5)
+            .distinctUntilChanged()
+            .driveNext { offset in
+                let displacement = self.collectionView.contentSize.width / CGFloat(self.dataSource.value.count)
+                let value  = offset.x / displacement
+             /*   let moveDown = value - floor(value)
+                let moveUp = ceil(value) - value
+                
+                if moveUp*/
+                self.scrollToPage(Int(round(value)), animated: true)
+            }.addDisposableTo(disposeBag)
         
     }
     
+
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         scrollToPage(currentCoverIndex, animated: false)
     }
     
-    
     func scrollToPage(page: Int, animated: Bool) {
-        var frame: CGRect = self.collectionView.frame
-        frame.origin.x = frame.size.width * CGFloat(page);
-        frame.origin.y = 0;
-        self.collectionView.scrollRectToVisible(frame, animated: animated)
+        self.collectionView.scrollToItemAtIndexPath(NSIndexPath(forRow: page, inSection: 0), atScrollPosition: UICollectionViewScrollPosition.CenteredHorizontally, animated: animated)
     }
+    
     
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
@@ -93,6 +127,8 @@ class CharacterCrossLargeCells: UIViewController, UICollectionViewDelegate, UICo
     }
     
     func setupPagination() {
+        
+        
         
         collectionView.rx_contentOffset
             .debounce(0.1, scheduler: MainScheduler.instance)
@@ -127,17 +163,16 @@ class CharacterCrossLargeCells: UIViewController, UICollectionViewDelegate, UICo
                 } else {
                     self.readyToLoadMore = true
                 }
+                
+                let displacement = self.collectionView.contentSize.width / CGFloat(self.dataSource.value.count)
+                let value  = self.collectionView.contentOffset.x / displacement
+                self.scrollToPage(Int(round(value)), animated: true)
+                
             }
             .addDisposableTo(disposeBag)
     }
     
     
-    func collectionView(collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                               sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        let kWhateverHeightYouWant = 4/6 * collectionView.bounds.size.width
-        return CGSizeMake(collectionView.bounds.size.width, CGFloat(kWhateverHeightYouWant))
-    }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCellWithReuseIdentifier("RelatedPublicationLargeCell", forIndexPath: indexPath) as? RelatedPublicationLargeCell
