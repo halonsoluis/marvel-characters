@@ -838,7 +838,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" reuseIdentifier="RelatedPublicationLargeCell" id="nG6-8V-vBN" customClass="RelatedPublicationLargeCell" customModule="Marvel_Characters" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="87" width="310" height="480"/>
+                                        <rect key="frame" x="0.0" y="102" width="310" height="450"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="310" height="450"/>
@@ -1071,7 +1071,7 @@
                                     <outlet property="delegate" destination="7Kj-do-scJ" id="KsR-9B-oXr"/>
                                 </connections>
                             </collectionView>
-                            <button opaque="NO" contentMode="right" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ls2-eb-jUw">
+                            <button opaque="NO" contentMode="right" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ls2-eb-jUw">
                                 <rect key="frame" x="354" y="0.0" width="60" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="21E-TU-qbr">

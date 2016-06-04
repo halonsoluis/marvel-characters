@@ -15,6 +15,7 @@ import UIKit
 */
 struct ImageSource {
    
+    private static let placeHolderImage = UIImage(named: "Image_not_found")
     /**
      Download/Load from cache the image and set it at the specified imageView
      
@@ -40,6 +41,7 @@ struct ImageSource {
      - returns: a placeholder Image
      */
     static private func getPlaceholderImage() -> UIImage? {
-        return mockupEnabled ? UIImage(data: MockupResource.Image.getMockupData()!) : nil
+        //mockupEnabled ? UIImage(data: MockupResource.Image.getMockupData()!) :
+        return placeHolderImage
     }
 }
