@@ -9,6 +9,7 @@
 import XCTest
 
 class CharacterList_UITests: XCTestCase {
+    let app = XCUIApplication()
     
     override func setUp() {
         super.setUp()
@@ -30,28 +31,18 @@ class CharacterList_UITests: XCTestCase {
     }
     
     func testForElementsExistsInViewWithMockup() {
-        let app = XCUIApplication()
-        
-        
         XCTAssert(app.tables.count == 1)
         
         XCTAssert(app.tables.cells.count >= 1)
         
         XCTAssert(app.tables.cells.elementBoundByIndex(0).buttons.count == 1)
         XCTAssert(app.tables.cells.elementBoundByIndex(0).images["Character Image"].exists)
+        
+        XCTAssert(app.keyboards.count == 0)
     }
 
-    func testThereIsAnImageInCellButton() {
-        let app = XCUIApplication()
-        let cell = app.tables.cells.elementBoundByIndex(0)
-        let cellImage = cell.images.elementBoundByIndex(0)
-        
-        XCTAssert(cellImage.exists)
-    }
 
     func testCharacterNameIsDisplayedInCell() {
-        let app = XCUIApplication()
-        
         let cellButton = app.tables.cells.elementBoundByIndex(0).buttons.elementBoundByIndex(0)
         XCTAssert(cellButton.exists)
         XCTAssert(!cellButton.label.isEmpty)
@@ -59,12 +50,62 @@ class CharacterList_UITests: XCTestCase {
 
     
     func testNavigatesIntoCharacterDetailsWhenTappingOverCell() {
-        let app = XCUIApplication()
-        
         XCTAssert(!app.navigationBars["Marvel_Characters.BlurredImageContainerView"].exists)
         
         app.tables.childrenMatchingType(.Cell).elementBoundByIndex(0).tap()
         
         XCTAssert(app.navigationBars["Marvel_Characters.BlurredImageContainerView"].exists)
+    }
+    
+    func testPagination() {
+
+        let cellsQuery = app.tables.childrenMatchingType(.Cell)
+        let numCells = cellsQuery.count
+        
+        app.tables.element.swipeUp()
+        app.tables.element.swipeUp()
+        app.tables.element.swipeUp()
+        app.tables.element.swipeUp()
+    
+        _ = self.expectationForPredicate(NSPredicate(format: "self.count != \(numCells)"), evaluatedWithObject: cellsQuery, handler: nil)
+        self.waitForExpectationsWithTimeout(5.0, handler: nil)
+        
+        
+        let newCells = cellsQuery.count
+        
+        XCTAssert(numCells < newCells)
+    }
+    
+    func testLoadingPagesIndicatorIsShown() {
+        let tablesQuery = XCUIApplication().tables
+        let cellQuery = tablesQuery.childrenMatchingType(.Cell)
+        XCTAssert(tablesQuery.activityIndicators["In progress"].exists)
+        
+        XCTAssert(!tablesQuery.activityIndicators["In progress"].hittable)
+//        
+//        tablesQuery.
+//        let loadedCellCount = cellQuery.count
+//        cellQuery.elementBoundByIndex(cellQuery.count-1).images["Image_not_found"].swipeUp()
+//        cellQuery.elementBoundByIndex(cellQuery.count-1).images["Image_not_found"].swipeUp()
+//        cellQuery.elementBoundByIndex(cellQuery.count-1).images["Image_not_found"].swipeUp()
+//        
+//    //    XCTAssert(tablesQuery.activityIndicators["In progress"].exists)
+//        XCTAssert(tablesQuery.activityIndicators["In progress"].exists)
+//        
+//        //tablesQuery.activityIndicators["In progress"].tap()
+//        
+    }
+    
+    func testCorrectCellCountPaginationIsShown() {
+        let numCells = app.tables.childrenMatchingType(.Cell).count
+        XCTAssert(numCells == 20)
+        
+        app.tables.element.swipeUp()
+        app.tables.element.swipeUp()
+        app.tables.element.swipeUp()
+        app.tables.element.swipeUp()
+        
+        let newCells = app.tables.childrenMatchingType(.Cell).count
+        XCTAssert(newCells == 40)
     }
 }
