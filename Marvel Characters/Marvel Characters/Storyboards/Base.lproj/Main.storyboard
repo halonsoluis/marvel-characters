@@ -258,8 +258,11 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="69"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bmL-E6-Wwy">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bmL-E6-Wwy" userLabel="Character Image">
                                                     <rect key="frame" x="0.0" y="0.0" width="69" height="69"/>
+                                                    <accessibility key="accessibilityConfiguration" label="Character Image">
+                                                        <bool key="isElement" value="YES"/>
+                                                    </accessibility>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="bmL-E6-Wwy" secondAttribute="height" multiplier="1:1" id="VPm-69-UDb"/>
                                                         <constraint firstAttribute="height" constant="63" id="g7W-2m-7lu"/>
@@ -1212,8 +1215,8 @@
         <image name="icn-nav-search" width="28" height="28"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="IZu-ZC-aed"/>
         <segue reference="nPs-FQ-fjG"/>
-        <segue reference="ojX-te-uzF"/>
         <segue reference="MCM-s6-jGB"/>
     </inferredMetricsTieBreakers>
 </document>
