@@ -41,6 +41,10 @@ class CharacterList_UITests: XCTestCase {
         XCTAssert(app.keyboards.count == 0)
     }
 
+    func testForActivityIndicatorExistance() {
+        let indicator = app.tables.activityIndicators["In progress"]
+         XCTAssert(indicator.exists)
+    }
 
     func testCharacterNameIsDisplayedInCell() {
         let cellButton = app.tables.cells.elementBoundByIndex(0).buttons.elementBoundByIndex(0)
@@ -76,24 +80,12 @@ class CharacterList_UITests: XCTestCase {
         XCTAssert(numCells < newCells)
     }
     
-    func testLoadingPagesIndicatorIsShown() {
+    func testLoadingPagesIndicatorIsNotShown() {
         let tablesQuery = XCUIApplication().tables
-        let cellQuery = tablesQuery.childrenMatchingType(.Cell)
         XCTAssert(tablesQuery.activityIndicators["In progress"].exists)
         
         XCTAssert(!tablesQuery.activityIndicators["In progress"].hittable)
-//        
-//        tablesQuery.
-//        let loadedCellCount = cellQuery.count
-//        cellQuery.elementBoundByIndex(cellQuery.count-1).images["Image_not_found"].swipeUp()
-//        cellQuery.elementBoundByIndex(cellQuery.count-1).images["Image_not_found"].swipeUp()
-//        cellQuery.elementBoundByIndex(cellQuery.count-1).images["Image_not_found"].swipeUp()
-//        
-//    //    XCTAssert(tablesQuery.activityIndicators["In progress"].exists)
-//        XCTAssert(tablesQuery.activityIndicators["In progress"].exists)
-//        
-//        //tablesQuery.activityIndicators["In progress"].tap()
-//        
+     
     }
     
     func testCorrectCellCountPaginationIsShown() {
