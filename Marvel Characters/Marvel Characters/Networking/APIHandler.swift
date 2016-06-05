@@ -20,7 +20,6 @@ struct APIHandler {
     private static let publicAPIKey = "19972fbcfc8ba75736070bc42fbca671"
     
     private static func getPaginationConfigFor(page page: Int) -> (offset: Int, limit : Int)? {
-        guard page >= 0 else {return nil }
         return (offset: page * APIHandler.itemsPerPage, limit : APIHandler.itemsPerPage)
     }
     
@@ -33,7 +32,10 @@ struct APIHandler {
     }
     
     static func getDefaultParamsAsDictForPage(page: Int = 0) -> [String:String]? {
-        guard let params = getDefaultParamsForPage(page) else { return nil }
+        guard
+            page >= 0,
+            let params = getDefaultParamsForPage(page)
+        else { return nil }
         
         return {
             

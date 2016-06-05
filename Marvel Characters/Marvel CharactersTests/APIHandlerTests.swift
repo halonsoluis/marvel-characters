@@ -27,6 +27,11 @@ class APIHandlerTests: XCTestCase {
         XCTAssertEqual(dict!["limit"]!,  APIHandler.itemsPerPage.description)
     }
     
+    func testGetDefaultParamsAsDictForPage_minus1() {
+        let dict = APIHandler.getDefaultParamsAsDictForPage(-1)
+        XCTAssertNil(dict)
+    }
+    
     func testGetDefaultParamsAsDictForPage_2() {
         let dict = APIHandler.getDefaultParamsAsDictForPage(2)
         XCTAssertNotNil(dict)
@@ -74,38 +79,4 @@ class APIHandlerTests: XCTestCase {
             let _ = APIHandler.getSecurityFootprint(1.description, privateAPIKey: "abcd", publicAPIKey: "1234")
         }
     }
-    
-    
 }
-
-//
-//func getPaginationConfigFor(page page: Int) -> (offset: Int, limit : Int)? {
-//    guard page >= 0 else {return nil }
-//    return (offset: page * APIHandler.itemsPerPage, limit : APIHandler.itemsPerPage)
-//}
-//
-//func getDefaultParamsForPage(page: Int = 0) -> (offset: Int, limit : Int, APIKey: String, timeStamp: String, hash: String)?{
-//    guard
-//        let securityData = getSecurityFootprint(),
-//        let paginationData = getPaginationConfigFor(page: page)
-//        else { return nil }
-//    return (offset: paginationData.offset, limit : paginationData.limit, securityData.APIKey, timeStamp: securityData.timeStamp, hash: securityData.hash)
-//}
-//
-//func getDefaultParamsAsDictForPage(page: Int = 0) -> [String:String]? {
-//    guard let params = getDefaultParamsForPage(page) else { return nil }
-//
-//    return {
-//
-//        var dict = [String:String]()
-//
-//        dict["apikey"] = params.APIKey
-//        dict["hash"]   = params.hash
-//        dict["ts"]     = params.timeStamp
-//        dict["limit"]  = params.limit.description
-//        dict["offset"] = params.offset.description
-//
-//        return dict
-//        }()
-//
-//}
