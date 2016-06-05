@@ -48,8 +48,6 @@ class RxAPICaller_Tests: XCTestCase {
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
-        mockupEnabled = true
-        
         characterListObservable = RxAPICaller.requestWithParams(params, route: Routes.ListCharacters)
         
         crossReferenceListObservable = RxAPICaller.requestWithParams(params, route: Routes.ListComicsByCharacter(characterID: characterID))

@@ -8,9 +8,6 @@
 
 import Foundation
 
-
-var mockupEnabled = true
-
 //Mark: Network Access Mockup
 enum MockupResource {
     case Image, CrossReference, Character

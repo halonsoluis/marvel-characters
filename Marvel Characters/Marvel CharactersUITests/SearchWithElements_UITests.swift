@@ -18,11 +18,11 @@ class SearchWithElementsUITests: XCTestCase {
     override func setUp() {
         super.setUp()
         
-        mockupEnabled = true
-        
         continueAfterFailure = false
         
-        XCUIApplication().launch()
+        app.launchArguments.append("MOCKUP_MODE")
+
+        app.launch()
         
         app.navigationBars["Marvel_Characters.CharacterListView"].buttons["icn nav search"].tap()
         
