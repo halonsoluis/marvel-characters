@@ -721,8 +721,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="250"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="CHARACTER NAME" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="none" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="Cz4-Fr-C0f">
+                            <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="CHARACTER NAME" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="none" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="Cz4-Fr-C0f" userLabel="Text Detail">
                                 <rect key="frame" x="10" y="47" width="560" height="42"/>
+                                <accessibility key="accessibilityConfiguration" identifier="Text Detail">
+                                    <accessibilityTraits key="traits" staticText="YES" notEnabled="YES"/>
+                                </accessibility>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="lessThanOrEqual" constant="197" id="b4l-3m-kK0"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="42" id="k6p-XU-7bV"/>
