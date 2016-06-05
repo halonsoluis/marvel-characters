@@ -27,7 +27,7 @@ struct RxAPICaller {
             return try! NSJSONSerialization.JSONObjectWithData(data, options: .MutableContainers) as! NSDictionary
         }
         
-        let isCharacter = T.self is Character.Type
+        let isCharacter = T.self is MarvelCharacter.Type
         let json = buildJSON(isCharacter ? MockupResource.Character.getMockupData()! : MockupResource.CrossReference.getMockupData()!)
         
         let box = Mapper<ResponseEnclosure<T>>().map(json)

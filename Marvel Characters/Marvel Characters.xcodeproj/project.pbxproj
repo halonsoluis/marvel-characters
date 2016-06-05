@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9A0B18581CF8F79D00B0AF3F /* CharacterDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0B18571CF8F79D00B0AF3F /* CharacterDetailsViewController.swift */; };
-		9A1666291CF791E100C1283F /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1666281CF791E100C1283F /* Character.swift */; };
+		9A1666291CF791E100C1283F /* MarvelCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1666281CF791E100C1283F /* MarvelCharacter.swift */; };
 		9A16662C1CF7922800C1283F /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A16662B1CF7922800C1283F /* NetworkService.swift */; };
 		9A16662E1CF79A3100C1283F /* BreakError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A16662D1CF79A3100C1283F /* BreakError.swift */; };
 		9A1666301CF79C9800C1283F /* ResultDataBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A16662F1CF79C9800C1283F /* ResultDataBox.swift */; };
@@ -97,7 +97,7 @@
 
 /* Begin PBXFileReference section */
 		9A0B18571CF8F79D00B0AF3F /* CharacterDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CharacterDetailsViewController.swift; path = UIViewControllers/CharacterDetailsViewController.swift; sourceTree = "<group>"; };
-		9A1666281CF791E100C1283F /* Character.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Character.swift; path = Models/Character.swift; sourceTree = "<group>"; };
+		9A1666281CF791E100C1283F /* MarvelCharacter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MarvelCharacter.swift; path = Models/MarvelCharacter.swift; sourceTree = "<group>"; };
 		9A16662B1CF7922800C1283F /* NetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkService.swift; path = Networking/NetworkService.swift; sourceTree = "<group>"; };
 		9A16662D1CF79A3100C1283F /* BreakError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BreakError.swift; path = Networking/BreakError.swift; sourceTree = "<group>"; };
 		9A16662F1CF79C9800C1283F /* ResultDataBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ResultDataBox.swift; path = Models/ResultDataBox.swift; sourceTree = "<group>"; };
@@ -204,7 +204,7 @@
 				9A16663C1CF7A40800C1283F /* Protocols.swift */,
 				9A1666311CF79DB700C1283F /* ResponseEnclosure.swift */,
 				9A16662F1CF79C9800C1283F /* ResultDataBox.swift */,
-				9A1666281CF791E100C1283F /* Character.swift */,
+				9A1666281CF791E100C1283F /* MarvelCharacter.swift */,
 				9A1666331CF79EF900C1283F /* Thumbnail.swift */,
 				9A16663B1CF7A40800C1283F /* CrossReferenceBox.swift */,
 				9A1666391CF7A3E000C1283F /* CrossReferenceItem.swift */,
@@ -572,7 +572,7 @@
 				9A16663D1CF7A40800C1283F /* CrossReferenceBox.swift in Sources */,
 				9A9333B21CF9388F00932676 /* RxAPICaller.swift in Sources */,
 				9AE3B4281CF695B90087CAC6 /* MD5Digester.swift in Sources */,
-				9A1666291CF791E100C1283F /* Character.swift in Sources */,
+				9A1666291CF791E100C1283F /* MarvelCharacter.swift in Sources */,
 				9AE3B4321CF6ADDB0087CAC6 /* APIHandler.swift in Sources */,
 				9A33B7AE1CFADF6800A7C46E /* RelatedLinksCell.swift in Sources */,
 				9A61C3FF1CF893BD000EC54E /* UIImageGradient.swift in Sources */,

@@ -19,15 +19,15 @@ class CharacterListViewController: UIViewController {
     
     let disposeBag = DisposeBag()
     
-    let dataSource = Variable<[Character]>([])
+    let dataSource = Variable<[MarvelCharacter]>([])
     
     /// Value of current page
     var currentPage = Variable<Int>(0)
     
     var chs : NetworkService?
-    var rx_characters: Driver<Result<[Character],RequestError>>?
+    var rx_characters: Driver<Result<[MarvelCharacter],RequestError>>?
 
-    let errorValidation = { (result: Result<[Character],RequestError>) -> Driver<[Character]> in
+    let errorValidation = { (result: Result<[MarvelCharacter],RequestError>) -> Driver<[MarvelCharacter]> in
         switch result {
         case .Success(let character):
             return Driver.just(character)
