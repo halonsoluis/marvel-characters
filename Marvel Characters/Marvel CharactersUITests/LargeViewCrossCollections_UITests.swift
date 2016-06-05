@@ -35,4 +35,10 @@ class LargeViewCrossCollections_UITests: XCTestCase {
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
     
+    func testStatusBarIsPresent(){
+        let statusBarsQuery = XCUIApplication().statusBars.element
+        XCTAssertTrue(statusBarsQuery.exists)
+        XCTAssertTrue(statusBarsQuery.hittable)
+    }
+    
 }

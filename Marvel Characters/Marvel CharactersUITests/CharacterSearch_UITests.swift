@@ -74,6 +74,9 @@ class CharacterSearchUITests: XCTestCase {
         
         XCTAssert(cells.count > 0)
     }
-    
-   
+    func testStatusBarIsPresent(){
+        let statusBarsQuery = XCUIApplication().statusBars.element
+        XCTAssertTrue(statusBarsQuery.exists)
+        XCTAssertTrue(statusBarsQuery.hittable)
+    }
 }

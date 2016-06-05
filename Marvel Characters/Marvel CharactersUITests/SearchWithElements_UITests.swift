@@ -141,4 +141,9 @@ class SearchWithElementsUITests: XCTestCase {
         cells = app.tables.element.cells
         XCTAssert(cells.count > 0)
     }
+    func testStatusBarIsPresent(){
+        let statusBarsQuery = XCUIApplication().statusBars.element
+        XCTAssertTrue(statusBarsQuery.exists)
+        XCTAssertTrue(statusBarsQuery.hittable)
+    }
 }

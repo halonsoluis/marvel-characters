@@ -108,7 +108,13 @@ class CharacterList_UITests: XCTestCase {
         
         app.navigationBars["Marvel_Characters.BlurredImageContainerView"].childrenMatchingType(.Button).matchingIdentifier("Back").elementBoundByIndex(1).tap()
         
-        XCTAssert(!app.navigationBars["Marvel_Characters.BlurredImageContainerView"].exists)
-        
+        XCTAssertFalse(app.navigationBars["Marvel_Characters.BlurredImageContainerView"].exists)
+        XCTAssertFalse(app.searchFields["Search..."].exists)
+    }
+    
+    func testStatusBarIsPresent(){
+        let statusBarsQuery = XCUIApplication().statusBars.element
+        XCTAssertTrue(statusBarsQuery.exists)
+        XCTAssertTrue(statusBarsQuery.hittable)
     }
 }
