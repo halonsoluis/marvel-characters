@@ -100,4 +100,15 @@ class CharacterList_UITests: XCTestCase {
         let newCells = app.tables.childrenMatchingType(.Cell).count
         XCTAssert(newCells == 40)
     }
+    
+    
+    func testBackButtonInDetailsReturnsToMainList() {
+        
+        app.tables.childrenMatchingType(.Cell).elementBoundByIndex(0).tap()
+        
+        app.navigationBars["Marvel_Characters.BlurredImageContainerView"].childrenMatchingType(.Button).matchingIdentifier("Back").elementBoundByIndex(1).tap()
+        
+        XCTAssert(!app.navigationBars["Marvel_Characters.BlurredImageContainerView"].exists)
+        
+    }
 }

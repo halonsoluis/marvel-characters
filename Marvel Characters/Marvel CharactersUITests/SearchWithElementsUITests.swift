@@ -129,4 +129,16 @@ class SearchWithElementsUITests: XCTestCase {
         let newCells = cells.count
         XCTAssert(newCells == 40)
     }
+    
+    func testBackButtonInDetailsReturnsToSearchList() {
+        
+        app.tables.childrenMatchingType(.Cell).elementBoundByIndex(0).tap()
+        
+        app.navigationBars["Marvel_Characters.BlurredImageContainerView"].childrenMatchingType(.Button).matchingIdentifier("Back").elementBoundByIndex(1).tap()
+        
+        XCTAssert(!app.navigationBars["Marvel_Characters.BlurredImageContainerView"].exists)
+        
+        cells = app.tables.element.cells
+        XCTAssert(cells.count > 0)
+    }
 }

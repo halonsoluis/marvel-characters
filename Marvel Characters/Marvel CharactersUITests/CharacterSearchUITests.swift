@@ -33,8 +33,16 @@ class CharacterSearchUITests: XCTestCase {
         
         searchBar = app.searchFields["Search..."]
         
-        //app.navigationBars["Marvel_Characters.BlurredImageContainerView"].childrenMatchingType(.Button).matchingIdentifier("Back").elementBoundByIndex(1).tap()
-//        app.buttons["Cancel"].tap()
+    }
+    
+    func testCancelButtonReturnToList() {
+        
+        XCTAssertFalse(app.navigationBars["Marvel_Characters.CharacterListView"].buttons["icn nav search"].exists)
+        
+        app.buttons["Cancel"].tap()
+        
+        XCTAssertTrue(app.navigationBars["Marvel_Characters.CharacterListView"].buttons["icn nav search"].exists)
+        
     }
     
     func testSearchStartsEmpty() {
