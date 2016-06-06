@@ -19,6 +19,7 @@ class SearchViewController: CharacterListViewController {
         return searchBar
             .rx_text
             .throttle(0.5, scheduler: MainScheduler.instance)
+            .distinctUntilChanged()
             .filter {
                 if $0.isEmpty {
                     self.dataSource.value.removeAll()
@@ -27,7 +28,6 @@ class SearchViewController: CharacterListViewController {
                 }
                 return true
             }
-            .distinctUntilChanged()
             .doOnNext { (_) in
                 self.dataSource.value.removeAll()
                 self.currentPage.value = 0
