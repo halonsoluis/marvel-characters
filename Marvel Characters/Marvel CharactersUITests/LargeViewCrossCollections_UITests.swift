@@ -16,28 +16,79 @@ class LargeViewCrossCollections_UITests: XCTestCase {
         
         // Put setup code here. This method is called before the invocation of each test method in the class.
         app.launchArguments.append("MOCKUP_MODE")
-
+        
         // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
         // UI tests must launch the application that they test. Doing this in setup will make sure it happens for each test method.
         app.launch()
-
+        
         // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
         app.tables.childrenMatchingType(.Cell).elementBoundByIndex(0).tap()
         
         app.collectionViews.cells.elementBoundByIndex(0).tap()
     }
     
-    func testExample() {
+    func testCollectionIsShown() {
         
         let count = app.collectionViews.count
         XCTAssertTrue(count == 1)
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+     }
+    
+    
+    func testLargeViewOpensInSelectedItemFromDetailView(){
+        app.buttons["icn nav close white"].tap()
         
-//        scrollViewsQuery.childrenMatchingType(.Other).element.childrenMatchingType(.Other).element.childrenMatchingType(.Other).elementBoundByIndex(1).collectionViews.cells.otherElements.containingType(.StaticText, identifier:"Original Sin (2014) #6 (Dell'otto Variant)").images["Image_not_found"].tap()
-//        app.buttons["icn nav close white"].tap()
+        let cell = app.collectionViews.elementBoundByIndex(0).cells.elementBoundByIndex(1)
+        
+        let selectedName = cell.staticTexts["SmallReferenceName"].label
+        
+        cell.tap()
+        
+        let largeImageName = app.collectionViews.staticTexts["CrossReferenceName"].label
+        
+        XCTAssertTrue(selectedName == largeImageName)
     }
+    
+//    func testCollectionIsPaginable() {
+//        
+//        //  app.buttons["icn nav close white"].tap()
+//        let collections = app.collectionViews
+//        let collection = app.collectionViews.element
+//        
+//        let firstCellName = collections.staticTexts["CrossReferenceName"]
+//        XCTAssertTrue(firstCellName.exists)
+//        
+//        let text = firstCellName.label
+//        print("Cell text = \(text)")
+//        
+//        var foundAgain = false
+//        
+//        collection.swipeLeft()
+//        collection.swipeLeft()
+//        
+//        let cellCount = collections.cells.count
+//        
+//        for _ in 1..<26 {
+//            let newCells = collections.staticTexts.matchingIdentifier("CrossReferenceName")
+//            let textPredicate = NSPredicate(format: "self.count == 1")
+//            expectationForPredicate(textPredicate, evaluatedWithObject: newCells, handler: nil)
+//            self.waitForExpectationsWithTimeout(5.0, handler: nil)
+//            
+//            
+//            let text1 = newCells.element.label
+//            print("Cell in cicle text = \(text1)")
+//            if firstCellName == text1 {
+//                foundAgain = true
+//                break
+//            }
+//            
+//            app.swipeLeft()
+//        }
+//        
+//        let newCellCount = collections.cells.count
+//        
+//        XCTAssertTrue(cellCount < newCellCount)
+//    }
     
     func testStatusBarIsPresent(){
         let statusBarsQuery = XCUIApplication().statusBars.element
