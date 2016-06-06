@@ -82,6 +82,30 @@ class SearchViewController: CharacterListViewController {
                 
             }
             .addDisposableTo(disposeBag)
+        
+        NSNotificationCenter.defaultCenter()
+            .rx_notification(UIKeyboardWillHideNotification, object: nil)
+            .observeOn(MainScheduler.instance)
+            .subscribeNext { [weak self] notification in
+                
+                guard let info = notification.userInfo else { return }
+                guard let strongSelf = self else { return }
+                
+                let tableViewInset = strongSelf.tableView.contentInset
+                let contentInsets = UIEdgeInsetsMake(tableViewInset.top, 0.0, 0, 0.0);
+                
+                var frame = strongSelf.view.frame
+                
+                UIView.animateWithDuration(0.5, delay: 0.2, options: UIViewAnimationOptions.CurveEaseIn, animations: {
+                    strongSelf.tableView.contentInset = contentInsets
+                    strongSelf.tableView.scrollIndicatorInsets = contentInsets
+                    
+                    frame.size.height = UIScreen.mainScreen().bounds.height
+                    strongSelf.view.frame = frame
+                    }, completion: nil)
+                
+            }
+            .addDisposableTo(disposeBag)
     }
     
     
