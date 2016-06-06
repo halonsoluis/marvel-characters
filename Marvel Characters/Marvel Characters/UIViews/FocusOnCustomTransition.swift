@@ -37,30 +37,28 @@ class FocusOnCustomTransition : NSObject, UIViewControllerAnimatedTransitioning 
             
             endsOn.view.frame = transitionContext.finalFrameForViewController(endsOn)
             endsOn.view.alpha = 0
-           
+            
             let destinationView = endsOn.embeddedVC!.largeImage
             destinationView.hidden = true
             endsOn.embeddedVC!.view.frame.origin.y = endsOn.embeddedVC!.view.frame.height
             
             containerView.addSubview(endsOn.view)
             containerView.addSubview(snapShot)
-        
+            
             startOn.navigationController?.navigationBar.alpha = 0
             snapShot.opaque = true
-       
-            let frameFullHeight = CGRect(x: 0, y: 0, width: snapShot.frame.width, height: newHeight)
             
             UIView.animateWithDuration(0.35, animations: {
                 startOn.view.alpha = 0
                 
                 endsOn.view.alpha = 0.8
-                snapShot.frame = containerView.convertRect(frameFullHeight, toView: containerView)
+                snapShot.frame = containerView.convertRect(frame, toView: containerView)
                 
                 }, completion:  {_ in
                     UIView.animateWithDuration(0.35, animations: {
                         endsOn.view.alpha = 1
-                        snapShot.frame = containerView.convertRect(frame, toView: containerView)
-                        endsOn.embeddedVC!.view.frame.origin.y = 0                        }, completion: {_ in
+                        endsOn.embeddedVC!.view.frame.origin.y = 0
+                        }, completion: {_ in
                             UIView.animateWithDuration(0.2, animations: {
                                 startOn.navigationController?.navigationBar.alpha = 1
                                 
