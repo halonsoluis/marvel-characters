@@ -182,3 +182,4 @@ class CharacterDetailsViewController: UIViewController {
         return height
     }
 }
+
