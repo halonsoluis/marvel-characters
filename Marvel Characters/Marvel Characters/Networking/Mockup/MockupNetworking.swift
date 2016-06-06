@@ -7,10 +7,6 @@
 //
 
 import Foundation
-import ObjectMapper
-
-
-let mockupEnabled = true
 
 //Mark: Network Access Mockup
 enum MockupResource {

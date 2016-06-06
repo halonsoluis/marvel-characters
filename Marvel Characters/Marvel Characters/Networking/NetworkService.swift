@@ -24,10 +24,10 @@ class NetworkService {
         self.currentPage = pageObservable
     }
     
-    func getParams() -> Observable<[String:String]> {
+    private func getParams() -> Observable<[String:String]> {
         return Observable.combineLatest(characterName, currentPage) { (name, page) -> [String:String] in
             
-            var parameters = APIHandler().getDefaultParamsAsDictForPage(page)!
+            var parameters = APIHandler.getDefaultParamsAsDictForPage(page)!
             if !name.isEmpty {
                 parameters["nameStartsWith"] = name
             }

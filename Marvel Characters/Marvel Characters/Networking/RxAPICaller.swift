@@ -12,13 +12,15 @@ import Result
 import ObjectMapper
 
 struct RxAPICaller {
+    
+    private static let mockupEnabled : Bool = { return NSProcessInfo.processInfo().arguments.contains("MOCKUP_MODE") }()
+    
     static func requestWithParams<T:MainAPISubject>(parameters: [String:String], route: Routes) -> Observable<Result<[T],RequestError>> {
         
-        guard !mockupEnabled else {
-            return requestMockupData(parameters, route: route)
+        switch mockupEnabled {
+        case true:   return requestMockupData(parameters, route: route)
+        case false:  return RxAPICaller.requestNetworkData(parameters, route: route)
         }
-        
-        return RxAPICaller.requestNetworkData(parameters, route: route)
     }
     
     static private func requestMockupData<T:MainAPISubject>(parameters: [String:String], route: Routes) -> Observable<Result<[T],RequestError>> {
@@ -27,7 +29,7 @@ struct RxAPICaller {
             return try! NSJSONSerialization.JSONObjectWithData(data, options: .MutableContainers) as! NSDictionary
         }
         
-        let isCharacter = T.self is Character.Type
+        let isCharacter = T.self is MarvelCharacter.Type
         let json = buildJSON(isCharacter ? MockupResource.Character.getMockupData()! : MockupResource.CrossReference.getMockupData()!)
         
         let box = Mapper<ResponseEnclosure<T>>().map(json)

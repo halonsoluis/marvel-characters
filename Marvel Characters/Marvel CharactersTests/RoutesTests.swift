@@ -17,43 +17,23 @@ class RoutesTests: XCTestCase {
     }
     
     func testGetRouteFetchSingleCharacter() {
-        XCTAssert(Routes.SingleCharacter.getRoute(characterID) == "http://gateway.marvel.com:80/v1/public/characters/\(characterID)")
+        XCTAssert(Routes.SingleCharacter(characterID: characterID).getRoute() == "http://gateway.marvel.com:80/v1/public/characters/\(characterID)")
     }
     
     func testGetRouteFetchListComicsByCharacter() {
-        XCTAssert(Routes.ListComicsByCharacter.getRoute(characterID) == "http://gateway.marvel.com:80/v1/public/characters/\(characterID)/comics")
+        XCTAssert(Routes.ListComicsByCharacter(characterID: characterID).getRoute() == "http://gateway.marvel.com:80/v1/public/characters/\(characterID)/comics")
     }
     
     func testGetRouteFetchListEventsByCharacter() {
-        let characterID = 123123
-        XCTAssert(Routes.ListEventsByCharacter.getRoute(characterID) == "http://gateway.marvel.com:80/v1/public/characters/\(characterID)/events")
-        
-    }
+        XCTAssert(Routes.ListEventsByCharacter(characterID: characterID).getRoute() == "http://gateway.marvel.com:80/v1/public/characters/\(characterID)/events")
+     }
     
     func testGetRouteFetchListSeriesByCharacter() {
-        XCTAssert(Routes.ListSeriesByCharacter.getRoute(characterID) == "http://gateway.marvel.com:80/v1/public/characters/\(characterID)/series")
+        XCTAssert(Routes.ListSeriesByCharacter(characterID: characterID).getRoute() == "http://gateway.marvel.com:80/v1/public/characters/\(characterID)/series")
     }
     
     func testGetRouteFetchListStoriesByCharacter() {
-        XCTAssert(Routes.ListStoriesByCharacter.getRoute(characterID) == "http://gateway.marvel.com:80/v1/public/characters/\(characterID)/stories")
-    }
-    
-    
-    func testGetRouteListCharactersNoID() {
-        let routes = [ Routes.ListCharacters]
-        
-        let countNotValid = routes.reduce(0) { $0 + ($1.getRoute() == nil ? 0 : 1) }
-        
-        XCTAssert(countNotValid == 1)
-    }
-    
-    func testGetRouteCharacterRelatedNoID() {
-        
-        let routes = [ Routes.SingleCharacter , Routes.ListComicsByCharacter , Routes.ListEventsByCharacter ,Routes.ListSeriesByCharacter , Routes.ListStoriesByCharacter]
-        
-        let countNotValid = routes.reduce(0) { $0 + ($1.getRoute() == nil ? 0 : 1) }
-        
-        XCTAssert(countNotValid == 0)
+        XCTAssert(Routes.ListStoriesByCharacter(characterID: characterID).getRoute() == "http://gateway.marvel.com:80/v1/public/characters/\(characterID)/stories")
     }
     
     func testPerformanceExample() {

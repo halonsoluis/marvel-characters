@@ -9,7 +9,7 @@
 import Foundation
 import ObjectMapper
 
-class Character: Mappable, MainAPISubject {
+class MarvelCharacter: Mappable, MainAPISubject {
     
     var id: Int?
     var name: String?
@@ -42,19 +42,5 @@ class Character: Mappable, MainAPISubject {
         events <- map["events"]
         
         urls <- map["urls"]
-    }
-}
-
-class LinkURL: Mappable {
-    
-    var type: String!
-    var url: String?
-   
-    //MARK: Mappable protocol
-    required init?(_ map: Map) { }
-    
-    func mapping(map: Map) {
-        type <- map["type"]
-        url <- map["url"]
     }
 }

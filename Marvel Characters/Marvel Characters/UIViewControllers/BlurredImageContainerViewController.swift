@@ -9,7 +9,7 @@
 import UIKit
 
 protocol CharacterProviderDelegate: class {
-    var character: Character? { get set }
+    var character: MarvelCharacter? { get set }
     var characterImage: UIImage? { get set}
 }
 
@@ -18,7 +18,7 @@ protocol BlurredNavigationBarAlphaChangerProtocol: class {
 }
 
 class BlurredImageContainerViewController : UIViewController, CharacterProviderDelegate ,BlurredNavigationBarAlphaChangerProtocol {
-    var character : Character?
+    var character : MarvelCharacter?
     var characterImage : UIImage?
     
     var navigationBarAlpha : CGFloat = 0 {
