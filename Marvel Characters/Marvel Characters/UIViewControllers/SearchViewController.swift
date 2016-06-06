@@ -19,6 +19,7 @@ class SearchViewController: CharacterListViewController {
         return searchBar
             .rx_text
             .throttle(0.5, scheduler: MainScheduler.instance)
+            .distinctUntilChanged()
             .filter {
                 if $0.isEmpty {
                     self.dataSource.value.removeAll()
@@ -27,7 +28,6 @@ class SearchViewController: CharacterListViewController {
                 }
                 return true
             }
-            .distinctUntilChanged()
             .doOnNext { (_) in
                 self.dataSource.value.removeAll()
                 self.currentPage.value = 0
@@ -69,12 +69,41 @@ class SearchViewController: CharacterListViewController {
                 let keyboardFrame: CGRect = (info[UIKeyboardFrameBeginUserInfoKey] as! NSValue).CGRectValue()
                 let tableViewInset = strongSelf.tableView.contentInset
                 let contentInsets = UIEdgeInsetsMake(tableViewInset.top, 0.0, keyboardFrame.height, 0.0);
-                strongSelf.tableView.contentInset = contentInsets
-                strongSelf.tableView.scrollIndicatorInsets = contentInsets
                 
                 var frame = strongSelf.view.frame
-                frame.size.height -= keyboardFrame.height
-                strongSelf.view.frame = frame
+                
+                UIView.animateWithDuration(0.5, delay: 0.2, options: UIViewAnimationOptions.CurveEaseIn, animations: {
+                    strongSelf.tableView.contentInset = contentInsets
+                    strongSelf.tableView.scrollIndicatorInsets = contentInsets
+                    
+                    frame.size.height -= keyboardFrame.height
+                    strongSelf.view.frame = frame
+                }, completion: nil)
+                
+            }
+            .addDisposableTo(disposeBag)
+        
+        NSNotificationCenter.defaultCenter()
+            .rx_notification(UIKeyboardWillHideNotification, object: nil)
+            .observeOn(MainScheduler.instance)
+            .subscribeNext { [weak self] notification in
+                
+                guard let info = notification.userInfo else { return }
+                guard let strongSelf = self else { return }
+                
+                let tableViewInset = strongSelf.tableView.contentInset
+                let contentInsets = UIEdgeInsetsMake(tableViewInset.top, 0.0, 0, 0.0);
+                
+                var frame = strongSelf.view.frame
+                
+                UIView.animateWithDuration(0.5, delay: 0.2, options: UIViewAnimationOptions.CurveEaseIn, animations: {
+                    strongSelf.tableView.contentInset = contentInsets
+                    strongSelf.tableView.scrollIndicatorInsets = contentInsets
+                    
+                    frame.size.height = UIScreen.mainScreen().bounds.height
+                    strongSelf.view.frame = frame
+                    }, completion: nil)
+                
             }
             .addDisposableTo(disposeBag)
     }

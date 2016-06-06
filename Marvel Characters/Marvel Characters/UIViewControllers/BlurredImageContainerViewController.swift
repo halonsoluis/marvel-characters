@@ -47,9 +47,8 @@ class BlurredImageContainerViewController : UIViewController, CharacterProviderD
         super.viewDidLoad()
     }
     
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
         addViewWithBlur()
     }
     
@@ -108,5 +107,65 @@ class BlurredImageContainerViewController : UIViewController, CharacterProviderD
             embeddedVC = embedded
         }
         super.prepareForSegue(segue, sender: sender)
+    }
+}
+
+extension BlurredImageContainerViewController: RepositionImageZoomingTransitionProtocol {
+    
+    func getImageView() -> UIImageView? {
+        return embeddedVC?.largeImage
+    }
+    
+    func doBeforeTransition() {
+        embeddedVC!.view.frame.origin.y = embeddedVC!.view.frame.height
+        view.alpha = 0
+    }
+    
+    func doAfterTransition(){
+        
+    }
+    
+    
+    func doWhileTransitioningStepOne() {
+        view.alpha = 0.8
+    }
+    func doWhileTransitioningStepTwo(){
+        view.alpha = 1
+        embeddedVC!.view.frame.origin.y = 0
+    }
+    func doWhileTransitioningStepThree(){
+        
+    }
+    
+    func getViewOfController() -> UIView {
+        return self.view
+    }
+    func getViewController() -> UIViewController {
+        return self
+    }
+    func getEnclosingView() -> UIView {
+        return embeddedVC!.largeImage
+    }
+    
+}
+
+
+extension BlurredImageContainerViewController: UINavigationControllerDelegate {
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.delegate = nil
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.delegate = self
+    }
+    
+    func navigationController(navigationController: UINavigationController, animationControllerForOperation operation: UINavigationControllerOperation, fromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        if self == fromVC && toVC is CharacterListViewController {
+            return RepositionBackTransition()
+        }
+        return nil
     }
 }

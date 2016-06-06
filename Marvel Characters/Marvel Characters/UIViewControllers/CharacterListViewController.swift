@@ -26,6 +26,7 @@ class CharacterListViewController: UIViewController {
     
     var chs : NetworkService?
     var rx_characters: Driver<Result<[MarvelCharacter],RequestError>>?
+    
 
     let errorValidation = { (result: Result<[MarvelCharacter],RequestError>) -> Driver<[MarvelCharacter]> in
         switch result {
@@ -51,7 +52,6 @@ class CharacterListViewController: UIViewController {
             .asObservable()
             .distinctUntilChanged()
             .filter { $0 >= 0 }
-        
         
         createCharacterService()
         rx_characters = chs?.getData(Routes.ListCharacters)
@@ -160,6 +160,7 @@ class CharacterListViewController: UIViewController {
     
     
     
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
        
         
@@ -186,8 +187,64 @@ extension CharacterListViewController: UINavigationControllerDelegate {
     
     func navigationController(navigationController: UINavigationController, animationControllerForOperation operation: UINavigationControllerOperation, fromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         if self == fromVC && toVC is BlurredImageContainerViewController {
-            return FocusOnCustomTransition()
+            return RepositionImageZoomingTransition()
         }
-        return nil
+       return nil
     }
+}
+
+extension CharacterListViewController: RepositionImageZoomingTransitionProtocol {
+    
+    func getImageView() -> UIImageView? {
+        guard
+            let indexPath = tableView.indexPathForSelectedRow,
+            let cell = tableView.cellForRowAtIndexPath(indexPath) as? CharacterCell
+        else { return nil }
+        return cell.bannerImage
+    }
+    
+    func doBeforeTransition() {
+        
+        getCell()?.hidden = true
+        navigationController?.navigationBar.alpha = 0
+        
+    }
+    
+    func getEnclosingView() -> UIView {
+        return getCell()!
+    }
+    
+    private func getCell() -> UITableViewCell? {
+        guard
+            let indexPath = tableView.indexPathForSelectedRow,
+            let cell = tableView.cellForRowAtIndexPath(indexPath) as? CharacterCell
+            else { return nil}
+        return cell
+    }
+    
+    func doAfterTransition(){
+        view.alpha = 1
+        getCell()?.hidden = false
+        navigationController?.navigationBar.alpha = 1
+        
+    }
+    
+    func doWhileTransitioningStepOne() {
+        view.alpha = 0
+        
+    }
+    func doWhileTransitioningStepTwo(){
+        
+    }
+    func doWhileTransitioningStepThree(){
+        navigationController?.navigationBar.alpha = 1
+    }
+    
+    func getViewOfController() -> UIView {
+        return self.view
+    }
+    func getViewController() -> UIViewController {
+        return self
+    }
+    
 }
