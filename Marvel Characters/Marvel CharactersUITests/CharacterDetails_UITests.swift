@@ -125,11 +125,14 @@ class CharacterDetails_UITests: XCTestCase {
         series.swipeLeft()
         series.swipeLeft()
         
+        series.swipeUp()
+        
         stories.swipeLeft()
         stories.swipeLeft()
         stories.swipeLeft()
         stories.swipeLeft()
         
+       
         stories.swipeUp()
         
         events.swipeLeft()
