@@ -69,12 +69,17 @@ class SearchViewController: CharacterListViewController {
                 let keyboardFrame: CGRect = (info[UIKeyboardFrameBeginUserInfoKey] as! NSValue).CGRectValue()
                 let tableViewInset = strongSelf.tableView.contentInset
                 let contentInsets = UIEdgeInsetsMake(tableViewInset.top, 0.0, keyboardFrame.height, 0.0);
-                strongSelf.tableView.contentInset = contentInsets
-                strongSelf.tableView.scrollIndicatorInsets = contentInsets
                 
                 var frame = strongSelf.view.frame
-                frame.size.height -= keyboardFrame.height
-                strongSelf.view.frame = frame
+                
+                UIView.animateWithDuration(0.5, delay: 0.2, options: UIViewAnimationOptions.CurveEaseIn, animations: {
+                    strongSelf.tableView.contentInset = contentInsets
+                    strongSelf.tableView.scrollIndicatorInsets = contentInsets
+                    
+                    frame.size.height -= keyboardFrame.height
+                    strongSelf.view.frame = frame
+                }, completion: nil)
+                
             }
             .addDisposableTo(disposeBag)
     }
