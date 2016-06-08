@@ -22,8 +22,6 @@ class CharacterList_UITests: XCTestCase {
         app.launch()
 
         // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
-    
-        
     }
     
     override func tearDown() {
@@ -66,15 +64,13 @@ class CharacterList_UITests: XCTestCase {
 
         let cellsQuery = app.tables.childrenMatchingType(.Cell)
         let numCells = cellsQuery.count
-        
-        app.tables.element.swipeUp()
-        app.tables.element.swipeUp()
-        app.tables.element.swipeUp()
-        app.tables.element.swipeUp()
+       
+        let table = app.tables.elementBoundByIndex(0)
+        let lastCell = table.cells.elementBoundByIndex(numCells + 5)
+        table.scrollToElement(.Down, element: lastCell)
     
         _ = self.expectationForPredicate(NSPredicate(format: "self.count != \(numCells)"), evaluatedWithObject: cellsQuery, handler: nil)
         self.waitForExpectationsWithTimeout(5.0, handler: nil)
-        
         
         let newCells = cellsQuery.count
         
@@ -93,10 +89,9 @@ class CharacterList_UITests: XCTestCase {
         let numCells = app.tables.childrenMatchingType(.Cell).count
         XCTAssert(numCells == 20)
         
-        app.tables.element.swipeUp()
-        app.tables.element.swipeUp()
-        app.tables.element.swipeUp()
-        app.tables.element.swipeUp()
+        let table = app.tables.elementBoundByIndex(0)
+        let lastCell = table.cells.elementBoundByIndex(numCells + 5)
+        table.scrollToElement(.Down, element: lastCell)
         
         let newCells = app.tables.childrenMatchingType(.Cell).count
         XCTAssert(newCells == 40)

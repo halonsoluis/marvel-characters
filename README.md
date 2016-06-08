@@ -1,4 +1,4 @@
-## H19 Code Challenge ­ Marvel API 
+##Code Challenge ­ Marvel API 
 
 
 ### **App Description**
@@ -37,11 +37,13 @@ what you just did. So refrain from copying code online. Along with a fully worki
 a suite of UI/Unit tests. Finally, the code should be versioned using git and shared with us through any 
 git repository hosting service.
 
-At Hole19 we value attention to design. So, apart from your code quality, we’ll also be evaluating how you replicate 
+We value attention to design. So, apart from your code quality, we’ll also be evaluating how you replicate 
 the mocked UI. 
 
 Note that not all animations and transitions were included in the mockup, thus we expect you to apply 
-widely known iOS/Android design patterns. If you have any questions, you can email us at jobs@hole19golf.com. Good luck!
+widely known iOS/Android design patterns.
+
+Good luck!
 
 [1]: http://developer.marvel.com/          "Marvel API"
 [2]: https://marvelapp.com/279b309		    "Mockup"

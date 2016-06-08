@@ -6,10 +6,10 @@
 //  Copyright © 2016 halonsoluis. All rights reserved.
 //
 
+import ObjectMapper
 import XCTest
 @testable import Marvel_Characters
 
-import ObjectMapper
 
 class Thumbnail_Tests: XCTestCase {
     

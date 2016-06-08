@@ -88,7 +88,6 @@ class SearchViewController: CharacterListViewController {
             .observeOn(MainScheduler.instance)
             .subscribeNext { [weak self] notification in
                 
-                guard let info = notification.userInfo else { return }
                 guard let strongSelf = self else { return }
                 
                 let tableViewInset = strongSelf.tableView.contentInset

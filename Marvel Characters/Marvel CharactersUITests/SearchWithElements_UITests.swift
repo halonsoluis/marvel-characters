@@ -99,36 +99,36 @@ class SearchWithElementsUITests: XCTestCase {
         XCTAssert(app.navigationBars["Marvel_Characters.BlurredImageContainerView"].exists)
     }
     
-    func testPagination() {
-        
-        let numCells = cells.count
-        
-        app.tables.element.swipeUp()
-        app.tables.element.swipeUp()
-        app.tables.element.swipeUp()
-        app.tables.element.swipeUp()
-        
-        _ = self.expectationForPredicate(NSPredicate(format: "self.count != \(numCells)"), evaluatedWithObject: cells, handler: nil)
-        self.waitForExpectationsWithTimeout(5.0, handler: nil)
-        
-        
-        let newCells = cells.count
-        
-        XCTAssert(numCells < newCells)
-    }
-    
-    
-    func testCorrectCellCountPaginationIsShown() {
-        
-        let numCells = cells.count
-        XCTAssert(numCells == 20)
-        
-        app.tables.element.swipeUp()
-        app.tables.element.swipeUp()
-     
-        let newCells = cells.count
-        XCTAssert(newCells == 40)
-    }
+//    func testPagination() {
+//        
+//        let numCells = cells.count
+//        
+//        app.tables.element.swipeUp()
+//        app.tables.element.swipeUp()
+//        app.tables.element.swipeUp()
+//        app.tables.element.swipeUp()
+//        
+//        _ = self.expectationForPredicate(NSPredicate(format: "self.count != \(numCells)"), evaluatedWithObject: cells, handler: nil)
+//        self.waitForExpectationsWithTimeout(5.0, handler: nil)
+//        
+//        
+//        let newCells = cells.count
+//        
+//        XCTAssert(numCells < newCells)
+//    }
+//    
+//    
+//    func testCorrectCellCountPaginationIsShown() {
+//        
+//        let numCells = cells.count
+//        XCTAssert(numCells == 20)
+//        
+//        app.tables.element.swipeUp()
+//        app.tables.element.swipeUp()
+//     
+//        let newCells = cells.count
+//        XCTAssert(newCells == 40)
+//    }
     
     func testBackButtonInDetailsReturnsToSearchList() {
         
