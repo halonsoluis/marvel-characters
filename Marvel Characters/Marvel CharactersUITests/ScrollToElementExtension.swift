@@ -11,38 +11,38 @@ import Foundation
 extension XCUIElement {
     
     enum Direction {
-        case Up, Down, Right, Left
+        case up, down, right, left
         
-        func scroll(pivot: XCUIElement) {
-            let topPoint = pivot.coordinateWithNormalizedOffset(CGVectorMake(0.5, 0.25))
-            let bottomPoint =  pivot.coordinateWithNormalizedOffset(CGVectorMake(0.5, 0.75))
+        func scroll(_ pivot: XCUIElement) {
+            let topPoint = pivot.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.25))
+            let bottomPoint =  pivot.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.75))
             
-            let leadingPoint =  pivot.coordinateWithNormalizedOffset(CGVectorMake(0.15, 0.5))
-            let trailingPoint =  pivot.coordinateWithNormalizedOffset(CGVectorMake(0.65, 0.5))
+            let leadingPoint =  pivot.coordinate(withNormalizedOffset: CGVector(dx: 0.15, dy: 0.5))
+            let trailingPoint =  pivot.coordinate(withNormalizedOffset: CGVector(dx: 0.65, dy: 0.5))
             
             switch self {
-            case .Up:   topPoint.pressForDuration(0.1, thenDragToCoordinate: bottomPoint)
-            case .Down: bottomPoint.pressForDuration(0.1, thenDragToCoordinate: topPoint)
+            case .up:   topPoint.press(forDuration: 0.1, thenDragTo: bottomPoint)
+            case .down: bottomPoint.press(forDuration: 0.1, thenDragTo: topPoint)
                 
-            case .Left: leadingPoint.pressForDuration(0.1, thenDragToCoordinate: trailingPoint)
-            case .Right: trailingPoint.pressForDuration(0.1, thenDragToCoordinate: leadingPoint)
+            case .left: leadingPoint.press(forDuration: 0.1, thenDragTo: trailingPoint)
+            case .right: trailingPoint.press(forDuration: 0.1, thenDragTo: leadingPoint)
                 
             }
         }
         
-        func swipe(pivot: XCUIElement) {
+        func swipe(_ pivot: XCUIElement) {
             switch self {
-            case .Up:   pivot.swipeDown()
-            case .Down: pivot.swipeUp()
+            case .up:   pivot.swipeDown()
+            case .down: pivot.swipeUp()
                 
-            case .Left: pivot.swipeRight()
-            case .Right: pivot.swipeLeft()
+            case .left: pivot.swipeRight()
+            case .right: pivot.swipeLeft()
                 
             }
         }
     }
     
-    func scrollToElement(direction: Direction, element: XCUIElement) {
+    func scrollToElement(_ direction: Direction, element: XCUIElement) {
         while !element.visible() {
             direction.scroll(self)
         }
@@ -54,15 +54,15 @@ extension XCUIElement {
      - parameter direction: <#direction description#>
      - parameter element:   <#element description#>
      */
-    func swipeInDirection(direction: Direction, times: UInt) {
+    func swipeInDirection(_ direction: Direction, times: UInt) {
         for _ in 0..<times {
             direction.swipe(self)
         }
     }
     
     func visible() -> Bool {
-        guard self.exists && !CGRectIsEmpty(self.frame) else { return false }
-        return CGRectContainsRect(XCUIApplication().windows.elementBoundByIndex(0).frame, self.frame)
+        guard self.exists && !self.frame.isEmpty else { return false }
+        return XCUIApplication().windows.element(boundBy: 0).frame.contains(self.frame)
     }
     
 }

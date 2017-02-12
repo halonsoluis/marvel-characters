@@ -14,17 +14,17 @@ import Result
 
 class NetworkService {
     
-    private lazy var rx_params: Observable<[String:String]> = self.getParams()
+    fileprivate lazy var rx_params: Observable<[String:String]> = self.getParams()
     
-    private var characterName: Observable<String>
-    private var currentPage: Observable<Int>
+    fileprivate var characterName: Observable<String>
+    fileprivate var currentPage: Observable<Int>
     
     init(withNameObservable nameObservable: Observable<String> = Observable.just(""), pageObservable: Observable<Int>  = Observable.just(0)) {
         self.characterName = nameObservable
         self.currentPage = pageObservable
     }
     
-    private func getParams() -> Observable<[String:String]> {
+    fileprivate func getParams() -> Observable<[String:String]> {
         return Observable.combineLatest(characterName, currentPage) { (name, page) -> [String:String] in
             
             var parameters = APIHandler.getDefaultParamsAsDictForPage(page)!
@@ -38,20 +38,20 @@ class NetworkService {
         }
     }
     
-    func getData<T:MainAPISubject>(route: Routes) -> Driver<Result<[T],RequestError>>  {
+    func getData<T:MainAPISubject>(_ route: Routes) -> Driver<Result<[T],RequestError>>  {
         return rx_params
             .subscribeOn(MainScheduler.instance)
-            .doOn({ response in
-                UIApplication.sharedApplication().networkActivityIndicatorVisible = true
-            })
+            .do(onNext: { (_) in
+                UIApplication.shared.isNetworkActivityIndicatorVisible = true
+            }, onError: nil, onCompleted: nil, onSubscribe: nil, onDispose: nil)
             .flatMapLatest { parameters in
                 return RxAPICaller.requestWithParams(parameters, route: route)
             }
             .observeOn(MainScheduler.instance)
-            .doOn({ response in
-                UIApplication.sharedApplication().networkActivityIndicatorVisible = false
-            })
-            .asDriver(onErrorJustReturn: Result.Failure(RequestError.Error("There is some problem with your connection. Please try again.")))
+            .do(onNext: { (_) in
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
+            }, onError: nil, onCompleted: nil, onSubscribe: nil, onDispose: nil)
+            .asDriver(onErrorJustReturn: Result.failure(RequestError.error("There is some problem with your connection. Please try again.")))
     }
     
 }

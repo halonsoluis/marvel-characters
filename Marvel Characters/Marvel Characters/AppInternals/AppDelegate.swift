@@ -14,7 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
   
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
         removeAllBackButtonTitles(application)
@@ -22,9 +22,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     
-    func removeAllBackButtonTitles(application : UIApplication) {
+    func removeAllBackButtonTitles(_ application : UIApplication) {
         let barAppearace = UIBarButtonItem.appearance()
-        barAppearace.setBackButtonTitlePositionAdjustment(UIOffsetMake(0, -60), forBarMetrics:UIBarMetrics.Default)
+        barAppearace.setBackButtonTitlePositionAdjustment(UIOffsetMake(0, -60), for:UIBarMetrics.default)
         
     }
 }

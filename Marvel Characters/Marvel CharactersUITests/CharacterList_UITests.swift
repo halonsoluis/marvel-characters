@@ -34,8 +34,8 @@ class CharacterList_UITests: XCTestCase {
         
         XCTAssert(app.tables.cells.count >= 1)
         
-        XCTAssert(app.tables.cells.elementBoundByIndex(0).buttons.count == 1)
-        XCTAssert(app.tables.cells.elementBoundByIndex(0).images["Character Image"].exists)
+        XCTAssert(app.tables.cells.element(boundBy: 0).buttons.count == 1)
+        XCTAssert(app.tables.cells.element(boundBy: 0).images["Character Image"].exists)
         
         XCTAssert(app.keyboards.count == 0)
     }
@@ -46,7 +46,7 @@ class CharacterList_UITests: XCTestCase {
     }
 
     func testCharacterNameIsDisplayedInCell() {
-        let cellButton = app.tables.cells.elementBoundByIndex(0).buttons.elementBoundByIndex(0)
+        let cellButton = app.tables.cells.element(boundBy: 0).buttons.element(boundBy: 0)
         XCTAssert(cellButton.exists)
         XCTAssert(!cellButton.label.isEmpty)
     }
@@ -55,22 +55,22 @@ class CharacterList_UITests: XCTestCase {
     func testNavigatesIntoCharacterDetailsWhenTappingOverCell() {
         XCTAssert(!app.navigationBars["Marvel_Characters.BlurredImageContainerView"].exists)
         
-        app.tables.childrenMatchingType(.Cell).elementBoundByIndex(0).tap()
+        app.tables.children(matching: .cell).element(boundBy: 0).tap()
         
         XCTAssert(app.navigationBars["Marvel_Characters.BlurredImageContainerView"].exists)
     }
     
     func testPagination() {
 
-        let cellsQuery = app.tables.childrenMatchingType(.Cell)
+        let cellsQuery = app.tables.children(matching: .cell)
         let numCells = cellsQuery.count
        
-        let table = app.tables.elementBoundByIndex(0)
-        let lastCell = table.cells.elementBoundByIndex(numCells + 5)
-        table.scrollToElement(.Down, element: lastCell)
+        let table = app.tables.element(boundBy: 0)
+        let lastCell = table.cells.element(boundBy: numCells + 5)
+        table.scrollToElement(.down, element: lastCell)
     
-        _ = self.expectationForPredicate(NSPredicate(format: "self.count != \(numCells)"), evaluatedWithObject: cellsQuery, handler: nil)
-        self.waitForExpectationsWithTimeout(5.0, handler: nil)
+        _ = self.expectation(for: NSPredicate(format: "self.count != \(numCells)"), evaluatedWith: cellsQuery, handler: nil)
+        self.waitForExpectations(timeout: 5.0, handler: nil)
         
         let newCells = cellsQuery.count
         
@@ -81,28 +81,28 @@ class CharacterList_UITests: XCTestCase {
         let tablesQuery = XCUIApplication().tables
         XCTAssert(tablesQuery.activityIndicators["In progress"].exists)
         
-        XCTAssert(!tablesQuery.activityIndicators["In progress"].hittable)
+        XCTAssert(!tablesQuery.activityIndicators["In progress"].isHittable)
      
     }
     
     func testCorrectCellCountPaginationIsShown() {
-        let numCells = app.tables.childrenMatchingType(.Cell).count
+        let numCells = app.tables.children(matching: .cell).count
         XCTAssert(numCells == 20)
         
-        let table = app.tables.elementBoundByIndex(0)
-        let lastCell = table.cells.elementBoundByIndex(numCells + 5)
-        table.scrollToElement(.Down, element: lastCell)
+        let table = app.tables.element(boundBy: 0)
+        let lastCell = table.cells.element(boundBy: numCells + 5)
+        table.scrollToElement(.down, element: lastCell)
         
-        let newCells = app.tables.childrenMatchingType(.Cell).count
+        let newCells = app.tables.children(matching: .cell).count
         XCTAssert(newCells == 40)
     }
     
     
     func testBackButtonInDetailsReturnsToMainList() {
         
-        app.tables.childrenMatchingType(.Cell).elementBoundByIndex(0).tap()
+        app.tables.children(matching: .cell).element(boundBy: 0).tap()
         
-        app.navigationBars["Marvel_Characters.BlurredImageContainerView"].childrenMatchingType(.Button).matchingIdentifier("Back").elementBoundByIndex(1).tap()
+        app.navigationBars["Marvel_Characters.BlurredImageContainerView"].children(matching: .button).matching(identifier: "Back").element(boundBy: 1).tap()
         
         XCTAssertFalse(app.navigationBars["Marvel_Characters.BlurredImageContainerView"].exists)
         XCTAssertFalse(app.searchFields["Search..."].exists)
@@ -111,6 +111,6 @@ class CharacterList_UITests: XCTestCase {
     func testStatusBarIsPresent(){
         let statusBarsQuery = XCUIApplication().statusBars.element
         XCTAssertTrue(statusBarsQuery.exists)
-        XCTAssertTrue(statusBarsQuery.hittable)
+        XCTAssertTrue(statusBarsQuery.isHittable)
     }
 }

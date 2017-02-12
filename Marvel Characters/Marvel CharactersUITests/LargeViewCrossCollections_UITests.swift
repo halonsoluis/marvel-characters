@@ -23,9 +23,9 @@ class LargeViewCrossCollections_UITests: XCTestCase {
         app.launch()
         
         // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
-        app.tables.childrenMatchingType(.Cell).elementBoundByIndex(0).tap()
+        app.tables.children(matching: .cell).element(boundBy: 0).tap()
         
-        app.collectionViews.cells.elementBoundByIndex(0).tap()
+        app.collectionViews.cells.element(boundBy: 0).tap()
     }
     
     func testCollectionIsShown() {
@@ -38,7 +38,7 @@ class LargeViewCrossCollections_UITests: XCTestCase {
     func testLargeViewOpensInSelectedItemFromDetailView(){
         app.buttons["icn nav close white"].tap()
         
-        let cell = app.collectionViews.elementBoundByIndex(0).cells.elementBoundByIndex(1)
+        let cell = app.collectionViews.element(boundBy: 0).cells.element(boundBy: 1)
         
         let selectedName = cell.staticTexts["SmallReferenceName"].label
         
@@ -93,7 +93,7 @@ class LargeViewCrossCollections_UITests: XCTestCase {
     func testStatusBarIsPresent(){
         let statusBarsQuery = XCUIApplication().statusBars.element
         XCTAssertTrue(statusBarsQuery.exists)
-        XCTAssertTrue(statusBarsQuery.hittable)
+        XCTAssertTrue(statusBarsQuery.isHittable)
     }
     
 }

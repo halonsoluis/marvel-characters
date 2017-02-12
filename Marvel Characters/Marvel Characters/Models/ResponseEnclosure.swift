@@ -20,7 +20,7 @@ class ResponseEnclosure<T: Mappable>: Mappable {
     var data: ResultDataBox<T>?
     
     //MARK: Mappable protocol
-    required init?(_ map: Map) {
+    required init?(map: Map) {
     }
     
     func mapping(map: Map) {

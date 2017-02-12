@@ -10,24 +10,24 @@ import Foundation
 
 //Mark: Network Access Mockup
 enum MockupResource {
-    case Image, CrossReference, Character
+    case image, crossReference, character
     
-    func getMockupData() -> NSData? {
+    func getMockupData() -> Data? {
         let locator : (path:String, ext: String)!
         switch self  {
-        case .CrossReference: locator = (path: "collectionResponsePage", ext: "json")
-        case .Character: locator = (path: "characterListUnfilteredPage", ext: "json")
-        case .Image: locator = (path: "characterImage", ext: "jpg")
+        case .crossReference: locator = (path: "collectionResponsePage", ext: "json")
+        case .character: locator = (path: "characterListUnfilteredPage", ext: "json")
+        case .image: locator = (path: "characterImage", ext: "jpg")
         }
         return loadFileData(locator.path, ext: locator.ext)
     }
     
-    private func loadFileData(name:String, ext: String) -> NSData? {
-        let bundle = NSBundle.mainBundle()
+    fileprivate func loadFileData(_ name:String, ext: String) -> Data? {
+        let bundle = Bundle.main
         
         guard
-            let path = bundle.pathForResource(name, ofType: ext) ,
-            let data = NSData(contentsOfFile: path) else {
+            let path = bundle.path(forResource: name, ofType: ext) ,
+            let data = try? Data(contentsOf: URL(fileURLWithPath: path)) else {
                 
                 return nil
         }

@@ -19,7 +19,6 @@
 		9A16663E1CF7A40800C1283F /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A16663C1CF7A40800C1283F /* Protocols.swift */; };
 		9A1666401CF7A86600C1283F /* LinkURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A16663F1CF7A86600C1283F /* LinkURL.swift */; };
 		9A1666421CF7B3C400C1283F /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1666411CF7B3C400C1283F /* ImageService.swift */; };
-		9A1666431CF7BA7A00C1283F /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AE3B43C1CF6C9AB0087CAC6 /* RxCocoa.framework */; };
 		9A184E221D055D7700B844FC /* RepositionImageZoomingTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A184E211D055D7700B844FC /* RepositionImageZoomingTransition.swift */; };
 		9A184E241D05713D00B844FC /* RepositionBackTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A184E231D05713D00B844FC /* RepositionBackTransition.swift */; };
 		9A2E6C2C1CF744BB000E0EA7 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A2E6C2B1CF744BB000E0EA7 /* Alamofire.framework */; };
@@ -37,8 +36,6 @@
 		9A44424B1D0869B700025659 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AE3B4371CF6C9AB0087CAC6 /* Kingfisher.framework */; };
 		9A44424C1D0869B700025659 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AE3B4391CF6C9AB0087CAC6 /* Result.framework */; };
 		9A44424D1D0869B700025659 /* RxAlamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AE3B43A1CF6C9AB0087CAC6 /* RxAlamofire.framework */; };
-		9A44424E1D0869B700025659 /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AE3B43B1CF6C9AB0087CAC6 /* RxBlocking.framework */; };
-		9A44424F1D0869B700025659 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AE3B43D1CF6C9AB0087CAC6 /* RxSwift.framework */; };
 		9A4442511D086CA200025659 /* ScrollToElementExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A4442501D086CA200025659 /* ScrollToElementExtension.swift */; };
 		9A5FA36D1CF82ABA00D203C3 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5FA36C1CF82ABA00D203C3 /* SearchViewController.swift */; };
 		9A61C3FF1CF893BD000EC54E /* UIImageGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A61C3FE1CF893BD000EC54E /* UIImageGradient.swift */; };
@@ -83,9 +80,11 @@
 		9AE3B4511CF71AE80087CAC6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9AE3B44E1CF71AE80087CAC6 /* Main.storyboard */; };
 		9AE3B4551CF71AFC0087CAC6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE3B4521CF71AFC0087CAC6 /* AppDelegate.swift */; };
 		9AE3B4561CF71AFC0087CAC6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9AE3B4531CF71AFC0087CAC6 /* Assets.xcassets */; };
-		9AE3B4571CF71AFC0087CAC6 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9AE3B4541CF71AFC0087CAC6 /* Info.plist */; };
 		9AEDA40F1CFD5C7000197F48 /* collectionResponsePage.json in Resources */ = {isa = PBXBuildFile; fileRef = 9AEDA40E1CFD5C7000197F48 /* collectionResponsePage.json */; };
 		9AEDA4111CFD5CEB00197F48 /* CrossReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEDA4101CFD5CEB00197F48 /* CrossReference.swift */; };
+		B4590EB21E48A26D0080C8D4 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AE3B43D1CF6C9AB0087CAC6 /* RxSwift.framework */; };
+		B4590EB31E48AA250080C8D4 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AE3B43C1CF6C9AB0087CAC6 /* RxCocoa.framework */; };
+		B4590EB41E48AA270080C8D4 /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AE3B43B1CF6C9AB0087CAC6 /* RxBlocking.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -133,6 +132,7 @@
 		9A4442501D086CA200025659 /* ScrollToElementExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollToElementExtension.swift; sourceTree = "<group>"; };
 		9A5FA36C1CF82ABA00D203C3 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchViewController.swift; path = UIViewControllers/SearchViewController.swift; sourceTree = "<group>"; };
 		9A61C3FE1CF893BD000EC54E /* UIImageGradient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIImageGradient.swift; path = UIViews/UIImageGradient.swift; sourceTree = "<group>"; };
+		9A9135DB1E50D2E5008749F1 /* RxTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxTest.framework; path = Carthage/Build/iOS/RxTest.framework; sourceTree = "<group>"; };
 		9A927B851D03B3BA001D3C98 /* LargeViewCrossCollections_UITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LargeViewCrossCollections_UITests.swift; sourceTree = "<group>"; };
 		9A927B871D03B6E6001D3C98 /* Thumbnail_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Thumbnail_Tests.swift; sourceTree = "<group>"; };
 		9A927B891D03BA13001D3C98 /* MockupResource_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockupResource_Tests.swift; sourceTree = "<group>"; };
@@ -197,13 +197,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9A44424E1D0869B700025659 /* RxBlocking.framework in Frameworks */,
 				9A4442491D08699A00025659 /* ObjectMapper.framework in Frameworks */,
 				9A44424A1D0869B700025659 /* Alamofire.framework in Frameworks */,
+				B4590EB31E48AA250080C8D4 /* RxCocoa.framework in Frameworks */,
+				B4590EB41E48AA270080C8D4 /* RxBlocking.framework in Frameworks */,
+				B4590EB21E48A26D0080C8D4 /* RxSwift.framework in Frameworks */,
 				9A44424C1D0869B700025659 /* Result.framework in Frameworks */,
-				9A44424F1D0869B700025659 /* RxSwift.framework in Frameworks */,
 				9A44424B1D0869B700025659 /* Kingfisher.framework in Frameworks */,
-				9A1666431CF7BA7A00C1283F /* RxCocoa.framework in Frameworks */,
 				9A44424D1D0869B700025659 /* RxAlamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -263,6 +263,14 @@
 			name = Cells;
 			sourceTree = "<group>";
 		};
+		9A9135DA1E50D2E5008749F1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9A9135DB1E50D2E5008749F1 /* RxTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		9A9333B51CF93EBF00932676 /* Mockup */ = {
 			isa = PBXGroup;
 			children = (
@@ -290,6 +298,7 @@
 				9ADBF3341CF6298F005F1F51 /* Marvel CharactersTests */,
 				9ADBF33F1CF6298F005F1F51 /* Marvel CharactersUITests */,
 				9ADBF31E1CF62988005F1F51 /* Products */,
+				9A9135DA1E50D2E5008749F1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -485,19 +494,22 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = halonsoluis;
 				TargetAttributes = {
 					9ADBF31C1CF62988005F1F51 = {
 						CreatedOnToolsVersion = 7.3;
 						DevelopmentTeam = RU5U8BC26T;
+						LastSwiftMigration = 0820;
 					};
 					9ADBF3301CF6298F005F1F51 = {
 						CreatedOnToolsVersion = 7.3;
+						LastSwiftMigration = 0820;
 						TestTargetID = 9ADBF31C1CF62988005F1F51;
 					};
 					9ADBF33B1CF6298F005F1F51 = {
 						CreatedOnToolsVersion = 7.3;
+						LastSwiftMigration = 0820;
 						TestTargetID = 9ADBF31C1CF62988005F1F51;
 					};
 				};
@@ -533,7 +545,6 @@
 				9A9333BF1CF9401D00932676 /* characterListUnfilteredPage.json in Resources */,
 				9AE3B4501CF71AE80087CAC6 /* LaunchScreen.storyboard in Resources */,
 				9AE3B4561CF71AFC0087CAC6 /* Assets.xcassets in Resources */,
-				9AE3B4571CF71AFC0087CAC6 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -569,7 +580,6 @@
 				"$(SRCROOT)/Carthage/Build/iOS/RxAlamofire.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxBlocking.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/RxTests.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/ObjectMapper.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Kingfisher.framework",
@@ -705,8 +715,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -750,8 +762,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -770,6 +784,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -781,6 +796,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = RU5U8BC26T;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -793,6 +809,7 @@
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Marvel Characters-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -803,6 +820,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = RU5U8BC26T;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -814,6 +832,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Marvel Characters-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -829,6 +848,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "halonsoluis.Marvel-CharactersTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Marvel Characters.app/Marvel Characters";
 			};
 			name = Debug;
@@ -845,6 +865,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "halonsoluis.Marvel-CharactersTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Marvel Characters.app/Marvel Characters";
 			};
 			name = Release;
@@ -856,6 +877,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "halonsoluis.Marvel-CharactersUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = "Marvel Characters";
 			};
 			name = Debug;
@@ -867,6 +889,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "halonsoluis.Marvel-CharactersUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = "Marvel Characters";
 			};
 			name = Release;

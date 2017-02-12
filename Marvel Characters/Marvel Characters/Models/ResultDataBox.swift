@@ -18,7 +18,7 @@ class ResultDataBox<T: Mappable>: Mappable {
     var results: [T]?
     
     //MARK: Mappable protocol
-    required init?(_ map: Map) {
+    required init?(map: Map) {
     }
     
     func mapping(map: Map) {

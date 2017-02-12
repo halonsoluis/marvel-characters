@@ -34,7 +34,7 @@ class MD5DigesterTests: XCTestCase {
     
     func testPerformanceExample() {
         // This is an example of a performance test case.
-        self.measureBlock {
+        self.measure {
             // Put the code you want to measure the time of here.
             let _ = MD5Digester.digest("1abcd1234")
         }

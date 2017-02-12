@@ -12,49 +12,49 @@
  */
 enum Routes {
     
-    private static let baseURL = "http://gateway.marvel.com:80"
-    private static let apiSubURL = "/v1/public/"
-    private static let characterIdPlaceHolder = "{characterId}"
+    fileprivate static let baseURL = "http://gateway.marvel.com:80"
+    fileprivate static let apiSubURL = "/v1/public/"
+    fileprivate static let characterIdPlaceHolder = "{characterId}"
     //Fetches lists of characters.
-    case ListCharacters
+    case listCharacters
     
     //Fetches a single character by id.
-    case SingleCharacter(characterID:Int)
+    case singleCharacter(characterID:Int)
     
     //Fetches lists of comics filtered by a character id.
-    case ListComicsByCharacter(characterID:Int)
+    case listComicsByCharacter(characterID:Int)
     
     //Fetches lists of events filtered by a character id.
-    case ListEventsByCharacter(characterID:Int)
+    case listEventsByCharacter(characterID:Int)
     
     //Fetches lists of series filtered by a character id.
-    case ListSeriesByCharacter(characterID:Int)
+    case listSeriesByCharacter(characterID:Int)
     
     //Fetches lists of stories filtered by a character id.
-    case ListStoriesByCharacter(characterID:Int)
+    case listStoriesByCharacter(characterID:Int)
     
     func getRoute() -> String {
         return Routes.baseURL + Routes.apiSubURL + getGenericAPIPath()
     }
     
-    private func getGenericAPIPath() -> String {
+    fileprivate func getGenericAPIPath() -> String {
         switch self {
-        case ListCharacters: return "characters"
+        case .listCharacters: return "characters"
             
         //Fetches a single character by id.
-        case let .SingleCharacter(characterID): return "characters/\(characterID)"
+        case let .singleCharacter(characterID): return "characters/\(characterID)"
             
         //Fetches lists of comics filtered by a character id.
-        case let .ListComicsByCharacter(characterID): return "characters/\(characterID)/comics"
+        case let .listComicsByCharacter(characterID): return "characters/\(characterID)/comics"
             
         //Fetches lists of events filtered by a character id.
-        case let .ListEventsByCharacter(characterID): return "characters/\(characterID)/events"
+        case let .listEventsByCharacter(characterID): return "characters/\(characterID)/events"
             
         //Fetches lists of series filtered by a character id.
-        case let .ListSeriesByCharacter(characterID): return "characters/\(characterID)/series"
+        case let .listSeriesByCharacter(characterID): return "characters/\(characterID)/series"
             
         //Fetches lists of stories filtered by a character id.
-        case let .ListStoriesByCharacter(characterID): return "characters/\(characterID)/stories"
+        case let .listStoriesByCharacter(characterID): return "characters/\(characterID)/stories"
             
         }
     }

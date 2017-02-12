@@ -1,44 +1,63 @@
 PODS:
-  - Alamofire (3.4.0)
-  - Nimble (4.0.1)
-  - OHHTTPStubs (5.0.0):
-    - OHHTTPStubs/Default (= 5.0.0)
-  - OHHTTPStubs/Core (5.0.0)
-  - OHHTTPStubs/Default (5.0.0):
+  - Alamofire (4.0.0)
+  - OHHTTPStubs (5.2.1):
+    - OHHTTPStubs/Default (= 5.2.1)
+  - OHHTTPStubs/Core (5.2.1)
+  - OHHTTPStubs/Default (5.2.1):
     - OHHTTPStubs/Core
     - OHHTTPStubs/JSON
     - OHHTTPStubs/NSURLSession
     - OHHTTPStubs/OHPathHelpers
-  - OHHTTPStubs/JSON (5.0.0):
+  - OHHTTPStubs/JSON (5.2.1):
     - OHHTTPStubs/Core
-  - OHHTTPStubs/NSURLSession (5.0.0):
+  - OHHTTPStubs/NSURLSession (5.2.1):
     - OHHTTPStubs/Core
-  - OHHTTPStubs/OHPathHelpers (5.0.0)
-  - Quick (0.9.2)
-  - RxBlocking (2.4):
-    - RxSwift (~> 2.4)
-  - RxCocoa (2.4):
-    - RxSwift (~> 2.4)
-  - RxSwift (2.4)
+  - OHHTTPStubs/OHPathHelpers (5.2.1)
+  - OHHTTPStubs/Swift (5.2.1):
+    - OHHTTPStubs/Core
+  - RxBlocking (3.0.0-beta.1):
+    - RxSwift (~> 3.0.0-beta.1)
+  - RxCocoa (3.0.0-beta.1):
+    - RxSwift (~> 3.0.0-beta.1)
+  - RxSwift (3.0.0-beta.1)
 
 DEPENDENCIES:
-  - Alamofire (~> 3.4)
-  - Nimble
-  - OHHTTPStubs
-  - Quick
-  - RxBlocking (~> 2.4)
-  - RxCocoa (~> 2.4)
-  - RxSwift (~> 2.4)
+  - Alamofire (~> 4.0)
+  - OHHTTPStubs (~> 5.0)
+  - OHHTTPStubs/Swift (~> 5.0)
+  - RxBlocking (from `https://github.com/ReactiveX/RxSwift.git`, tag `3.0.0-beta.1`)
+  - RxCocoa (from `https://github.com/ReactiveX/RxSwift.git`, tag `3.0.0-beta.1`)
+  - RxSwift (from `https://github.com/ReactiveX/RxSwift.git`, tag `3.0.0-beta.1`)
+
+EXTERNAL SOURCES:
+  RxBlocking:
+    :git: https://github.com/ReactiveX/RxSwift.git
+    :tag: 3.0.0-beta.1
+  RxCocoa:
+    :git: https://github.com/ReactiveX/RxSwift.git
+    :tag: 3.0.0-beta.1
+  RxSwift:
+    :git: https://github.com/ReactiveX/RxSwift.git
+    :tag: 3.0.0-beta.1
+
+CHECKOUT OPTIONS:
+  RxBlocking:
+    :git: https://github.com/ReactiveX/RxSwift.git
+    :tag: 3.0.0-beta.1
+  RxCocoa:
+    :git: https://github.com/ReactiveX/RxSwift.git
+    :tag: 3.0.0-beta.1
+  RxSwift:
+    :git: https://github.com/ReactiveX/RxSwift.git
+    :tag: 3.0.0-beta.1
 
 SPEC CHECKSUMS:
-  Alamofire: c19a627cefd6a95f840401c49ab1f124e07f54ee
-  Nimble: 0f3c8b8b084cda391209c3c5efbb48bedeeb920a
-  OHHTTPStubs: a5d2e9eea07869d42ec03338325f398bc520e159
-  Quick: 18d057bc66451eedd5d1c8dc99ba2a5db6e60226
-  RxBlocking: 1226c1fa0ca1e0ca5f964d4330ca3649f2128680
-  RxCocoa: 7d6cd877de99f5640306b3d6cf87f580c1d91b61
-  RxSwift: 67b9ef4e8b34fb394e200e754c6a09cc16559f94
+  Alamofire: fef59f00388f267e52d9b432aa5d93dc97190f14
+  OHHTTPStubs: 3a42f25c00563b71355ac73112ba2324e9e6cef4
+  RxBlocking: 422944880fe63b432c459dc87be7c8178dcf45f3
+  RxCocoa: 8cecf331302b8ae5381bbab1bccba4ede2eae6a8
+  RxSwift: 0823e8d7969c23bfa9ddfb2afa4881e424a1a710
 
-PODFILE CHECKSUM: 6a9bb9caa582af0e62147098608274983fe2d1c9
+PODFILE CHECKSUM: c1a44f3ee2ab5e3b88125d94d1342c01a022d4f9
 
-COCOAPODS: 1.0.0
+COCOAPODS: 1.0.1

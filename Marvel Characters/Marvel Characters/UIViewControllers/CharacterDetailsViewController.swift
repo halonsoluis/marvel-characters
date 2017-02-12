@@ -41,14 +41,14 @@ class CharacterDetailsViewController: UIViewController {
         //Stretchy Code
         
         // Make sure the contentMode is set to scale proportionally
-        largeImage.contentMode = UIViewContentMode.ScaleAspectFill
+        largeImage.contentMode = UIViewContentMode.scaleAspectFill
         // Clip the parts of the image that are not in frame
         largeImage.clipsToBounds = true
         // Set the autoresizingMask to always be the same height as the header
-        largeImage.autoresizingMask = UIViewAutoresizing.FlexibleTopMargin
+        largeImage.autoresizingMask = UIViewAutoresizing.flexibleTopMargin
         
         scrollView
-            .rx_contentOffset
+            .rx.contentOffset
             .map { (contentOffset) -> CGFloat in
                 let offset = contentOffset.y
                 let imageHeight = self.largeImage.bounds.height
@@ -60,37 +60,35 @@ class CharacterDetailsViewController: UIViewController {
             }
             .distinctUntilChanged()
             .asDriver(onErrorJustReturn: 0)
-            .driveNext { [weak self] (alpha) in
+            .drive(onNext: { [weak self] (alpha) in
                 self?.delegateBar?.navigationBarAlpha = alpha
-            }
-            .addDisposableTo(disposeBag)
+                }, onCompleted: nil, onDisposed: nil)
+           .addDisposableTo(disposeBag)
         
         scrollView
-            .rx_contentOffset
+            .rx.contentOffset
             .asDriver()
             .filter { $0.y < 0 }
             .distinctUntilChanged()
-            .driveNext { [weak self] (offset) in
+            .drive(onNext: { [weak self] (offset) in
                 let progress:CGFloat = fabs(offset.y ) / 250
-                self?.largeImage.transform = CGAffineTransformMakeScale(1 + progress, 1 + progress)
-                self?.largeImage.frame.origin.y = offset.y * CGFloat(self!.factor)
+                self?.largeImage.transform = CGAffineTransform(scaleX: 1 + progress, y: 1 + progress)
+                self?.largeImage.frame.origin.y = offset.y * CGFloat((self?.factor)!)
                 //          self?.largeImageHeight.constant = self!.largeImageHeight.constant * (1 + progress)
-            }
+                }, onCompleted: nil, onDisposed: nil)
             .addDisposableTo(disposeBag)
-        
-        
         
         let _ = fillData()
     }
     var factor : CGFloat = 1
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard
             let identifier = segue.identifier,
             let character = delegate?.character,
             let id = character.id
             else { return }
         
-        if let detail = segue.destinationViewController as? CharacterDetailContainer {
+        if let detail = segue.destination as? CharacterDetailContainer {
             
             switch identifier {
             case "name":
@@ -106,36 +104,36 @@ class CharacterDetailsViewController: UIViewController {
         }
         
         
-        if let relatedLinks = segue.destinationViewController as? CharacterRelatedLinksContainer where identifier == "links" {
+        if let relatedLinks = segue.destination as? CharacterRelatedLinksContainer, identifier == "links" {
             relatedLinks.nameForSection = "RELATED LINKS" ;
             relatedLinks.characterLinks = character.urls
             return
         }
         
         
-        guard let related = segue.destinationViewController as? CharacterCrossReferenceContainer else { return }
+        guard let related = segue.destination as? CharacterCrossReferenceContainer else { return }
         
         
         switch identifier {
         case "comics":
             related.nameForSection = "COMICS" ;
           //  related.elements = character.comics?.items
-            related.route = Routes.ListComicsByCharacter(characterID: id)
+            related.route = Routes.listComicsByCharacter(characterID: id)
             related.total = character.comics!.available
         case "series":
             related.nameForSection = "SERIES" ;
           //  related.elements = delegate?.character?.series?.items
-            related.route = Routes.ListSeriesByCharacter(characterID: id)
+            related.route = Routes.listSeriesByCharacter(characterID: id)
             related.total = character.series!.available
         case "stories":
             related.nameForSection = "STORIES" ;
           //  related.elements = delegate?.character?.stories?.items
-            related.route = Routes.ListStoriesByCharacter(characterID: id)
+            related.route = Routes.listStoriesByCharacter(characterID: id)
             related.total = character.stories!.available
         case "events":
             related.nameForSection = "EVENTS" ;
           //  related.elements = delegate?.character?.events?.items
-            related.route = Routes.ListEventsByCharacter(characterID: id)
+            related.route = Routes.listEventsByCharacter(characterID: id)
             related.total = character.events!.available
             
         default: break
@@ -153,15 +151,15 @@ class CharacterDetailsViewController: UIViewController {
         self.largeImage.sizeToFit()
         
         let imageSize = characterImage.size
-        let widthFactor = UIScreen.mainScreen().bounds.width / imageSize.width
+        let widthFactor = UIScreen.main.bounds.width / imageSize.width
         let newHeight = imageSize.height * widthFactor
         largeImageHeight.constant = newHeight
         parentView.setNeedsLayout()
         
         var height = newHeight
         factor = self.largeImage.frame.height > self.largeImage.frame.width ? 2 : 1.7
-        if let items = character.name where items.isEmpty { nameContainer.removeFromSuperview() } else { height += 120}
-        if let items = character.description where items.isEmpty { descriptionContainer.removeFromSuperview() } else {
+        if let items = character.name, items.isEmpty { nameContainer.removeFromSuperview() } else { height += 120}
+        if let items = character.description, items.isEmpty { descriptionContainer.removeFromSuperview() } else {
             
             if let descriptionText = descriptionTextContainer/*?.textDescription*/ {
                 descriptionText.textDescription.sizeToFit()
@@ -172,12 +170,12 @@ class CharacterDetailsViewController: UIViewController {
             
         }
         
-        if let items = character.comics?.items where items.isEmpty { comicsContainer.removeFromSuperview() } else { height += 280}
-        if let items = character.series?.items where items.isEmpty { seriesContainer.removeFromSuperview() } else { height += 280}
-        if let items = character.events?.items where items.isEmpty { eventsContainer.removeFromSuperview() } else { height += 280}
-        if let items = character.stories?.items where items.isEmpty { storiesContainer.removeFromSuperview() } else { height += 280}
+        if let items = character.comics?.items, items.isEmpty { comicsContainer.removeFromSuperview() } else { height += 280}
+        if let items = character.series?.items, items.isEmpty { seriesContainer.removeFromSuperview() } else { height += 280}
+        if let items = character.events?.items, items.isEmpty { eventsContainer.removeFromSuperview() } else { height += 280}
+        if let items = character.stories?.items, items.isEmpty { storiesContainer.removeFromSuperview() } else { height += 280}
         
-        if let items = character.urls where items.isEmpty { linksContainer.removeFromSuperview() } else { height += 230}
+        if let items = character.urls, items.isEmpty { linksContainer.removeFromSuperview() } else { height += 230}
         
         return height
     }

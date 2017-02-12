@@ -75,7 +75,7 @@ class APIHandlerTests: XCTestCase {
     
     func testPerformanceGetTimeStampAndHash() {
         // This is an example of a performance test case.
-        self.measureBlock {
+        self.measure {
             let _ = APIHandler.getSecurityFootprint(1.description, privateAPIKey: "abcd", publicAPIKey: "1234")
         }
     }

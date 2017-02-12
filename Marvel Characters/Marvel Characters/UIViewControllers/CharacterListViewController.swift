@@ -30,15 +30,15 @@ class CharacterListViewController: UIViewController {
 
     let errorValidation = { (result: Result<[MarvelCharacter],RequestError>) -> Driver<[MarvelCharacter]> in
         switch result {
-        case .Success(let character):
+        case .success(let character):
             return Driver.just(character)
-        case .Failure(_):
+        case .failure(_):
             return Driver.empty()
         }
     }
     var loadingMore = false {
         didSet {
-            footerView.hidden = !loadingMore
+            footerView.isHidden = !loadingMore
         }
     }
     var readyToLoadMore = true
@@ -54,19 +54,19 @@ class CharacterListViewController: UIViewController {
             .filter { $0 >= 0 }
         
         createCharacterService()
-        rx_characters = chs?.getData(Routes.ListCharacters)
+        rx_characters = chs?.getData(Routes.listCharacters)
         appendSubscribers()
         setupPagination()
     }
     
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return .LightContent
+    override var preferredStatusBarStyle : UIStatusBarStyle {
+        return .lightContent
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.navigationBar.backgroundColor = UIColor.blackColor()
-        navigationController?.navigationBar.setBackgroundImage(nil, forBarMetrics: UIBarMetrics.Default)
+        navigationController?.navigationBar.backgroundColor = UIColor.black
+        navigationController?.navigationBar.setBackgroundImage(nil, for: UIBarMetrics.default)
         navigationController?.navigationBar.shadowImage = nil
         
         navigationController?.setNavigationBarHidden(false, animated: false)
@@ -74,10 +74,10 @@ class CharacterListViewController: UIViewController {
         navigationController?.delegate = self
     }
     
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        if let nav = navigationController?.delegate as? CharacterListViewController where nav == self {
+        if let nav = navigationController?.delegate as? CharacterListViewController, nav == self {
             navigationController?.delegate = nil
         }
     }
@@ -88,7 +88,7 @@ class CharacterListViewController: UIViewController {
     
     func setupPagination() {
         
-        tableView.rx_contentOffset
+        tableView.rx.contentOffset
             .debounce(0.1, scheduler: MainScheduler.instance)
             //  .throttle(0.05, scheduler: MainScheduler.instance)
             .distinctUntilChanged()
@@ -97,7 +97,7 @@ class CharacterListViewController: UIViewController {
                 
                 guard
                     self.readyToLoadMore &&
-                        offset.y > UIScreen.mainScreen().bounds.height
+                        offset.y > UIScreen.main.bounds.height
                     else {return false}
                 self.readyToLoadMore = false
                 return true
@@ -112,7 +112,7 @@ class CharacterListViewController: UIViewController {
                 let inset = self.tableView.contentInset
                 let y = offset.y + bounds.size.height - inset.bottom
                 let h = size.height
-                let reload_distance : CGFloat = UIScreen.mainScreen().bounds.height * 2
+                let reload_distance : CGFloat = UIScreen.main.bounds.height * 2
                 if y > (h - reload_distance) {
                     self.loadingMore = true
                     
@@ -127,10 +127,10 @@ class CharacterListViewController: UIViewController {
     
     func appendSubscribers() {
         dataSource.asDriver()
-            .drive(tableView.rx_itemsWithCellIdentifier("CharacterCell", cellType: CharacterCell.self)) { (_, character, cell) in
+            .drive(tableView.rx.items(cellIdentifier: "CharacterCell", cellType: CharacterCell.self)) { (_, character, cell) in
                 
                 if let nameLabel = cell.nameLabel as? UIButton {
-                    nameLabel.setTitle(character.name, forState: UIControlState.Normal)
+                    nameLabel.setTitle(character.name, for: UIControlState.normal)
                 } else if let nameLabel = cell.nameLabel as? UILabel {
                     nameLabel.text = character.name
                 }
@@ -142,17 +142,17 @@ class CharacterListViewController: UIViewController {
                 
                 
                 guard let url = character.thumbnail?.url(), let nsurl = NSURL(string: url), let modified = character.modified else { return }
-                ImageSource.downloadImageAndSetIn(cell.bannerImage, imageURL: nsurl, withUniqueKey: modified)
+                ImageSource.downloadImageAndSetIn(cell.bannerImage, imageURL: nsurl as URL, withUniqueKey: modified)
             }
             .addDisposableTo(disposeBag)
         
         rx_characters?
             .flatMapLatest(errorValidation)
-            .driveNext { (newPage) in
-                self.dataSource.value.appendContentsOf(newPage)
+            .drive(onNext: { (newPage) in
+                self.dataSource.value.append(contentsOf: newPage)
                 if newPage.count < APIHandler.itemsPerPage { self.loadingMore = false }
                 self.readyToLoadMore = true
-            }
+            }, onCompleted: nil, onDisposed: nil)
             .addDisposableTo(disposeBag)
         
     }
@@ -161,15 +161,15 @@ class CharacterListViewController: UIViewController {
     
     
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
        
         
         
-        if let characterDetails = segue.destinationViewController as? CharacterProviderDelegate {
+        if let characterDetails = segue.destination as? CharacterProviderDelegate {
             
             guard
                 let indexPath = tableView.indexPathForSelectedRow,
-                let cell = tableView.cellForRowAtIndexPath(indexPath) as? CharacterCell
+                let cell = tableView.cellForRow(at: indexPath) as? CharacterCell
                 else { return }
             
             let character = dataSource.value[indexPath.row]
@@ -185,7 +185,7 @@ class CharacterListViewController: UIViewController {
 extension CharacterListViewController: UINavigationControllerDelegate {
   
     
-    func navigationController(navigationController: UINavigationController, animationControllerForOperation operation: UINavigationControllerOperation, fromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         if self == fromVC && toVC is BlurredImageContainerViewController {
             return RepositionImageZoomingTransition()
         }
@@ -198,14 +198,14 @@ extension CharacterListViewController: RepositionImageZoomingTransitionProtocol 
     func getImageView() -> UIImageView? {
         guard
             let indexPath = tableView.indexPathForSelectedRow,
-            let cell = tableView.cellForRowAtIndexPath(indexPath) as? CharacterCell
+            let cell = tableView.cellForRow(at: indexPath) as? CharacterCell
         else { return nil }
         return cell.bannerImage
     }
     
     func doBeforeTransition() {
         
-        getCell()?.hidden = true
+        getCell()?.isHidden = true
         navigationController?.navigationBar.alpha = 0
         
     }
@@ -214,17 +214,17 @@ extension CharacterListViewController: RepositionImageZoomingTransitionProtocol 
         return getCell()!
     }
     
-    private func getCell() -> UITableViewCell? {
+    fileprivate func getCell() -> UITableViewCell? {
         guard
             let indexPath = tableView.indexPathForSelectedRow,
-            let cell = tableView.cellForRowAtIndexPath(indexPath) as? CharacterCell
+            let cell = tableView.cellForRow(at: indexPath) as? CharacterCell
             else { return nil}
         return cell
     }
     
     func doAfterTransition(){
         view.alpha = 1
-        getCell()?.hidden = false
+        getCell()?.isHidden = false
         navigationController?.navigationBar.alpha = 1
         
     }

@@ -36,8 +36,8 @@ class SearchWithElementsUITests: XCTestCase {
         
         
         
-        _ = self.expectationForPredicate(NSPredicate(format: "self.count > 0"), evaluatedWithObject: cells, handler: nil)
-        self.waitForExpectationsWithTimeout(5.0, handler: nil)
+        _ = self.expectation(for: NSPredicate(format: "self.count > 0"), evaluatedWith: cells, handler: nil)
+        self.waitForExpectations(timeout: 5.0, handler: nil)
         
         XCTAssert(app.keyboards.count == 1)
     }
@@ -49,8 +49,8 @@ class SearchWithElementsUITests: XCTestCase {
             app.keys["delete"].tap()
         }
         
-        _ = self.expectationForPredicate(NSPredicate(format: "self.count == 0"), evaluatedWithObject: cells, handler: nil)
-        self.waitForExpectationsWithTimeout(5.0, handler: nil)
+        _ = self.expectation(for: NSPredicate(format: "self.count == 0"), evaluatedWith: cells, handler: nil)
+        self.waitForExpectations(timeout: 5.0, handler: nil)
         XCTAssert(app.keyboards.count == 1)
         
         XCTAssert(app.tables.element.cells.count == 0)
@@ -58,13 +58,13 @@ class SearchWithElementsUITests: XCTestCase {
     
     func testSearchResultsIsEmptyAfterSelectAllAndEmptyTextIntroduced() {
        
-        searchBar.pressForDuration(1.2)
+        searchBar.press(forDuration: 1.2)
         app.menuItems["Select All"].tap()
         app.keys["delete"].tap()
         
         
-        _ = self.expectationForPredicate(NSPredicate(format: "self.count == 0"), evaluatedWithObject: cells, handler: nil)
-        self.waitForExpectationsWithTimeout(5.0, handler: nil)
+        _ = self.expectation(for: NSPredicate(format: "self.count == 0"), evaluatedWith: cells, handler: nil)
+        self.waitForExpectations(timeout: 5.0, handler: nil)
         XCTAssert(app.keyboards.count == 1)
         
         XCTAssert(app.tables.element.cells.count == 0)
@@ -76,15 +76,15 @@ class SearchWithElementsUITests: XCTestCase {
         
         XCTAssert(cells.count >= 1)
         
-        XCTAssert(cells.elementBoundByIndex(0).staticTexts.count == 1)
-        XCTAssert(cells.elementBoundByIndex(0).images["Character Image"].exists)
+        XCTAssert(cells.element(boundBy: 0).staticTexts.count == 1)
+        XCTAssert(cells.element(boundBy: 0).images["Character Image"].exists)
         
         XCTAssert(app.keyboards.count == 1)
     }
     
     func testCharacterNameIsDisplayedInCell() {
         
-        let characterName = cells.elementBoundByIndex(0).staticTexts.elementBoundByIndex(0)
+        let characterName = cells.element(boundBy: 0).staticTexts.element(boundBy: 0)
         XCTAssert(characterName.exists)
         XCTAssert(!characterName.label.isEmpty)
     }
@@ -94,7 +94,7 @@ class SearchWithElementsUITests: XCTestCase {
        
         XCTAssert(!app.navigationBars["Marvel_Characters.BlurredImageContainerView"].exists)
         
-        app.tables.childrenMatchingType(.Cell).elementBoundByIndex(0).tap()
+        app.tables.children(matching: .cell).element(boundBy: 0).tap()
         
         XCTAssert(app.navigationBars["Marvel_Characters.BlurredImageContainerView"].exists)
     }
@@ -132,9 +132,9 @@ class SearchWithElementsUITests: XCTestCase {
     
     func testBackButtonInDetailsReturnsToSearchList() {
         
-        app.tables.childrenMatchingType(.Cell).elementBoundByIndex(0).tap()
+        app.tables.children(matching: .cell).element(boundBy: 0).tap()
         
-        app.navigationBars["Marvel_Characters.BlurredImageContainerView"].childrenMatchingType(.Button).matchingIdentifier("Back").elementBoundByIndex(1).tap()
+        app.navigationBars["Marvel_Characters.BlurredImageContainerView"].children(matching: .button).matching(identifier: "Back").element(boundBy: 1).tap()
         
         XCTAssert(!app.navigationBars["Marvel_Characters.BlurredImageContainerView"].exists)
         
@@ -144,6 +144,6 @@ class SearchWithElementsUITests: XCTestCase {
     func testStatusBarIsPresent(){
         let statusBarsQuery = XCUIApplication().statusBars.element
         XCTAssertTrue(statusBarsQuery.exists)
-        XCTAssertTrue(statusBarsQuery.hittable)
+        XCTAssertTrue(statusBarsQuery.isHittable)
     }
 }

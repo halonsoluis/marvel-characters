@@ -27,9 +27,9 @@ class CharacterCrossLargeCells: UIViewController, UICollectionViewDelegate, UICo
     
     let errorValidation = { (result: Result<[CrossReference],RequestError>) -> Driver<[CrossReference]> in
         switch result {
-        case .Success(let item):
+        case .success(let item):
             return Driver.just(item)
-        case .Failure(_):
+        case .failure(_):
             return Driver.empty()
         }
     }
@@ -39,9 +39,9 @@ class CharacterCrossLargeCells: UIViewController, UICollectionViewDelegate, UICo
     var loadingMore = false
     var readyToLoadMore = true
     
-    @IBAction func closeButtonTapped(sender: AnyObject) {
+    @IBAction func closeButtonTapped(_ sender: AnyObject) {
         //   navigationController?.popViewControllerAnimated(true)
-        dismissViewControllerAnimated(true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
     
     
@@ -51,21 +51,22 @@ class CharacterCrossLargeCells: UIViewController, UICollectionViewDelegate, UICo
         appendSubscribers()
         setupPagination()
         
-        collectionView.rx_dataSource.setForwardToDelegate(self, retainDelegate: false)
-        collectionView.rx_dataSource.forwardToDelegate()
+        _ = collectionView.rx.dataSource.setForwardToDelegate(self, retainDelegate: false)
+        _ = collectionView.rx.dataSource.forwardToDelegate()
         
         collectionView.reloadData()
         
         
-        collectionView.rx_contentOffset
+        collectionView.rx.contentOffset
             .asDriver()
             .throttle(0.5)
             .distinctUntilChanged()
-            .driveNext { offset in
+            .drive(onNext: { offset in
                 let displacement = self.collectionView.contentSize.width / CGFloat(self.dataSource.value.count)
                 let value  = offset.x / displacement
                 self.scrollToPage(Int(round(value)), animated: true)
-            }.addDisposableTo(disposeBag)
+            }, onCompleted: nil, onDisposed: nil)
+            .addDisposableTo(disposeBag)
         
     }
     
@@ -77,7 +78,7 @@ class CharacterCrossLargeCells: UIViewController, UICollectionViewDelegate, UICo
         layout.itemSize.width = self.collectionView.bounds.width
         layout.itemSize.height =  self.collectionView.bounds.height
         
-        layout.scrollDirection = UICollectionViewScrollDirection.Horizontal
+        layout.scrollDirection = UICollectionViewScrollDirection.horizontal
            collectionView.collectionViewLayout = layout
     }
     
@@ -86,28 +87,29 @@ class CharacterCrossLargeCells: UIViewController, UICollectionViewDelegate, UICo
         scrollToPage(currentCoverIndex, animated: false)
     }
     
-    func scrollToPage(page: Int, animated: Bool) {
-        self.collectionView.scrollToItemAtIndexPath(NSIndexPath(forRow: page, inSection: 0), atScrollPosition: UICollectionViewScrollPosition.CenteredHorizontally, animated: animated)
+    func scrollToPage(_ page: Int, animated: Bool) {
+        self.collectionView.scrollToItem(at: IndexPath(row: page, section: 0), at: UICollectionViewScrollPosition.centeredHorizontally, animated: animated)
     }
     
     
     
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return .LightContent
+    override var preferredStatusBarStyle : UIStatusBarStyle {
+        return .lightContent
     }
     
     func appendSubscribers() {
         dataSource.asDriver()
-            .driveNext { _ in
+            .drive(onNext: { _ in
                 self.collectionView.reloadData()
-            }.addDisposableTo(disposeBag)
+            }, onCompleted: nil, onDisposed: nil)
+            .addDisposableTo(disposeBag)
         
         rx_crossreference?
             .flatMapLatest(errorValidation)
-            .driveNext { (newPage) in
+            .drive(onNext:  { (newPage) in
                 if newPage.count < APIHandler.itemsPerPage { self.loadingMore = false }
                 self.readyToLoadMore = true
-            }
+            }, onCompleted: nil, onDisposed: nil)
             .addDisposableTo(disposeBag)
         
     }
@@ -116,7 +118,7 @@ class CharacterCrossLargeCells: UIViewController, UICollectionViewDelegate, UICo
         
         
         
-        collectionView.rx_contentOffset
+        collectionView.rx.contentOffset
             .debounce(0.1, scheduler: MainScheduler.instance)
             //  .throttle(0.05, scheduler: MainScheduler.instance)
             .distinctUntilChanged()
@@ -125,7 +127,7 @@ class CharacterCrossLargeCells: UIViewController, UICollectionViewDelegate, UICo
                 
                 guard
                     self.readyToLoadMore &&
-                        offset.x > UIScreen.mainScreen().bounds.width
+                        offset.x > UIScreen.main.bounds.width
                     else {return false}
                 self.readyToLoadMore = false
                 return true
@@ -140,7 +142,7 @@ class CharacterCrossLargeCells: UIViewController, UICollectionViewDelegate, UICo
                 let inset = self.collectionView.contentInset
                 let x = offset.x + bounds.size.width - inset.right
                 let w = size.width
-                let reload_distance : CGFloat = UIScreen.mainScreen().bounds.width * 2
+                let reload_distance : CGFloat = UIScreen.main.bounds.width * 2
                 if x > (w - reload_distance) {
                     self.loadingMore = true
                     
@@ -160,8 +162,8 @@ class CharacterCrossLargeCells: UIViewController, UICollectionViewDelegate, UICo
     
     
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCellWithReuseIdentifier("RelatedPublicationLargeCell", forIndexPath: indexPath) as? RelatedPublicationLargeCell
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RelatedPublicationLargeCell", for: indexPath) as? RelatedPublicationLargeCell
             else  { return UICollectionViewCell()}
         
         let crossReference = dataSource.value[indexPath.row]
@@ -176,7 +178,7 @@ class CharacterCrossLargeCells: UIViewController, UICollectionViewDelegate, UICo
         
         if let image = cell.image {
             cell.image.image = nil
-            guard let url = crossReference.thumbnail?.url(), let nsurl = NSURL(string: url), let modified = crossReference.modified else { return cell}
+            guard let url = crossReference.thumbnail?.url(), let nsurl = URL(string: url), let modified = crossReference.modified else { return cell}
             ImageSource.downloadImageAndSetIn(image, imageURL: nsurl, withUniqueKey: modified)
         }
         return cell
@@ -184,11 +186,11 @@ class CharacterCrossLargeCells: UIViewController, UICollectionViewDelegate, UICo
     
     
     
-    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
     
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return dataSource.value.count
     }
     

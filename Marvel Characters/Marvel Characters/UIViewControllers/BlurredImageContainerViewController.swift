@@ -37,7 +37,7 @@ class BlurredImageContainerViewController : UIViewController, CharacterProviderD
     
     var viewWithBlur : UIView?
     
-    override func viewDidDisappear(animated: Bool) {
+    override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         viewWithBlur?.removeFromSuperview()
     }
@@ -47,7 +47,7 @@ class BlurredImageContainerViewController : UIViewController, CharacterProviderD
         super.viewDidLoad()
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         addViewWithBlur()
     }
@@ -61,31 +61,31 @@ class BlurredImageContainerViewController : UIViewController, CharacterProviderD
         
         //makeNavigationBarTransparent
         _ = {
-            bar.backgroundColor = UIColor.clearColor()
-            bar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
+            bar.backgroundColor = UIColor.clear
+            bar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
             bar.shadowImage = UIImage()
             }()
         
         self.title = character?.name
         
         viewWithBlur = {
-            let viewHoldingBlur = UIView(frame: CGRectMake(0, -20, bar.bounds.width, bar.bounds.height + 20))
-            let blur =  UIBlurEffect(style: UIBlurEffectStyle.Dark)
-            let viewWithBlur = UIVisualEffectView(frame: CGRectMake(0, 0, viewHoldingBlur.bounds.width, viewHoldingBlur.bounds.height))
+            let viewHoldingBlur = UIView(frame: CGRect(x: 0, y: -20, width: bar.bounds.width, height: bar.bounds.height + 20))
+            let blur =  UIBlurEffect(style: UIBlurEffectStyle.dark)
+            let viewWithBlur = UIVisualEffectView(frame: CGRect(x: 0, y: 0, width: viewHoldingBlur.bounds.width, height: viewHoldingBlur.bounds.height))
             viewWithBlur.effect = blur
             
-            let vibrancy = UIVibrancyEffect(forBlurEffect: blur)
+            let vibrancy = UIVibrancyEffect(blurEffect: blur)
             
-            let viewWithVibrancy = UIVisualEffectView(frame: CGRectMake(0, 0, viewHoldingBlur.bounds.width, viewHoldingBlur.bounds.height))
+            let viewWithVibrancy = UIVisualEffectView(frame: CGRect(x: 0, y: 0, width: viewHoldingBlur.bounds.width, height: viewHoldingBlur.bounds.height))
             viewWithVibrancy.effect = vibrancy
             
             viewWithBlur.addSubview(viewWithVibrancy)
             
-            viewHoldingBlur.userInteractionEnabled = false
+            viewHoldingBlur.isUserInteractionEnabled = false
             
             viewHoldingBlur.addSubview(viewWithBlur)
-            viewHoldingBlur.opaque = false
-            viewHoldingBlur.backgroundColor = UIColor.clearColor()
+            viewHoldingBlur.isOpaque = false
+            viewHoldingBlur.backgroundColor = UIColor.clear
             return viewHoldingBlur
             }()
         
@@ -97,16 +97,16 @@ class BlurredImageContainerViewController : UIViewController, CharacterProviderD
         guard let bar = navigationController?.navigationBar, let viewWithBlur = viewWithBlur else { setUpNavigatorAppearance() ; return }
         
         bar.addSubview(viewWithBlur)
-        bar.sendSubviewToBack(viewWithBlur)
+        bar.sendSubview(toBack: viewWithBlur)
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if let embedded = segue.destinationViewController as? CharacterDetailsViewController {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let embedded = segue.destination as? CharacterDetailsViewController {
             embedded.delegate = self
             embedded.delegateBar = self
             embeddedVC = embedded
         }
-        super.prepareForSegue(segue, sender: sender)
+        super.prepare(for: segue, sender: sender)
     }
 }
 
@@ -152,17 +152,17 @@ extension BlurredImageContainerViewController: RepositionImageZoomingTransitionP
 
 extension BlurredImageContainerViewController: UINavigationControllerDelegate {
     
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         navigationController?.delegate = nil
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.delegate = self
     }
     
-    func navigationController(navigationController: UINavigationController, animationControllerForOperation operation: UINavigationControllerOperation, fromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         if self == fromVC && toVC is CharacterListViewController {
             return RepositionBackTransition()
         }

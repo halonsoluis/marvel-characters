@@ -15,28 +15,34 @@ class SearchViewController: CharacterListViewController {
     
     @IBOutlet weak var searchBar: UISearchBar!
     
-    var rx_characterName: Observable<String> {
-        return searchBar
-            .rx_text
+    
+    func buildCharacterNameObservable() -> Observable<String> {
+        return searchBar.rx.text.orEmpty
             .throttle(0.5, scheduler: MainScheduler.instance)
             .distinctUntilChanged()
-            .filter {
+            .flatMap{ text -> Observable<String> in
+                
+                if text.isEmpty{
+                    return .just("")
+                }
+                
+                return .just(text)
+            }.filter {
                 if $0.isEmpty {
                     self.dataSource.value.removeAll()
                     self.loadingMore = false
                     return false
                 }
                 return true
-            }
-            .doOnNext { (_) in
+            }.do(onNext: { (_) in
                 self.dataSource.value.removeAll()
                 self.currentPage.value = 0
-                self.footerView.hidden = false
-        }
+                self.footerView.isHidden = false
+            }, onError: nil, onCompleted: nil, onSubscribe: nil, onDispose: nil)
     }
     
     override func createCharacterService() {
-        chs = NetworkService(withNameObservable: rx_characterName, pageObservable: currentPageObservable)
+        chs = NetworkService(withNameObservable: buildCharacterNameObservable(), pageObservable: currentPageObservable)
     }
     
     override func viewDidLoad() {
@@ -46,33 +52,33 @@ class SearchViewController: CharacterListViewController {
         searchBar.becomeFirstResponder()
         
         searchBar
-            .rx_cancelButtonClicked
+            .rx.cancelButtonClicked
             .asDriver()
-            .driveNext { [weak self] (_) in
-                self?.navigationController?.popViewControllerAnimated(true)
-            }.addDisposableTo(disposeBag)
+            .drive(onNext: { [weak self] (_) in
+                _ = self?.navigationController?.popViewController(animated: true)
+                }, onCompleted: nil, onDisposed: nil).addDisposableTo(disposeBag)
         
         loadingMore = false
-        
+   
     }
     
-    private func setLayoutForKeyboard() {
+    fileprivate func setLayoutForKeyboard() {
         
-        NSNotificationCenter.defaultCenter()
-            .rx_notification(UIKeyboardWillShowNotification, object: nil)
+        NotificationCenter.default
+            .rx.notification(NSNotification.Name.UIKeyboardWillShow, object: nil)
             .observeOn(MainScheduler.instance)
-            .subscribeNext { [weak self] notification in
+            .subscribe(onNext: { [weak self] notification in
                 
                 guard let info = notification.userInfo else { return }
                 guard let strongSelf = self else { return }
                 
-                let keyboardFrame: CGRect = (info[UIKeyboardFrameBeginUserInfoKey] as! NSValue).CGRectValue()
+                let keyboardFrame: CGRect = (info[UIKeyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
                 let tableViewInset = strongSelf.tableView.contentInset
                 let contentInsets = UIEdgeInsetsMake(tableViewInset.top, 0.0, keyboardFrame.height, 0.0);
                 
                 var frame = strongSelf.view.frame
                 
-                UIView.animateWithDuration(0.5, delay: 0.2, options: UIViewAnimationOptions.CurveEaseIn, animations: {
+                UIView.animate(withDuration: 0.5, delay: 0.2, options: UIViewAnimationOptions.curveEaseIn, animations: {
                     strongSelf.tableView.contentInset = contentInsets
                     strongSelf.tableView.scrollIndicatorInsets = contentInsets
                     
@@ -80,13 +86,13 @@ class SearchViewController: CharacterListViewController {
                     strongSelf.view.frame = frame
                 }, completion: nil)
                 
-            }
+                }, onError: nil, onCompleted: nil, onDisposed: nil)
             .addDisposableTo(disposeBag)
         
-        NSNotificationCenter.defaultCenter()
-            .rx_notification(UIKeyboardWillHideNotification, object: nil)
+        NotificationCenter.default
+            .rx.notification(NSNotification.Name.UIKeyboardWillHide, object: nil)
             .observeOn(MainScheduler.instance)
-            .subscribeNext { [weak self] notification in
+            .subscribe(onNext: { [weak self] notification in
                 
                 guard let strongSelf = self else { return }
                 
@@ -95,24 +101,24 @@ class SearchViewController: CharacterListViewController {
                 
                 var frame = strongSelf.view.frame
                 
-                UIView.animateWithDuration(0.5, delay: 0.2, options: UIViewAnimationOptions.CurveEaseIn, animations: {
+                UIView.animate(withDuration: 0.5, delay: 0.2, options: UIViewAnimationOptions.curveEaseIn, animations: {
                     strongSelf.tableView.contentInset = contentInsets
                     strongSelf.tableView.scrollIndicatorInsets = contentInsets
                     
-                    frame.size.height = UIScreen.mainScreen().bounds.height
+                    frame.size.height = UIScreen.main.bounds.height
                     strongSelf.view.frame = frame
-                    }, completion: nil)
+                }, completion: nil)
                 
-            }
+                }, onError: nil, onCompleted: nil, onDisposed: nil)
             .addDisposableTo(disposeBag)
     }
     
     
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return UIStatusBarStyle.LightContent
+    override var preferredStatusBarStyle : UIStatusBarStyle {
+        return UIStatusBarStyle.lightContent
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: animated)
     }

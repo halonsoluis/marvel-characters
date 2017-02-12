@@ -67,8 +67,8 @@ class CharacterSearchUITests: XCTestCase {
         searchBar.typeText(textForSearchBar)
         cells = app.tables.element.cells
         
-        _ = self.expectationForPredicate(NSPredicate(format: "self.count > 0"), evaluatedWithObject: cells, handler: nil)
-        self.waitForExpectationsWithTimeout(5.0, handler: nil)
+        _ = self.expectation(for: NSPredicate(format: "self.count > 0"), evaluatedWith: cells, handler: nil)
+        self.waitForExpectations(timeout: 5.0, handler: nil)
         
         cells = app.tables.element.cells
         
@@ -77,6 +77,6 @@ class CharacterSearchUITests: XCTestCase {
     func testStatusBarIsPresent(){
         let statusBarsQuery = XCUIApplication().statusBars.element
         XCTAssertTrue(statusBarsQuery.exists)
-        XCTAssertTrue(statusBarsQuery.hittable)
+        XCTAssertTrue(statusBarsQuery.isHittable)
     }
 }

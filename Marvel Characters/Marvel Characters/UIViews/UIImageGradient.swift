@@ -30,8 +30,8 @@ class UIGradientImageView: UIImageView {
         addGradientLayer()
     }
     
-    func getColors() -> [CGColorRef] {
-        return [UIColor.clearColor().CGColor, UIColor(red: 0, green: 0, blue: 0, alpha: 0.5).CGColor]
+    func getColors() -> [CGColor] {
+        return [UIColor.clear.cgColor, UIColor(red: 0, green: 0, blue: 0, alpha: 0.5).cgColor]
     }
     
     func getLocations() -> [CGFloat]{
@@ -44,8 +44,8 @@ class UIGradientImageView: UIImageView {
         
         let colors = getColors()
         myGradientLayer.colors = colors
-        myGradientLayer.opaque = false
-        myGradientLayer.locations = getLocations()
+        myGradientLayer.isOpaque = false
+        myGradientLayer.locations = getLocations() as [NSNumber]?
     }
     
     override func layoutSubviews() {

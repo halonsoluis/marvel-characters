@@ -14,8 +14,8 @@ class CharacterRelatedLinksContainer: GenericBlockCharacterDetail, LinksPresente
     
     var characterLinks: [LinkURL]? = []
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        guard let relatedLinks = segue.destinationViewController as? LinksPresenterProtocol else {return}
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let relatedLinks = segue.destination as? LinksPresenterProtocol else {return}
        
         relatedLinks.characterLinks = characterLinks
     }

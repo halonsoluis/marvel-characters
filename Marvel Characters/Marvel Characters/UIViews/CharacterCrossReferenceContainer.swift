@@ -31,9 +31,9 @@ class CharacterCrossReferenceContainer: GenericBlockCharacterDetail, UICollectio
     
     let errorValidation = { (result: Result<[CrossReference],RequestError>) -> Driver<[CrossReference]> in
         switch result {
-        case .Success(let item):
+        case .success(let item):
             return Driver.just(item)
-        case .Failure(_):
+        case .failure(_):
             return Driver.empty()
         }
     }
@@ -61,8 +61,8 @@ class CharacterCrossReferenceContainer: GenericBlockCharacterDetail, UICollectio
         setupPagination()
         
         
-        collectionView.rx_dataSource.setForwardToDelegate(self, retainDelegate: false)
-        collectionView.rx_dataSource.forwardToDelegate()
+        collectionView.rx.dataSource.setForwardToDelegate(self, retainDelegate: false)
+        collectionView.rx.dataSource.forwardToDelegate()
         
         collectionView.reloadData()
     }
@@ -89,24 +89,25 @@ class CharacterCrossReferenceContainer: GenericBlockCharacterDetail, UICollectio
 //            .addDisposableTo(disposeBag)
         
         dataSource.asDriver()
-            .driveNext { _ in
+            .drive(onNext: { _ in
                 self.collectionView.reloadData()
-        }.addDisposableTo(disposeBag)
+            }, onCompleted: nil, onDisposed: nil)
+        .addDisposableTo(disposeBag)
         
         rx_crossreference?
             .flatMapLatest(errorValidation)
-            .driveNext { (newPage) in
-                self.dataSource.value.appendContentsOf(newPage)
+            .drive(onNext: { (newPage) in
+                self.dataSource.value.append(contentsOf: newPage)
                 if newPage.count < APIHandler.itemsPerPage { self.loadingMore = false }
                 self.readyToLoadMore = true
-            }
-            .addDisposableTo(disposeBag)
+            }, onCompleted: nil, onDisposed: nil)
+           .addDisposableTo(disposeBag)
         
     }
     
     func setupPagination() {
         
-        collectionView.rx_contentOffset
+        collectionView.rx.contentOffset
             .debounce(0.1, scheduler: MainScheduler.instance)
             //  .throttle(0.05, scheduler: MainScheduler.instance)
             .distinctUntilChanged()
@@ -115,7 +116,7 @@ class CharacterCrossReferenceContainer: GenericBlockCharacterDetail, UICollectio
                 
                 guard
                     self.readyToLoadMore &&
-                        offset.x > UIScreen.mainScreen().bounds.width
+                        offset.x > UIScreen.main.bounds.width
                     else {return false}
                 self.readyToLoadMore = false
                 return true
@@ -130,7 +131,7 @@ class CharacterCrossReferenceContainer: GenericBlockCharacterDetail, UICollectio
                 let inset = self.collectionView.contentInset
                 let x = offset.x + bounds.size.width - inset.right
                 let w = size.width
-                let reload_distance : CGFloat = UIScreen.mainScreen().bounds.width * 2
+                let reload_distance : CGFloat = UIScreen.main.bounds.width * 2
                 if x > (w - reload_distance) {
                     self.loadingMore = true
                     
@@ -144,8 +145,8 @@ class CharacterCrossReferenceContainer: GenericBlockCharacterDetail, UICollectio
     }
 
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCellWithReuseIdentifier("RelatedPublicationCell", forIndexPath: indexPath) as? RelatedPublicationCell
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RelatedPublicationCell", for: indexPath) as? RelatedPublicationCell
         else  { return UICollectionViewCell()}
        
         let crossReference = dataSource.value[indexPath.row]
@@ -156,7 +157,7 @@ class CharacterCrossReferenceContainer: GenericBlockCharacterDetail, UICollectio
         
         if let image = cell.image {
             cell.image.image = nil
-            guard let url = crossReference.thumbnail?.url(), let nsurl = NSURL(string: url), let modified = crossReference.modified else { return cell}
+            guard let url = crossReference.thumbnail?.url(), let nsurl = URL(string: url), let modified = crossReference.modified else { return cell}
             ImageSource.downloadImageAndSetIn(image, imageURL: nsurl, withUniqueKey: modified)
         }
         return cell
@@ -164,25 +165,25 @@ class CharacterCrossReferenceContainer: GenericBlockCharacterDetail, UICollectio
 
 
 
-    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
     
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return dataSource.value.count
     }
     
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("selected \(indexPath.row)")
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if let largeImages = segue.destinationViewController as? CharacterCrossLargeCells {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let largeImages = segue.destination as? CharacterCrossLargeCells {
             largeImages.rx_crossreference = self.rx_crossreference
             largeImages.dataSource = self.dataSource
             largeImages.currentPage = currentPage
             largeImages.totalItems = total
-            largeImages.currentCoverIndex = self.collectionView.indexPathsForSelectedItems()![0].row
+            largeImages.currentCoverIndex = self.collectionView.indexPathsForSelectedItems![0].row
         }
     }
     

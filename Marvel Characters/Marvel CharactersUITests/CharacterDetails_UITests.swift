@@ -25,14 +25,14 @@ class CharacterDetails_UITests: XCTestCase {
         
         // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
         
-        characterName = app.tables.cells.elementBoundByIndex(0).buttons.elementBoundByIndex(0).label
+        characterName = app.tables.cells.element(boundBy: 0).buttons.element(boundBy: 0).label
         
-        app.tables.childrenMatchingType(.Cell).elementBoundByIndex(0).tap()
+        app.tables.children(matching: .cell).element(boundBy: 0).tap()
         
     }
     
     func testBackToList() {
-        let backButton = app.navigationBars["Marvel_Characters.BlurredImageContainerView"].childrenMatchingType(.Button).matchingIdentifier("Back").elementBoundByIndex(1)
+        let backButton = app.navigationBars["Marvel_Characters.BlurredImageContainerView"].children(matching: .button).matching(identifier: "Back").element(boundBy: 1)
         backButton.tap()
         
         XCTAssert(!backButton.exists)
@@ -67,7 +67,7 @@ class CharacterDetails_UITests: XCTestCase {
     func testStatusBarIsPresent(){
         let statusBarsQuery = XCUIApplication().statusBars.element
         XCTAssertTrue(statusBarsQuery.exists)
-        XCTAssertTrue(statusBarsQuery.hittable)
+        XCTAssertTrue(statusBarsQuery.isHittable)
     }
     
     func testCharacterNameIsShownOnDetails() {
@@ -83,9 +83,9 @@ class CharacterDetails_UITests: XCTestCase {
         //The mockup for current character '3D-Man' has stories, events, comics and series related
         let numberOfScrolls = collectionsQuery.count
         
-        app.navigationBars["Marvel_Characters.BlurredImageContainerView"].childrenMatchingType(.Button).matchingIdentifier("Back").elementBoundByIndex(1).tap()
+        app.navigationBars["Marvel_Characters.BlurredImageContainerView"].children(matching: .button).matching(identifier: "Back").element(boundBy: 1).tap()
         
-        tablesQuery.childrenMatchingType(.Cell).elementBoundByIndex(1).tap()
+        tablesQuery.children(matching: .cell).element(boundBy: 1).tap()
         
         //The mockup for current character 'A-Bomb (HAS)' has no related collections
         let numberOfScrollsSecond = collectionsQuery.count

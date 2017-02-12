@@ -8,9 +8,9 @@
 
 import Foundation
 
-enum RequestError: ErrorType{
-    case Cancelled
-    case Timeout
-    case Unknown
-    case Error(String)
+enum RequestError: Error{
+    case cancelled
+    case timeout
+    case unknown
+    case error(String)
 }

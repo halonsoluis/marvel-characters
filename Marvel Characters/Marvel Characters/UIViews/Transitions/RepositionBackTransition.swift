@@ -11,65 +11,64 @@ import UIKit
 
 class RepositionBackTransition : NSObject, UIViewControllerAnimatedTransitioning {
     
-    func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
+    func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         guard
-            let startOn = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey) as? RepositionImageZoomingTransitionProtocol,
-            let endsOn = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey) as? RepositionImageZoomingTransitionProtocol,
-            let containerView = transitionContext.containerView(),
+            let startOn = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from) as? RepositionImageZoomingTransitionProtocol,
+            let endsOn = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to) as? RepositionImageZoomingTransitionProtocol,
             let initialView = startOn.getImageView(),
             let endingView = endsOn.getImageView()
             else { return }
-        
-        endingView.hidden = true
+        let containerView = transitionContext.containerView
+        endingView.isHidden = true
         
         let snapShot = UIImageView(image: initialView.image)
-        snapShot.contentMode = .ScaleAspectFill
-        snapShot.frame = initialView.convertRect(initialView.frame, toView: containerView)
-        snapShot.opaque = true
+        snapShot.contentMode = .scaleAspectFill
+        snapShot.frame = initialView.convert(initialView.frame, to: containerView)
+        snapShot.isOpaque = true
         
         let frame = endingView.frame
         
-        startOn.getImageView()?.hidden = true
+        startOn.getImageView()?.isHidden = true
         endsOn.getViewOfController().alpha = 0
         
-        endsOn.getViewOfController().frame = transitionContext.finalFrameForViewController(endsOn.getViewController())
+        endsOn.getViewOfController().frame = transitionContext.finalFrame(for: endsOn.getViewController())
         
         containerView.addSubview(endsOn.getViewOfController())
         containerView.addSubview(snapShot)
        
         endsOn.getEnclosingView().alpha = 0
-        UIView.animateWithDuration(0.2, animations: {
+        UIView.animate(withDuration: 0.2, animations: {
             
             startOn.getViewOfController().alpha = 0.35
             
             }, completion:  {_ in
-                UIView.animateWithDuration(0.35, animations: {
-                    snapShot.frame = endingView.convertRect(frame, toView: containerView)
+                UIView.animate(withDuration: 0.35, animations: {
+                    snapShot.frame = endingView.convert(frame, to: containerView)
                     snapShot.clipsToBounds = true
                     
                     startOn.getViewOfController().alpha = 0
                     endsOn.getViewOfController().alpha = 0.5
                     
                     }, completion: {_ in
-                        UIView.animateWithDuration(0.35, animations: {
+                        UIView.animate(withDuration: 0.35, animations: {
                             endsOn.getViewOfController().alpha = 1
                             endsOn.getEnclosingView().alpha = 1
                             
                             }, completion: { _ in
                                 
-                                startOn.getImageView()?.hidden = false
+                                startOn.getImageView()?.isHidden = false
                                 startOn.getViewOfController().alpha = 1
-                                endingView.hidden = false
-                                snapShot.hidden = true
+                                endingView.isHidden = false
+                                snapShot.isHidden = true
                                 snapShot.removeFromSuperview()
-                                transitionContext.completeTransition(!transitionContext.transitionWasCancelled())
+                                transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
                         })
                 })
         })
         
     }
     
-    func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
+    func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return 0.9
     }
 }

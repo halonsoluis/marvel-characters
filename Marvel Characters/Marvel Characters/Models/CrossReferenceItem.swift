@@ -15,7 +15,7 @@ class CrossReferenceItem : Mappable {
     var name: String?
     
     //MARK: Mappable protocol
-    required init?(_ map: Map) {
+    required init?(map: Map) {
     }
     
     func mapping(map: Map) {
@@ -29,12 +29,12 @@ class StoriesCrossReferenceItem : CrossReferenceItem {
     var type: String?
     
     //MARK: Mappable protocol
-    required init?(_ map: Map) {
-        super.init(map)
+    required init?(map: Map) {
+        super.init(map: map)
     }
     
     override func mapping(map: Map) {
-        super.mapping(map)
+        super.mapping(map: map)
         type <- map["type"]
     }
 }

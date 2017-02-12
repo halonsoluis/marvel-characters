@@ -15,7 +15,7 @@ import UIKit
 */
 struct ImageSource {
    
-    private static let placeHolderImage = UIImage(named: "Image_not_found")
+    fileprivate static let placeHolderImage = UIImage(named: "Image_not_found")
     /**
      Download/Load from cache the image and set it at the specified imageView
      
@@ -23,14 +23,14 @@ struct ImageSource {
      - parameter uniqueKey:         unique resource location in cache
      - parameter completionHandler: returns the loaded image (from web or cache)
      */
-    static func downloadImageAndSetIn(imageView: UIImageView, imageURL: NSURL, withUniqueKey uniqueKey :String, completionHandler: ((Image?)->())? = nil){
+    static func downloadImageAndSetIn(_ imageView: UIImageView, imageURL: URL, withUniqueKey uniqueKey :String, completionHandler: ((Image?)->())? = nil){
         let resourceKey = "\(imageURL.absoluteString)-\(uniqueKey)"
         
-        let resource = Kingfisher.Resource(downloadURL: imageURL, cacheKey: resourceKey)
+        let resource = ImageResource(downloadURL: imageURL, cacheKey: resourceKey)
         
         let placeholderImage = getPlaceholderImage() ?? imageView.image
         
-        imageView.kf_setImageWithResource(resource, placeholderImage: placeholderImage, optionsInfo: [.Transition(ImageTransition.Fade(1))], progressBlock: nil, completionHandler: {(image, _, _ ,_) in
+        imageView.kf.setImage(with: resource, placeholder: placeholderImage, options: [.transition(ImageTransition.fade(1))], progressBlock: nil, completionHandler: {(image, _, _ ,_) in
             completionHandler?(image)
         })
     }
@@ -40,7 +40,7 @@ struct ImageSource {
      
      - returns: a placeholder Image
      */
-    static private func getPlaceholderImage() -> UIImage? {
+    static fileprivate func getPlaceholderImage() -> UIImage? {
         //mockupEnabled ? UIImage(data: MockupResource.Image.getMockupData()!) :
         return placeHolderImage
     }

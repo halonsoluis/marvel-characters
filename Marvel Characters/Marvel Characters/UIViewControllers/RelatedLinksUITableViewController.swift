@@ -30,26 +30,26 @@ class RelatedLinksUITableViewController: UITableViewController, LinksPresenterPr
         super.viewDidLoad()
         
         dataSource.asDriver()
-            .drive(self.tableView.rx_itemsWithCellIdentifier("relatedLinksCell", cellType: RelatedLinksCell.self)) { (_, link, cell) in
+            .drive(self.tableView.rx.items(cellIdentifier:"relatedLinksCell", cellType: RelatedLinksCell.self)) { (_, link, cell) in
                 
                 if let nameLabel = cell.nameLabel {
-                    nameLabel.text = link.type.capitalizedString
+                    nameLabel.text = link.type.capitalized
                 }
             }
             .addDisposableTo(disposeBag)
         
-        tableView.rx_itemSelected
+        tableView.rx.itemSelected
             .asDriver()
             .map { self.characterLinks?[$0.row].url }
-            .driveNext {link in
+            .drive(onNext: {link in
                 guard let url = link, let nsurl = NSURL(string: url) else { return }
-                UIApplication.sharedApplication().openURL(nsurl)
+                UIApplication.shared.openURL(nsurl as URL)
                 
-            }.addDisposableTo(disposeBag)
+            }, onCompleted: nil, onDisposed: nil).addDisposableTo(disposeBag)
         
     }
     
-    override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         return []
     }
 }
