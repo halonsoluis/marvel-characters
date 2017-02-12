@@ -21,7 +21,7 @@ class CharacterCrossLargeCells: UIViewController, UICollectionViewDelegate, UICo
     /// Value of current page
     weak var currentPage : Variable<Int>!
     
-    var totalItems : Int!
+    var totalItems : Int = 0
     var chs : NetworkService!
     var rx_crossreference: Driver<Result<[CrossReference],RequestError>>!
     
@@ -62,7 +62,8 @@ class CharacterCrossLargeCells: UIViewController, UICollectionViewDelegate, UICo
             .throttle(0.5)
             .distinctUntilChanged()
             .drive(onNext: { offset in
-                let displacement = self.collectionView.contentSize.width / CGFloat(self.dataSource.value.count)
+                var displacement = self.collectionView.contentSize.width / CGFloat(self.dataSource.value.count)
+                displacement = displacement == 0 ? 1 : displacement
                 let value  = offset.x / displacement
                 self.scrollToPage(Int(round(value)), animated: true)
             }, onCompleted: nil, onDisposed: nil)
