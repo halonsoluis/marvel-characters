@@ -62,7 +62,7 @@ class CharacterCrossReferenceContainer: GenericBlockCharacterDetail, UICollectio
         
         
         collectionView.rx.dataSource.setForwardToDelegate(self, retainDelegate: false)
-        collectionView.rx.dataSource.forwardToDelegate()
+        _ = collectionView.rx.dataSource.forwardToDelegate()
         
         collectionView.reloadData()
     }
