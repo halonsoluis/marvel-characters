@@ -85,6 +85,15 @@
 		B4590EB21E48A26D0080C8D4 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AE3B43D1CF6C9AB0087CAC6 /* RxSwift.framework */; };
 		B4590EB31E48AA250080C8D4 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AE3B43C1CF6C9AB0087CAC6 /* RxCocoa.framework */; };
 		B4590EB41E48AA270080C8D4 /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AE3B43B1CF6C9AB0087CAC6 /* RxBlocking.framework */; };
+		B4BD68441E5204C6007C3726 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4BD68431E5204C6007C3726 /* AssetsLibrary.framework */; };
+		B4BD68471E5204D0007C3726 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4BD68451E5204D0007C3726 /* CoreTelephony.framework */; };
+		B4BD68481E5204D0007C3726 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4BD68461E5204D0007C3726 /* CoreText.framework */; };
+		B4BD684A1E5204D6007C3726 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4BD68491E5204D6007C3726 /* CoreMedia.framework */; };
+		B4BD684C1E5204DB007C3726 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4BD684B1E5204DB007C3726 /* AVFoundation.framework */; };
+		B4BD684E1E5204E2007C3726 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4BD684D1E5204E2007C3726 /* CoreVideo.framework */; };
+		B4BD68501E5204E8007C3726 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4BD684F1E5204E8007C3726 /* QuartzCore.framework */; };
+		B4BD68521E5204ED007C3726 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4BD68511E5204ED007C3726 /* SystemConfiguration.framework */; };
+		B4BD68541E520520007C3726 /* BuddyBuildSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4BD68531E520520007C3726 /* BuddyBuildSDK.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -175,6 +184,15 @@
 		9AE3B4541CF71AFC0087CAC6 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = AppInternals/Info.plist; sourceTree = "<group>"; };
 		9AEDA40E1CFD5C7000197F48 /* collectionResponsePage.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = collectionResponsePage.json; path = Networking/Mockup/resources/collectionResponsePage.json; sourceTree = "<group>"; };
 		9AEDA4101CFD5CEB00197F48 /* CrossReference.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CrossReference.swift; path = Models/CrossReference.swift; sourceTree = "<group>"; };
+		B4BD68431E5204C6007C3726 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		B4BD68451E5204D0007C3726 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		B4BD68461E5204D0007C3726 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		B4BD68491E5204D6007C3726 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		B4BD684B1E5204DB007C3726 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		B4BD684D1E5204E2007C3726 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		B4BD684F1E5204E8007C3726 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		B4BD68511E5204ED007C3726 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		B4BD68531E520520007C3726 /* BuddyBuildSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BuddyBuildSDK.framework; path = BuddyBuildFramework/BuddyBuildSDK.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,6 +200,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4BD68541E520520007C3726 /* BuddyBuildSDK.framework in Frameworks */,
+				B4BD68521E5204ED007C3726 /* SystemConfiguration.framework in Frameworks */,
+				B4BD68501E5204E8007C3726 /* QuartzCore.framework in Frameworks */,
+				B4BD684E1E5204E2007C3726 /* CoreVideo.framework in Frameworks */,
+				B4BD684C1E5204DB007C3726 /* AVFoundation.framework in Frameworks */,
+				B4BD684A1E5204D6007C3726 /* CoreMedia.framework in Frameworks */,
+				B4BD68471E5204D0007C3726 /* CoreTelephony.framework in Frameworks */,
+				B4BD68481E5204D0007C3726 /* CoreText.framework in Frameworks */,
+				B4BD68441E5204C6007C3726 /* AssetsLibrary.framework in Frameworks */,
 				9AE3B4441CF6C9AB0087CAC6 /* RxCocoa.framework in Frameworks */,
 				9A2E6C2C1CF744BB000E0EA7 /* Alamofire.framework in Frameworks */,
 				9AE3B4411CF6C9AB0087CAC6 /* Result.framework in Frameworks */,
@@ -266,6 +293,15 @@
 		9A9135DA1E50D2E5008749F1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B4BD68531E520520007C3726 /* BuddyBuildSDK.framework */,
+				B4BD68511E5204ED007C3726 /* SystemConfiguration.framework */,
+				B4BD684F1E5204E8007C3726 /* QuartzCore.framework */,
+				B4BD684D1E5204E2007C3726 /* CoreVideo.framework */,
+				B4BD684B1E5204DB007C3726 /* AVFoundation.framework */,
+				B4BD68491E5204D6007C3726 /* CoreMedia.framework */,
+				B4BD68451E5204D0007C3726 /* CoreTelephony.framework */,
+				B4BD68461E5204D0007C3726 /* CoreText.framework */,
+				B4BD68431E5204C6007C3726 /* AssetsLibrary.framework */,
 				9A9135DB1E50D2E5008749F1 /* RxTest.framework */,
 			);
 			name = Frameworks;
@@ -800,6 +836,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/BuddyBuildFramework",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/Marvel Characters/AppInternals/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -824,6 +861,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/BuddyBuildFramework",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/Marvel Characters/AppInternals/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;

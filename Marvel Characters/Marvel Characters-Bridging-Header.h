@@ -6,5 +6,6 @@
 #define BridgingHeader_h
 
 #import <CommonCrypto/CommonCrypto.h>
+#import <BuddyBuildSDK/BuddyBuildSDK.h>
 
 #endif /* BridgingHeader_h */
