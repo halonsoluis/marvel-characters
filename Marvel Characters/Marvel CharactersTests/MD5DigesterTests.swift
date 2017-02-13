@@ -19,7 +19,7 @@ class MD5DigesterTests: XCTestCase {
     
     func testDigestEmptyLine() {
         let digest = MD5Digester.digest("")
-        print(digest)
+        print(digest ?? "")
         XCTAssert(digest != nil)
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }

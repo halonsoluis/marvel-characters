@@ -31,9 +31,9 @@ class NetworkServicesTests: XCTestCase {
    
     let errorValidationMarvelCharacter = { (result: Result<[MarvelCharacter],RequestError>) -> Driver<[MarvelCharacter]> in
         switch result {
-        case .Success(let character):
+        case .success(let character):
             return Driver.just(character)
-        case .Failure(let error):
+        case .failure(let error):
             XCTAssert(false)
             return Driver.empty()
         }
@@ -41,9 +41,9 @@ class NetworkServicesTests: XCTestCase {
     
     let errorValidationCrossReference = { (result: Result<[CrossReference],RequestError>) -> Driver<[CrossReference]> in
         switch result {
-        case .Success(let character):
+        case .success(let character):
             return Driver.just(character)
-        case .Failure(let error):
+        case .failure(let error):
             XCTAssert(false)
             return Driver.empty()
         }
@@ -64,8 +64,8 @@ class NetworkServicesTests: XCTestCase {
         
         chs = NetworkService(withNameObservable: currentTextObservable, pageObservable: currentPageObservable)
         
-        rx_characters = chs?.getData(Routes.ListCharacters)
-        rx_crossReference = chs?.getData(Routes.ListComicsByCharacter(characterID: characterID))
+        rx_characters = chs?.getData(Routes.listCharacters)
+        rx_crossReference = chs?.getData(Routes.listComicsByCharacter(characterID: characterID))
         
     }
     
@@ -74,11 +74,12 @@ class NetworkServicesTests: XCTestCase {
         
         rx_crossReference!
             .flatMapLatest(errorValidationCrossReference)
-            .driveNext { (newPage) in
+            .drive(onNext: { (newPage) in
                 
                 XCTAssertEqual(newPage.count, APIHandler.itemsPerPage)
                 XCTAssertNotNil(newPage.first?.title)
-            }
+                
+            }, onCompleted: nil, onDisposed: nil)
             .addDisposableTo(disposeBag)
     }
     
@@ -87,11 +88,12 @@ class NetworkServicesTests: XCTestCase {
         
         rx_characters!
             .flatMapLatest(errorValidationMarvelCharacter)
-            .driveNext { (newPage) in
+            .drive(onNext: { (newPage) in
+           
                 XCTAssertEqual(newPage.count, APIHandler.itemsPerPage)
                 XCTAssertNotNil(newPage.first?.name)
 
-            }
+            }, onCompleted: nil, onDisposed: nil)
             .addDisposableTo(disposeBag)
 
     }

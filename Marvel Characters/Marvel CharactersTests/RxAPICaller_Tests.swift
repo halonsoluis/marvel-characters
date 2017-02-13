@@ -27,9 +27,9 @@ class RxAPICaller_Tests: XCTestCase {
     
     let errorValidationMarvelCharacter = { (result: Result<[MarvelCharacter],RequestError>) -> Driver<[MarvelCharacter]> in
         switch result {
-        case .Success(let character):
+        case .success(let character):
             return Driver.just(character)
-        case .Failure(let error):
+        case .failure(let error):
             XCTAssert(false)
             return Driver.empty()
         }
@@ -37,9 +37,9 @@ class RxAPICaller_Tests: XCTestCase {
     
     let errorValidationCrossReference = { (result: Result<[CrossReference],RequestError>) -> Driver<[CrossReference]> in
         switch result {
-        case .Success(let character):
+        case .success(let character):
             return Driver.just(character)
-        case .Failure(let error):
+        case .failure(let error):
             XCTAssert(false)
             return Driver.empty()
         }
@@ -48,9 +48,9 @@ class RxAPICaller_Tests: XCTestCase {
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
-        characterListObservable = RxAPICaller.requestWithParams(params, route: Routes.ListCharacters)
+        characterListObservable = RxAPICaller.requestWithParams(params, route: Routes.listCharacters)
         
-        crossReferenceListObservable = RxAPICaller.requestWithParams(params, route: Routes.ListComicsByCharacter(characterID: characterID))
+        crossReferenceListObservable = RxAPICaller.requestWithParams(params, route: Routes.listComicsByCharacter(characterID: characterID))
         
     }
     
@@ -59,14 +59,15 @@ class RxAPICaller_Tests: XCTestCase {
         
         characterListObservable
             .flatMapLatest(errorValidationMarvelCharacter)
-            .subscribeNext { (characters) in
+            .subscribe(onNext: { (characters) in
                 XCTAssertNotNil(characters)
                 XCTAssertFalse(characters.isEmpty)
                 let first = characters.first
                 XCTAssertNotNil(first)
                 
                 XCTAssertNotNil(first?.name)
-            }.addDisposableTo(disposeBag)
+            }, onError: nil, onCompleted: nil, onDisposed: nil)
+            .addDisposableTo(disposeBag)
     }
     
     func testRequestCrossReferenceListObservable() {
@@ -74,45 +75,50 @@ class RxAPICaller_Tests: XCTestCase {
         
         crossReferenceListObservable
             .flatMapLatest(errorValidationCrossReference)
-            .subscribeNext { (characters) in
+            .subscribe(onNext: { (characters) in
                 XCTAssertNotNil(characters)
                 XCTAssertFalse(characters.isEmpty)
                 XCTAssertNotNil(characters.first?.title)
-            }.addDisposableTo(disposeBag)
+            }, onError: nil, onCompleted: nil, onDisposed: nil)
+            .addDisposableTo(disposeBag)
     }
     
-    func testPerformanceRequestCrossReferenceListObservable() {
-        // This is an example of a performance test case.
-        self.measureBlock {
-            // Put the code you want to measure the time of here.
-            self.crossReferenceListObservable
-                .flatMapLatest(self.errorValidationCrossReference)
-                .subscribeNext { (_) in
-                }.addDisposableTo(self.disposeBag)
-        }
-    }
-    
-    func testPerformanceRequestCharacterListObservableCreation() {
-        // This is an example of a performance test case.
-        self.measureBlock {
-            self.characterListObservable = RxAPICaller.requestWithParams(self.params, route: Routes.ListCharacters)
-        }
-    }
-    func testPerformanceRequestCrossReferenceListObservableCreation() {
-        // This is an example of a performance test case.
-        self.measureBlock {
-            self.crossReferenceListObservable = RxAPICaller.requestWithParams(self.params, route: Routes.ListComicsByCharacter(characterID: 123))
-        }
-    }
-    
-    func testPerformanceRequestCharacterListObservable() {
-        // This is an example of a performance test case.
-        self.measureBlock {
-            // Put the code you want to measure the time of here.
-            self.characterListObservable
-                .flatMapLatest(self.errorValidationMarvelCharacter)
-                .subscribeNext { (_) in
-                }.addDisposableTo(self.disposeBag)
-        }
-    }
+//    func testPerformanceRequestCrossReferenceListObservable() {
+//        // This is an example of a performance test case.
+//        self.measure {
+//            // Put the code you want to measure the time of here.
+//            self.crossReferenceListObservable
+//                .flatMapLatest(self.errorValidationCrossReference)
+//                .subscribe(onNext: { (_) in
+//                    
+//                }, onError: nil, onCompleted: nil, onDisposed: nil)
+//                .addDisposableTo(self.disposeBag)
+//        }
+//    }
+//    
+//    func testPerformanceRequestCharacterListObservableCreation() {
+//        // This is an example of a performance test case.
+//        self.measure {
+//            self.characterListObservable = RxAPICaller.requestWithParams(self.params, route: Routes.listCharacters)
+//        }
+//    }
+//    func testPerformanceRequestCrossReferenceListObservableCreation() {
+//        // This is an example of a performance test case.
+//        self.measure {
+//            self.crossReferenceListObservable = RxAPICaller.requestWithParams(self.params, route: Routes.listComicsByCharacter(characterID: 123))
+//        }
+//    }
+//    
+//    func testPerformanceRequestCharacterListObservable() {
+//        // This is an example of a performance test case.
+//        self.measure {
+//            // Put the code you want to measure the time of here.
+//            self.characterListObservable
+//                .flatMapLatest(self.errorValidationMarvelCharacter)
+//                .subscribe(onNext: { (_) in
+//                    
+//                }, onError: nil, onCompleted: nil, onDisposed: nil)
+//                .addDisposableTo(self.disposeBag)
+//        }
+//    }
 }

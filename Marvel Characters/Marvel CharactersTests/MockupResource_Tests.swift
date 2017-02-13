@@ -33,20 +33,20 @@ class MockupResource_Tests: XCTestCase {
         // This is an example of a performance test case.
         self.measure {
             // Put the code you want to measure the time of here.
-            MockupResource.character.getMockupData()
+            _ = MockupResource.character.getMockupData()
         }
     }
     func testPerformanceMockupRelatedItemsDataLoaded() {
         // This is an example of a performance test case.
         self.measure {
-            MockupResource.crossReference.getMockupData()
+            _ = MockupResource.crossReference.getMockupData()
         }
     }
     func testPerformanceMockupImageDataLoaded() {
         // This is an example of a performance test case.
         self.measure {
             // Put the code you want to measure the time of here.
-            MockupResource.image.getMockupData()
+            _ = MockupResource.image.getMockupData()
         }
     }
 }
