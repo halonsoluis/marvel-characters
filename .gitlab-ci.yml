@@ -1,0 +1,12 @@
+stages:
+  - build
+
+build_project:
+  stage: build
+  script:
+    - xcodebuild clean -project Marvel Characters.xcodeproj -scheme Marvel Characters | xcpretty
+    - xcodebuild test -project Marvel Characters.xcodeproj -scheme Marvel Characters -destination 'platform=iOS Simulator,name=iPhone 6s,OS=10.2' | xcpretty -s
+  tags:
+    - ios_10-2
+    - xcode_8-2-1
+    - osx_10-12-3
