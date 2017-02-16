@@ -1,11 +1,15 @@
 stages:
   - build
 
+
+
 build_project:
   stage: build
   script:
-    - /usr/bin/xcodebuild clean -project Marvel\ Characters/Marvel\ Characters.xcodeproj -scheme Marvel\ Characters | /usr/local/bin/xcpretty
-    - /usr/bin/xcodebuild test -project Marvel\ Characters/Marvel\ Characters.xcodeproj -scheme Marvel\ Characters -destination 'platform=iOS Simulator,name=iPhone 6s,OS=10.2' | xcpretty -s
+    - cd Marvel\ Characters
+    - carthage bootstrap --platform iOS
+    - /usr/bin/xcodebuild clean -project Marvel\ Characters.xcodeproj -scheme Marvel\ Characters | /usr/local/bin/xcpretty
+    - /usr/bin/xcodebuild test -project Marvel\ Characters.xcodeproj -scheme Marvel\ Characters -destination 'platform=iOS Simulator,name=iPhone 6s,OS=10.2' | xcpretty -s
   tags:
     - ios_10-2
     - xcode_8-2-1
