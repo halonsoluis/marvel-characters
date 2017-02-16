@@ -1,6 +1,6 @@
 before_script:
   #- sudo /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-  - brew install Carthage
+  #- brew install Carthage
   - sudo gem install xcpretty
   - cd Marvel\ Characters
   - carthage bootstrap --platform iOS
