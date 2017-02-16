@@ -1,15 +1,23 @@
+before_script
+  #- sudo /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  - brew install Carthage
+  - sudo gem install xcpretty
+  - cd Marvel\ Characters
+  - carthage bootstrap --platform iOS
+  
 stages:
-  - build
-
-
+  - build_test
 
 build_project:
-  stage: build
+  stage: build_test
   script:
-    - cd Marvel\ Characters
-    - carthage bootstrap --platform iOS
     - /usr/bin/xcodebuild clean -project Marvel\ Characters.xcodeproj -scheme Marvel\ Characters | /usr/local/bin/xcpretty
-    - /usr/bin/xcodebuild test -project Marvel\ Characters.xcodeproj -scheme Marvel\ Characters -destination 'platform=iOS Simulator,name=iPhone 6s,OS=10.2' | xcpretty -s
+    - xcodebuild \
+        -project Marvel\ Characters.xcodeproj \
+        -scheme Marvel\ Characters \
+        #-sdk iphonesimulator \
+        -destination 'platform=iOS Simulator,name=iPhone 6s,OS=10.2' \
+        test | xcpretty -s --test --color
   tags:
     - ios_10-2
     - xcode_8-2-1
