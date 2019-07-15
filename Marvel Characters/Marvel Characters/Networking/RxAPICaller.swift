@@ -45,11 +45,14 @@ struct RxAPICaller {
                 guard response.statusCode == 200 else {
                     return Observable.just(Result.failure(RequestError.unknown))
                 }
-                
-                let box = try? JSONDecoder().decode(ResponseEnclosure<T>.self, from: json as! Data)
-                let items = box?.data?.results ?? []
-                
-                return Observable.just(Result.success(items))
+                if let data = try? JSONSerialization.data(withJSONObject: json, options: .prettyPrinted) {
+                    let box = try? JSONDecoder().decode(ResponseEnclosure<T>.self, from: data)
+                    let items = box?.data?.results ?? []
+                    
+                    return Observable.just(Result.success(items))
+                } else {
+                    return Observable.empty()
+                }
             }
     }
     
