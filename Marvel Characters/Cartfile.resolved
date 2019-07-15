@@ -1,4 +1,4 @@
-github "Alamofire/Alamofire" "5.0.0-beta.5"
+github "Alamofire/Alamofire" "4.8.2"
 github "ReactiveX/RxSwift" "5.0.1"
 github "RxSwiftCommunity/RxAlamofire" "5.0.0"
 github "onevcat/Kingfisher" "5.7.0"

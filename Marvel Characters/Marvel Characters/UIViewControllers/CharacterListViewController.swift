@@ -15,7 +15,6 @@ class CharacterListViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var footerView: UIView!
     
-    
     let disposeBag = DisposeBag()
     
     let dataSource = Variable<[MarvelCharacter]>([])
@@ -129,7 +128,7 @@ class CharacterListViewController: UIViewController {
             .drive(tableView.rx.items(cellIdentifier: "CharacterCell", cellType: CharacterCell.self)) { (_, character, cell) in
                 
                 if let nameLabel = cell.nameLabel as? UIButton {
-                    nameLabel.setTitle(character.name, for: UIControlState.normal)
+                    nameLabel.setTitle(character.name, for: UIControl.State.normal)
                 } else if let nameLabel = cell.nameLabel as? UILabel {
                     nameLabel.text = character.name
                 }
@@ -184,7 +183,7 @@ class CharacterListViewController: UIViewController {
 extension CharacterListViewController: UINavigationControllerDelegate {
   
     
-    func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationController.Operation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         if self == fromVC && toVC is BlurredImageContainerViewController {
             return RepositionImageZoomingTransition()
         }

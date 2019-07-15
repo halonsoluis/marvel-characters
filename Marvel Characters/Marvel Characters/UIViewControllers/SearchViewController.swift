@@ -64,20 +64,20 @@ class SearchViewController: CharacterListViewController {
     fileprivate func setLayoutForKeyboard() {
         
         NotificationCenter.default
-            .rx.notification(NSNotification.Name.UIKeyboardWillShow, object: nil)
+            .rx.notification(UIResponder.keyboardWillShowNotification, object: nil)
             .observeOn(MainScheduler.instance)
             .subscribe(onNext: { [weak self] notification in
                 
                 guard let info = notification.userInfo else { return }
                 guard let strongSelf = self else { return }
                 
-                let keyboardFrame: CGRect = (info[UIKeyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
+                let keyboardFrame: CGRect = (info[UIResponder.keyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
                 let tableViewInset = strongSelf.tableView.contentInset
-                let contentInsets = UIEdgeInsetsMake(tableViewInset.top, 0.0, keyboardFrame.height, 0.0);
+                let contentInsets = UIEdgeInsets.init(top: tableViewInset.top, left: 0.0, bottom: keyboardFrame.height, right: 0.0);
                 
                 var frame = strongSelf.view.frame
                 
-                UIView.animate(withDuration: 0.5, delay: 0.2, options: UIViewAnimationOptions.curveEaseIn, animations: {
+                UIView.animate(withDuration: 0.5, delay: 0.2, options: UIView.AnimationOptions.curveEaseIn, animations: {
                     strongSelf.tableView.contentInset = contentInsets
                     strongSelf.tableView.scrollIndicatorInsets = contentInsets
                     
@@ -89,18 +89,18 @@ class SearchViewController: CharacterListViewController {
             .disposed(by: disposeBag)
         
         NotificationCenter.default
-            .rx.notification(NSNotification.Name.UIKeyboardWillHide, object: nil)
+            .rx.notification(UIResponder.keyboardWillHideNotification, object: nil)
             .observeOn(MainScheduler.instance)
             .subscribe(onNext: { [weak self] notification in
                 
                 guard let strongSelf = self else { return }
                 
                 let tableViewInset = strongSelf.tableView.contentInset
-                let contentInsets = UIEdgeInsetsMake(tableViewInset.top, 0.0, 0, 0.0);
+                let contentInsets = UIEdgeInsets.init(top: tableViewInset.top, left: 0.0, bottom: 0, right: 0.0);
                 
                 var frame = strongSelf.view.frame
                 
-                UIView.animate(withDuration: 0.5, delay: 0.2, options: UIViewAnimationOptions.curveEaseIn, animations: {
+                UIView.animate(withDuration: 0.5, delay: 0.2, options: UIView.AnimationOptions.curveEaseIn, animations: {
                     strongSelf.tableView.contentInset = contentInsets
                     strongSelf.tableView.scrollIndicatorInsets = contentInsets
                     

@@ -41,11 +41,11 @@ class CharacterDetailsViewController: UIViewController {
         //Stretchy Code
         
         // Make sure the contentMode is set to scale proportionally
-        largeImage.contentMode = UIViewContentMode.scaleAspectFill
+        largeImage.contentMode = UIView.ContentMode.scaleAspectFill
         // Clip the parts of the image that are not in frame
         largeImage.clipsToBounds = true
         // Set the autoresizingMask to always be the same height as the header
-        largeImage.autoresizingMask = UIViewAutoresizing.flexibleTopMargin
+        largeImage.autoresizingMask = UIView.AutoresizingMask.flexibleTopMargin
         
         scrollView
             .rx.contentOffset

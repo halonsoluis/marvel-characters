@@ -78,7 +78,7 @@ class CharacterCrossLargeCells: UIViewController, UICollectionViewDelegate, UICo
         layout.itemSize.width = self.collectionView.bounds.width
         layout.itemSize.height =  self.collectionView.bounds.height
         
-        layout.scrollDirection = UICollectionViewScrollDirection.horizontal
+        layout.scrollDirection = UICollectionView.ScrollDirection.horizontal
            collectionView.collectionViewLayout = layout
     }
     
@@ -88,7 +88,7 @@ class CharacterCrossLargeCells: UIViewController, UICollectionViewDelegate, UICo
     }
     
     func scrollToPage(_ page: Int, animated: Bool) {
-        self.collectionView.scrollToItem(at: IndexPath(row: page, section: 0), at: UICollectionViewScrollPosition.centeredHorizontally, animated: animated)
+        self.collectionView.scrollToItem(at: IndexPath(row: page, section: 0), at: UICollectionView.ScrollPosition.centeredHorizontally, animated: animated)
     }
     
     

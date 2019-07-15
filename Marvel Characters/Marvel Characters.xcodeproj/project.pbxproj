@@ -7,7 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5BD8CB4622DD0F7D00261AAB /* RxRelay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BD8CB4522DD0F7D00261AAB /* RxRelay.framework */; };
+		5BD8CB4922DD145D00261AAB /* RxRelay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BD8CB4522DD0F7D00261AAB /* RxRelay.framework */; };
+		5BD8CB5122DD145E00261AAB /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BD8CB4B22DD145E00261AAB /* RxSwift.framework */; };
+		5BD8CB5222DD145E00261AAB /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BD8CB4C22DD145E00261AAB /* RxCocoa.framework */; };
+		5BD8CB5322DD145E00261AAB /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BD8CB4D22DD145E00261AAB /* Alamofire.framework */; };
+		5BD8CB5422DD145E00261AAB /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BD8CB4E22DD145E00261AAB /* Kingfisher.framework */; };
+		5BD8CB5522DD145E00261AAB /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BD8CB4F22DD145E00261AAB /* RxBlocking.framework */; };
+		5BD8CB5622DD145E00261AAB /* RxAlamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BD8CB5022DD145E00261AAB /* RxAlamofire.framework */; };
 		9A0B18581CF8F79D00B0AF3F /* CharacterDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0B18571CF8F79D00B0AF3F /* CharacterDetailsViewController.swift */; };
 		9A1666291CF791E100C1283F /* MarvelCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1666281CF791E100C1283F /* MarvelCharacter.swift */; };
 		9A16662C1CF7922800C1283F /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A16662B1CF7922800C1283F /* NetworkService.swift */; };
@@ -22,7 +28,6 @@
 		9A1666421CF7B3C400C1283F /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1666411CF7B3C400C1283F /* ImageService.swift */; };
 		9A184E221D055D7700B844FC /* RepositionImageZoomingTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A184E211D055D7700B844FC /* RepositionImageZoomingTransition.swift */; };
 		9A184E241D05713D00B844FC /* RepositionBackTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A184E231D05713D00B844FC /* RepositionBackTransition.swift */; };
-		9A2E6C2C1CF744BB000E0EA7 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A2E6C2B1CF744BB000E0EA7 /* Alamofire.framework */; };
 		9A2E6C2F1CF782AB000E0EA7 /* CharacterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2E6C2E1CF782AB000E0EA7 /* CharacterCell.swift */; };
 		9A33B7AC1CFAA04000A7C46E /* BlurredImageContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A33B7AB1CFAA04000A7C46E /* BlurredImageContainerViewController.swift */; };
 		9A33B7AE1CFADF6800A7C46E /* RelatedLinksCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A33B7AD1CFADF6800A7C46E /* RelatedLinksCell.swift */; };
@@ -63,11 +68,6 @@
 		9AE3B4301CF6A97F0087CAC6 /* RoutesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE3B42F1CF6A97F0087CAC6 /* RoutesTests.swift */; };
 		9AE3B4321CF6ADDB0087CAC6 /* APIHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE3B4311CF6ADDB0087CAC6 /* APIHandler.swift */; };
 		9AE3B4341CF6B36C0087CAC6 /* APIHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE3B4331CF6B36C0087CAC6 /* APIHandlerTests.swift */; };
-		9AE3B43F1CF6C9AB0087CAC6 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AE3B4371CF6C9AB0087CAC6 /* Kingfisher.framework */; };
-		9AE3B4421CF6C9AB0087CAC6 /* RxAlamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AE3B43A1CF6C9AB0087CAC6 /* RxAlamofire.framework */; };
-		9AE3B4431CF6C9AB0087CAC6 /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AE3B43B1CF6C9AB0087CAC6 /* RxBlocking.framework */; };
-		9AE3B4441CF6C9AB0087CAC6 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AE3B43C1CF6C9AB0087CAC6 /* RxCocoa.framework */; };
-		9AE3B4451CF6C9AB0087CAC6 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AE3B43D1CF6C9AB0087CAC6 /* RxSwift.framework */; };
 		9AE3B44B1CF6CEFA0087CAC6 /* CharacterListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE3B44A1CF6CEF90087CAC6 /* CharacterListViewController.swift */; };
 		9AE3B4501CF71AE80087CAC6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9AE3B44C1CF71AE80087CAC6 /* LaunchScreen.storyboard */; };
 		9AE3B4511CF71AE80087CAC6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9AE3B44E1CF71AE80087CAC6 /* Main.storyboard */; };
@@ -106,6 +106,12 @@
 /* Begin PBXFileReference section */
 		5BD8CB4422DCF48000261AAB /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
 		5BD8CB4522DD0F7D00261AAB /* RxRelay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxRelay.framework; path = Carthage/Build/iOS/RxRelay.framework; sourceTree = "<group>"; };
+		5BD8CB4B22DD145E00261AAB /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
+		5BD8CB4C22DD145E00261AAB /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
+		5BD8CB4D22DD145E00261AAB /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		5BD8CB4E22DD145E00261AAB /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
+		5BD8CB4F22DD145E00261AAB /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxBlocking.framework; path = Carthage/Build/iOS/RxBlocking.framework; sourceTree = "<group>"; };
+		5BD8CB5022DD145E00261AAB /* RxAlamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxAlamofire.framework; path = Carthage/Build/iOS/RxAlamofire.framework; sourceTree = "<group>"; };
 		9A0B18571CF8F79D00B0AF3F /* CharacterDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CharacterDetailsViewController.swift; path = UIViewControllers/CharacterDetailsViewController.swift; sourceTree = "<group>"; };
 		9A1666281CF791E100C1283F /* MarvelCharacter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MarvelCharacter.swift; path = Models/MarvelCharacter.swift; sourceTree = "<group>"; };
 		9A16662B1CF7922800C1283F /* NetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkService.swift; path = Networking/NetworkService.swift; sourceTree = "<group>"; };
@@ -120,7 +126,6 @@
 		9A1666411CF7B3C400C1283F /* ImageService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageService.swift; path = Networking/ImageService.swift; sourceTree = "<group>"; };
 		9A184E211D055D7700B844FC /* RepositionImageZoomingTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RepositionImageZoomingTransition.swift; path = UIViews/Transitions/RepositionImageZoomingTransition.swift; sourceTree = "<group>"; };
 		9A184E231D05713D00B844FC /* RepositionBackTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RepositionBackTransition.swift; path = UIViews/Transitions/RepositionBackTransition.swift; sourceTree = "<group>"; };
-		9A2E6C2B1CF744BB000E0EA7 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		9A2E6C2E1CF782AB000E0EA7 /* CharacterCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CharacterCell.swift; path = UIViews/Cells/CharacterCell.swift; sourceTree = "<group>"; };
 		9A33B7AB1CFAA04000A7C46E /* BlurredImageContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BlurredImageContainerViewController.swift; path = UIViewControllers/BlurredImageContainerViewController.swift; sourceTree = "<group>"; };
 		9A33B7AD1CFADF6800A7C46E /* RelatedLinksCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RelatedLinksCell.swift; path = UIViews/Cells/RelatedLinksCell.swift; sourceTree = "<group>"; };
@@ -160,11 +165,6 @@
 		9AE3B42F1CF6A97F0087CAC6 /* RoutesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoutesTests.swift; sourceTree = "<group>"; };
 		9AE3B4311CF6ADDB0087CAC6 /* APIHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = APIHandler.swift; path = Networking/APIHandler.swift; sourceTree = "<group>"; };
 		9AE3B4331CF6B36C0087CAC6 /* APIHandlerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIHandlerTests.swift; sourceTree = "<group>"; };
-		9AE3B4371CF6C9AB0087CAC6 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
-		9AE3B43A1CF6C9AB0087CAC6 /* RxAlamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxAlamofire.framework; path = Carthage/Build/iOS/RxAlamofire.framework; sourceTree = "<group>"; };
-		9AE3B43B1CF6C9AB0087CAC6 /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxBlocking.framework; path = Carthage/Build/iOS/RxBlocking.framework; sourceTree = "<group>"; };
-		9AE3B43C1CF6C9AB0087CAC6 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
-		9AE3B43D1CF6C9AB0087CAC6 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
 		9AE3B44A1CF6CEF90087CAC6 /* CharacterListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CharacterListViewController.swift; path = UIViewControllers/CharacterListViewController.swift; sourceTree = "<group>"; };
 		9AE3B44D1CF71AE80087CAC6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Storyboards/Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9AE3B44F1CF71AE80087CAC6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Storyboards/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -189,7 +189,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5BD8CB4622DD0F7D00261AAB /* RxRelay.framework in Frameworks */,
+				5BD8CB5122DD145E00261AAB /* RxSwift.framework in Frameworks */,
+				5BD8CB5222DD145E00261AAB /* RxCocoa.framework in Frameworks */,
+				5BD8CB5322DD145E00261AAB /* Alamofire.framework in Frameworks */,
+				5BD8CB5422DD145E00261AAB /* Kingfisher.framework in Frameworks */,
+				5BD8CB5522DD145E00261AAB /* RxBlocking.framework in Frameworks */,
+				5BD8CB5622DD145E00261AAB /* RxAlamofire.framework in Frameworks */,
+				5BD8CB4922DD145D00261AAB /* RxRelay.framework in Frameworks */,
 				B4BD68541E520520007C3726 /* BuddyBuildSDK.framework in Frameworks */,
 				B4BD68521E5204ED007C3726 /* SystemConfiguration.framework in Frameworks */,
 				B4BD68501E5204E8007C3726 /* QuartzCore.framework in Frameworks */,
@@ -199,12 +205,6 @@
 				B4BD68471E5204D0007C3726 /* CoreTelephony.framework in Frameworks */,
 				B4BD68481E5204D0007C3726 /* CoreText.framework in Frameworks */,
 				B4BD68441E5204C6007C3726 /* AssetsLibrary.framework in Frameworks */,
-				9AE3B4441CF6C9AB0087CAC6 /* RxCocoa.framework in Frameworks */,
-				9A2E6C2C1CF744BB000E0EA7 /* Alamofire.framework in Frameworks */,
-				9AE3B4451CF6C9AB0087CAC6 /* RxSwift.framework in Frameworks */,
-				9AE3B4431CF6C9AB0087CAC6 /* RxBlocking.framework in Frameworks */,
-				9AE3B43F1CF6C9AB0087CAC6 /* Kingfisher.framework in Frameworks */,
-				9AE3B4421CF6C9AB0087CAC6 /* RxAlamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,6 +273,12 @@
 		9A9135DA1E50D2E5008749F1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5BD8CB4D22DD145E00261AAB /* Alamofire.framework */,
+				5BD8CB4E22DD145E00261AAB /* Kingfisher.framework */,
+				5BD8CB5022DD145E00261AAB /* RxAlamofire.framework */,
+				5BD8CB4F22DD145E00261AAB /* RxBlocking.framework */,
+				5BD8CB4C22DD145E00261AAB /* RxCocoa.framework */,
+				5BD8CB4B22DD145E00261AAB /* RxSwift.framework */,
 				5BD8CB4522DD0F7D00261AAB /* RxRelay.framework */,
 				B4BD68531E520520007C3726 /* BuddyBuildSDK.framework */,
 				B4BD68511E5204ED007C3726 /* SystemConfiguration.framework */,
@@ -398,12 +404,6 @@
 		9AE3B4361CF6C9190087CAC6 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				9A2E6C2B1CF744BB000E0EA7 /* Alamofire.framework */,
-				9AE3B4371CF6C9AB0087CAC6 /* Kingfisher.framework */,
-				9AE3B43A1CF6C9AB0087CAC6 /* RxAlamofire.framework */,
-				9AE3B43B1CF6C9AB0087CAC6 /* RxBlocking.framework */,
-				9AE3B43C1CF6C9AB0087CAC6 /* RxCocoa.framework */,
-				9AE3B43D1CF6C9AB0087CAC6 /* RxSwift.framework */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -509,32 +509,30 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0820;
+				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = halonsoluis;
 				TargetAttributes = {
 					9ADBF31C1CF62988005F1F51 = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = QMK28294MA;
-						LastSwiftMigration = 0820;
+						LastSwiftMigration = 1020;
 					};
 					9ADBF3301CF6298F005F1F51 = {
 						CreatedOnToolsVersion = 7.3;
-						LastSwiftMigration = 0820;
+						LastSwiftMigration = 1020;
 						TestTargetID = 9ADBF31C1CF62988005F1F51;
 					};
 					9ADBF33B1CF6298F005F1F51 = {
 						CreatedOnToolsVersion = 7.3;
-						LastSwiftMigration = 0820;
+						LastSwiftMigration = 1020;
 						TestTargetID = 9ADBF31C1CF62988005F1F51;
 					};
 				};
 			};
 			buildConfigurationList = 9ADBF3181CF62988005F1F51 /* Build configuration list for PBXProject "Marvel Characters" */;
 			compatibilityVersion = "Xcode 6.3";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				English,
 				en,
 				Base,
 			);
@@ -599,6 +597,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Kingfisher.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxRelay.framework",
 			);
 			outputPaths = (
 			);
@@ -718,19 +717,28 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
+				CLANG_CXX_LIBRARY = "compiler-default";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -739,7 +747,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_C_LANGUAGE_STANDARD = "compiler-default";
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -765,19 +773,28 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
+				CLANG_CXX_LIBRARY = "compiler-default";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -786,7 +803,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_C_LANGUAGE_STANDARD = "compiler-default";
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -809,7 +826,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = QMK28294MA;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -823,7 +840,7 @@
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Marvel Characters-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -834,7 +851,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = QMK28294MA;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -847,7 +864,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Marvel Characters-Bridging-Header.h";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -863,7 +880,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "halonsoluis.Marvel-CharactersTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Marvel Characters.app/Marvel Characters";
 			};
 			name = Debug;
@@ -880,7 +897,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "halonsoluis.Marvel-CharactersTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Marvel Characters.app/Marvel Characters";
 			};
 			name = Release;
@@ -892,7 +909,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "halonsoluis.Marvel-CharactersUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TEST_TARGET_NAME = "Marvel Characters";
 			};
 			name = Debug;
@@ -904,7 +921,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "halonsoluis.Marvel-CharactersUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TEST_TARGET_NAME = "Marvel Characters";
 			};
 			name = Release;
