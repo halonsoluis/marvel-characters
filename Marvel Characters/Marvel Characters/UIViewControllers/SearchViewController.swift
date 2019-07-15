@@ -9,7 +9,6 @@
 import UIKit
 import RxSwift
 import RxCocoa
-import Result
 
 class SearchViewController: CharacterListViewController {
     
@@ -18,7 +17,7 @@ class SearchViewController: CharacterListViewController {
     
     func buildCharacterNameObservable() -> Observable<String> {
         return searchBar.rx.text.orEmpty
-            .throttle(0.5, scheduler: MainScheduler.instance)
+            .throttle(.milliseconds(500), scheduler: MainScheduler.instance)
             .distinctUntilChanged()
             .flatMap{ text -> Observable<String> in
                 
@@ -56,7 +55,7 @@ class SearchViewController: CharacterListViewController {
             .asDriver()
             .drive(onNext: { [weak self] (_) in
                 _ = self?.navigationController?.popViewController(animated: true)
-                }, onCompleted: nil, onDisposed: nil).addDisposableTo(disposeBag)
+                }, onCompleted: nil, onDisposed: nil).disposed(by: disposeBag)
         
         loadingMore = false
    
@@ -87,7 +86,7 @@ class SearchViewController: CharacterListViewController {
                 }, completion: nil)
                 
                 }, onError: nil, onCompleted: nil, onDisposed: nil)
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
         
         NotificationCenter.default
             .rx.notification(NSNotification.Name.UIKeyboardWillHide, object: nil)
@@ -110,7 +109,7 @@ class SearchViewController: CharacterListViewController {
                 }, completion: nil)
                 
                 }, onError: nil, onCompleted: nil, onDisposed: nil)
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
     }
     
     

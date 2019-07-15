@@ -7,25 +7,12 @@
 //
 
 import Foundation
-import ObjectMapper
 
-class ResultDataBox<T: Mappable>: Mappable {
+class ResultDataBox<T: Codable>: Codable {
     
-    var offset: Int?
-    var limit: Int?
-    var total: Int?
-    var count: Int?
-    var results: [T]?
-    
-    //MARK: Mappable protocol
-    required init?(map: Map) {
-    }
-    
-    func mapping(map: Map) {
-        offset <- map["offset"]
-        limit <- map["limit"]
-        total <- map["total"]
-        count <- map["count"]
-        results <- map["results"]
-    }
+    let offset: Int?
+    let limit: Int?
+    let total: Int?
+    let count: Int?
+    let results: [T]?
 }

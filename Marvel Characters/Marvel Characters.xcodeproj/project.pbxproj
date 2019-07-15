@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5BD8CB4622DD0F7D00261AAB /* RxRelay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BD8CB4522DD0F7D00261AAB /* RxRelay.framework */; };
 		9A0B18581CF8F79D00B0AF3F /* CharacterDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0B18571CF8F79D00B0AF3F /* CharacterDetailsViewController.swift */; };
 		9A1666291CF791E100C1283F /* MarvelCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1666281CF791E100C1283F /* MarvelCharacter.swift */; };
 		9A16662C1CF7922800C1283F /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A16662B1CF7922800C1283F /* NetworkService.swift */; };
@@ -63,8 +64,6 @@
 		9AE3B4321CF6ADDB0087CAC6 /* APIHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE3B4311CF6ADDB0087CAC6 /* APIHandler.swift */; };
 		9AE3B4341CF6B36C0087CAC6 /* APIHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE3B4331CF6B36C0087CAC6 /* APIHandlerTests.swift */; };
 		9AE3B43F1CF6C9AB0087CAC6 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AE3B4371CF6C9AB0087CAC6 /* Kingfisher.framework */; };
-		9AE3B4401CF6C9AB0087CAC6 /* ObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AE3B4381CF6C9AB0087CAC6 /* ObjectMapper.framework */; };
-		9AE3B4411CF6C9AB0087CAC6 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AE3B4391CF6C9AB0087CAC6 /* Result.framework */; };
 		9AE3B4421CF6C9AB0087CAC6 /* RxAlamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AE3B43A1CF6C9AB0087CAC6 /* RxAlamofire.framework */; };
 		9AE3B4431CF6C9AB0087CAC6 /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AE3B43B1CF6C9AB0087CAC6 /* RxBlocking.framework */; };
 		9AE3B4441CF6C9AB0087CAC6 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AE3B43C1CF6C9AB0087CAC6 /* RxCocoa.framework */; };
@@ -105,6 +104,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5BD8CB4422DCF48000261AAB /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
+		5BD8CB4522DD0F7D00261AAB /* RxRelay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxRelay.framework; path = Carthage/Build/iOS/RxRelay.framework; sourceTree = "<group>"; };
 		9A0B18571CF8F79D00B0AF3F /* CharacterDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CharacterDetailsViewController.swift; path = UIViewControllers/CharacterDetailsViewController.swift; sourceTree = "<group>"; };
 		9A1666281CF791E100C1283F /* MarvelCharacter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MarvelCharacter.swift; path = Models/MarvelCharacter.swift; sourceTree = "<group>"; };
 		9A16662B1CF7922800C1283F /* NetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkService.swift; path = Networking/NetworkService.swift; sourceTree = "<group>"; };
@@ -160,8 +161,6 @@
 		9AE3B4311CF6ADDB0087CAC6 /* APIHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = APIHandler.swift; path = Networking/APIHandler.swift; sourceTree = "<group>"; };
 		9AE3B4331CF6B36C0087CAC6 /* APIHandlerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIHandlerTests.swift; sourceTree = "<group>"; };
 		9AE3B4371CF6C9AB0087CAC6 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
-		9AE3B4381CF6C9AB0087CAC6 /* ObjectMapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ObjectMapper.framework; path = Carthage/Build/iOS/ObjectMapper.framework; sourceTree = "<group>"; };
-		9AE3B4391CF6C9AB0087CAC6 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/iOS/Result.framework; sourceTree = "<group>"; };
 		9AE3B43A1CF6C9AB0087CAC6 /* RxAlamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxAlamofire.framework; path = Carthage/Build/iOS/RxAlamofire.framework; sourceTree = "<group>"; };
 		9AE3B43B1CF6C9AB0087CAC6 /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxBlocking.framework; path = Carthage/Build/iOS/RxBlocking.framework; sourceTree = "<group>"; };
 		9AE3B43C1CF6C9AB0087CAC6 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
@@ -190,6 +189,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BD8CB4622DD0F7D00261AAB /* RxRelay.framework in Frameworks */,
 				B4BD68541E520520007C3726 /* BuddyBuildSDK.framework in Frameworks */,
 				B4BD68521E5204ED007C3726 /* SystemConfiguration.framework in Frameworks */,
 				B4BD68501E5204E8007C3726 /* QuartzCore.framework in Frameworks */,
@@ -201,10 +201,8 @@
 				B4BD68441E5204C6007C3726 /* AssetsLibrary.framework in Frameworks */,
 				9AE3B4441CF6C9AB0087CAC6 /* RxCocoa.framework in Frameworks */,
 				9A2E6C2C1CF744BB000E0EA7 /* Alamofire.framework in Frameworks */,
-				9AE3B4411CF6C9AB0087CAC6 /* Result.framework in Frameworks */,
 				9AE3B4451CF6C9AB0087CAC6 /* RxSwift.framework in Frameworks */,
 				9AE3B4431CF6C9AB0087CAC6 /* RxBlocking.framework in Frameworks */,
-				9AE3B4401CF6C9AB0087CAC6 /* ObjectMapper.framework in Frameworks */,
 				9AE3B43F1CF6C9AB0087CAC6 /* Kingfisher.framework in Frameworks */,
 				9AE3B4421CF6C9AB0087CAC6 /* RxAlamofire.framework in Frameworks */,
 			);
@@ -275,6 +273,7 @@
 		9A9135DA1E50D2E5008749F1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5BD8CB4522DD0F7D00261AAB /* RxRelay.framework */,
 				B4BD68531E520520007C3726 /* BuddyBuildSDK.framework */,
 				B4BD68511E5204ED007C3726 /* SystemConfiguration.framework */,
 				B4BD684F1E5204E8007C3726 /* QuartzCore.framework */,
@@ -311,6 +310,7 @@
 		9ADBF3141CF62986005F1F51 = {
 			isa = PBXGroup;
 			children = (
+				5BD8CB4422DCF48000261AAB /* Cartfile */,
 				9AE3B4361CF6C9190087CAC6 /* Libraries */,
 				9ADBF31F1CF6298D005F1F51 /* Marvel Characters */,
 				9ADBF3341CF6298F005F1F51 /* Marvel CharactersTests */,
@@ -400,8 +400,6 @@
 			children = (
 				9A2E6C2B1CF744BB000E0EA7 /* Alamofire.framework */,
 				9AE3B4371CF6C9AB0087CAC6 /* Kingfisher.framework */,
-				9AE3B4381CF6C9AB0087CAC6 /* ObjectMapper.framework */,
-				9AE3B4391CF6C9AB0087CAC6 /* Result.framework */,
 				9AE3B43A1CF6C9AB0087CAC6 /* RxAlamofire.framework */,
 				9AE3B43B1CF6C9AB0087CAC6 /* RxBlocking.framework */,
 				9AE3B43C1CF6C9AB0087CAC6 /* RxCocoa.framework */,
@@ -536,6 +534,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -598,16 +597,14 @@
 				"$(SRCROOT)/Carthage/Build/iOS/RxBlocking.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/ObjectMapper.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Kingfisher.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Result.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
 			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks";
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -756,7 +753,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -797,7 +794,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -819,14 +816,14 @@
 					"$(PROJECT_DIR)/BuddyBuildFramework",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/Marvel Characters/AppInternals/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "halonsoluis.Marvel-Characters";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Marvel Characters-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -844,13 +841,13 @@
 					"$(PROJECT_DIR)/BuddyBuildFramework",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/Marvel Characters/AppInternals/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "halonsoluis.Marvel-Characters";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Marvel Characters-Bridging-Header.h";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
@@ -866,7 +863,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "halonsoluis.Marvel-CharactersTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Marvel Characters.app/Marvel Characters";
 			};
 			name = Debug;
@@ -883,7 +880,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "halonsoluis.Marvel-CharactersTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Marvel Characters.app/Marvel Characters";
 			};
 			name = Release;
@@ -895,7 +892,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "halonsoluis.Marvel-CharactersUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 				TEST_TARGET_NAME = "Marvel Characters";
 			};
 			name = Debug;
@@ -907,7 +904,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "halonsoluis.Marvel-CharactersUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 				TEST_TARGET_NAME = "Marvel Characters";
 			};
 			name = Release;

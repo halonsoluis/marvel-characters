@@ -36,7 +36,7 @@ class RelatedLinksUITableViewController: UITableViewController, LinksPresenterPr
                     nameLabel.text = link.type.capitalized
                 }
             }
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
         
         tableView.rx.itemSelected
             .asDriver()
@@ -45,7 +45,7 @@ class RelatedLinksUITableViewController: UITableViewController, LinksPresenterPr
                 guard let url = link, let nsurl = NSURL(string: url) else { return }
                 UIApplication.shared.openURL(nsurl as URL)
                 
-            }, onCompleted: nil, onDisposed: nil).addDisposableTo(disposeBag)
+            }, onCompleted: nil, onDisposed: nil).disposed(by: disposeBag)
         
     }
     

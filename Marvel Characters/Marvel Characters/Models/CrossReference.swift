@@ -7,26 +7,12 @@
 //
 
 import Foundation
-import ObjectMapper
 
-class CrossReference: Mappable, MainAPISubject {
+class CrossReference: Codable, MainAPISubject {
     
-    var id: Int?
-    var title: String?
-    var modified: String?
-    var thumbnail: Thumbnail?
-    var resourceURI: String?
-    
-    
-    //MARK: Mappable protocol
-    required init?(map: Map) { }
-    
-    func mapping(map: Map) {
-        
-        id <- map["id"]
-        title <- map["title"]
-        modified <- map["modified"]
-        thumbnail <- map["thumbnail"]
-        resourceURI <- map["resourceURI"]
-   }
+    let id: Int?
+    let title: String?
+    let modified: String?
+    let thumbnail: Thumbnail?
+    let resourceURI: String?
 }

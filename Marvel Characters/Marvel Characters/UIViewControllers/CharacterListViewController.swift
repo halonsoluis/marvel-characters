@@ -9,7 +9,6 @@
 import UIKit
 import RxSwift
 import RxCocoa
-import Result
 
 class CharacterListViewController: UIViewController {
     
@@ -89,7 +88,7 @@ class CharacterListViewController: UIViewController {
     func setupPagination() {
         
         tableView.rx.contentOffset
-            .debounce(0.1, scheduler: MainScheduler.instance)
+            .debounce(.milliseconds(100), scheduler: MainScheduler.instance)
             //  .throttle(0.05, scheduler: MainScheduler.instance)
             .distinctUntilChanged()
             .filter { [weak self] (offset)  in
@@ -122,7 +121,7 @@ class CharacterListViewController: UIViewController {
                     self.readyToLoadMore = true
                 }
             }
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
     }
     
     func appendSubscribers() {
@@ -144,7 +143,7 @@ class CharacterListViewController: UIViewController {
                 guard let url = character.thumbnail?.url(), let nsurl = NSURL(string: url), let modified = character.modified else { return }
                 ImageSource.downloadImageAndSetIn(cell.bannerImage, imageURL: nsurl as URL, withUniqueKey: modified)
             }
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
         
         rx_characters?
             .flatMapLatest(errorValidation)
@@ -153,7 +152,7 @@ class CharacterListViewController: UIViewController {
                 if newPage.count < APIHandler.itemsPerPage { self.loadingMore = false }
                 self.readyToLoadMore = true
             }, onCompleted: nil, onDisposed: nil)
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
         
     }
     

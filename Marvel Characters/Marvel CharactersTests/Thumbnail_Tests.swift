@@ -6,7 +6,6 @@
 //  Copyright © 2016 halonsoluis. All rights reserved.
 //
 
-import ObjectMapper
 import XCTest
 @testable import Marvel_Characters
 
@@ -20,7 +19,7 @@ class Thumbnail_Tests: XCTestCase {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
     
-        thumbnail = Mapper<Thumbnail>().map(JSONString: thumbnailJSON)
+        thumbnail = try? JSONDecoder().decode(Thumbnail.self, from: thumbnailJSON as! Data)
     }
     
     func testThumbnailCreated() {

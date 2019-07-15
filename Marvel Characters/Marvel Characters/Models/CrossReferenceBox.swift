@@ -7,23 +7,11 @@
 //
 
 import Foundation
-import ObjectMapper
 
-class CrossReferenceBox<T: CrossReferenceItem> : Mappable {
+class CrossReferenceBox<T: CrossReferenceItem>: Codable {
     
-    var available: Int?
-    var collectionURI: String?
-    var items: [T]?
-    var returned: Int?
-    
-    //MARK: Mappable protocol
-    required init?(map: Map) {
-    }
-    
-    func mapping(map: Map) {
-        available <- map["available"]
-        collectionURI <- map["collectionURI"]
-        items <- map["items"]
-        returned <- map["returned"]
-     }
+    let available: Int?
+    let collectionURI: String?
+    let items: [T]?
+    let returned: Int?
 }

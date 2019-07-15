@@ -8,9 +8,7 @@
 
 import RxAlamofire
 import RxSwift
-import ObjectMapper
 import RxCocoa
-import Result
 
 class NetworkService {
     

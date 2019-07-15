@@ -63,7 +63,7 @@ class CharacterDetailsViewController: UIViewController {
             .drive(onNext: { [weak self] (alpha) in
                 self?.delegateBar?.navigationBarAlpha = alpha
                 }, onCompleted: nil, onDisposed: nil)
-           .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
         
         scrollView
             .rx.contentOffset
@@ -76,7 +76,7 @@ class CharacterDetailsViewController: UIViewController {
                 self?.largeImage.frame.origin.y = offset.y * CGFloat((self?.factor)!)
                 //          self?.largeImageHeight.constant = self!.largeImageHeight.constant * (1 + progress)
                 }, onCompleted: nil, onDisposed: nil)
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
         
         let _ = fillData()
     }

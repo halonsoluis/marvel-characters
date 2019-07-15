@@ -9,9 +9,6 @@
 import UIKit
 import RxCocoa
 import RxSwift
-import Result
-
-
 
 class CharacterCrossReferenceContainer: GenericBlockCharacterDetail, UICollectionViewDelegate, UICollectionViewDataSource {
     
@@ -92,7 +89,7 @@ class CharacterCrossReferenceContainer: GenericBlockCharacterDetail, UICollectio
             .drive(onNext: { _ in
                 self.collectionView.reloadData()
             }, onCompleted: nil, onDisposed: nil)
-        .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
         
         rx_crossreference?
             .flatMapLatest(errorValidation)
@@ -101,14 +98,14 @@ class CharacterCrossReferenceContainer: GenericBlockCharacterDetail, UICollectio
                 if newPage.count < APIHandler.itemsPerPage { self.loadingMore = false }
                 self.readyToLoadMore = true
             }, onCompleted: nil, onDisposed: nil)
-           .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
         
     }
     
     func setupPagination() {
         
         collectionView.rx.contentOffset
-            .debounce(0.1, scheduler: MainScheduler.instance)
+            .debounce(.milliseconds(100), scheduler: MainScheduler.instance)
             //  .throttle(0.05, scheduler: MainScheduler.instance)
             .distinctUntilChanged()
             .filter { [weak self] (offset)  in
@@ -141,7 +138,7 @@ class CharacterCrossReferenceContainer: GenericBlockCharacterDetail, UICollectio
                     self.readyToLoadMore = true
                 }
             }
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
     }
 
     

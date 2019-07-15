@@ -3,6 +3,12 @@ RxAlamofire
 
 RxAlamofire is a [RxSwift](https://github.com/ReactiveX/RxSwift) wrapper around the elegant HTTP networking in Swift [Alamofire](https://github.com/Alamofire/Alamofire).
 
+[![CircleCI](https://img.shields.io/circleci/project/github/RxSwiftCommunity/RxAlamofire/master.svg)](https://circleci.com/gh/RxSwiftCommunity/RxAlamofire/tree/master)
+[![Version](https://img.shields.io/cocoapods/v/RxAlamofire.svg?style=flat)](http://cocoapods.org/pods/RxAlamofire)
+[![License](https://img.shields.io/cocoapods/l/RxAlamofire.svg?style=flat)](http://cocoapods.org/pods/RxAlamofire)
+[![Platform](https://img.shields.io/cocoapods/p/RxAlamofire.svg?style=flat)](http://cocoapods.org/pods/RxAlamofire)
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+
 ## Getting Started
 
 Wrapping RxSwift around Alamofire makes working with network requests a smoother and nicer task. Alamofire is a very powerful framework and RxSwift add the ability to compose responses in a simple and effective way.
@@ -11,7 +17,7 @@ A basic usage is (considering a simple currency converter):
 
 ```swift
 let formatter = NSNumberFormatter()
-formatter.numberStyle = .CurrencyStyle
+formatter.numberStyle = .currencyStyle
 formatter.currencyCode = "USD"
 if let fromValue = NSNumberFormatter().numberFromString(self.fromTextField.text!) {
 
@@ -28,7 +34,7 @@ RxAlamofire.requestJSON(.get, sourceStringURL)
                     }, onError: { [weak self] (error) in
                         self?.displayError(error as NSError)
                 })
-                .addDisposableTo(disposeBag)
+                .disposed(by: disposeBag)
 
 } else {
     self.toTextField.text = "Invalid Input!"
@@ -39,19 +45,19 @@ RxAlamofire.requestJSON(.get, sourceStringURL)
 
 Currently, the library features the following extensions:
 
-```swift 
+```swift
 let stringURL = ""
 
-// MARK: NSURLSession simple and fast
-let session = NSURLSession.sharedSession()
+// MARK: URLSession simple and fast
+let session = URLSession.shared()
 
 _ = session.rx
-        .json(.get, stringURL)
-        .observeOn(MainScheduler.instance)
-        .subscribe { print($0) }
+    .json(.get, stringURL)
+    .observeOn(MainScheduler.instance)
+    .subscribe { print($0) }
 
-_ = session
-    .rx.data(.get, stringURL)
+_ = session.rx
+    .data(.get, stringURL)
     .observeOn(MainScheduler.instance)
     .subscribe { print($0) }
 
@@ -61,34 +67,23 @@ _ = json(.get, stringURL)
     .observeOn(MainScheduler.instance)
     .subscribe { print($0) }
 
+// validation
 _ = request(.get, stringURL)
-    .flatMap { request in
-        return request.validate(statusCode: 200..<300)
-        .validate(contentType: ["text/json"])
-            .rx.json()
-    }
+    .validate(statusCode: 200..<300)
+    .validate(contentType: ["application/json"])
+    .responseJSON()
     .observeOn(MainScheduler.instance)
     .subscribe { print($0) }
 
 // progress
 _ = request(.get, stringURL)
-    .flatMap {
-        $0
-        .validate(statusCode: 200 ..< 300)
-        .validate(contentType: ["text/json"])
-        .rx.progress()
-    }
+    .progress()
     .observeOn(MainScheduler.instance)
     .subscribe { print($0) }
 
 // just fire upload and display progress
 _ = upload(Data(), urlRequest: try! RxAlamofire.urlRequest(.get, stringURL))
-    .flatMap {
-        $0
-        .validate(statusCode: 200 ..< 300)
-            .validate(contentType: ["text/json"])
-            .rx.progress()
-    }
+    .progress()
     .observeOn(MainScheduler.instance)
     .subscribe { print($0) }
 
@@ -97,15 +92,11 @@ _ = upload(Data(), urlRequest: try! RxAlamofire.urlRequest(.get, stringURL))
 // this doesn't add much overhead
 _ = request(.get, stringURL)
     .flatMap { request -> Observable<(Data?, RxProgress)> in
-        let validatedRequest = request
-            .validate(statusCode: 200 ..< 300)
-            .validate(contentType: ["text/json"])
-        
-        let dataPart = validatedRequest
-            .rx.data()
+        let dataPart = request.rx
+            .data()
             .map { d -> Data? in d }
             .startWith(nil as Data?)
-        let progressPart = validatedRequest.rx.progress()
+        let progressPart = request.rx.progress()
         return Observable.combineLatest(dataPart, progressPart) { ($0, $1) }
     }
     .observeOn(MainScheduler.instance)
@@ -113,15 +104,14 @@ _ = request(.get, stringURL)
 
 
 // MARK: Alamofire manager
-// same methods with with any alamofire manager
+// same methods with any alamofire manager
 
-let manager = Manager.sharedInstance
+let manager = SessionManager.default
 
 // simple case
 _ = manager.rx.json(.get, stringURL)
     .observeOn(MainScheduler.instance)
     .subscribe { print($0) }
-
 
 // URLHTTPResponse + JSON
 _ = manager.rx.responseJSON(.get, stringURL)
@@ -133,40 +123,32 @@ _ = manager.rx.responseString(.get, stringURL)
     .observeOn(MainScheduler.instance)
     .subscribe { print($0) }
 
-// URLHTTPResponse + Validation + String
+// URLHTTPResponse + Validation + JSON
 _ = manager.rx.request(.get, stringURL)
-    .flatMap {
-        $0
-            .validate(statusCode: 200 ..< 300)
-            .validate(contentType: ["text/json"])
-            .rx.string()
-    }
+    .validate(statusCode: 200 ..< 300)
+    .validate(contentType: ["text/json"])
+    .json()
     .observeOn(MainScheduler.instance)
     .subscribe { print($0) }
 
-// URLHTTPResponse + Validation + URLHTTPResponse + String
+// URLHTTPResponse + Validation + URLHTTPResponse + JSON
 _ = manager.rx.request(.get, stringURL)
-    .flatMap {
-        $0
-        .validate(statusCode: 200 ..< 300)
-        .validate(contentType: ["text/json"])
-        .rx.responseString()
-    }
+    .validate(statusCode: 200 ..< 300)
+    .validate(contentType: ["text/json"])
+    .responseJSON()
     .observeOn(MainScheduler.instance)
     .subscribe { print($0) }
 
 // URLHTTPResponse + Validation + URLHTTPResponse + String + Progress
 _ = manager.rx.request(.get, stringURL)
+    .validate(statusCode: 200 ..< 300)
+    .validate(contentType: ["text/something"])
     .flatMap { request -> Observable<(String?, RxProgress)> in
-        let validatedRequest = request
-            .validate(statusCode: 200 ..< 300)
-            .validate(contentType: ["text/something"])
-            
-        let stringPart = validatedRequest
-            .rx.string()
+        let stringPart = request.rx
+            .string()
             .map { d -> String? in d }
             .startWith(nil as String?)
-        let progressPart = validatedRequest.rx.progress()
+        let progressPart = request.rx.progress()
         return Observable.combineLatest(stringPart, progressPart) { ($0, $1) }
     }
     .observeOn(MainScheduler.instance)
@@ -175,7 +157,7 @@ _ = manager.rx.request(.get, stringURL)
 
 ## Installation
 
-There are two ways to install RxAlamofire
+There are three ways to install RxAlamofire
 
 ### CocoaPods
 
@@ -190,7 +172,33 @@ pod 'RxAlamofire'
 Add following to `Cartfile`:
 
 ```
-github "RxSwiftCommunity/RxAlamofire" "master"
+github "RxSwiftCommunity/RxAlamofire" ~> 5.0
+```
+
+### Swift Package manager
+
+Create a `Package.swift`  file
+
+```
+// swift-tools-version:4.0
+
+import PackageDescription
+
+let package = Package(
+        name: "TestRxAlamofire",
+
+        dependencies: [
+            .package(url: "https://github.com/RxSwiftCommunity/RxAlamofire.git",
+                     from: "4.4.1"),
+        ],
+
+        targets: [
+            .target(
+                    name: "TestRxAlamofire",
+                    dependencies: ["RxAlamofire"])
+        ]
+)
+
 ```
 
 ### Manually
@@ -199,4 +207,6 @@ To manual install this extension you should get the `RxAlamofire/Source/RxAlamof
 
 ## Requirements
 
-RxAlamofire requires Swift 3.0 and dedicated versions of Alamofire (4.0) and RxSwift (3.0.0-beta.1).
+RxAlamofire requires Swift 5.0 and dedicated versions of Alamofire (4.8.2) and RxSwift (5.0.0).
+
+For the last Swift 4.2 support, please use RxAlamofire 4.5.0.

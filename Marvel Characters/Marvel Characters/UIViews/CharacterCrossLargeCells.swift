@@ -9,7 +9,6 @@
 import UIKit
 import RxCocoa
 import RxSwift
-import Result
 
 class CharacterCrossLargeCells: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
@@ -67,7 +66,7 @@ class CharacterCrossLargeCells: UIViewController, UICollectionViewDelegate, UICo
                 let value  = offset.x / displacement
                 self.scrollToPage(Int(round(value)), animated: true)
             }, onCompleted: nil, onDisposed: nil)
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
         
     }
     
@@ -103,7 +102,7 @@ class CharacterCrossLargeCells: UIViewController, UICollectionViewDelegate, UICo
             .drive(onNext: { _ in
                 self.collectionView.reloadData()
             }, onCompleted: nil, onDisposed: nil)
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
         
         rx_crossreference?
             .flatMapLatest(errorValidation)
@@ -111,7 +110,7 @@ class CharacterCrossLargeCells: UIViewController, UICollectionViewDelegate, UICo
                 if newPage.count < APIHandler.itemsPerPage { self.loadingMore = false }
                 self.readyToLoadMore = true
             }, onCompleted: nil, onDisposed: nil)
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
         
     }
     
@@ -120,7 +119,7 @@ class CharacterCrossLargeCells: UIViewController, UICollectionViewDelegate, UICo
         
         
         collectionView.rx.contentOffset
-            .debounce(0.1, scheduler: MainScheduler.instance)
+            .debounce(.milliseconds(100), scheduler: MainScheduler.instance)
             //  .throttle(0.05, scheduler: MainScheduler.instance)
             .distinctUntilChanged()
             .filter { [weak self] (offset)  in
@@ -158,7 +157,7 @@ class CharacterCrossLargeCells: UIViewController, UICollectionViewDelegate, UICo
                 self.scrollToPage(Int(round(value)), animated: true)
                 
             }
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
     }
     
     

@@ -8,9 +8,7 @@
 
 import XCTest
 import RxSwift
-import Result
 import RxCocoa
-import ObjectMapper
 
 @testable import Marvel_Characters
 
@@ -20,7 +18,6 @@ class RxAPICaller_Tests: XCTestCase {
   
     let params = ["":""] //Params are ignored when in mockup mode
     let characterID = 123 //This is ignored when in mockup mode
-    
     
     var characterListObservable : Observable<Result<[MarvelCharacter],RequestError>>!
     var crossReferenceListObservable : Observable<Result<[CrossReference],RequestError>>!

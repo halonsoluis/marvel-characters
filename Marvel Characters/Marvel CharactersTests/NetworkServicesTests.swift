@@ -8,9 +8,7 @@
 
 import XCTest
 import RxSwift
-import Result
 import RxCocoa
-import ObjectMapper
 import Foundation
 
 @testable import Marvel_Characters

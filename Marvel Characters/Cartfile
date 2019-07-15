@@ -1,6 +1,4 @@
 github "onevcat/Kingfisher"
-github "Hearst-DD/ObjectMapper"
-github "antitypical/Result"
-github "ReactiveX/RxSwift" ~> 3.0
-github "Alamofire/Alamofire" ~> 4.0
+github "ReactiveX/RxSwift" ~> 5.0
+github "Alamofire/Alamofire" "5.0.0-beta.5"
 github "RxSwiftCommunity/RxAlamofire"

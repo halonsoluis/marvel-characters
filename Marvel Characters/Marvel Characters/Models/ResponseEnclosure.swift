@@ -7,29 +7,14 @@
 //
 
 import Foundation
-import ObjectMapper
 
-class ResponseEnclosure<T: Mappable>: Mappable {
+class ResponseEnclosure<T: Codable>: Codable {
     
-    var code: Int?
-    var status: String?
-    var copyright: String?
-    var attributionText: String?
-    var attributionHTML: String?
-    var etag: String?
-    var data: ResultDataBox<T>?
-    
-    //MARK: Mappable protocol
-    required init?(map: Map) {
-    }
-    
-    func mapping(map: Map) {
-        code <- map["code"]
-        status <- map["status"]
-        copyright <- map["copyright"]
-        attributionText <- map["attributionText"]
-        attributionHTML <- map["attributionHTML"]
-        etag <- map["etag"]
-        data <- map["data"]
-    }
+    let code: Int?
+    let status: String?
+    let copyright: String?
+    let attributionText: String?
+    let attributionHTML: String?
+    let etag: String?
+    let data: ResultDataBox<T>?
 }

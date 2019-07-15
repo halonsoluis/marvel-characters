@@ -6,8 +6,6 @@
 //  Copyright © 2015 Krunoslav Zaher. All rights reserved.
 //
 
-import Foundation
-
 struct PriorityQueue<Element> {
     private let _hasHigherPriority: (Element, Element) -> Bool
     private let _isEqual: (Element, Element) -> Bool
@@ -54,7 +52,7 @@ struct PriorityQueue<Element> {
     private mutating func removeAt(_ index: Int) {
         let removingLast = index == _elements.count - 1
         if !removingLast {
-            swap(&_elements[index], &_elements[_elements.count - 1])
+            _elements.swapAt(index, _elements.count - 1)
         }
 
         _ = _elements.popLast()
@@ -74,8 +72,7 @@ struct PriorityQueue<Element> {
         while unbalancedIndex > 0 {
             let parentIndex = (unbalancedIndex - 1) / 2
             guard _hasHigherPriority(_elements[unbalancedIndex], _elements[parentIndex]) else { break }
-            
-            swap(&_elements[unbalancedIndex], &_elements[parentIndex])
+            _elements.swapAt(unbalancedIndex, parentIndex)
             unbalancedIndex = parentIndex
         }
     }
@@ -100,8 +97,8 @@ struct PriorityQueue<Element> {
             }
 
             guard highestPriorityIndex != unbalancedIndex else { break }
+            _elements.swapAt(highestPriorityIndex, unbalancedIndex)
 
-            swap(&_elements[highestPriorityIndex], &_elements[unbalancedIndex])
             unbalancedIndex = highestPriorityIndex
         }
     }
