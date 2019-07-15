@@ -30,9 +30,18 @@ struct ImageSource {
         
         let placeholderImage = getPlaceholderImage() ?? imageView.image
         
-        imageView.kf.setImage(with: resource, placeholder: placeholderImage, options: [.transition(ImageTransition.fade(1))], progressBlock: nil, completionHandler: {(image, _, _ ,_) in
-            completionHandler?(image)
-        })
+        imageView.kf.setImage(
+            with: resource,
+            placeholder: placeholderImage,
+            options: [.transition(.fade(1))],
+            progressBlock: nil) { result in
+                    switch result {
+                    case .success(let value):
+                        completionHandler?(value.image)
+                    case .failure(let error):
+                        print(error)
+                    }
+        }
     }
     
     /**

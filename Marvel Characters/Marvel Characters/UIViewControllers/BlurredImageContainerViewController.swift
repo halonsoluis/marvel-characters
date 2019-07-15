@@ -79,7 +79,7 @@ class BlurredImageContainerViewController : UIViewController, CharacterProviderD
             let viewWithVibrancy = UIVisualEffectView(frame: CGRect(x: 0, y: 0, width: viewHoldingBlur.bounds.width, height: viewHoldingBlur.bounds.height))
             viewWithVibrancy.effect = vibrancy
             
-            viewWithBlur.addSubview(viewWithVibrancy)
+            viewWithBlur.contentView.addSubview(viewWithVibrancy)
             
             viewHoldingBlur.isUserInteractionEnabled = false
             

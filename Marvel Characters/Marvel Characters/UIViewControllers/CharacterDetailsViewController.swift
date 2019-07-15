@@ -71,7 +71,7 @@ class CharacterDetailsViewController: UIViewController {
             .filter { $0.y < 0 }
             .distinctUntilChanged()
             .drive(onNext: { [weak self] (offset) in
-                let progress:CGFloat = fabs(offset.y ) / 250
+                let progress:CGFloat = abs(offset.y ) / 250
                 self?.largeImage.transform = CGAffineTransform(scaleX: 1 + progress, y: 1 + progress)
                 self?.largeImage.frame.origin.y = offset.y * CGFloat((self?.factor)!)
                 //          self?.largeImageHeight.constant = self!.largeImageHeight.constant * (1 + progress)

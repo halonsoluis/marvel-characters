@@ -14,14 +14,14 @@ class CharacterCrossReferenceContainer: GenericBlockCharacterDetail, UICollectio
     
     @IBOutlet weak var collectionView: UICollectionView!
     
-    var dataSource = Variable<[CrossReference]>([])
+    var dataSource = BehaviorRelay<[CrossReference]>(value: [])
     var route: Routes!
     var total: Int!
     var crossReferencNetworService: NetworkService!
     let disposeBag = DisposeBag()
     
     /// Value of current page
-    var currentPage = Variable<Int>(0)
+    var currentPage = BehaviorRelay<Int>(value: 0)
    
     var chs : NetworkService!
     var rx_crossreference: Driver<Result<[CrossReference],RequestError>>!
@@ -94,8 +94,13 @@ class CharacterCrossReferenceContainer: GenericBlockCharacterDetail, UICollectio
         rx_crossreference?
             .flatMapLatest(errorValidation)
             .drive(onNext: { (newPage) in
-                self.dataSource.value.append(contentsOf: newPage)
-                if newPage.count < APIHandler.itemsPerPage { self.loadingMore = false }
+                var dataSource = self.dataSource.value
+                dataSource.append(contentsOf: newPage)
+                self.dataSource.accept(dataSource)
+                
+                if newPage.count < APIHandler.itemsPerPage {
+                    self.loadingMore = false
+                }
                 self.readyToLoadMore = true
             }, onCompleted: nil, onDisposed: nil)
             .disposed(by: disposeBag)
@@ -119,7 +124,7 @@ class CharacterCrossReferenceContainer: GenericBlockCharacterDetail, UICollectio
                 return true
             }
             .observeOn(MainScheduler.instance)
-            .bindNext { [weak self] (offset) in
+            .bind { [weak self] (offset) in
                 guard let `self` = self else { return }
                 
                 print("offset = \(offset)")
@@ -132,7 +137,7 @@ class CharacterCrossReferenceContainer: GenericBlockCharacterDetail, UICollectio
                 if x > (w - reload_distance) {
                     self.loadingMore = true
                     
-                    self.currentPage.value = self.currentPage.value + 1
+                    self.currentPage.accept(self.currentPage.value + 1)
                     print("load page = \(self.currentPage.value)")
                 } else {
                     self.readyToLoadMore = true

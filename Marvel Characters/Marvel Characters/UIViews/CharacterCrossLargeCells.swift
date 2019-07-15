@@ -14,11 +14,11 @@ class CharacterCrossLargeCells: UIViewController, UICollectionViewDelegate, UICo
     
     @IBOutlet weak var collectionView: UICollectionView!
     
-    weak var dataSource : Variable<[CrossReference]>!
+    weak var dataSource: BehaviorRelay<[CrossReference]>!
     let disposeBag = DisposeBag()
     
     /// Value of current page
-    weak var currentPage : Variable<Int>!
+    weak var currentPage: BehaviorRelay<Int>!
     
     var totalItems : Int = 0
     var chs : NetworkService!
@@ -58,7 +58,7 @@ class CharacterCrossLargeCells: UIViewController, UICollectionViewDelegate, UICo
         
         collectionView.rx.contentOffset
             .asDriver()
-            .throttle(0.5)
+            .throttle(.milliseconds(500))
             .distinctUntilChanged()
             .drive(onNext: { offset in
                 var displacement = self.collectionView.contentSize.width / CGFloat(self.dataSource.value.count)
@@ -133,7 +133,7 @@ class CharacterCrossLargeCells: UIViewController, UICollectionViewDelegate, UICo
                 return true
             }
             .observeOn(MainScheduler.instance)
-            .bindNext { [weak self] (offset) in
+            .bind { [weak self] (offset) in
                 guard let `self` = self else { return }
                 
                 print("offset = \(offset)")
@@ -146,7 +146,7 @@ class CharacterCrossLargeCells: UIViewController, UICollectionViewDelegate, UICo
                 if x > (w - reload_distance) {
                     self.loadingMore = true
                     
-                    self.currentPage.value = self.currentPage.value + 1
+                    self.currentPage.accept(self.currentPage.value + 1)
                     print("load page = \(self.currentPage.value)")
                 } else {
                     self.readyToLoadMore = true

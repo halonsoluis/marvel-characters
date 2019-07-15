@@ -28,14 +28,14 @@ class SearchViewController: CharacterListViewController {
                 return .just(text)
             }.filter {
                 if $0.isEmpty {
-                    self.dataSource.value.removeAll()
+                    self.dataSource.accept([])
                     self.loadingMore = false
                     return false
                 }
                 return true
             }.do(onNext: { (_) in
-                self.dataSource.value.removeAll()
-                self.currentPage.value = 0
+                self.dataSource.accept([])
+                self.currentPage.accept(0)
                 self.footerView.isHidden = false
             }, onError: nil, onCompleted: nil, onSubscribe: nil, onDispose: nil)
     }
