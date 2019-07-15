@@ -64,7 +64,7 @@ class RxAPICaller_Tests: XCTestCase {
                 
                 XCTAssertNotNil(first?.name)
             }, onError: nil, onCompleted: nil, onDisposed: nil)
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
     }
     
     func testRequestCrossReferenceListObservable() {
@@ -77,7 +77,7 @@ class RxAPICaller_Tests: XCTestCase {
                 XCTAssertFalse(characters.isEmpty)
                 XCTAssertNotNil(characters.first?.title)
             }, onError: nil, onCompleted: nil, onDisposed: nil)
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
     }
     
 //    func testPerformanceRequestCrossReferenceListObservable() {

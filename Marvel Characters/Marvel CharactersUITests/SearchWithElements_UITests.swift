@@ -43,7 +43,7 @@ class SearchWithElementsUITests: XCTestCase {
     }
     
     func testSearchResultsIsEmptyAfterTapDeleteKeyUntilEmptyText() {
-        let textSize = textForSearchBar.characters.count
+        let textSize = textForSearchBar.count
        
         for _ in 0..<textSize {
             app.keys["delete"].tap()

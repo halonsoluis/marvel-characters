@@ -30,10 +30,14 @@ struct RxAPICaller {
         let isCharacter = T.self is MarvelCharacter.Type
         let json = buildJSON(isCharacter ? MockupResource.character.getMockupData()! : MockupResource.crossReference.getMockupData()!)
         
-        let box = try? JSONDecoder().decode(ResponseEnclosure<T>.self, from: json as! Data)
-        let items = box?.data?.results ?? []
-        
-        return Observable.just(Result.success(items))
+        if let data = try? JSONSerialization.data(withJSONObject: json, options: .prettyPrinted) {
+            let box = try? JSONDecoder().decode(ResponseEnclosure<T>.self, from: data)
+            let items = box?.data?.results ?? []
+            
+            return Observable.just(Result.success(items))
+        } else {
+            return Observable.empty()
+        }
     }
     
     fileprivate static func requestNetworkData<T: MainAPISubject>(_ parameters: [String:String], route: Routes) -> Observable<Result<[T],RequestError>> {

@@ -17,8 +17,8 @@ class NetworkServicesTests: XCTestCase {
     
     let disposeBag = DisposeBag()
     
-    var currentPage = Variable<Int>(0)
-    var searchText = Variable<String>("")
+    var currentPage = BehaviorRelay<Int>(value: 0)
+    var searchText = BehaviorRelay<String>(value: "")
     
     var chs : NetworkService?
     
@@ -78,7 +78,7 @@ class NetworkServicesTests: XCTestCase {
                 XCTAssertNotNil(newPage.first?.title)
                 
             }, onCompleted: nil, onDisposed: nil)
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
     }
     
     func testRequestCharacterList() {
@@ -92,7 +92,7 @@ class NetworkServicesTests: XCTestCase {
                 XCTAssertNotNil(newPage.first?.name)
 
             }, onCompleted: nil, onDisposed: nil)
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
 
     }
 }

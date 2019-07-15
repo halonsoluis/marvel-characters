@@ -18,8 +18,8 @@ class Thumbnail_Tests: XCTestCase {
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
-    
-        thumbnail = try? JSONDecoder().decode(Thumbnail.self, from: thumbnailJSON as! Data)
+        let data = try! JSONSerialization.data(withJSONObject: thumbnailJSON, options: .prettyPrinted)
+        thumbnail = try? JSONDecoder().decode(Thumbnail.self, from: data)
     }
     
     func testThumbnailCreated() {
