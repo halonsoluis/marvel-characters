@@ -12,7 +12,10 @@ import XCTest
 
 class Thumbnail_Tests: XCTestCase {
     
-    let thumbnailJSON = "{ \"path\": \"testPath\", \"extension\" : \"testExtension\" }"
+    let thumbnailJSON: Dictionary<String, Any> = [
+        "path" : "testPath",
+        "extension" : "testExtension"
+    ]
     var thumbnail : Thumbnail?
     
     override func setUp() {
@@ -32,13 +35,4 @@ class Thumbnail_Tests: XCTestCase {
         
         XCTAssertEqual(url, "testPath.testExtension")
     }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-            _ = self.thumbnail?.url()
-        }
-    }
-    
 }
