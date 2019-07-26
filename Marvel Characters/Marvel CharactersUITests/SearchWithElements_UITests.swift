@@ -70,12 +70,11 @@ class SearchWithElementsUITests: XCTestCase {
         XCTAssert(!characterName.label.isEmpty)
     }
     
-    func testBackButtonInDetailsReturnsToSearchList() {
+    func testReturningToSearchFromDetailsKeepsTheSearchResultsInPlace() {
         
         app.tables.children(matching: .cell).element(boundBy: 0).tap()
         
-        XCTAssertFalse(searchBar.waitForExistence(timeout: 2))
-        
+        XCTAssertTrue(app.backButton.waitForExistence(timeout: 1))
         app.backButton.tap()
         
         XCTAssertTrue(searchBar.waitForExistence(timeout: 1))
