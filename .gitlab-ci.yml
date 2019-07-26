@@ -12,7 +12,7 @@ build_project:
   stage: build_test
   script:
     - /usr/bin/xcodebuild clean -project Marvel\ Characters.xcodeproj -scheme Marvel\ Characters | /usr/local/bin/xcpretty -s
-    - /usr/bin/xcodebuild test  -project Marvel\ Characters.xcodeproj -scheme Marvel\ Characters -destination 'platform=iOS Simulator,name=iPhone 6s,OS=12.2'  | xcpretty -s --test --color
+    - /usr/bin/xcodebuild test  -project Marvel\ Characters.xcodeproj -scheme Marvel\ Characters -destination 'platform=iOS Simulator,name=iPhone 6s'  | xcpretty -s --test --color
   tags:
     - Xcode-10.2.1
     - macOSMojave
