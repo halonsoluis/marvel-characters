@@ -13,13 +13,10 @@ class CharacterList_UITests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-        app.launchArguments.append("MOCKUP_MODE")
+        app.configureSuite()
 
         // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
-        // UI tests must launch the application that they test. Doing this in setup will make sure it happens for each test method.
-        app.launch()
 
         // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
     }
@@ -49,15 +46,6 @@ class CharacterList_UITests: XCTestCase {
         let cellButton = app.tables.cells.element(boundBy: 0).buttons.element(boundBy: 0)
         XCTAssert(cellButton.exists)
         XCTAssert(!cellButton.label.isEmpty)
-    }
-
-    
-    func testNavigatesIntoCharacterDetailsWhenTappingOverCell() {
-        XCTAssert(!app.navigationBars["Marvel_Characters.BlurredImageContainerView"].exists)
-        
-        app.tables.children(matching: .cell).element(boundBy: 0).tap()
-        
-        XCTAssert(app.navigationBars["Marvel_Characters.BlurredImageContainerView"].exists)
     }
     
     func testPagination() {
@@ -95,22 +83,5 @@ class CharacterList_UITests: XCTestCase {
         
         let newCells = app.tables.children(matching: .cell).count
         XCTAssert(newCells == 40)
-    }
-    
-    
-    func testBackButtonInDetailsReturnsToMainList() {
-        
-        app.tables.children(matching: .cell).element(boundBy: 0).tap()
-        
-        app.navigationBars["Marvel_Characters.BlurredImageContainerView"].children(matching: .button).matching(identifier: "Back").element(boundBy: 1).tap()
-        
-        XCTAssertFalse(app.navigationBars["Marvel_Characters.BlurredImageContainerView"].exists)
-        XCTAssertFalse(app.searchFields["Search..."].exists)
-    }
-    
-    func testStatusBarIsPresent(){
-        let statusBarsQuery = XCUIApplication().statusBars.element
-        XCTAssertTrue(statusBarsQuery.exists)
-        XCTAssertTrue(statusBarsQuery.isHittable)
     }
 }

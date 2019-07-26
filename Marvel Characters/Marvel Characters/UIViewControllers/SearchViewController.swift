@@ -14,7 +14,6 @@ class SearchViewController: CharacterListViewController {
     
     @IBOutlet weak var searchBar: UISearchBar!
     
-    
     func buildCharacterNameObservable() -> Observable<String> {
         return searchBar.rx.text.orEmpty
             .throttle(.milliseconds(500), scheduler: MainScheduler.instance)
@@ -58,6 +57,8 @@ class SearchViewController: CharacterListViewController {
                 }, onCompleted: nil, onDisposed: nil).disposed(by: disposeBag)
         
         loadingMore = false
+        
+        tableView.accessibilityIdentifier = "SearchCharacterList"
    
     }
     

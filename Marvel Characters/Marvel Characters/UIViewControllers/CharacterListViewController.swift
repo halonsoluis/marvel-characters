@@ -55,6 +55,8 @@ class CharacterListViewController: UIViewController {
         rx_characters = chs?.getData(Routes.listCharacters)
         appendSubscribers()
         setupPagination()
+        
+        tableView.accessibilityIdentifier = "MainCharacterList"
     }
     
     override var preferredStatusBarStyle : UIStatusBarStyle {
