@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B75A04F22EA8355007C4B05 /* XCUIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B75A04E22EA8355007C4B05 /* XCUIApplication+Extension.swift */; };
 		5BD8CB4922DD145D00261AAB /* RxRelay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BD8CB4522DD0F7D00261AAB /* RxRelay.framework */; };
 		5BD8CB5122DD145E00261AAB /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BD8CB4B22DD145E00261AAB /* RxSwift.framework */; };
 		5BD8CB5222DD145E00261AAB /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BD8CB4C22DD145E00261AAB /* RxCocoa.framework */; };
@@ -104,6 +105,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5B75A04E22EA8355007C4B05 /* XCUIApplication+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCUIApplication+Extension.swift"; sourceTree = "<group>"; };
 		5BD8CB4422DCF48000261AAB /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
 		5BD8CB4522DD0F7D00261AAB /* RxRelay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxRelay.framework; path = Carthage/Build/iOS/RxRelay.framework; sourceTree = "<group>"; };
 		5BD8CB4B22DD145E00261AAB /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
@@ -226,6 +228,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5B75A04D22EA8337007C4B05 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				5B75A04E22EA8355007C4B05 /* XCUIApplication+Extension.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		9A16662A1CF791E700C1283F /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -370,6 +380,7 @@
 		9ADBF33F1CF6298F005F1F51 /* Marvel CharactersUITests */ = {
 			isa = PBXGroup;
 			children = (
+				5B75A04D22EA8337007C4B05 /* Utils */,
 				9A927B851D03B3BA001D3C98 /* LargeViewCrossCollections_UITests.swift */,
 				9AD5DCA01D033EB000F2A3FD /* SearchWithElements_UITests.swift */,
 				9AD5DC9C1D0325D200F2A3FD /* CharacterSearch_UITests.swift */,
@@ -677,6 +688,7 @@
 				9AA6CB5F1D02AC9C00C6559B /* CharacterList_UITests.swift in Sources */,
 				9AD5DC9D1D0325D200F2A3FD /* CharacterSearch_UITests.swift in Sources */,
 				9A927B861D03B3BA001D3C98 /* LargeViewCrossCollections_UITests.swift in Sources */,
+				5B75A04F22EA8355007C4B05 /* XCUIApplication+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
