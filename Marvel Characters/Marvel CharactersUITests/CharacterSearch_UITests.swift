@@ -42,9 +42,9 @@ class CharacterSearchUITests: XCTestCase {
         
         cancelButton.tap()
         
-        XCTAssertTrue(app.navigationBars["Marvel_Characters.CharacterListView"].exists)
-        XCTAssertFalse(cancelButton.exists)
-        XCTAssertTrue(searchButton.exists)
+        XCTAssertTrue(app.navigationBars["Marvel_Characters.CharacterListView"].waitForExistence(timeout: 1))
+        XCTAssertFalse(cancelButton.waitForExistence(timeout: 1))
+        XCTAssertTrue(searchButton.waitForExistence(timeout: 1))
     }
     
     func testSearchProducesResults() {

@@ -48,19 +48,9 @@ class SearchWithElementsUITests: XCTestCase {
         }
         
         XCTAssert(app.keyboards.count == 1)
+        sleep(1)
         XCTAssert(cells.count == 0)
     }
-    
-    func testSearchResultsIsEmptyAfterSelectAllAndEmptyTextIntroduced() {
-        
-        searchBar.press(forDuration: 1.2)
-        app.menuItems["Select All"].tap()
-        app.keys["delete"].tap()
-        
-        XCTAssert(app.keyboards.count == 1)
-        XCTAssert(app.tables.element.cells.count == 0)
-    }
-    
     
     func testForElementsExistsInViewWithMockup() {
         XCTAssert(app.tables.count == 1)
@@ -80,22 +70,11 @@ class SearchWithElementsUITests: XCTestCase {
         XCTAssert(!characterName.label.isEmpty)
     }
     
-    
-    func testNavigatesIntoCharacterDetailsWhenTappingOverCell() {
-       
-        app.tables.children(matching: .cell).element(boundBy: 0).tap()
-        
-        XCTAssertFalse(searchBar.waitForExistence(timeout: 1))
-        
-        app.backButton.tap()
-        XCTAssertTrue(searchBar.waitForExistence(timeout: 1))
-    }
-    
     func testBackButtonInDetailsReturnsToSearchList() {
         
         app.tables.children(matching: .cell).element(boundBy: 0).tap()
         
-        XCTAssertFalse(searchBar.waitForExistence(timeout: 1))
+        XCTAssertFalse(searchBar.waitForExistence(timeout: 2))
         
         app.backButton.tap()
         
