@@ -79,43 +79,4 @@ class RxAPICaller_Tests: XCTestCase {
             }, onError: nil, onCompleted: nil, onDisposed: nil)
             .disposed(by: disposeBag)
     }
-    
-//    func testPerformanceRequestCrossReferenceListObservable() {
-//        // This is an example of a performance test case.
-//        self.measure {
-//            // Put the code you want to measure the time of here.
-//            self.crossReferenceListObservable
-//                .flatMapLatest(self.errorValidationCrossReference)
-//                .subscribe(onNext: { (_) in
-//                    
-//                }, onError: nil, onCompleted: nil, onDisposed: nil)
-//                .addDisposableTo(self.disposeBag)
-//        }
-//    }
-//    
-//    func testPerformanceRequestCharacterListObservableCreation() {
-//        // This is an example of a performance test case.
-//        self.measure {
-//            self.characterListObservable = RxAPICaller.requestWithParams(self.params, route: Routes.listCharacters)
-//        }
-//    }
-//    func testPerformanceRequestCrossReferenceListObservableCreation() {
-//        // This is an example of a performance test case.
-//        self.measure {
-//            self.crossReferenceListObservable = RxAPICaller.requestWithParams(self.params, route: Routes.listComicsByCharacter(characterID: 123))
-//        }
-//    }
-//    
-//    func testPerformanceRequestCharacterListObservable() {
-//        // This is an example of a performance test case.
-//        self.measure {
-//            // Put the code you want to measure the time of here.
-//            self.characterListObservable
-//                .flatMapLatest(self.errorValidationMarvelCharacter)
-//                .subscribe(onNext: { (_) in
-//                    
-//                }, onError: nil, onCompleted: nil, onDisposed: nil)
-//                .addDisposableTo(self.disposeBag)
-//        }
-//    }
 }

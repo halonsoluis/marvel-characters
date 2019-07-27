@@ -72,11 +72,4 @@ class APIHandlerTests: XCTestCase {
         
         XCTAssert(tuple.timeStamp == 1.description && tuple.hash == "ffd275c5130566a2916217b101f26150")
     }
-    
-    func testPerformanceGetTimeStampAndHash() {
-        // This is an example of a performance test case.
-        self.measure {
-            let _ = APIHandler.getSecurityFootprint(1.description, privateAPIKey: "abcd", publicAPIKey: "1234")
-        }
-    }
 }

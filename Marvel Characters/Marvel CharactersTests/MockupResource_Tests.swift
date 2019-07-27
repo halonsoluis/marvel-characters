@@ -28,25 +28,4 @@ class MockupResource_Tests: XCTestCase {
         // Use XCTAssert and related functions to verify your tests produce the correct results.
         XCTAssertNotNil(MockupResource.image.getMockupData())
     }
-    
-    func testPerformanceMockupCharactersDataLoaded() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-            _ = MockupResource.character.getMockupData()
-        }
-    }
-    func testPerformanceMockupRelatedItemsDataLoaded() {
-        // This is an example of a performance test case.
-        self.measure {
-            _ = MockupResource.crossReference.getMockupData()
-        }
-    }
-    func testPerformanceMockupImageDataLoaded() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-            _ = MockupResource.image.getMockupData()
-        }
-    }
 }
