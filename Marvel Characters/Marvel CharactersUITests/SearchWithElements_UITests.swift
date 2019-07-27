@@ -74,8 +74,10 @@ class SearchWithElementsUITests: XCTestCase {
         
         app.tables.children(matching: .cell).element(boundBy: 0).tap()
         
-        XCTAssertTrue(app.backButton.waitForExistence(timeout: 1))
-        app.backButton.tap()
+        let backButton = app.navigationBars["Marvel_Characters.BlurredImageContainerView"].buttons["Back"]
+        
+        XCTAssertTrue(backButton.waitForExistence(timeout: 1))
+        backButton.tap()
         
         XCTAssertTrue(searchBar.waitForExistence(timeout: 1))
         //The search is not resetted
