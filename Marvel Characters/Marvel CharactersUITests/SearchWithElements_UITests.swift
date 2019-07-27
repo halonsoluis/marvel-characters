@@ -72,15 +72,15 @@ class SearchWithElementsUITests: XCTestCase {
     
     func testReturningToSearchFromDetailsKeepsTheSearchResultsInPlace() {
         
-        app.tables.children(matching: .cell).element(boundBy: 0).tap()
+        let firstCell = cells.element(boundBy: 0)
+        XCTAssertTrue(firstCell.waitForExistence(timeout: 2))
+        firstCell.tap()
         
-        let backButton = app.navigationBars["Marvel_Characters.BlurredImageContainerView"].buttons["Back"]
+        XCTAssertTrue(app.backButton.waitForExistence(timeout: 2))
+        app.backButton.tap()
         
-        XCTAssertTrue(backButton.waitForExistence(timeout: 1))
-        backButton.tap()
-        
-        XCTAssertTrue(searchBar.waitForExistence(timeout: 1))
         //The search is not resetted
-        XCTAssert(cells.count > 0)
+        sleep(1)
+        XCTAssertTrue(cells.count > 0)
     }
 }
