@@ -14,14 +14,6 @@ Prepare:
   tags:
     - macOS
 
-Clean:
-  stage: clean
-  script:
-    - cd Marvel\ Characters
-    - xcodebuild clean | xcpretty
-  tags:
-    - macOS
-
 Build:
   stage: build
   script:
