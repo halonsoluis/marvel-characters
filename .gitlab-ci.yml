@@ -25,7 +25,7 @@ Build:
     - xcodebuild build -project "Marvel Characters.xcodeproj" -scheme "Marvel Characters" -derivedDataPath ./DerivedData CODE_SIGNING_ALLOWED=NO | tee -a ./DerivedData/xcodebuild.log | xcpretty
   artifacts:
     paths:
-      - Marvel\ Characters/DerivedData/
+      - Marvel\ Characters/DerivedData
   dependencies:
     - Prepare
   tags:
