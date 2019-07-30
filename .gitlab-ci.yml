@@ -1,27 +1,66 @@
-before_script:
-  #- sudo /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-  #- brew install Carthage
-  #- sudo gem install xcpretty
-  - cd Marvel\ Characters
-  - carthage bootstrap --platform iOS
-
 stages:
+  - prepare
+  - build
   - test
+  - clean
 
-Testing:
+prepare_project:
+  stage: prepare
+  script:
+    - cd Marvel\ Characters
+    - carthage bootstrap --platform iOS
+  artifacts:
+    paths:
+      - Carthage/
+  tags:
+    - macOS
+
+clean_project:
+  stage: clean
+  script:
+    - cd Marvel\ Characters
+    - xcodebuild clean | xcpretty
+  tags:
+    - macOS
+
+build_project:
+  stage: build
+  script:
+    - cd Marvel\ Characters
+    - rm -rf DerivedData
+    - mkdir DerivedData
+    - xcodebuild clean build \
+            -project "Marvel Characters.xcodeproj" \
+            -scheme "Marvel Characters" \
+            -derivedDataPath ./DerivedData \
+            CODE_SIGNING_ALLOWED=NO | 
+            tee -a ./DerivedData/xcodebuild.log | 
+            xcpretty
+  artifacts:
+    paths:
+      - DerivedData/
+  dependencies:
+    - prepare_project
+  tags:
+    - macOS
+    
+test_project:
   stage: test
   script:
-    - mkdir DerivedData
-    - xcodebuild clean build test \
+    - cd Marvel\ Characters
+    - xcodebuild test \
             -project "Marvel Characters.xcodeproj" \
             -scheme "Marvel Characters" \
             -derivedDataPath ./DerivedData \
             -enableCodeCoverage YES \
-            CODE_SIGNING_ALLOWED=NO \
-            -sdk iphonesimulator \
             -destination "platform=iOS Simulator,name=iPhone 6" | 
-            tee ./DerivedData/xcodebuild.log | 
+            tee -a ./DerivedData/xcodebuild.log | 
             xcpretty --color
+  #coverage: '/Code coverage: \d+\.\d+/'
+  retry:
+    max: 2
+  dependencies:
+    - build_project
   tags:
     - macOS
     - iPhone6_simulator_available
