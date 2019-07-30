@@ -2,7 +2,6 @@ stages:
   - prepare
   - build
   - test
-  - clean
 
 Prepare:
   stage: prepare
@@ -39,7 +38,6 @@ Build:
       - Marvel\ Characters/DerivedData/
   dependencies:
     - Prepare
-    - Clean
   tags:
     - macOS
     
