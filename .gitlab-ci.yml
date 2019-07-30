@@ -1,24 +1,27 @@
-before_script:
-  #- sudo /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-  #- brew install Carthage
-  #- sudo gem install xcpretty
-  - cd Marvel\ Characters
-  - carthage bootstrap --platform iOS
-  
 stages:
+  - prepare
   - clean
   - build
   - test
   - clean
 
+prepare_project:
+  stage: prepare
+  script:
+    - cd Marvel\ Characters
+    - rm -rf DerivedData
+    - mkdir DerivedData
+    - carthage bootstrap --platform iOS
+  tags:
+    - macOS
+
 clean_project:
   stage: clean
   script:
     - xcodebuild clean | xcpretty
-    - rm -rf DerivedData
-    - mkdir DerivedData
   tags:
     - macOS
+
 build_project:
   stage: build
   script:
@@ -31,6 +34,7 @@ build_project:
             xcpretty
   tags:
     - macOS
+    
 test_project:
   stage: test
   script:
