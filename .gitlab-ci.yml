@@ -10,7 +10,10 @@ Prepare:
     - carthage bootstrap --platform iOS
   artifacts:
     paths:
-      - Marvel\ Characters/Carthage/
+      - Marvel\ Characters/Carthage/Build/iOS/*.framework
+  cache:
+    paths:
+      - Marvel\ Characters/Carthage
   tags:
     - macOS
 
