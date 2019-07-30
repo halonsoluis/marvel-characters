@@ -4,7 +4,7 @@ stages:
   - test
   - clean
 
-prepare_project:
+Prepare:
   stage: prepare
   script:
     - cd Marvel\ Characters
@@ -15,7 +15,7 @@ prepare_project:
   tags:
     - macOS
 
-clean_project:
+Clean:
   stage: clean
   script:
     - cd Marvel\ Characters
@@ -23,28 +23,27 @@ clean_project:
   tags:
     - macOS
 
-build_project:
+Build:
   stage: build
   script:
     - cd Marvel\ Characters
-    - rm -rf DerivedData
     - mkdir DerivedData
-    - xcodebuild clean build \
-            -project "Marvel Characters.xcodeproj" \
+    - xcodebuild build -project "Marvel Characters.xcodeproj" \
             -scheme "Marvel Characters" \
             -derivedDataPath ./DerivedData \
-            CODE_SIGNING_ALLOWED=NO | 
+            CODE_SIGNING_ALLOWED=NO |
             tee -a ./DerivedData/xcodebuild.log | 
             xcpretty
   artifacts:
     paths:
       - Marvel\ Characters/DerivedData/
   dependencies:
-    - prepare_project
+    - Prepare
+    - Clean
   tags:
     - macOS
     
-test_project:
+Test:
   stage: test
   script:
     - cd Marvel\ Characters
@@ -60,7 +59,7 @@ test_project:
   retry:
     max: 2
   dependencies:
-    - build_project
+    - Build
   tags:
     - macOS
     - iPhone6_simulator_available
