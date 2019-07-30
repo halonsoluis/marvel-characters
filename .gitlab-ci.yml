@@ -11,7 +11,7 @@ prepare_project:
     - carthage bootstrap --platform iOS
   artifacts:
     paths:
-      - Carthage/
+      - Marvel\ Characters/Carthage/
   tags:
     - macOS
 
@@ -38,7 +38,7 @@ build_project:
             xcpretty
   artifacts:
     paths:
-      - DerivedData/
+      - Marvel\ Characters/DerivedData/
   dependencies:
     - prepare_project
   tags:
