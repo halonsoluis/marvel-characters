@@ -9,16 +9,14 @@
 import UIKit
 import RxSwift
 import RxCocoa
-import Result
 
 class SearchViewController: CharacterListViewController {
     
     @IBOutlet weak var searchBar: UISearchBar!
     
-    
     func buildCharacterNameObservable() -> Observable<String> {
         return searchBar.rx.text.orEmpty
-            .throttle(0.5, scheduler: MainScheduler.instance)
+            .throttle(.milliseconds(500), scheduler: MainScheduler.instance)
             .distinctUntilChanged()
             .flatMap{ text -> Observable<String> in
                 
@@ -29,14 +27,14 @@ class SearchViewController: CharacterListViewController {
                 return .just(text)
             }.filter {
                 if $0.isEmpty {
-                    self.dataSource.value.removeAll()
+                    self.dataSource.accept([])
                     self.loadingMore = false
                     return false
                 }
                 return true
             }.do(onNext: { (_) in
-                self.dataSource.value.removeAll()
-                self.currentPage.value = 0
+                self.dataSource.accept([])
+                self.currentPage.accept(0)
                 self.footerView.isHidden = false
             }, onError: nil, onCompleted: nil, onSubscribe: nil, onDispose: nil)
     }
@@ -56,29 +54,31 @@ class SearchViewController: CharacterListViewController {
             .asDriver()
             .drive(onNext: { [weak self] (_) in
                 _ = self?.navigationController?.popViewController(animated: true)
-                }, onCompleted: nil, onDisposed: nil).addDisposableTo(disposeBag)
+                }, onCompleted: nil, onDisposed: nil).disposed(by: disposeBag)
         
         loadingMore = false
+        
+        tableView.accessibilityIdentifier = "SearchCharacterList"
    
     }
     
     fileprivate func setLayoutForKeyboard() {
         
         NotificationCenter.default
-            .rx.notification(NSNotification.Name.UIKeyboardWillShow, object: nil)
+            .rx.notification(UIResponder.keyboardWillShowNotification, object: nil)
             .observeOn(MainScheduler.instance)
             .subscribe(onNext: { [weak self] notification in
                 
                 guard let info = notification.userInfo else { return }
                 guard let strongSelf = self else { return }
                 
-                let keyboardFrame: CGRect = (info[UIKeyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
+                let keyboardFrame: CGRect = (info[UIResponder.keyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
                 let tableViewInset = strongSelf.tableView.contentInset
-                let contentInsets = UIEdgeInsetsMake(tableViewInset.top, 0.0, keyboardFrame.height, 0.0);
+                let contentInsets = UIEdgeInsets.init(top: tableViewInset.top, left: 0.0, bottom: keyboardFrame.height, right: 0.0);
                 
                 var frame = strongSelf.view.frame
                 
-                UIView.animate(withDuration: 0.5, delay: 0.2, options: UIViewAnimationOptions.curveEaseIn, animations: {
+                UIView.animate(withDuration: 0.5, delay: 0.2, options: UIView.AnimationOptions.curveEaseIn, animations: {
                     strongSelf.tableView.contentInset = contentInsets
                     strongSelf.tableView.scrollIndicatorInsets = contentInsets
                     
@@ -87,21 +87,21 @@ class SearchViewController: CharacterListViewController {
                 }, completion: nil)
                 
                 }, onError: nil, onCompleted: nil, onDisposed: nil)
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
         
         NotificationCenter.default
-            .rx.notification(NSNotification.Name.UIKeyboardWillHide, object: nil)
+            .rx.notification(UIResponder.keyboardWillHideNotification, object: nil)
             .observeOn(MainScheduler.instance)
             .subscribe(onNext: { [weak self] notification in
                 
                 guard let strongSelf = self else { return }
                 
                 let tableViewInset = strongSelf.tableView.contentInset
-                let contentInsets = UIEdgeInsetsMake(tableViewInset.top, 0.0, 0, 0.0);
+                let contentInsets = UIEdgeInsets.init(top: tableViewInset.top, left: 0.0, bottom: 0, right: 0.0);
                 
                 var frame = strongSelf.view.frame
                 
-                UIView.animate(withDuration: 0.5, delay: 0.2, options: UIViewAnimationOptions.curveEaseIn, animations: {
+                UIView.animate(withDuration: 0.5, delay: 0.2, options: UIView.AnimationOptions.curveEaseIn, animations: {
                     strongSelf.tableView.contentInset = contentInsets
                     strongSelf.tableView.scrollIndicatorInsets = contentInsets
                     
@@ -110,7 +110,7 @@ class SearchViewController: CharacterListViewController {
                 }, completion: nil)
                 
                 }, onError: nil, onCompleted: nil, onDisposed: nil)
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
     }
     
     

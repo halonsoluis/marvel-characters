@@ -70,7 +70,7 @@ class BlurredImageContainerViewController : UIViewController, CharacterProviderD
         
         viewWithBlur = {
             let viewHoldingBlur = UIView(frame: CGRect(x: 0, y: -20, width: bar.bounds.width, height: bar.bounds.height + 20))
-            let blur =  UIBlurEffect(style: UIBlurEffectStyle.dark)
+            let blur =  UIBlurEffect(style: UIBlurEffect.Style.dark)
             let viewWithBlur = UIVisualEffectView(frame: CGRect(x: 0, y: 0, width: viewHoldingBlur.bounds.width, height: viewHoldingBlur.bounds.height))
             viewWithBlur.effect = blur
             
@@ -79,7 +79,7 @@ class BlurredImageContainerViewController : UIViewController, CharacterProviderD
             let viewWithVibrancy = UIVisualEffectView(frame: CGRect(x: 0, y: 0, width: viewHoldingBlur.bounds.width, height: viewHoldingBlur.bounds.height))
             viewWithVibrancy.effect = vibrancy
             
-            viewWithBlur.addSubview(viewWithVibrancy)
+            viewWithBlur.contentView.addSubview(viewWithVibrancy)
             
             viewHoldingBlur.isUserInteractionEnabled = false
             
@@ -97,7 +97,7 @@ class BlurredImageContainerViewController : UIViewController, CharacterProviderD
         guard let bar = navigationController?.navigationBar, let viewWithBlur = viewWithBlur else { setUpNavigatorAppearance() ; return }
         
         bar.addSubview(viewWithBlur)
-        bar.sendSubview(toBack: viewWithBlur)
+        bar.sendSubviewToBack(viewWithBlur)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -162,7 +162,7 @@ extension BlurredImageContainerViewController: UINavigationControllerDelegate {
         navigationController?.delegate = self
     }
     
-    func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationController.Operation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         if self == fromVC && toVC is CharacterListViewController {
             return RepositionBackTransition()
         }

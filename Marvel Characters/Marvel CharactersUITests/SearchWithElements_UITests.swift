@@ -11,65 +11,46 @@ import XCTest
 class SearchWithElementsUITests: XCTestCase {
     
     let app = XCUIApplication()
-    var cells : XCUIElementQuery!
-    var textForSearchBar = "Search Me"
-    var searchBar : XCUIElement!
+    var textForSearchBar = "srch"
+    
+    var cells: XCUIElementQuery {
+        return app.tables["SearchCharacterList"].cells
+    }
+    
+    var searchBar: XCUIElement {
+        return app.searchFields["Search..."]
+    }
+    
+    var searchButton: XCUIElement {
+        return app.navigationBars["Marvel_Characters.CharacterListView"].children(matching: .button).element
+    }
+    
+    var cancelButton: XCUIElement {
+        return app.buttons["Cancel"]
+    }
     
     override func setUp() {
         super.setUp()
         
         continueAfterFailure = false
         
-        app.launchArguments.append("MOCKUP_MODE")
-
-        app.launch()
+        app.configureSuite()
         
-        app.navigationBars["Marvel_Characters.CharacterListView"].buttons["icn nav search"].tap()
-        
-        cells = app.tables.element.cells
-        
-        searchBar = app.searchFields["Search..."]
-        
-        XCTAssert(app.keyboards.count == 1)
-        
+        searchButton.tap()
         searchBar.typeText(textForSearchBar)
-        
-        
-        
-        _ = self.expectation(for: NSPredicate(format: "self.count > 0"), evaluatedWith: cells, handler: nil)
-        self.waitForExpectations(timeout: 5.0, handler: nil)
-        
-        XCTAssert(app.keyboards.count == 1)
     }
     
     func testSearchResultsIsEmptyAfterTapDeleteKeyUntilEmptyText() {
-        let textSize = textForSearchBar.characters.count
-       
-        for _ in 0..<textSize {
+        XCTAssert(app.keyboards.count == 1)
+        
+        for _ in 0..<textForSearchBar.count {
             app.keys["delete"].tap()
         }
         
-        _ = self.expectation(for: NSPredicate(format: "self.count == 0"), evaluatedWith: cells, handler: nil)
-        self.waitForExpectations(timeout: 5.0, handler: nil)
         XCTAssert(app.keyboards.count == 1)
-        
-        XCTAssert(app.tables.element.cells.count == 0)
+        sleep(1)
+        XCTAssert(cells.count == 0)
     }
-    
-    func testSearchResultsIsEmptyAfterSelectAllAndEmptyTextIntroduced() {
-       
-        searchBar.press(forDuration: 1.2)
-        app.menuItems["Select All"].tap()
-        app.keys["delete"].tap()
-        
-        
-        _ = self.expectation(for: NSPredicate(format: "self.count == 0"), evaluatedWith: cells, handler: nil)
-        self.waitForExpectations(timeout: 5.0, handler: nil)
-        XCTAssert(app.keyboards.count == 1)
-        
-        XCTAssert(app.tables.element.cells.count == 0)
-    }
-    
     
     func testForElementsExistsInViewWithMockup() {
         XCTAssert(app.tables.count == 1)
@@ -89,61 +70,17 @@ class SearchWithElementsUITests: XCTestCase {
         XCTAssert(!characterName.label.isEmpty)
     }
     
-    
-    func testNavigatesIntoCharacterDetailsWhenTappingOverCell() {
-       
-        XCTAssert(!app.navigationBars["Marvel_Characters.BlurredImageContainerView"].exists)
+    func testReturningToSearchFromDetailsKeepsTheSearchResultsInPlace() {
         
-        app.tables.children(matching: .cell).element(boundBy: 0).tap()
+        let firstCell = cells.element(boundBy: 0)
+        XCTAssertTrue(firstCell.waitForExistence(timeout: 2))
+        firstCell.tap()
         
-        XCTAssert(app.navigationBars["Marvel_Characters.BlurredImageContainerView"].exists)
-    }
-    
-//    func testPagination() {
-//        
-//        let numCells = cells.count
-//        
-//        app.tables.element.swipeUp()
-//        app.tables.element.swipeUp()
-//        app.tables.element.swipeUp()
-//        app.tables.element.swipeUp()
-//        
-//        _ = self.expectationForPredicate(NSPredicate(format: "self.count != \(numCells)"), evaluatedWithObject: cells, handler: nil)
-//        self.waitForExpectationsWithTimeout(5.0, handler: nil)
-//        
-//        
-//        let newCells = cells.count
-//        
-//        XCTAssert(numCells < newCells)
-//    }
-//    
-//    
-//    func testCorrectCellCountPaginationIsShown() {
-//        
-//        let numCells = cells.count
-//        XCTAssert(numCells == 20)
-//        
-//        app.tables.element.swipeUp()
-//        app.tables.element.swipeUp()
-//     
-//        let newCells = cells.count
-//        XCTAssert(newCells == 40)
-//    }
-    
-    func testBackButtonInDetailsReturnsToSearchList() {
+        XCTAssertTrue(app.backButton.waitForExistence(timeout: 2))
+        app.backButton.tap()
         
-        app.tables.children(matching: .cell).element(boundBy: 0).tap()
-        
-        app.navigationBars["Marvel_Characters.BlurredImageContainerView"].children(matching: .button).matching(identifier: "Back").element(boundBy: 1).tap()
-        
-        XCTAssert(!app.navigationBars["Marvel_Characters.BlurredImageContainerView"].exists)
-        
-        cells = app.tables.element.cells
-        XCTAssert(cells.count > 0)
-    }
-    func testStatusBarIsPresent(){
-        let statusBarsQuery = XCUIApplication().statusBars.element
-        XCTAssertTrue(statusBarsQuery.exists)
-        XCTAssertTrue(statusBarsQuery.isHittable)
+        //The search is not resetted
+        sleep(1)
+        XCTAssertTrue(cells.count > 0)
     }
 }

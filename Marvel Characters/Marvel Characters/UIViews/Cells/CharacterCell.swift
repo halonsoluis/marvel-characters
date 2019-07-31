@@ -18,7 +18,7 @@ class CharacterCell: UITableViewCell {
         if let nameLabel = nameLabel as? UIButton {
             nameLabel.titleLabel?.adjustsFontSizeToFitWidth = false
             nameLabel.titleLabel?.autoresizesSubviews = true
-            nameLabel.autoresizingMask = [UIViewAutoresizing.flexibleRightMargin , UIViewAutoresizing.flexibleTopMargin]
+            nameLabel.autoresizingMask = [UIView.AutoresizingMask.flexibleRightMargin , UIView.AutoresizingMask.flexibleTopMargin]
         }
   }
 }

@@ -1,18 +1,33 @@
-before_script:
-  #- sudo /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-  #- brew install Carthage
-  #- sudo gem install xcpretty
-  - cd Marvel\ Characters
-  - carthage bootstrap --platform iOS
-  
 stages:
-  - build_test
+  - prepare
+  - test
 
-build_project:
-  stage: build_test
+Prepare:
+  stage: prepare
   script:
-    - /usr/bin/xcodebuild clean -project Marvel\ Characters.xcodeproj -scheme Marvel\ Characters | /usr/local/bin/xcpretty -s
-    - /usr/bin/xcodebuild test  -project Marvel\ Characters.xcodeproj -scheme Marvel\ Characters -destination 'platform=iOS Simulator,name=iPhone 6s,OS=10.2'  | xcpretty -s --test --color
+    - cd Marvel\ Characters
+    - carthage bootstrap --platform iOS
+  artifacts:
+    paths:
+      - Marvel\ Characters/Carthage/Build/iOS/*.framework
   tags:
-    - Xcode-10.2.1
-    - macOSMojave
+    - macOS
+
+Test:
+  stage: test
+  script:
+    - cd Marvel\ Characters
+    - mkdir DerivedData
+    - xcodebuild test -project "Marvel Characters.xcodeproj" -scheme "Marvel Characters" -derivedDataPath ./DerivedData CODE_SIGNING_ALLOWED=NO -enableCodeCoverage YES -destination "platform=iOS Simulator,name=iPhone 6" | tee ./DerivedData/xcodebuild.log | xcpretty --color
+    - xcrun xccov view DerivedData/Logs/Test/*.xcresult/*_Test/*.xccovreport | grep '.app' | head -1 | perl -pe 's/.+?(\d+\.\d+%).+/\1/'
+  coverage: '/\d+\.\d+%/'
+  retry:
+    max: 2
+  artifacts:
+    paths:
+      - Marvel\ Characters/DerivedData/xcodebuild.log
+  dependencies:
+    - Prepare
+  tags:
+    - macOS
+    - iPhone6_simulator_available

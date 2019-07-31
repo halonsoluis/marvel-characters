@@ -41,11 +41,11 @@ class CharacterDetailsViewController: UIViewController {
         //Stretchy Code
         
         // Make sure the contentMode is set to scale proportionally
-        largeImage.contentMode = UIViewContentMode.scaleAspectFill
+        largeImage.contentMode = UIView.ContentMode.scaleAspectFill
         // Clip the parts of the image that are not in frame
         largeImage.clipsToBounds = true
         // Set the autoresizingMask to always be the same height as the header
-        largeImage.autoresizingMask = UIViewAutoresizing.flexibleTopMargin
+        largeImage.autoresizingMask = UIView.AutoresizingMask.flexibleTopMargin
         
         scrollView
             .rx.contentOffset
@@ -63,7 +63,7 @@ class CharacterDetailsViewController: UIViewController {
             .drive(onNext: { [weak self] (alpha) in
                 self?.delegateBar?.navigationBarAlpha = alpha
                 }, onCompleted: nil, onDisposed: nil)
-           .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
         
         scrollView
             .rx.contentOffset
@@ -71,12 +71,12 @@ class CharacterDetailsViewController: UIViewController {
             .filter { $0.y < 0 }
             .distinctUntilChanged()
             .drive(onNext: { [weak self] (offset) in
-                let progress:CGFloat = fabs(offset.y ) / 250
+                let progress:CGFloat = abs(offset.y ) / 250
                 self?.largeImage.transform = CGAffineTransform(scaleX: 1 + progress, y: 1 + progress)
                 self?.largeImage.frame.origin.y = offset.y * CGFloat((self?.factor)!)
                 //          self?.largeImageHeight.constant = self!.largeImageHeight.constant * (1 + progress)
                 }, onCompleted: nil, onDisposed: nil)
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
         
         let _ = fillData()
     }

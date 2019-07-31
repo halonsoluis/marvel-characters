@@ -9,17 +9,16 @@
 import UIKit
 import RxCocoa
 import RxSwift
-import Result
 
 class CharacterCrossLargeCells: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
-    weak var dataSource : Variable<[CrossReference]>!
+    weak var dataSource: BehaviorRelay<[CrossReference]>!
     let disposeBag = DisposeBag()
     
     /// Value of current page
-    weak var currentPage : Variable<Int>!
+    weak var currentPage: BehaviorRelay<Int>!
     
     var totalItems : Int = 0
     var chs : NetworkService!
@@ -59,7 +58,7 @@ class CharacterCrossLargeCells: UIViewController, UICollectionViewDelegate, UICo
         
         collectionView.rx.contentOffset
             .asDriver()
-            .throttle(0.5)
+            .throttle(.milliseconds(500))
             .distinctUntilChanged()
             .drive(onNext: { offset in
                 var displacement = self.collectionView.contentSize.width / CGFloat(self.dataSource.value.count)
@@ -67,7 +66,7 @@ class CharacterCrossLargeCells: UIViewController, UICollectionViewDelegate, UICo
                 let value  = offset.x / displacement
                 self.scrollToPage(Int(round(value)), animated: true)
             }, onCompleted: nil, onDisposed: nil)
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
         
     }
     
@@ -79,7 +78,7 @@ class CharacterCrossLargeCells: UIViewController, UICollectionViewDelegate, UICo
         layout.itemSize.width = self.collectionView.bounds.width
         layout.itemSize.height =  self.collectionView.bounds.height
         
-        layout.scrollDirection = UICollectionViewScrollDirection.horizontal
+        layout.scrollDirection = UICollectionView.ScrollDirection.horizontal
            collectionView.collectionViewLayout = layout
     }
     
@@ -89,7 +88,7 @@ class CharacterCrossLargeCells: UIViewController, UICollectionViewDelegate, UICo
     }
     
     func scrollToPage(_ page: Int, animated: Bool) {
-        self.collectionView.scrollToItem(at: IndexPath(row: page, section: 0), at: UICollectionViewScrollPosition.centeredHorizontally, animated: animated)
+        self.collectionView.scrollToItem(at: IndexPath(row: page, section: 0), at: UICollectionView.ScrollPosition.centeredHorizontally, animated: animated)
     }
     
     
@@ -103,7 +102,7 @@ class CharacterCrossLargeCells: UIViewController, UICollectionViewDelegate, UICo
             .drive(onNext: { _ in
                 self.collectionView.reloadData()
             }, onCompleted: nil, onDisposed: nil)
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
         
         rx_crossreference?
             .flatMapLatest(errorValidation)
@@ -111,7 +110,7 @@ class CharacterCrossLargeCells: UIViewController, UICollectionViewDelegate, UICo
                 if newPage.count < APIHandler.itemsPerPage { self.loadingMore = false }
                 self.readyToLoadMore = true
             }, onCompleted: nil, onDisposed: nil)
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
         
     }
     
@@ -120,7 +119,7 @@ class CharacterCrossLargeCells: UIViewController, UICollectionViewDelegate, UICo
         
         
         collectionView.rx.contentOffset
-            .debounce(0.1, scheduler: MainScheduler.instance)
+            .debounce(.milliseconds(100), scheduler: MainScheduler.instance)
             //  .throttle(0.05, scheduler: MainScheduler.instance)
             .distinctUntilChanged()
             .filter { [weak self] (offset)  in
@@ -134,7 +133,7 @@ class CharacterCrossLargeCells: UIViewController, UICollectionViewDelegate, UICo
                 return true
             }
             .observeOn(MainScheduler.instance)
-            .bindNext { [weak self] (offset) in
+            .bind { [weak self] (offset) in
                 guard let `self` = self else { return }
                 
                 print("offset = \(offset)")
@@ -147,7 +146,7 @@ class CharacterCrossLargeCells: UIViewController, UICollectionViewDelegate, UICo
                 if x > (w - reload_distance) {
                     self.loadingMore = true
                     
-                    self.currentPage.value = self.currentPage.value + 1
+                    self.currentPage.accept(self.currentPage.value + 1)
                     print("load page = \(self.currentPage.value)")
                 } else {
                     self.readyToLoadMore = true
@@ -158,7 +157,7 @@ class CharacterCrossLargeCells: UIViewController, UICollectionViewDelegate, UICo
                 self.scrollToPage(Int(round(value)), animated: true)
                 
             }
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
     }
     
     

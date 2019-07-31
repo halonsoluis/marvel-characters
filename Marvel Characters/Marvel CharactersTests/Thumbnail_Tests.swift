@@ -6,21 +6,23 @@
 //  Copyright © 2016 halonsoluis. All rights reserved.
 //
 
-import ObjectMapper
 import XCTest
 @testable import Marvel_Characters
 
 
 class Thumbnail_Tests: XCTestCase {
     
-    let thumbnailJSON = "{ \"path\": \"testPath\", \"extension\" : \"testExtension\" }"
+    let thumbnailJSON: Dictionary<String, Any> = [
+        "path" : "testPath",
+        "extension" : "testExtension"
+    ]
     var thumbnail : Thumbnail?
     
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
-    
-        thumbnail = Mapper<Thumbnail>().map(JSONString: thumbnailJSON)
+        let data = try! JSONSerialization.data(withJSONObject: thumbnailJSON, options: .prettyPrinted)
+        thumbnail = try? JSONDecoder().decode(Thumbnail.self, from: data)
     }
     
     func testThumbnailCreated() {
@@ -33,13 +35,4 @@ class Thumbnail_Tests: XCTestCase {
         
         XCTAssertEqual(url, "testPath.testExtension")
     }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-            _ = self.thumbnail?.url()
-        }
-    }
-    
 }

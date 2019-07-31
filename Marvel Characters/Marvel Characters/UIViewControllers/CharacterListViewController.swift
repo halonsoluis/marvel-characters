@@ -9,25 +9,23 @@
 import UIKit
 import RxSwift
 import RxCocoa
-import Result
 
 class CharacterListViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var footerView: UIView!
     
-    
     let disposeBag = DisposeBag()
     
-    let dataSource = Variable<[MarvelCharacter]>([])
+    let dataSource = BehaviorRelay<[MarvelCharacter]>(value: [])
     
     /// Value of current page
-    var currentPage = Variable<Int>(0)
+    var currentPage = BehaviorRelay<Int>(value: 0)
     
     var chs : NetworkService?
     var rx_characters: Driver<Result<[MarvelCharacter],RequestError>>?
     
-
+    
     let errorValidation = { (result: Result<[MarvelCharacter],RequestError>) -> Driver<[MarvelCharacter]> in
         switch result {
         case .success(let character):
@@ -57,6 +55,8 @@ class CharacterListViewController: UIViewController {
         rx_characters = chs?.getData(Routes.listCharacters)
         appendSubscribers()
         setupPagination()
+        
+        tableView.accessibilityIdentifier = "MainCharacterList"
     }
     
     override var preferredStatusBarStyle : UIStatusBarStyle {
@@ -89,7 +89,7 @@ class CharacterListViewController: UIViewController {
     func setupPagination() {
         
         tableView.rx.contentOffset
-            .debounce(0.1, scheduler: MainScheduler.instance)
+            .debounce(.milliseconds(100), scheduler: MainScheduler.instance)
             //  .throttle(0.05, scheduler: MainScheduler.instance)
             .distinctUntilChanged()
             .filter { [weak self] (offset)  in
@@ -103,7 +103,7 @@ class CharacterListViewController: UIViewController {
                 return true
             }
             .observeOn(MainScheduler.instance)
-            .bindNext { [weak self] (offset) in
+            .bind { [weak self] (offset) in
                 guard let `self` = self else { return }
                 
                 print("offset = \(offset)")
@@ -116,13 +116,13 @@ class CharacterListViewController: UIViewController {
                 if y > (h - reload_distance) {
                     self.loadingMore = true
                     
-                    self.currentPage.value = self.currentPage.value + 1
+                    self.currentPage.accept(self.currentPage.value + 1)
                     print("load page = \(self.currentPage.value)")
                 } else {
                     self.readyToLoadMore = true
                 }
             }
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
     }
     
     func appendSubscribers() {
@@ -130,7 +130,7 @@ class CharacterListViewController: UIViewController {
             .drive(tableView.rx.items(cellIdentifier: "CharacterCell", cellType: CharacterCell.self)) { (_, character, cell) in
                 
                 if let nameLabel = cell.nameLabel as? UIButton {
-                    nameLabel.setTitle(character.name, for: UIControlState.normal)
+                    nameLabel.setTitle(character.name, for: UIControl.State.normal)
                 } else if let nameLabel = cell.nameLabel as? UILabel {
                     nameLabel.text = character.name
                 }
@@ -144,16 +144,21 @@ class CharacterListViewController: UIViewController {
                 guard let url = character.thumbnail?.url(), let nsurl = NSURL(string: url), let modified = character.modified else { return }
                 ImageSource.downloadImageAndSetIn(cell.bannerImage, imageURL: nsurl as URL, withUniqueKey: modified)
             }
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
         
         rx_characters?
             .flatMapLatest(errorValidation)
             .drive(onNext: { (newPage) in
-                self.dataSource.value.append(contentsOf: newPage)
-                if newPage.count < APIHandler.itemsPerPage { self.loadingMore = false }
+                var dataSource = self.dataSource.value
+                dataSource.append(contentsOf: newPage)
+                self.dataSource.accept(dataSource)
+                
+                if newPage.count < APIHandler.itemsPerPage {
+                    self.loadingMore = false
+                }
                 self.readyToLoadMore = true
             }, onCompleted: nil, onDisposed: nil)
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
         
     }
     
@@ -162,7 +167,7 @@ class CharacterListViewController: UIViewController {
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-       
+        
         
         
         if let characterDetails = segue.destination as? CharacterProviderDelegate {
@@ -177,19 +182,17 @@ class CharacterListViewController: UIViewController {
             characterDetails.character = character
             characterDetails.characterImage = cell.bannerImage?.image
         }
-        
-        
     }
 }
 
 extension CharacterListViewController: UINavigationControllerDelegate {
-  
     
-    func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    
+    func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationController.Operation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         if self == fromVC && toVC is BlurredImageContainerViewController {
             return RepositionImageZoomingTransition()
         }
-       return nil
+        return nil
     }
 }
 
@@ -199,7 +202,7 @@ extension CharacterListViewController: RepositionImageZoomingTransitionProtocol 
         guard
             let indexPath = tableView.indexPathForSelectedRow,
             let cell = tableView.cellForRow(at: indexPath) as? CharacterCell
-        else { return nil }
+            else { return nil }
         return cell.bannerImage
     }
     

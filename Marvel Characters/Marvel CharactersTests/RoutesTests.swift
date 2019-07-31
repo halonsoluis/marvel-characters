@@ -36,12 +36,4 @@ class RoutesTests: XCTestCase {
         XCTAssert(Routes.listStoriesByCharacter(characterID: characterID).getRoute() == "http://gateway.marvel.com:80/v1/public/characters/\(characterID)/stories")
     }
     
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-            let _ = Routes.listCharacters.getRoute()
-        }
-    }
-    
 }

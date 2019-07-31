@@ -8,8 +8,6 @@
 
 import RxSwift
 import RxAlamofire
-import Result
-import ObjectMapper
 
 struct RxAPICaller {
     
@@ -18,8 +16,8 @@ struct RxAPICaller {
     static func requestWithParams<T:MainAPISubject>(_ parameters: [String:String], route: Routes) -> Observable<Result<[T],RequestError>> {
         
         switch mockupEnabled {
-        case true:   return requestMockupData(parameters, route: route)
-        case false:  return RxAPICaller.requestNetworkData(parameters, route: route)
+            case true: return requestMockupData(parameters, route: route)
+            case false: return RxAPICaller.requestNetworkData(parameters, route: route)
         }
     }
     
@@ -32,10 +30,14 @@ struct RxAPICaller {
         let isCharacter = T.self is MarvelCharacter.Type
         let json = buildJSON(isCharacter ? MockupResource.character.getMockupData()! : MockupResource.crossReference.getMockupData()!)
         
-        let box = Mapper<ResponseEnclosure<T>>().map(JSONObject: json)
-        let items = box?.data?.results ?? []
-        
-        return Observable.just(Result.success(items))
+        if let data = try? JSONSerialization.data(withJSONObject: json, options: .prettyPrinted) {
+            let box = try? JSONDecoder().decode(ResponseEnclosure<T>.self, from: data)
+            let items = box?.data?.results ?? []
+            
+            return Observable.just(Result.success(items))
+        } else {
+            return Observable.empty()
+        }
     }
     
     fileprivate static func requestNetworkData<T: MainAPISubject>(_ parameters: [String:String], route: Routes) -> Observable<Result<[T],RequestError>> {
@@ -47,11 +49,14 @@ struct RxAPICaller {
                 guard response.statusCode == 200 else {
                     return Observable.just(Result.failure(RequestError.unknown))
                 }
-                
-                let box = Mapper<ResponseEnclosure<T>>().map(JSONObject: json)
-                let items = box?.data?.results ?? []
-                
-                return Observable.just(Result.success(items))
+                if let data = try? JSONSerialization.data(withJSONObject: json, options: .prettyPrinted) {
+                    let box = try? JSONDecoder().decode(ResponseEnclosure<T>.self, from: data)
+                    let items = box?.data?.results ?? []
+                    
+                    return Observable.just(Result.success(items))
+                } else {
+                    return Observable.empty()
+                }
             }
     }
     

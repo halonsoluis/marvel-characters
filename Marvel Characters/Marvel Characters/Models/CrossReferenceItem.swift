@@ -7,34 +7,14 @@
 //
 
 import Foundation
-import ObjectMapper
 
-class CrossReferenceItem : Mappable {
+class CrossReferenceItem : Codable {
     
-    var resourceURI: String?
-    var name: String?
-    
-    //MARK: Mappable protocol
-    required init?(map: Map) {
-    }
-    
-    func mapping(map: Map) {
-        resourceURI <- map["resourceURI"]
-        name <- map["name"]
-    }
+    let resourceURI: String?
+    let name: String?
 }
 
-class StoriesCrossReferenceItem : CrossReferenceItem {
+class StoriesCrossReferenceItem: CrossReferenceItem {
     
-    var type: String?
-    
-    //MARK: Mappable protocol
-    required init?(map: Map) {
-        super.init(map: map)
-    }
-    
-    override func mapping(map: Map) {
-        super.mapping(map: map)
-        type <- map["type"]
-    }
+    let type: String? = nil
 }

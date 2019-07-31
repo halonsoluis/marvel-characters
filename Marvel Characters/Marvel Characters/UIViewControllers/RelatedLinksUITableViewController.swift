@@ -17,12 +17,12 @@ protocol LinksPresenterProtocol : class {
 
 class RelatedLinksUITableViewController: UITableViewController, LinksPresenterProtocol {
     
-    var dataSource = Variable<[LinkURL]>([])
+    var dataSource = BehaviorRelay<[LinkURL]>(value: [])
     var disposeBag = DisposeBag()
     
     var characterLinks: [LinkURL]? = [] {
         didSet {
-            dataSource.value = characterLinks != nil ? characterLinks! : []
+            dataSource.accept(characterLinks != nil ? characterLinks! : [])
         }
     }
     
@@ -36,16 +36,15 @@ class RelatedLinksUITableViewController: UITableViewController, LinksPresenterPr
                     nameLabel.text = link.type.capitalized
                 }
             }
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
         
         tableView.rx.itemSelected
             .asDriver()
             .map { self.characterLinks?[$0.row].url }
             .drive(onNext: {link in
-                guard let url = link, let nsurl = NSURL(string: url) else { return }
-                UIApplication.shared.openURL(nsurl as URL)
-                
-            }, onCompleted: nil, onDisposed: nil).addDisposableTo(disposeBag)
+                guard let url = link, let nsurl = NSURL(string: url) as URL? else { return }
+                UIApplication.shared.open(nsurl, options: [:], completionHandler: nil)
+            }, onCompleted: nil, onDisposed: nil).disposed(by: disposeBag)
         
     }
     

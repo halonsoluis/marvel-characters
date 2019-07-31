@@ -7,27 +7,17 @@
 //
 
 import Foundation
-import ObjectMapper
 
-class Thumbnail : Mappable {
+class Thumbnail: Codable {
     
-    var path: String?
-    var imageExtension: String?
-    
-    //MARK: Mappable protocol
-    required init?(map: Map) {
-    }
-    
-    func mapping(map: Map) {
-        path <- map["path"]
-        imageExtension <- map["extension"]
-    }
+    let path: String?
+    let `extension`: String?
     
 }
 
-extension Thumbnail : ImageLocatorDelegate {
+extension Thumbnail: ImageLocatorDelegate {
     func url() -> String? {
-        guard let path = path, let imageExtension = imageExtension else { return nil }
+        guard let path = path, let imageExtension = `extension` else { return nil }
         return path + "." + imageExtension
     }
 }
