@@ -1,6 +1,6 @@
 
-[![pipeline status](https://gitlab.com/hugoalonsoluis/marvel-characters/badges/task/update_to_swift5/pipeline.svg)](https://gitlab.com/hugoalonsoluis/marvel-characters/commits/task/update_to_swift5)
-[![coverage report](https://gitlab.com/hugoalonsoluis/marvel-characters/badges/task/update_to_swift5/coverage.svg)](https://gitlab.com/hugoalonsoluis/marvel-characters/commits/task/update_to_swift5)
+[![pipeline status](https://gitlab.com/hugoalonsoluis/marvel-characters/badges/develop/pipeline.svg)](https://gitlab.com/hugoalonsoluis/marvel-characters/commits/task/update_to_swift5)
+[![coverage report](https://gitlab.com/hugoalonsoluis/marvel-characters/badges/develop/coverage.svg)](https://gitlab.com/hugoalonsoluis/marvel-characters/commits/task/update_to_swift5)
 ![License](https://img.shields.io/cocoapods/l/BadgeSwift.svg?style=flat)
 ![Swift version](https://img.shields.io/badge/swift-5-orange.svg)
 
