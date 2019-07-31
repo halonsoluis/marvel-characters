@@ -1,7 +1,12 @@
-##Code Challenge ­ Marvel API 
 
+[![pipeline status](https://gitlab.com/hugoalonsoluis/marvel-characters/badges/task/update_to_swift5/pipeline.svg)](https://gitlab.com/hugoalonsoluis/marvel-characters/commits/task/update_to_swift5)
+[![coverage report](https://gitlab.com/hugoalonsoluis/marvel-characters/badges/task/update_to_swift5/coverage.svg)](https://gitlab.com/hugoalonsoluis/marvel-characters/commits/task/update_to_swift5)
+![License](https://img.shields.io/cocoapods/l/BadgeSwift.svg?style=flat)
+![Swift version](https://img.shields.io/badge/swift-5-orange.svg)
 
-### **App Description**
+## Code Challenge ­ Marvel API 
+
+### **Description**
 
 Using this application, users will be able to browse through the Marvel library of characters. 
 
@@ -30,15 +35,13 @@ The mockups and assets to use for the challenge are:
 
 ### **Challenge Objectives**
 
-This challenge will be used as a base for the technical interview with the Hole19 team. 
-
 During the interview we will discuss your architectural choices, use of good practices and your general understanding of 
 what you just did. So refrain from copying code online. Along with a fully working application, we expect you to deliver 
 a suite of UI/Unit tests. Finally, the code should be versioned using git and shared with us through any 
 git repository hosting service.
 
 We value attention to design. So, apart from your code quality, we’ll also be evaluating how you replicate 
-the mocked UI. 
+the mocked UI.
 
 Note that not all animations and transitions were included in the mockup, thus we expect you to apply 
 widely known iOS/Android design patterns.
