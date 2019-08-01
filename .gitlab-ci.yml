@@ -63,11 +63,10 @@ Test:
     reports:
       junit: Marvel\ Characters/build/reports/junit.xml
   only:
-    - develop
-    - master
-    - tags
-  only:
     refs:
+     - develop
+     - master
+     - tags
      - merge_requests
   dependencies:
     - Prepare
