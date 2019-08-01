@@ -36,8 +36,12 @@ Build:
     when: on_failure
     paths:
       - Marvel\ Characters/xcodebuild.log
-  only:
-    - branches
+  except:
+    refs:
+     - develop
+     - master
+     - tags
+     - merge_requests
   dependencies:
     - Prepare
   cache:
