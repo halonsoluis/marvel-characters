@@ -1,8 +1,7 @@
-
-[![pipeline status](https://gitlab.com/hugoalonsoluis/marvel-characters/badges/develop/pipeline.svg)](https://gitlab.com/hugoalonsoluis/marvel-characters/commits/task/update_to_swift5)
-[![coverage report](https://gitlab.com/hugoalonsoluis/marvel-characters/badges/develop/coverage.svg)](https://gitlab.com/hugoalonsoluis/marvel-characters/commits/task/update_to_swift5)
-![License](https://img.shields.io/cocoapods/l/BadgeSwift.svg?style=flat)
-![Swift version](https://img.shields.io/badge/swift-5-orange.svg)
+[![pipeline status](https://gitlab.com/hugoalonsoluis/marvel-characters/badges/develop/pipeline.svg)](https://gitlab.com/hugoalonsoluis/marvel-characters/pipelines)
+[![coverage report](https://gitlab.com/hugoalonsoluis/marvel-characters/badges/develop/coverage.svg)](https://gitlab.com/hugoalonsoluis/marvel-characters/commits/develop)
+[![License](https://img.shields.io/cocoapods/l/BadgeSwift.svg?style=flat)](https://opensource.org/licenses/MIT)
+[![Swift version](https://img.shields.io/badge/swift-5-orange.svg)](https://swift.org/blog/swift-5-released)
 
 ## Code Challenge ­ Marvel API 
 
