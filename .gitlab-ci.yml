@@ -1,33 +1,81 @@
-stages:
-  - prepare
-  - test
+default:
+  before_script:
+   - cd Marvel\ Characters
+  after_script:
+   - rm -rf Marvel\ Characters/DerivedData
 
+stages:
+  - setup
+  - build
+  - test
+  
 Prepare:
-  stage: prepare
+  stage: setup
   script:
-    - cd Marvel\ Characters
-    - carthage bootstrap --platform iOS
-  artifacts:
-    paths:
-      - Marvel\ Characters/Carthage/Build/iOS/*.framework
+    - carthage bootstrap --platform iOS --cache-builds
+  
+  cache:
+   key: carthage
+   paths:
+    - Marvel\ Characters/Carthage/Checkouts
+    - Marvel\ Characters/Carthage/Build/*.version
+    - Marvel\ Characters/Carthage/Build/iOS/*.framework
+
   tags:
     - macOS
+    - iPhone6_simulator_available
+
+Build:
+  stage: build
+  script:
+    - mkdir DerivedData
+    - xcodebuild build -project "Marvel Characters.xcodeproj" -scheme "Marvel Characters" -derivedDataPath ./DerivedData CODE_SIGNING_ALLOWED=NO | tee ./DerivedData/xcodebuild.log | xcpretty
+    - rm -rf Carthage
+    - cp DerivedData/xcodebuild.log xcodebuild.log
+  artifacts:
+    when: on_failure
+    paths:
+      - Marvel\ Characters/xcodebuild.log
+  only:
+    - branches
+  dependencies:
+    - Prepare
+  cache:
+    key: carthage
+    paths:
+      - Marvel\ Characters/Carthage/Build/iOS/*.framework
+    policy: pull
+  tags:
+    - macOS
+    - iPhone6_simulator_available
 
 Test:
   stage: test
   script:
-    - cd Marvel\ Characters
     - mkdir DerivedData
-    - xcodebuild test -project "Marvel Characters.xcodeproj" -scheme "Marvel Characters" -derivedDataPath ./DerivedData CODE_SIGNING_ALLOWED=NO -enableCodeCoverage YES -destination "platform=iOS Simulator,name=iPhone 6" | tee ./DerivedData/xcodebuild.log | xcpretty --color
+    - xcodebuild test -project "Marvel Characters.xcodeproj" -scheme "Marvel Characters" -derivedDataPath ./DerivedData CODE_SIGNING_ALLOWED=NO -enableCodeCoverage YES -destination "platform=iOS Simulator,name=iPhone 6" | tee ./DerivedData/xcodebuild.log | xcpretty --color -r junit
     - xcrun xccov view DerivedData/Logs/Test/*.xcresult/*_Test/*.xccovreport | grep '.app' | head -1 | perl -pe 's/.+?(\d+\.\d+%).+/\1/'
+    - rm -rf Carthage
   coverage: '/\d+\.\d+%/'
   retry:
-    max: 2
+    max: 1
   artifacts:
-    paths:
-      - Marvel\ Characters/DerivedData/xcodebuild.log
+    reports:
+      junit: Marvel\ Characters/build/reports/junit.xml
+  only:
+    - develop
+    - master
+    - tags
+  only:
+    refs:
+     - merge_requests
   dependencies:
     - Prepare
+  cache:
+    key: carthage
+    paths:
+     - Marvel\ Characters/Carthage/Build/iOS/*.framework
+    policy: pull
   tags:
     - macOS
     - iPhone6_simulator_available
