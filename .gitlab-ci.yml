@@ -21,7 +21,7 @@ Prepare:
     - Marvel\ Characters/Carthage/Checkouts
     - Marvel\ Characters/Carthage/Build/*.version
     - Marvel\ Characters/Carthage/Build/iOS/*.framework
-    - Marvel\ Characters/Carthage/Pods
+    - Marvel\ Characters/Pods
 
   tags:
     - macOS
@@ -50,7 +50,7 @@ Build:
     key: carthage
     paths:
       - Marvel\ Characters/Carthage/Build/iOS/*.framework
-      - Marvel\ Characters/Carthage/Pods
+      - Marvel\ Characters/Pods
     policy: pull
   tags:
     - macOS
@@ -81,7 +81,7 @@ Test:
     key: carthage
     paths:
      - Marvel\ Characters/Carthage/Build/iOS/*.framework
-     - Marvel\ Characters/Carthage/Pods
+     - Marvel\ Characters/Pods
     policy: pull
   tags:
     - macOS
