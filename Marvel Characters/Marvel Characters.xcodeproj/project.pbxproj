@@ -84,7 +84,6 @@
 		B4BD684E1E5204E2007C3726 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4BD684D1E5204E2007C3726 /* CoreVideo.framework */; };
 		B4BD68501E5204E8007C3726 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4BD684F1E5204E8007C3726 /* QuartzCore.framework */; };
 		B4BD68521E5204ED007C3726 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4BD68511E5204ED007C3726 /* SystemConfiguration.framework */; };
-		B4BD68541E520520007C3726 /* BuddyBuildSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4BD68531E520520007C3726 /* BuddyBuildSDK.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -199,7 +198,6 @@
 				5BD8CB5522DD145E00261AAB /* RxBlocking.framework in Frameworks */,
 				5BD8CB5622DD145E00261AAB /* RxAlamofire.framework in Frameworks */,
 				5BD8CB4922DD145D00261AAB /* RxRelay.framework in Frameworks */,
-				B4BD68541E520520007C3726 /* BuddyBuildSDK.framework in Frameworks */,
 				B4BD68521E5204ED007C3726 /* SystemConfiguration.framework in Frameworks */,
 				B4BD68501E5204E8007C3726 /* QuartzCore.framework in Frameworks */,
 				B4BD684E1E5204E2007C3726 /* CoreVideo.framework in Frameworks */,
@@ -844,7 +842,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
-					"$(PROJECT_DIR)/BuddyBuildFramework",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/Marvel Characters/AppInternals/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -869,7 +866,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
-					"$(PROJECT_DIR)/BuddyBuildFramework",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/Marvel Characters/AppInternals/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
