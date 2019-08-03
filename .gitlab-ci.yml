@@ -28,7 +28,7 @@ Prepare:
     - macOS
     - iPhone6_simulator_available
 
-Build:
+BuildForTesting:
   stage: build
 
   before_script:
@@ -99,7 +99,7 @@ Test:
      - merge_requests
 
   dependencies:
-     - build
+     - BuildForTesting
 
   cache:
     key: derivedData
