@@ -22,7 +22,7 @@ Prepare:
   script:
     - carthage bootstrap --platform iOS --cache-builds
     - pod install
-    - mkdir DerivedData
+    - mkdir -p DerivedData
 
   retry:
     max: 2
