@@ -4,13 +4,12 @@ default:
 
 
 cache:
-  key: "${CI_COMMIT_REF_SLUG}"
+  key: ExternalDependencies
   paths:
     - Marvel\ Characters/Carthage/Checkouts
     - Marvel\ Characters/Carthage/Build/*.version
     - Marvel\ Characters/Carthage/Build/iOS/*.framework
     - Marvel\ Characters/Pods
-    - Marvel\ Characters/DerivedData
 
 stages:
   - setup
@@ -22,7 +21,7 @@ Prepare:
   script:
     - carthage bootstrap --platform iOS --cache-builds
     - pod install
-    - mkdir -p DerivedData
+    - xcodebuild clean
 
   retry:
     max: 2
@@ -41,6 +40,7 @@ BuildForTesting:
   stage: build
     
   script:
+    - mkdir -p DerivedData
     - xcodebuild build-for-testing -workspace "Marvel Characters.xcworkspace" -scheme "Marvel Characters" -derivedDataPath ./DerivedData CODE_SIGNING_ALLOWED=NO -enableCodeCoverage YES -destination "platform=iOS Simulator,name=iPhone 6" | tee ./DerivedData/xcodebuild.log | xcpretty --color
 
   only:
@@ -48,6 +48,11 @@ BuildForTesting:
      - tags
      - merge_requests
      - branches 
+
+  cache:
+    key: "$CI_JOB_NAME-$CI_COMMIT_REF_SLUG"
+    paths:
+     - Marvel\ Characters/DerivedData/Build/Products
   
   artifacts:
     when: on_failure
@@ -77,6 +82,10 @@ Test:
     when: on_success
     reports:
       junit: Marvel\ Characters/build/reports/junit.xml
+
+  cache:
+    key: "$CI_JOB_NAME-$CI_COMMIT_REF_SLUG"
+    policy: pull
 
   only:
     refs:
