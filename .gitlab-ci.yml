@@ -2,6 +2,20 @@ default:
   before_script:
    - cd Marvel\ Characters
 
+
+cache:
+  key: "${CI_COMMIT_REF_SLUG}"
+  paths:
+    - Marvel\ Characters/Carthage/Checkouts
+    - Marvel\ Characters/Carthage/Build/*.version
+    - Marvel\ Characters/Carthage/Build/iOS/*.framework
+    - Marvel\ Characters/Pods
+
+cache:
+  key: "$CI_JOB_NAME-$CI_COMMIT_REF_SLUG"
+  paths:
+    - Marvel\ Characters/DerivedData
+
 stages:
   - setup
   - build
@@ -12,17 +26,15 @@ Prepare:
   script:
     - carthage bootstrap --platform iOS --cache-builds
     - pod install
-     
-  cache:
-   key: carthage
-   paths:
-    - Marvel\ Characters/Carthage/Checkouts
-    - Marvel\ Characters/Carthage/Build/*.version
-    - Marvel\ Characters/Carthage/Build/iOS/*.framework
-    - Marvel\ Characters/Pods
 
   retry:
     max: 2
+
+  only:
+    refs:
+     - tags
+     - merge_requests
+     - branches
 
   tags:
     - macOS
@@ -40,6 +52,12 @@ BuildForTesting:
   after_script:
    - rm -rf Carthage
    - rm -rf Pods
+
+  only:
+    refs:
+     - tags
+     - merge_requests
+     - branches 
   
   artifacts:
     when: on_failure
@@ -49,18 +67,6 @@ BuildForTesting:
   dependencies:
      - Prepare
 
-  cache:
-    key: carthage
-    paths:
-      - Marvel\ Characters/Carthage/Build/iOS/*.framework
-      - Marvel\ Characters/Pods
-    policy: pull
-
-  cache:
-    key: derivedData
-    paths:
-      - Marvel\ Characters/DerivedData
-
   tags:
     - macOS
     - iPhone6_simulator_available
@@ -68,19 +74,10 @@ BuildForTesting:
 Test:
   stage: test
 
-  before_script:
-    - mkdir DerivedData
-
-  script:
-    - xcodebuild build-for-testing -workspace "Marvel Characters.xcworkspace" -scheme "Marvel Characters" -derivedDataPath ./DerivedData CODE_SIGNING_ALLOWED=NO -enableCodeCoverage YES -destination "platform=iOS Simulator,name=iPhone 6" | tee ./DerivedData/xcodebuild.log | xcpretty --color
-
-  after_script:
-    - rm -rf Marvel\ Characters/DerivedData
-   
   script:
     - xcodebuild test-without-building -workspace "Marvel Characters.xcworkspace" -scheme "Marvel Characters" -derivedDataPath ./DerivedData CODE_SIGNING_ALLOWED=NO -enableCodeCoverage YES -destination "platform=iOS Simulator,name=iPhone 6" | xcpretty --color -r junit
     - xcrun xccov view DerivedData/Logs/Test/*.xcresult/*_Test/*.xccovreport | grep '.app' | head -1 | perl -pe 's/.+?(\d+\.\d+%).+/\1/'
-  
+ 
   coverage: '/\d+\.\d+%/'
 
   retry:
@@ -100,12 +97,6 @@ Test:
 
   dependencies:
      - BuildForTesting
-
-  cache:
-    key: derivedData
-    paths:
-      - Marvel\ Characters/DerivedData
-    policy: pull
 
   tags:
     - macOS
