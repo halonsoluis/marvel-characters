@@ -14,7 +14,15 @@ Prepare:
   script:
     - carthage bootstrap --platform iOS --cache-builds
     - pod install
-  
+
+  only:
+    refs:
+     - develop
+     - master
+     - tags
+     - merge_requests
+     - branches
+     
   cache:
    key: carthage
    paths:
@@ -45,7 +53,7 @@ Build:
      - tags
      - merge_requests
   dependencies:
-    - Prepare
+     - Prepare
   cache:
     key: carthage
     paths:
@@ -63,12 +71,18 @@ Test:
     - xcodebuild test -workspace "Marvel Characters.xcworkspace" -scheme "Marvel Characters" -derivedDataPath ./DerivedData CODE_SIGNING_ALLOWED=NO -enableCodeCoverage YES -destination "platform=iOS Simulator,name=iPhone 6" | tee ./DerivedData/xcodebuild.log | xcpretty --color -r junit
     - xcrun xccov view DerivedData/Logs/Test/*.xcresult/*_Test/*.xccovreport | grep '.app' | head -1 | perl -pe 's/.+?(\d+\.\d+%).+/\1/'
     - rm -rf Carthage
+    - cp DerivedData/xcodebuild.log xcodebuild.log
   coverage: '/\d+\.\d+%/'
   retry:
     max: 1
   artifacts:
+    when: on_success
     reports:
       junit: Marvel\ Characters/build/reports/junit.xml
+  artifacts:
+    when: on_failure
+    paths:
+      - Marvel\ Characters/xcodebuild.log
   only:
     refs:
      - develop
@@ -76,7 +90,7 @@ Test:
      - tags
      - merge_requests
   dependencies:
-    - Prepare
+     - Prepare
   cache:
     key: carthage
     paths:
