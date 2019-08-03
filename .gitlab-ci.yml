@@ -42,11 +42,9 @@ Prepare:
 
 BuildForTesting:
   stage: build
-
-  before_script:
-    - mkdir DerivedData
-
+    
   script:
+    - mkdir DerivedData
     - xcodebuild build-for-testing -workspace "Marvel Characters.xcworkspace" -scheme "Marvel Characters" -derivedDataPath ./DerivedData CODE_SIGNING_ALLOWED=NO -enableCodeCoverage YES -destination "platform=iOS Simulator,name=iPhone 6" | tee ./DerivedData/xcodebuild.log | xcpretty --color
 
   after_script:
