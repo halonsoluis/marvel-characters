@@ -18,6 +18,7 @@ target 'Marvel Characters' do
   target 'Marvel CharactersUITests' do
     inherit! :search_paths
     # Pods for testing
+    pod 'Firebase/Analytics'
   end
 
 end
