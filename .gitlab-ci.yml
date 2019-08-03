@@ -31,6 +31,9 @@ Prepare:
     - Marvel\ Characters/Carthage/Build/iOS/*.framework
     - Marvel\ Characters/Pods
 
+  retry:
+    max: 2
+
   tags:
     - macOS
     - iPhone6_simulator_available
@@ -46,12 +49,12 @@ Build:
     when: on_failure
     paths:
       - Marvel\ Characters/xcodebuild.log
+  only:
+     - branches
   except:
     refs:
      - develop
      - master
-     - tags
-     - merge_requests
   dependencies:
      - Prepare
   cache:
@@ -68,10 +71,9 @@ Test:
   stage: test
   script:
     - mkdir DerivedData
-    - xcodebuild test -workspace "Marvel Characters.xcworkspace" -scheme "Marvel Characters" -derivedDataPath ./DerivedData CODE_SIGNING_ALLOWED=NO -enableCodeCoverage YES -destination "platform=iOS Simulator,name=iPhone 6" | tee ./DerivedData/xcodebuild.log | xcpretty --color -r junit
+    - xcodebuild test -workspace "Marvel Characters.xcworkspace" -scheme "Marvel Characters" -derivedDataPath ./DerivedData CODE_SIGNING_ALLOWED=NO -enableCodeCoverage YES -destination "platform=iOS Simulator,name=iPhone 6" | xcpretty --color -r junit
     - xcrun xccov view DerivedData/Logs/Test/*.xcresult/*_Test/*.xccovreport | grep '.app' | head -1 | perl -pe 's/.+?(\d+\.\d+%).+/\1/'
     - rm -rf Carthage
-    - cp DerivedData/xcodebuild.log xcodebuild.log
   coverage: '/\d+\.\d+%/'
   retry:
     max: 1
@@ -79,10 +81,6 @@ Test:
     when: on_success
     reports:
       junit: Marvel\ Characters/build/reports/junit.xml
-  artifacts:
-    when: on_failure
-    paths:
-      - Marvel\ Characters/xcodebuild.log
   only:
     refs:
      - develop
