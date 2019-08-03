@@ -10,6 +10,7 @@ cache:
     - Marvel\ Characters/Carthage/Build/*.version
     - Marvel\ Characters/Carthage/Build/iOS/*.framework
     - Marvel\ Characters/Pods
+    - Marvel\ Characters/DerivedData/Build/Products
 
 stages:
   - setup
@@ -47,12 +48,7 @@ BuildForTesting:
     refs:
      - tags
      - merge_requests
-     - branches 
-
-  cache:
-    key: "$CI_JOB_NAME-$CI_COMMIT_REF_SLUG"
-    paths:
-     - Marvel\ Characters/DerivedData/Build/Products
+     - branches
   
   artifacts:
     when: on_failure
@@ -82,10 +78,6 @@ Test:
     when: on_success
     reports:
       junit: Marvel\ Characters/build/reports/junit.xml
-
-  cache:
-    key: "$CI_JOB_NAME-$CI_COMMIT_REF_SLUG"
-    policy: pull
 
   only:
     refs:
