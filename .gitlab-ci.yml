@@ -10,10 +10,6 @@ cache:
     - Marvel\ Characters/Carthage/Build/*.version
     - Marvel\ Characters/Carthage/Build/iOS/*.framework
     - Marvel\ Characters/Pods
-
-cache:
-  key: "$CI_JOB_NAME-$CI_COMMIT_REF_SLUG"
-  paths:
     - Marvel\ Characters/DerivedData
 
 stages:
@@ -26,6 +22,7 @@ Prepare:
   script:
     - carthage bootstrap --platform iOS --cache-builds
     - pod install
+    - mkdir DerivedData
 
   retry:
     max: 2
@@ -44,12 +41,7 @@ BuildForTesting:
   stage: build
     
   script:
-    - mkdir DerivedData
     - xcodebuild build-for-testing -workspace "Marvel Characters.xcworkspace" -scheme "Marvel Characters" -derivedDataPath ./DerivedData CODE_SIGNING_ALLOWED=NO -enableCodeCoverage YES -destination "platform=iOS Simulator,name=iPhone 6" | tee ./DerivedData/xcodebuild.log | xcpretty --color
-
-  after_script:
-   - rm -rf Carthage
-   - rm -rf Pods
 
   only:
     refs:
