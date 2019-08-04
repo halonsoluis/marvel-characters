@@ -9,7 +9,7 @@
 import Foundation
 
 class CrossReferenceBox<T: CrossReferenceItem>: Codable {
-    
+
     let available: Int?
     let collectionURI: String?
     let items: [T]?

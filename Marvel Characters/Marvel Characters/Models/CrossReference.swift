@@ -9,7 +9,7 @@
 import Foundation
 
 class CrossReference: Codable, MainAPISubject {
-    
+
     let id: Int?
     let title: String?
     let modified: String?

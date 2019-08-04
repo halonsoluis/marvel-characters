@@ -9,7 +9,7 @@
 import Foundation
 
 class ResponseEnclosure<T: Codable>: Codable {
-    
+
     let code: Int?
     let status: String?
     let copyright: String?

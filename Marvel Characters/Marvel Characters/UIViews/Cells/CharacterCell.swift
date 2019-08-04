@@ -9,16 +9,16 @@
 import UIKit
 
 class CharacterCell: UITableViewCell {
-   
-    @IBOutlet weak var bannerImage : UIImageView!
-    @IBOutlet weak var nameLabel : UIView!
-    
+
+    @IBOutlet weak var bannerImage: UIImageView!
+    @IBOutlet weak var nameLabel: UIView!
+
     override func awakeFromNib() {
         super.awakeFromNib()
         if let nameLabel = nameLabel as? UIButton {
             nameLabel.titleLabel?.adjustsFontSizeToFitWidth = false
             nameLabel.titleLabel?.autoresizesSubviews = true
-            nameLabel.autoresizingMask = [UIView.AutoresizingMask.flexibleRightMargin , UIView.AutoresizingMask.flexibleTopMargin]
+            nameLabel.autoresizingMask = [UIView.AutoresizingMask.flexibleRightMargin, UIView.AutoresizingMask.flexibleTopMargin]
         }
   }
 }
