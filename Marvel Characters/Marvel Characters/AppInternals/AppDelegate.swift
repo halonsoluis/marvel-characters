@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,8 +15,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
   
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        FirebaseApp.configure()
         // Override point for customization after application launch.
-        BuddyBuildSDK.setup()
         removeAllBackButtonTitles(application)
         return true
     }
@@ -25,7 +25,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func removeAllBackButtonTitles(_ application : UIApplication) {
         let barAppearace = UIBarButtonItem.appearance()
         barAppearace.setBackButtonTitlePositionAdjustment(UIOffset.init(horizontal: 0, vertical: -60), for:UIBarMetrics.default)
-        
     }
 }
 
