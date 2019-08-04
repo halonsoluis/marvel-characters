@@ -10,35 +10,35 @@ import XCTest
 
 class LargeViewCrossCollections_UITests: XCTestCase {
     let app = XCUIApplication()
-    
+
     override func setUp() {
         super.setUp()
-        
+
         app.configureSuite()
-        
+
         // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
-        
+
         // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
         app.tables.children(matching: .cell).element(boundBy: 0).tap()
-        
+
         app.collectionViews.cells.element(boundBy: 0).tap()
     }
-    
-    func testLargeViewOpensInSelectedItemFromDetailView(){
+
+    func testLargeViewOpensInSelectedItemFromDetailView() {
         app.buttons["icn nav close white"].tap()
-        
+
         let cell = app.collectionViews.element(boundBy: 0).cells.element(boundBy: 1)
-        
+
         let selectedName = cell.staticTexts["SmallReferenceName"].label
-        
+
         cell.tap()
-        
+
         let largeImageName = app.collectionViews.staticTexts["CrossReferenceName"].label
-        
+
         XCTAssertTrue(selectedName == largeImageName)
     }
-    
+
 //    func testCollectionIsPaginable() {
 //        
 //        //  app.buttons["icn nav close white"].tap()

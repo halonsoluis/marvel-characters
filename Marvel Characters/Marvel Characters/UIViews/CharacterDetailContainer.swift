@@ -9,11 +9,11 @@
 import UIKit
 
 class CharacterDetailContainer: GenericBlockCharacterDetail {
-    
+
     @IBOutlet var textDescription: UILabel!
-    
-    var text : String? = ""
-    
+
+    var text: String? = ""
+
     override func viewDidLoad() {
         super.viewDidLoad()
         textDescription?.text = text

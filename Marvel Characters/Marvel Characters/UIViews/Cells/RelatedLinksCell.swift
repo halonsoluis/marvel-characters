@@ -11,6 +11,6 @@ import Foundation
 import UIKit
 
 class RelatedLinksCell: UITableViewCell {
-    
-    @IBOutlet weak var nameLabel : UILabel!
+
+    @IBOutlet weak var nameLabel: UILabel!
 }

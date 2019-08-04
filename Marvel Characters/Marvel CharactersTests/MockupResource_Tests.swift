@@ -10,19 +10,19 @@ import XCTest
 @testable import Marvel_Characters
 
 class MockupResource_Tests: XCTestCase {
-    
+
     func testMockupCharactersDataLoaded() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
         XCTAssertNotNil(MockupResource.character.getMockupData())
     }
-   
+
     func testMockupRelatedItemsDataLoaded() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
         XCTAssertNotNil(MockupResource.crossReference.getMockupData())
     }
-    
+
     func testMockupImageDataLoaded() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.

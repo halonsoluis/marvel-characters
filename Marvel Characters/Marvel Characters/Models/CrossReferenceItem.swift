@@ -8,13 +8,13 @@
 
 import Foundation
 
-class CrossReferenceItem : Codable {
-    
+class CrossReferenceItem: Codable {
+
     let resourceURI: String?
     let name: String?
 }
 
 class StoriesCrossReferenceItem: CrossReferenceItem {
-    
+
     let type: String? = nil
 }

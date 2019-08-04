@@ -9,14 +9,14 @@
 import Foundation
 
 class MarvelCharacter: Codable, MainAPISubject {
-    
+
     let id: Int?
     let name: String?
     let description: String?
     let modified: String?
     let thumbnail: Thumbnail?
     let resourceURI: String?
-    
+
     let comics: CrossReferenceBox<CrossReferenceItem>?
     let series: CrossReferenceBox<CrossReferenceItem>?
     let stories: CrossReferenceBox<StoriesCrossReferenceItem>?

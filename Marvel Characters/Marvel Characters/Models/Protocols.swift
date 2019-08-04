@@ -6,7 +6,6 @@
 //  Copyright © 2016 halonsoluis. All rights reserved.
 //
 
-
 protocol ImageLocatorDelegate {
     func url() -> String?
 }

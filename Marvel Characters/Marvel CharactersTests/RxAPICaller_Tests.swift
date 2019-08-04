@@ -13,16 +13,16 @@ import RxCocoa
 @testable import Marvel_Characters
 
 class RxAPICaller_Tests: XCTestCase {
-    
+
     let disposeBag = DisposeBag()
-  
-    let params = ["":""] //Params are ignored when in mockup mode
+
+    let params = ["": ""] //Params are ignored when in mockup mode
     let characterID = 123 //This is ignored when in mockup mode
-    
-    var characterListObservable : Observable<Result<[MarvelCharacter],RequestError>>!
-    var crossReferenceListObservable : Observable<Result<[CrossReference],RequestError>>!
-    
-    let errorValidationMarvelCharacter = { (result: Result<[MarvelCharacter],RequestError>) -> Driver<[MarvelCharacter]> in
+
+    var characterListObservable: Observable<Result<[MarvelCharacter], RequestError>>!
+    var crossReferenceListObservable: Observable<Result<[CrossReference], RequestError>>!
+
+    let errorValidationMarvelCharacter = { (result: Result<[MarvelCharacter], RequestError>) -> Driver<[MarvelCharacter]> in
         switch result {
         case .success(let character):
             return Driver.just(character)
@@ -31,8 +31,8 @@ class RxAPICaller_Tests: XCTestCase {
             return Driver.empty()
         }
     }
-    
-    let errorValidationCrossReference = { (result: Result<[CrossReference],RequestError>) -> Driver<[CrossReference]> in
+
+    let errorValidationCrossReference = { (result: Result<[CrossReference], RequestError>) -> Driver<[CrossReference]> in
         switch result {
         case .success(let character):
             return Driver.just(character)
@@ -41,19 +41,19 @@ class RxAPICaller_Tests: XCTestCase {
             return Driver.empty()
         }
     }
-    
+
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
         characterListObservable = RxAPICaller.requestWithParams(params, route: Routes.listCharacters)
-        
+
         crossReferenceListObservable = RxAPICaller.requestWithParams(params, route: Routes.listComicsByCharacter(characterID: characterID))
-        
+
     }
-    
+
     func testRequestCharacterListObservable() {
         XCTAssertNotNil(characterListObservable)
-        
+
         characterListObservable
             .flatMapLatest(errorValidationMarvelCharacter)
             .subscribe(onNext: { (characters) in
@@ -61,15 +61,15 @@ class RxAPICaller_Tests: XCTestCase {
                 XCTAssertFalse(characters.isEmpty)
                 let first = characters.first
                 XCTAssertNotNil(first)
-                
+
                 XCTAssertNotNil(first?.name)
             }, onError: nil, onCompleted: nil, onDisposed: nil)
             .disposed(by: disposeBag)
     }
-    
+
     func testRequestCrossReferenceListObservable() {
         XCTAssertNotNil(crossReferenceListObservable)
-        
+
         crossReferenceListObservable
             .flatMapLatest(errorValidationCrossReference)
             .subscribe(onNext: { (characters) in

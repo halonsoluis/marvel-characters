@@ -11,33 +11,33 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-protocol LinksPresenterProtocol : class {
+protocol LinksPresenterProtocol: class {
     var characterLinks: [LinkURL]? { get set }
 }
 
 class RelatedLinksUITableViewController: UITableViewController, LinksPresenterProtocol {
-    
+
     var dataSource = BehaviorRelay<[LinkURL]>(value: [])
     var disposeBag = DisposeBag()
-    
+
     var characterLinks: [LinkURL]? = [] {
         didSet {
             dataSource.accept(characterLinks != nil ? characterLinks! : [])
         }
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         dataSource.asDriver()
-            .drive(self.tableView.rx.items(cellIdentifier:"relatedLinksCell", cellType: RelatedLinksCell.self)) { (_, link, cell) in
-                
+            .drive(self.tableView.rx.items(cellIdentifier: "relatedLinksCell", cellType: RelatedLinksCell.self)) { (_, link, cell) in
+
                 if let nameLabel = cell.nameLabel {
                     nameLabel.text = link.type.capitalized
                 }
             }
             .disposed(by: disposeBag)
-        
+
         tableView.rx.itemSelected
             .asDriver()
             .map { self.characterLinks?[$0.row].url }
@@ -45,9 +45,9 @@ class RelatedLinksUITableViewController: UITableViewController, LinksPresenterPr
                 guard let url = link, let nsurl = NSURL(string: url) as URL? else { return }
                 UIApplication.shared.open(nsurl, options: [:], completionHandler: nil)
             }, onCompleted: nil, onDisposed: nil).disposed(by: disposeBag)
-        
+
     }
-    
+
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         return []
     }

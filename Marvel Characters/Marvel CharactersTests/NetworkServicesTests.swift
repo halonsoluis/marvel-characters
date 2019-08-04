@@ -14,20 +14,20 @@ import Foundation
 @testable import Marvel_Characters
 
 class NetworkServicesTests: XCTestCase {
-    
+
     let disposeBag = DisposeBag()
-    
+
     var currentPage = BehaviorRelay<Int>(value: 0)
     var searchText = BehaviorRelay<String>(value: "")
-    
-    var chs : NetworkService?
-    
-    var rx_characters: Driver<Result<[MarvelCharacter],RequestError>>?
-    var rx_crossReference: Driver<Result<[CrossReference],RequestError>>?
-    
+
+    var chs: NetworkService?
+
+    var rx_characters: Driver<Result<[MarvelCharacter], RequestError>>?
+    var rx_crossReference: Driver<Result<[CrossReference], RequestError>>?
+
     let characterID = 123 //This is ignored when in mockup mode
-   
-    let errorValidationMarvelCharacter = { (result: Result<[MarvelCharacter],RequestError>) -> Driver<[MarvelCharacter]> in
+
+    let errorValidationMarvelCharacter = { (result: Result<[MarvelCharacter], RequestError>) -> Driver<[MarvelCharacter]> in
         switch result {
         case .success(let character):
             return Driver.just(character)
@@ -36,8 +36,8 @@ class NetworkServicesTests: XCTestCase {
             return Driver.empty()
         }
     }
-    
-    let errorValidationCrossReference = { (result: Result<[CrossReference],RequestError>) -> Driver<[CrossReference]> in
+
+    let errorValidationCrossReference = { (result: Result<[CrossReference], RequestError>) -> Driver<[CrossReference]> in
         switch result {
         case .success(let character):
             return Driver.just(character)
@@ -46,7 +46,7 @@ class NetworkServicesTests: XCTestCase {
             return Driver.empty()
         }
     }
-    
+
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -54,40 +54,39 @@ class NetworkServicesTests: XCTestCase {
             .asObservable()
             .distinctUntilChanged()
             .filter { $0 >= 0 }
-        
+
         let currentTextObservable = searchText
             .asObservable()
             .distinctUntilChanged()
-        
-        
+
         chs = NetworkService(withNameObservable: currentTextObservable, pageObservable: currentPageObservable)
-        
+
         rx_characters = chs?.getData(Routes.listCharacters)
         rx_crossReference = chs?.getData(Routes.listComicsByCharacter(characterID: characterID))
-        
+
     }
-    
+
     func testRequestCrossReferenceList() {
         XCTAssertNotNil(rx_crossReference)
-        
+
         rx_crossReference!
             .flatMapLatest(errorValidationCrossReference)
             .drive(onNext: { (newPage) in
-                
+
                 XCTAssertEqual(newPage.count, APIHandler.itemsPerPage)
                 XCTAssertNotNil(newPage.first?.title)
-                
+
             }, onCompleted: nil, onDisposed: nil)
             .disposed(by: disposeBag)
     }
-    
+
     func testRequestCharacterList() {
         XCTAssertNotNil(rx_characters)
-        
+
         rx_characters!
             .flatMapLatest(errorValidationMarvelCharacter)
             .drive(onNext: { (newPage) in
-           
+
                 XCTAssertEqual(newPage.count, APIHandler.itemsPerPage)
                 XCTAssertNotNil(newPage.first?.name)
 
@@ -96,4 +95,3 @@ class NetworkServicesTests: XCTestCase {
 
     }
 }
-

@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum RequestError: Error{
+enum RequestError: Error {
     case cancelled
     case timeout
     case unknown

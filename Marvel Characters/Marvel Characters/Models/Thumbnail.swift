@@ -9,10 +9,10 @@
 import Foundation
 
 class Thumbnail: Codable {
-    
+
     let path: String?
     let `extension`: String?
-    
+
 }
 
 extension Thumbnail: ImageLocatorDelegate {
