@@ -23,7 +23,10 @@ struct ImageSource {
      - parameter uniqueKey:         unique resource location in cache
      - parameter completionHandler: returns the loaded image (from web or cache)
      */
-    static func downloadImageAndSetIn(_ imageView: UIImageView, imageURL: URL, withUniqueKey uniqueKey: String, completionHandler: ((Image?) -> Void)? = nil) {
+    static func downloadImageAndSetIn(_ imageView: UIImageView,
+                                      imageURL: URL,
+                                      withUniqueKey uniqueKey: String,
+                                      completionHandler: ((Image?) -> Void)? = nil) {
         let resourceKey = "\(imageURL.absoluteString)-\(uniqueKey)"
 
         let resource = ImageResource(downloadURL: imageURL, cacheKey: resourceKey)

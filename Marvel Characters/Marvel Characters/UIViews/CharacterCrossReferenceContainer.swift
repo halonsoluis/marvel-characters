@@ -24,7 +24,7 @@ class CharacterCrossReferenceContainer: GenericBlockCharacterDetail, UICollectio
     var currentPage = BehaviorRelay<Int>(value: 0)
 
     var chs: NetworkService!
-    var rx_crossreference: Driver<Result<[CrossReference], RequestError>>!
+    var rxCrossreference: Driver<Result<[CrossReference], RequestError>>!
 
     let errorValidation = { (result: Result<[CrossReference], RequestError>) -> Driver<[CrossReference]> in
         switch result {
@@ -51,7 +51,7 @@ class CharacterCrossReferenceContainer: GenericBlockCharacterDetail, UICollectio
 
         createCharacterService()
 
-        rx_crossreference = chs.getData(route)
+        rxCrossreference = chs.getData(route)
         appendSubscribers()
         setupPagination()
 
@@ -67,16 +67,20 @@ class CharacterCrossReferenceContainer: GenericBlockCharacterDetail, UICollectio
 
     func appendSubscribers() {
 //        dataSource.asDriver()
-//            .drive(collectionView.rx_itemsWithCellIdentifier("RelatedPublicationCell", cellType: RelatedPublicationCell.self)) { (_, crossReference, cell) in
-//                
+//            .drive(collectionView
+//                .rx_itemsWithCellIdentifier("RelatedPublicationCell",
+//                                            cellType: RelatedPublicationCell.self)) { (_, crossReference, cell) in
+//
 //                if let nameLabel = cell.nameLabel {
 //                    nameLabel.text = crossReference.title
 //                }
-//                
+//
 //                if let image = cell.image {
-//                    guard let url = crossReference.resourceURI, let nsurl = NSURL(string: url), let modified = crossReference.modified else { return }
+//                    guard let url = crossReference.resourceURI,
+//                        let nsurl = NSURL(string: url),
+//                        let modified = crossReference.modified else { return }
 //                    ImageSource.downloadImageAndSetIn(image, imageURL: nsurl, withUniqueKey: modified)
-//                    
+//
 //                }
 //                return
 //            }
@@ -88,7 +92,7 @@ class CharacterCrossReferenceContainer: GenericBlockCharacterDetail, UICollectio
             }, onCompleted: nil, onDisposed: nil)
             .disposed(by: disposeBag)
 
-        rx_crossreference?
+        rxCrossreference?
             .flatMapLatest(errorValidation)
             .drive(onNext: { (newPage) in
                 var dataSource = self.dataSource.value
@@ -129,9 +133,8 @@ class CharacterCrossReferenceContainer: GenericBlockCharacterDetail, UICollectio
                 let size = self.collectionView.contentSize
                 let inset = self.collectionView.contentInset
                 let x = offset.x + bounds.size.width - inset.right
-                let w = size.width
-                let reload_distance: CGFloat = UIScreen.main.bounds.width * 2
-                if x > (w - reload_distance) {
+                let reloadDistance: CGFloat = UIScreen.main.bounds.width * 2
+                if x > (size.width - reloadDistance) {
                     self.loadingMore = true
 
                     self.currentPage.accept(self.currentPage.value + 1)
@@ -175,7 +178,7 @@ class CharacterCrossReferenceContainer: GenericBlockCharacterDetail, UICollectio
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let largeImages = segue.destination as? CharacterCrossLargeCells {
-            largeImages.rx_crossreference = self.rx_crossreference
+            largeImages.rxCrossreference = self.rxCrossreference
             largeImages.dataSource = self.dataSource
             largeImages.currentPage = currentPage
             largeImages.totalItems = total

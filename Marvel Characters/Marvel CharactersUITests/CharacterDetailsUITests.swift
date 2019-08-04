@@ -1,5 +1,5 @@
 //
-//  CharacterDetails_UITests.swift
+//  CharacterDetailsUITests.swift
 //  Marvel CharactersUITests
 //
 //  Created by Hugo on 5/25/16.
@@ -8,7 +8,7 @@
 
 import XCTest
 
-class CharacterDetails_UITests: XCTestCase {
+class CharacterDetailsUITests: XCTestCase {
     let characterName = "3-D Man"
     let app = XCUIApplication()
 
@@ -20,7 +20,6 @@ class CharacterDetails_UITests: XCTestCase {
 
         app.configureSuite()
 
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
         app.goIntoCharacterDetails(characterName: characterName)
     }
 

@@ -16,31 +16,31 @@ struct RxAPICaller {
     static func requestWithParams<T: MainAPISubject>(_ parameters: [String: String], route: Routes) -> Observable<Result<[T], RequestError>> {
 
         switch mockupEnabled {
-            case true: return requestMockupData(parameters, route: route)
-            case false: return RxAPICaller.requestNetworkData(parameters, route: route)
+        case true: return requestMockupData(parameters, route: route)
+        case false: return RxAPICaller.requestNetworkData(parameters, route: route)
         }
     }
 
-    static fileprivate func requestMockupData<T: MainAPISubject>(_ parameters: [String: String], route: Routes) -> Observable<Result<[T], RequestError>> {
+    static fileprivate func requestMockupData<T: MainAPISubject>(_ parameters: [String: String],
+                                                                 route: Routes) -> Observable<Result<[T], RequestError>> {
 
-        let buildJSON = { (data: Data)-> Any in
-            return try! JSONSerialization.jsonObject(with: data as Data, options: .mutableContainers)
+        let buildJSON = { (data: Data)-> Any? in
+            return try? JSONSerialization.jsonObject(with: data as Data, options: .mutableContainers)
         }
 
         let isCharacter = T.self is MarvelCharacter.Type
-        let json = buildJSON(isCharacter ? MockupResource.character.getMockupData()! : MockupResource.crossReference.getMockupData()!)
-
-        if let data = try? JSONSerialization.data(withJSONObject: json, options: .prettyPrinted) {
-            let box = try? JSONDecoder().decode(ResponseEnclosure<T>.self, from: data)
-            let items = box?.data?.results ?? []
-
-            return Observable.just(Result.success(items))
-        } else {
-            return Observable.empty()
+        if let json = buildJSON(isCharacter ? MockupResource.character.getMockupData()! : MockupResource.crossReference.getMockupData()!) {
+            if let data = try? JSONSerialization.data(withJSONObject: json, options: .prettyPrinted) {
+                let box = try? JSONDecoder().decode(ResponseEnclosure<T>.self, from: data)
+                let items = box?.data?.results ?? []
+                return Observable.just(Result.success(items))
+            }
         }
+        return Observable.empty()
     }
 
-    fileprivate static func requestNetworkData<T: MainAPISubject>(_ parameters: [String: String], route: Routes) -> Observable<Result<[T], RequestError>> {
+    fileprivate static func requestNetworkData<T: MainAPISubject>(_ parameters: [String: String],
+                                                                  route: Routes) -> Observable<Result<[T], RequestError>> {
         return RxAlamofire
             .requestJSON(.get, route.getRoute(), parameters: parameters)
             .debug()

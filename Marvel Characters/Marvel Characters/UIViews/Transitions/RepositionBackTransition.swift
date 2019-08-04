@@ -13,7 +13,8 @@ class RepositionBackTransition: NSObject, UIViewControllerAnimatedTransitioning 
 
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         guard
-            let startOn = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from) as? RepositionImageZoomingTransitionProtocol,
+            let startOn = transitionContext
+                .viewController(forKey: UITransitionContextViewControllerKey.from) as? RepositionImageZoomingTransitionProtocol,
             let endsOn = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to) as? RepositionImageZoomingTransitionProtocol,
             let initialView = startOn.getImageView(),
             let endingView = endsOn.getImageView()

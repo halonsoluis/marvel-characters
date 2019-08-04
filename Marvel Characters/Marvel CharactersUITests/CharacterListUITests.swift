@@ -1,5 +1,5 @@
 //
-//  CharacterList_UITests.swift
+//  CharacterListUITests.swift
 //  Marvel Characters
 //
 //  Created by Hugo Alonso on 6/4/16.
@@ -8,7 +8,7 @@
 
 import XCTest
 
-class CharacterList_UITests: XCTestCase {
+class CharacterListUITests: XCTestCase {
     let app = XCUIApplication()
 
     override func setUp() {
@@ -17,8 +17,6 @@ class CharacterList_UITests: XCTestCase {
 
         // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
-
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
     }
 
     override func tearDown() {

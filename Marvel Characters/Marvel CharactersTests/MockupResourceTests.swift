@@ -1,5 +1,5 @@
 //
-//  MockupResource_Tests.swift
+//  MockupResourceTests.swift
 //  Marvel Characters
 //
 //  Created by Hugo Alonso on 6/4/16.
@@ -9,7 +9,7 @@
 import XCTest
 @testable import Marvel_Characters
 
-class MockupResource_Tests: XCTestCase {
+class MockupResourceTests: XCTestCase {
 
     func testMockupCharactersDataLoaded() {
         // This is an example of a functional test case.

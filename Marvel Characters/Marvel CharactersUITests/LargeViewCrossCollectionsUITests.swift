@@ -1,5 +1,5 @@
 //
-//  LargeViewCrossCollections_UITests.swift
+//  LargeViewCrossCollectionsUITests.swift
 //  Marvel Characters
 //
 //  Created by Hugo Alonso on 6/4/16.
@@ -8,7 +8,7 @@
 
 import XCTest
 
-class LargeViewCrossCollections_UITests: XCTestCase {
+class LargeViewCrossCollectionsUITests: XCTestCase {
     let app = XCUIApplication()
 
     override func setUp() {
@@ -19,7 +19,6 @@ class LargeViewCrossCollections_UITests: XCTestCase {
         // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
 
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
         app.tables.children(matching: .cell).element(boundBy: 0).tap()
 
         app.collectionViews.cells.element(boundBy: 0).tap()

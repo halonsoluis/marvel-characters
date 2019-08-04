@@ -22,8 +22,8 @@ class NetworkServicesTests: XCTestCase {
 
     var chs: NetworkService?
 
-    var rx_characters: Driver<Result<[MarvelCharacter], RequestError>>?
-    var rx_crossReference: Driver<Result<[CrossReference], RequestError>>?
+    var rxCharacters: Driver<Result<[MarvelCharacter], RequestError>>?
+    var rxCrossReference: Driver<Result<[CrossReference], RequestError>>?
 
     let characterID = 123 //This is ignored when in mockup mode
 
@@ -61,15 +61,15 @@ class NetworkServicesTests: XCTestCase {
 
         chs = NetworkService(withNameObservable: currentTextObservable, pageObservable: currentPageObservable)
 
-        rx_characters = chs?.getData(Routes.listCharacters)
-        rx_crossReference = chs?.getData(Routes.listComicsByCharacter(characterID: characterID))
+        rxCharacters = chs?.getData(Routes.listCharacters)
+        rxCrossReference = chs?.getData(Routes.listComicsByCharacter(characterID: characterID))
 
     }
 
     func testRequestCrossReferenceList() {
-        XCTAssertNotNil(rx_crossReference)
+        XCTAssertNotNil(rxCrossReference)
 
-        rx_crossReference!
+        rxCrossReference!
             .flatMapLatest(errorValidationCrossReference)
             .drive(onNext: { (newPage) in
 
@@ -81,9 +81,9 @@ class NetworkServicesTests: XCTestCase {
     }
 
     func testRequestCharacterList() {
-        XCTAssertNotNil(rx_characters)
+        XCTAssertNotNil(rxCharacters)
 
-        rx_characters!
+        rxCharacters!
             .flatMapLatest(errorValidationMarvelCharacter)
             .drive(onNext: { (newPage) in
 

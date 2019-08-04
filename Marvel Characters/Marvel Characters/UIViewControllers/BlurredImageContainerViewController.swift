@@ -71,12 +71,16 @@ class BlurredImageContainerViewController: UIViewController, CharacterProviderDe
         viewWithBlur = {
             let viewHoldingBlur = UIView(frame: CGRect(x: 0, y: -20, width: bar.bounds.width, height: bar.bounds.height + 20))
             let blur =  UIBlurEffect(style: UIBlurEffect.Style.dark)
-            let viewWithBlur = UIVisualEffectView(frame: CGRect(x: 0, y: 0, width: viewHoldingBlur.bounds.width, height: viewHoldingBlur.bounds.height))
+            let viewWithBlur = UIVisualEffectView(
+                frame: CGRect(x: 0, y: 0, width: viewHoldingBlur.bounds.width, height: viewHoldingBlur.bounds.height)
+            )
             viewWithBlur.effect = blur
 
             let vibrancy = UIVibrancyEffect(blurEffect: blur)
 
-            let viewWithVibrancy = UIVisualEffectView(frame: CGRect(x: 0, y: 0, width: viewHoldingBlur.bounds.width, height: viewHoldingBlur.bounds.height))
+            let viewWithVibrancy = UIVisualEffectView(
+                frame: CGRect(x: 0, y: 0, width: viewHoldingBlur.bounds.width, height: viewHoldingBlur.bounds.height)
+            )
             viewWithVibrancy.effect = vibrancy
 
             viewWithBlur.contentView.addSubview(viewWithVibrancy)
@@ -160,7 +164,11 @@ extension BlurredImageContainerViewController: UINavigationControllerDelegate {
         navigationController?.delegate = self
     }
 
-    func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationController.Operation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    func navigationController(_ navigationController: UINavigationController,
+                              animationControllerFor operation: UINavigationController.Operation,
+                              from fromVC: UIViewController,
+                              to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+
         if self == fromVC && toVC is CharacterListViewController {
             return RepositionBackTransition()
         }

@@ -22,12 +22,30 @@ struct APIHandler {
         return (offset: page * APIHandler.itemsPerPage, limit : APIHandler.itemsPerPage)
     }
 
-    fileprivate static func getDefaultParamsForPage(_ page: Int = 0) -> (offset: Int, limit: Int, APIKey: String, timeStamp: String, hash: String)? {
+    struct SecurityParamsForPage {
+        var APIKey: String
+        var timeStamp: String
+        var hash: String
+    }
+    struct ParamsForPage {
+        var offset: Int
+        var limit: Int
+        var securytyParams: SecurityParamsForPage
+    }
+    fileprivate static func getDefaultParamsForPage(_ page: Int = 0) -> ParamsForPage? {
         guard
             let securityData = getSecurityFootprint(),
             let paginationData = getPaginationConfigFor(page: page)
             else { return nil }
-        return (offset: paginationData.offset, limit : paginationData.limit, securityData.APIKey, timeStamp: securityData.timeStamp, hash: securityData.hash)
+        return ParamsForPage(
+            offset: paginationData.offset,
+            limit: paginationData.limit,
+            securytyParams: SecurityParamsForPage(
+                APIKey: securityData.APIKey,
+                timeStamp: securityData.timeStamp,
+                hash: securityData.hash
+            )
+        )
     }
 
     static func getDefaultParamsAsDictForPage(_ page: Int = 0) -> [String: String]? {
@@ -40,9 +58,9 @@ struct APIHandler {
 
             var dict = [String: String]()
 
-            dict["apikey"] = params.APIKey
-            dict["hash"]   = params.hash
-            dict["ts"]     = params.timeStamp
+            dict["apikey"] = params.securytyParams.APIKey
+            dict["hash"]   = params.securytyParams.hash
+            dict["ts"]     = params.securytyParams.timeStamp
             dict["limit"]  = params.limit.description
             dict["offset"] = params.offset.description
 
@@ -51,12 +69,13 @@ struct APIHandler {
 
     }
 
-    static func getSecurityFootprint(_ timestamp: String = Date.timeIntervalSinceReferenceDate.description, privateAPIKey: String = APIHandler.privateAPIKey, publicAPIKey: String = APIHandler.publicAPIKey) -> (timeStamp: String, hash: String, APIKey: String)? {
-        let tuple =  (timeStamp: timestamp, hash: MD5Digester.digest("\(timestamp)\(privateAPIKey)\(publicAPIKey)"))
+    static func getSecurityFootprint(_ timestamp: String = Date.timeIntervalSinceReferenceDate.description,
+                                     privateAPIKey: String = APIHandler.privateAPIKey,
+                                     publicAPIKey: String = APIHandler.publicAPIKey) -> SecurityParamsForPage? {
 
-        guard let hash = tuple.hash else { return nil }
+        guard let hash = MD5Digester.digest("\(timestamp)\(privateAPIKey)\(publicAPIKey)") else { return nil }
 
-        return (timeStamp: tuple.timeStamp, hash: hash, APIKey: APIHandler.publicAPIKey)
+        return SecurityParamsForPage(APIKey: APIHandler.publicAPIKey, timeStamp: timestamp, hash: hash)
     }
 
 }

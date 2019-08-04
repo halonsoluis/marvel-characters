@@ -12,7 +12,7 @@ import RxCocoa
 
 class NetworkService {
 
-    fileprivate lazy var rx_params: Observable<[String: String]> = self.getParams()
+    fileprivate lazy var rxParams: Observable<[String: String]> = self.getParams()
 
     fileprivate var characterName: Observable<String>
     fileprivate var currentPage: Observable<Int>
@@ -37,7 +37,7 @@ class NetworkService {
     }
 
     func getData<T: MainAPISubject>(_ route: Routes) -> Driver<Result<[T], RequestError>> {
-        return rx_params
+        return rxParams
             .subscribeOn(MainScheduler.instance)
             .do(onNext: { (_) in
                 UIApplication.shared.isNetworkActivityIndicatorVisible = true

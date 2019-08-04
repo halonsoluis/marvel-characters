@@ -1,5 +1,5 @@
 //
-//  RxAPICaller_Tests.swift
+//  RxAPICallerTests.swift
 //  Marvel Characters
 //
 //  Created by Hugo Alonso on 6/4/16.
@@ -12,7 +12,7 @@ import RxCocoa
 
 @testable import Marvel_Characters
 
-class RxAPICaller_Tests: XCTestCase {
+class RxAPICallerTests: XCTestCase {
 
     let disposeBag = DisposeBag()
 

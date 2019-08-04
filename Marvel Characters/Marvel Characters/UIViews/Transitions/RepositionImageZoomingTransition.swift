@@ -25,9 +25,18 @@ protocol RepositionImageZoomingTransitionProtocol: class {
 
 class RepositionImageZoomingTransition: NSObject, UIViewControllerAnimatedTransitioning {
 
+    func createSnapShot(for imageView: UIImageView) -> UIImageView {
+        let snapShot = UIImageView(image: imageView.image)
+        snapShot.contentMode = .scaleAspectFill
+        snapShot.clipsToBounds = true
+        snapShot.isOpaque = true
+        return snapShot
+    }
+
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         guard
-            let startOn = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from) as? RepositionImageZoomingTransitionProtocol,
+            let startOn = transitionContext
+                .viewController(forKey: UITransitionContextViewControllerKey.from) as? RepositionImageZoomingTransitionProtocol,
             let endsOn = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to) as? RepositionImageZoomingTransitionProtocol,
             let initialView = startOn.getImageView(),
             let endingView = endsOn.getImageView()
@@ -36,11 +45,8 @@ class RepositionImageZoomingTransition: NSObject, UIViewControllerAnimatedTransi
         let containerView = transitionContext.containerView
         endingView.isHidden = true
 
-        let snapShot = UIImageView(image: initialView.image)
-        snapShot.contentMode = .scaleAspectFill
+        let snapShot = createSnapShot(for: initialView)
         snapShot.frame = initialView.convert(initialView.frame, to: containerView)
-        snapShot.clipsToBounds = true
-        snapShot.isOpaque = true
 
         let imageSize = initialView.image!.size
         let widthFactor = UIScreen.main.bounds.width / imageSize.width

@@ -69,12 +69,14 @@ class SearchViewController: CharacterListViewController {
             .observeOn(MainScheduler.instance)
             .subscribe(onNext: { [weak self] notification in
 
-                guard let info = notification.userInfo else { return }
-                guard let strongSelf = self else { return }
-
-                let keyboardFrame: CGRect = (info[UIResponder.keyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
+                guard
+                    let info = notification.userInfo,
+                    let strongSelf = self,
+                    let keyboardFrame = (info[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)
+                    else { return }
+                let keyboardFrameRect = keyboardFrame.cgRectValue
                 let tableViewInset = strongSelf.tableView.contentInset
-                let contentInsets = UIEdgeInsets(top: tableViewInset.top, left: 0.0, bottom: keyboardFrame.height, right: 0.0)
+                let contentInsets = UIEdgeInsets(top: tableViewInset.top, left: 0.0, bottom: keyboardFrameRect.height, right: 0.0)
 
                 var frame = strongSelf.view.frame
 
@@ -82,7 +84,7 @@ class SearchViewController: CharacterListViewController {
                     strongSelf.tableView.contentInset = contentInsets
                     strongSelf.tableView.scrollIndicatorInsets = contentInsets
 
-                    frame.size.height -= keyboardFrame.height
+                    frame.size.height -= keyboardFrameRect.height
                     strongSelf.view.frame = frame
                 }, completion: nil)
 

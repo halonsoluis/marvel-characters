@@ -1,5 +1,5 @@
 //
-//  Thumbnail_Tests.swift
+//  ThumbnailTests.swift
 //  Marvel Characters
 //
 //  Created by Hugo Alonso on 6/4/16.
@@ -9,9 +9,9 @@
 import XCTest
 @testable import Marvel_Characters
 
-class Thumbnail_Tests: XCTestCase {
+class ThumbnailTests: XCTestCase {
 
-    let thumbnailJSON: Dictionary<String, Any> = [
+    let thumbnailJSON = [
         "path": "testPath",
         "extension": "testExtension"
     ]
@@ -20,8 +20,9 @@ class Thumbnail_Tests: XCTestCase {
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
-        let data = try! JSONSerialization.data(withJSONObject: thumbnailJSON, options: .prettyPrinted)
-        thumbnail = try? JSONDecoder().decode(Thumbnail.self, from: data)
+        if let data = try? JSONSerialization.data(withJSONObject: thumbnailJSON, options: .prettyPrinted) {
+            thumbnail = try? JSONDecoder().decode(Thumbnail.self, from: data)
+        }
     }
 
     func testThumbnailCreated() {

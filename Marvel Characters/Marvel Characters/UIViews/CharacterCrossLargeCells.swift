@@ -22,7 +22,7 @@ class CharacterCrossLargeCells: UIViewController, UICollectionViewDelegate, UICo
 
     var totalItems: Int = 0
     var chs: NetworkService!
-    var rx_crossreference: Driver<Result<[CrossReference], RequestError>>!
+    var rxCrossreference: Driver<Result<[CrossReference], RequestError>>!
 
     let errorValidation = { (result: Result<[CrossReference], RequestError>) -> Driver<[CrossReference]> in
         switch result {
@@ -84,7 +84,9 @@ class CharacterCrossLargeCells: UIViewController, UICollectionViewDelegate, UICo
     }
 
     func scrollToPage(_ page: Int, animated: Bool) {
-        self.collectionView.scrollToItem(at: IndexPath(row: page, section: 0), at: UICollectionView.ScrollPosition.centeredHorizontally, animated: animated)
+        self.collectionView.scrollToItem(at: IndexPath(row: page, section: 0),
+                                         at: UICollectionView.ScrollPosition.centeredHorizontally,
+                                         animated: animated)
     }
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -98,7 +100,7 @@ class CharacterCrossLargeCells: UIViewController, UICollectionViewDelegate, UICo
             }, onCompleted: nil, onDisposed: nil)
             .disposed(by: disposeBag)
 
-        rx_crossreference?
+        rxCrossreference?
             .flatMapLatest(errorValidation)
             .drive(onNext: { (newPage) in
                 if newPage.count < APIHandler.itemsPerPage { self.loadingMore = false }
@@ -133,9 +135,8 @@ class CharacterCrossLargeCells: UIViewController, UICollectionViewDelegate, UICo
                 let size = self.collectionView.contentSize
                 let inset = self.collectionView.contentInset
                 let x = offset.x + bounds.size.width - inset.right
-                let w = size.width
-                let reload_distance: CGFloat = UIScreen.main.bounds.width * 2
-                if x > (w - reload_distance) {
+                let reloadDistance: CGFloat = UIScreen.main.bounds.width * 2
+                if x > (size.width - reloadDistance) {
                     self.loadingMore = true
 
                     self.currentPage.accept(self.currentPage.value + 1)
@@ -147,14 +148,14 @@ class CharacterCrossLargeCells: UIViewController, UICollectionViewDelegate, UICo
                 let displacement = self.collectionView.contentSize.width / CGFloat(self.dataSource.value.count)
                 let value  = self.collectionView.contentOffset.x / displacement
                 self.scrollToPage(Int(round(value)), animated: true)
-
             }
             .disposed(by: disposeBag)
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RelatedPublicationLargeCell", for: indexPath) as? RelatedPublicationLargeCell
-            else { return UICollectionViewCell()}
+        guard let cell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: "RelatedPublicationLargeCell",
+            for: indexPath) as? RelatedPublicationLargeCell else { return UICollectionViewCell()}
 
         let crossReference = dataSource.value[indexPath.row]
 

@@ -23,7 +23,7 @@ class CharacterListViewController: UIViewController {
     var currentPage = BehaviorRelay<Int>(value: 0)
 
     var chs: NetworkService?
-    var rx_characters: Driver<Result<[MarvelCharacter], RequestError>>?
+    var rxCharacters: Driver<Result<[MarvelCharacter], RequestError>>?
 
     let errorValidation = { (result: Result<[MarvelCharacter], RequestError>) -> Driver<[MarvelCharacter]> in
         switch result {
@@ -51,7 +51,7 @@ class CharacterListViewController: UIViewController {
             .filter { $0 >= 0 }
 
         createCharacterService()
-        rx_characters = chs?.getData(Routes.listCharacters)
+        rxCharacters = chs?.getData(Routes.listCharacters)
         appendSubscribers()
         setupPagination()
 
@@ -110,9 +110,8 @@ class CharacterListViewController: UIViewController {
                 let size = self.tableView.contentSize
                 let inset = self.tableView.contentInset
                 let y = offset.y + bounds.size.height - inset.bottom
-                let h = size.height
-                let reload_distance: CGFloat = UIScreen.main.bounds.height * 2
-                if y > (h - reload_distance) {
+                let reloadDistance: CGFloat = UIScreen.main.bounds.height * 2
+                if y > (size.height - reloadDistance) {
                     self.loadingMore = true
 
                     self.currentPage.accept(self.currentPage.value + 1)
@@ -144,7 +143,7 @@ class CharacterListViewController: UIViewController {
             }
             .disposed(by: disposeBag)
 
-        rx_characters?
+        rxCharacters?
             .flatMapLatest(errorValidation)
             .drive(onNext: { (newPage) in
                 var dataSource = self.dataSource.value
@@ -179,7 +178,11 @@ class CharacterListViewController: UIViewController {
 
 extension CharacterListViewController: UINavigationControllerDelegate {
 
-    func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationController.Operation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    func navigationController(_ navigationController: UINavigationController,
+                              animationControllerFor operation: UINavigationController.Operation,
+                              from fromVC: UIViewController,
+                              to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+
         if self == fromVC && toVC is BlurredImageContainerViewController {
             return RepositionImageZoomingTransition()
         }
