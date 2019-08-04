@@ -67,7 +67,7 @@ Test:
 
   script:
     - xcodebuild test-without-building -workspace "Marvel Characters.xcworkspace" -scheme "Marvel Characters" -derivedDataPath ./DerivedData CODE_SIGNING_ALLOWED=NO -enableCodeCoverage YES -destination "platform=iOS Simulator,name=iPhone 6" | xcpretty --color -r junit
-    - xcrun xccov view DerivedData/Logs/Test/*.xcresult/*_Test/*.xccovreport | grep '.app' | head -1 | perl -pe 's/.+?(\d+\.\d+%).+/\1/'
+    - xcrun xccov view DerivedData/Logs/Test/*.xcresult/*_Test/*.xccovreport | grep 'Marvel Characters.app' | head -1 | perl -pe 's/.+?(\d+\.\d+%).+/\1/'
  
   coverage: '/\d+\.\d+%/'
 
