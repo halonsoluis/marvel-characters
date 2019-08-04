@@ -9,6 +9,7 @@ target 'Marvel Characters' do
     pod 'Firebase/Analytics'
     pod 'Fabric', '~> 1.10.2'
     pod 'Crashlytics', '~> 3.13.4'
+    pod 'SwiftLint'
 
   target 'Marvel CharactersTests' do
     inherit! :search_paths

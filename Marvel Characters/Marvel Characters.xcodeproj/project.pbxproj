@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5B22062B22F4DF6A0046EA63 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5B22062A22F4DF6A0046EA63 /* GoogleService-Info.plist */; };
+		5B22063222F662500046EA63 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 5B22063122F662500046EA63 /* Podfile */; };
 		5B75A04F22EA8355007C4B05 /* XCUIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B75A04E22EA8355007C4B05 /* XCUIApplication+Extension.swift */; };
 		5BD8CB4922DD145D00261AAB /* RxRelay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BD8CB4522DD0F7D00261AAB /* RxRelay.framework */; };
 		5BD8CB5122DD145E00261AAB /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BD8CB4B22DD145E00261AAB /* RxSwift.framework */; };
@@ -110,6 +111,7 @@
 /* Begin PBXFileReference section */
 		4E481A5DCD2F7D3D9270422B /* Pods_Marvel_Characters.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Marvel_Characters.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B22062A22F4DF6A0046EA63 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		5B22063122F662500046EA63 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		5B75A04E22EA8355007C4B05 /* XCUIApplication+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCUIApplication+Extension.swift"; sourceTree = "<group>"; };
 		5BD8CB4422DCF48000261AAB /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
 		5BD8CB4522DD0F7D00261AAB /* RxRelay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxRelay.framework; path = Carthage/Build/iOS/RxRelay.framework; sourceTree = "<group>"; };
@@ -348,6 +350,7 @@
 				5B22062A22F4DF6A0046EA63 /* GoogleService-Info.plist */,
 				5BD8CB5722DE52D400261AAB /* .gitlab-ci.yml */,
 				5BD8CB4422DCF48000261AAB /* Cartfile */,
+				5B22063122F662500046EA63 /* Podfile */,
 				9AE3B4361CF6C9190087CAC6 /* Libraries */,
 				9ADBF31F1CF6298D005F1F51 /* Marvel Characters */,
 				9ADBF3341CF6298F005F1F51 /* Marvel CharactersTests */,
@@ -502,9 +505,10 @@
 				9ADBF3191CF62988005F1F51 /* Sources */,
 				9ADBF31A1CF62988005F1F51 /* Frameworks */,
 				9ADBF31B1CF62988005F1F51 /* Resources */,
-				9AE3B4351CF6C84D0087CAC6 /* ShellScript */,
+				9AE3B4351CF6C84D0087CAC6 /* Run Integration with carthage frameworks */,
 				351D568B7624D5CF75A7A5F9 /* [CP] Embed Pods Frameworks */,
-				5B22062D22F4E8630046EA63 /* ShellScript */,
+				5B22062D22F4E8630046EA63 /* Run Fabric */,
+				5B22063022F661BF0046EA63 /* Run SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -607,6 +611,7 @@
 			files = (
 				9A9333C21CF940CA00932676 /* characterImage.jpg in Resources */,
 				9AEDA40F1CFD5C7000197F48 /* collectionResponsePage.json in Resources */,
+				5B22063222F662500046EA63 /* Podfile in Resources */,
 				9AE3B4511CF71AE80087CAC6 /* Main.storyboard in Resources */,
 				9A9333BF1CF9401D00932676 /* characterListUnfilteredPage.json in Resources */,
 				9AE3B4501CF71AE80087CAC6 /* LaunchScreen.storyboard in Resources */,
@@ -700,7 +705,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Marvel CharactersUITests/Pods-Marvel CharactersUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		5B22062D22F4E8630046EA63 /* ShellScript */ = {
+		5B22062D22F4E8630046EA63 /* Run Fabric */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -710,6 +715,7 @@
 			inputPaths = (
 				"$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
 			);
+			name = "Run Fabric";
 			outputFileListPaths = (
 			);
 			outputPaths = (
@@ -718,7 +724,25 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Fabric/run\"\n";
 		};
-		9AE3B4351CF6C84D0087CAC6 /* ShellScript */ = {
+		5B22063022F661BF0046EA63 /* Run SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run SwiftLint";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
+		};
+		9AE3B4351CF6C84D0087CAC6 /* Run Integration with carthage frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -732,6 +756,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxRelay.framework",
 			);
+			name = "Run Integration with carthage frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
