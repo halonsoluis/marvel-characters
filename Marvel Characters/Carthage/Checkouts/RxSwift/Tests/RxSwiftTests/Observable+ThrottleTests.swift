@@ -53,7 +53,7 @@ extension ObservableThrottleTest {
         let scheduler = TestScheduler(initialClock: 0)
 
         let xs = scheduler.createHotObservable([
-            .next(150, 0),
+            .next(150, 0)
 
             ])
 
@@ -140,7 +140,7 @@ extension ObservableThrottleTest {
             .next(310, 4),
             .next(350, 5),
             .next(410, 6),
-            .next(450, 7),
+            .next(450, 7)
             ])
 
         let res = scheduler.start {
@@ -269,7 +269,7 @@ extension ObservableThrottleTest {
         let scheduler = TestScheduler(initialClock: 0)
 
         let xs = scheduler.createHotObservable([
-            .next(150, 0),
+            .next(150, 0)
 
             ])
 
@@ -356,7 +356,7 @@ extension ObservableThrottleTest {
             .next(310, 4),
             .next(350, 5),
             .next(410, 6),
-            .next(450, 7),
+            .next(450, 7)
             ])
 
         let res = scheduler.start {

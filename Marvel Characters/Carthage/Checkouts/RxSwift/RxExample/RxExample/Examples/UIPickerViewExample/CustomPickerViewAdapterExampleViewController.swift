@@ -59,7 +59,7 @@ final class PickerViewViewAdapter
     }
     
     func pickerView(_ pickerView: UIPickerView, observedEvent: Event<Element>) {
-        Binder(self) { (adapter, items) in
+        Binder(self) { adapter, items in
             adapter.items = items
             pickerView.reloadAllComponents()
         }.on(observedEvent)

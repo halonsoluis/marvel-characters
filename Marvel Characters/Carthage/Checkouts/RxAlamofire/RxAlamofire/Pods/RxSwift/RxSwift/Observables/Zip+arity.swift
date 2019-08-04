@@ -7,8 +7,6 @@
 //  Copyright © 2015 Krunoslav Zaher. All rights reserved.
 //
 
-
-
 // 2
 
 extension ObservableType {
@@ -49,7 +47,7 @@ extension ObservableType where Element == Any {
 }
 
 final class ZipSink2_<E1, E2, Observer: ObserverType> : ZipSink<Observer> {
-    typealias Result = Observer.Element 
+    typealias Result = Observer.Element
     typealias Parent = Zip2<E1, E2, Result>
 
     let _parent: Parent
@@ -115,8 +113,6 @@ final class Zip2<E1, E2, Result> : Producer<Result> {
     }
 }
 
-
-
 // 3
 
 extension ObservableType {
@@ -157,7 +153,7 @@ extension ObservableType where Element == Any {
 }
 
 final class ZipSink3_<E1, E2, E3, Observer: ObserverType> : ZipSink<Observer> {
-    typealias Result = Observer.Element 
+    typealias Result = Observer.Element
     typealias Parent = Zip3<E1, E2, E3, Result>
 
     let _parent: Parent
@@ -231,8 +227,6 @@ final class Zip3<E1, E2, E3, Result> : Producer<Result> {
     }
 }
 
-
-
 // 4
 
 extension ObservableType {
@@ -273,7 +267,7 @@ extension ObservableType where Element == Any {
 }
 
 final class ZipSink4_<E1, E2, E3, E4, Observer: ObserverType> : ZipSink<Observer> {
-    typealias Result = Observer.Element 
+    typealias Result = Observer.Element
     typealias Parent = Zip4<E1, E2, E3, E4, Result>
 
     let _parent: Parent
@@ -355,8 +349,6 @@ final class Zip4<E1, E2, E3, E4, Result> : Producer<Result> {
     }
 }
 
-
-
 // 5
 
 extension ObservableType {
@@ -397,7 +389,7 @@ extension ObservableType where Element == Any {
 }
 
 final class ZipSink5_<E1, E2, E3, E4, E5, Observer: ObserverType> : ZipSink<Observer> {
-    typealias Result = Observer.Element 
+    typealias Result = Observer.Element
     typealias Parent = Zip5<E1, E2, E3, E4, E5, Result>
 
     let _parent: Parent
@@ -487,8 +479,6 @@ final class Zip5<E1, E2, E3, E4, E5, Result> : Producer<Result> {
     }
 }
 
-
-
 // 6
 
 extension ObservableType {
@@ -529,7 +519,7 @@ extension ObservableType where Element == Any {
 }
 
 final class ZipSink6_<E1, E2, E3, E4, E5, E6, Observer: ObserverType> : ZipSink<Observer> {
-    typealias Result = Observer.Element 
+    typealias Result = Observer.Element
     typealias Parent = Zip6<E1, E2, E3, E4, E5, E6, Result>
 
     let _parent: Parent
@@ -627,8 +617,6 @@ final class Zip6<E1, E2, E3, E4, E5, E6, Result> : Producer<Result> {
     }
 }
 
-
-
 // 7
 
 extension ObservableType {
@@ -669,7 +657,7 @@ extension ObservableType where Element == Any {
 }
 
 final class ZipSink7_<E1, E2, E3, E4, E5, E6, E7, Observer: ObserverType> : ZipSink<Observer> {
-    typealias Result = Observer.Element 
+    typealias Result = Observer.Element
     typealias Parent = Zip7<E1, E2, E3, E4, E5, E6, E7, Result>
 
     let _parent: Parent
@@ -775,8 +763,6 @@ final class Zip7<E1, E2, E3, E4, E5, E6, E7, Result> : Producer<Result> {
     }
 }
 
-
-
 // 8
 
 extension ObservableType {
@@ -817,7 +803,7 @@ extension ObservableType where Element == Any {
 }
 
 final class ZipSink8_<E1, E2, E3, E4, E5, E6, E7, E8, Observer: ObserverType> : ZipSink<Observer> {
-    typealias Result = Observer.Element 
+    typealias Result = Observer.Element
     typealias Parent = Zip8<E1, E2, E3, E4, E5, E6, E7, E8, Result>
 
     let _parent: Parent
@@ -930,5 +916,3 @@ final class Zip8<E1, E2, E3, E4, E5, E6, E7, E8, Result> : Producer<Result> {
         return (sink: sink, subscription: subscription)
     }
 }
-
-

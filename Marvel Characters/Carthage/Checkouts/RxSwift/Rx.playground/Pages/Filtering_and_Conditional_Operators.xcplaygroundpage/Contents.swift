@@ -194,7 +194,7 @@ example("skipWhileWithIndex") {
     let disposeBag = DisposeBag()
     
     Observable.of("🐱", "🐰", "🐶", "🐸", "🐷", "🐵")
-        .skipWhileWithIndex { element, index in
+        .skipWhileWithIndex { _, index in
             index < 3
         }
         .subscribe(onNext: { print($0) })

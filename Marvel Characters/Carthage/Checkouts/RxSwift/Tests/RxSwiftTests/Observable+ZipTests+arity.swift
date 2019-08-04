@@ -25,7 +25,7 @@ extension ObservableZipTest {
                 },
                 { e0, e1 in
                     Observable.zip(e0, e1) { (a0: Int, a1: Int) -> Int in a0 + a1 }
-                },
+                }
             ]
 
         for factory in factories {
@@ -50,7 +50,7 @@ extension ObservableZipTest {
                 },
                 { e0, e1 in
                     Observable.zip(e0, e1) { (_: Int, _: Int) -> Int in 42 }
-                },
+                }
             ]
 
         for factory in factories {
@@ -88,7 +88,7 @@ extension ObservableZipTest {
                 },
                 { e0, e1 in
                     Observable.zip(e0, e1) { (a0: Int, a1: Int) -> Int in a0 + a1 }
-                },
+                }
             ]
         for factory in factories {
             let scheduler = TestScheduler(initialClock: 0)
@@ -125,7 +125,7 @@ extension ObservableZipTest {
                 },
                 { e0, e1 in
                     Observable.zip(e0, e1) { (a0: Int, a1: Int) -> Int in a0 + a1 }
-                },
+                }
             ]
 
         for factory in factories {
@@ -168,7 +168,7 @@ extension ObservableZipTest {
                 },
                 { e0, e1 in
                     Observable.zip(e0, e1) { (a0: Int, a1: Int) -> Int in a0 + a1 }
-                },
+                }
             ]
 
         for factory in factories {
@@ -220,7 +220,7 @@ extension ObservableZipTest {
                 },
                 { e0, e1, e2 in
                     Observable.zip(e0, e1, e2) { (a0: Int, a1: Int, a2: Int) -> Int in a0 + a1 + a2 }
-                },
+                }
             ]
 
         for factory in factories {
@@ -246,7 +246,7 @@ extension ObservableZipTest {
                 },
                 { e0, e1, e2 in
                     Observable.zip(e0, e1, e2) { (_: Int, _: Int, _: Int) -> Int in 42 }
-                },
+                }
             ]
 
         for factory in factories {
@@ -289,7 +289,7 @@ extension ObservableZipTest {
                 },
                 { e0, e1, e2 in
                     Observable.zip(e0, e1, e2) { (a0: Int, a1: Int, a2: Int) -> Int in a0 + a1 + a2 }
-                },
+                }
             ]
         for factory in factories {
             let scheduler = TestScheduler(initialClock: 0)
@@ -331,7 +331,7 @@ extension ObservableZipTest {
                 },
                 { e0, e1, e2 in
                     Observable.zip(e0, e1, e2) { (a0: Int, a1: Int, a2: Int) -> Int in a0 + a1 + a2 }
-                },
+                }
             ]
 
         for factory in factories {
@@ -381,7 +381,7 @@ extension ObservableZipTest {
                 },
                 { e0, e1, e2 in
                     Observable.zip(e0, e1, e2) { (a0: Int, a1: Int, a2: Int) -> Int in a0 + a1 + a2 }
-                },
+                }
             ]
 
         for factory in factories {
@@ -443,7 +443,7 @@ extension ObservableZipTest {
                 },
                 { e0, e1, e2, e3 in
                     Observable.zip(e0, e1, e2, e3) { (a0: Int, a1: Int, a2: Int, a3: Int) -> Int in a0 + a1 + a2 + a3 }
-                },
+                }
             ]
 
         for factory in factories {
@@ -470,7 +470,7 @@ extension ObservableZipTest {
                 },
                 { e0, e1, e2, e3 in
                     Observable.zip(e0, e1, e2, e3) { (_: Int, _: Int, _: Int, _: Int) -> Int in 42 }
-                },
+                }
             ]
 
         for factory in factories {
@@ -518,7 +518,7 @@ extension ObservableZipTest {
                 },
                 { e0, e1, e2, e3 in
                     Observable.zip(e0, e1, e2, e3) { (a0: Int, a1: Int, a2: Int, a3: Int) -> Int in a0 + a1 + a2 + a3 }
-                },
+                }
             ]
         for factory in factories {
             let scheduler = TestScheduler(initialClock: 0)
@@ -565,7 +565,7 @@ extension ObservableZipTest {
                 },
                 { e0, e1, e2, e3 in
                     Observable.zip(e0, e1, e2, e3) { (a0: Int, a1: Int, a2: Int, a3: Int) -> Int in a0 + a1 + a2 + a3 }
-                },
+                }
             ]
 
         for factory in factories {
@@ -622,7 +622,7 @@ extension ObservableZipTest {
                 },
                 { e0, e1, e2, e3 in
                     Observable.zip(e0, e1, e2, e3) { (a0: Int, a1: Int, a2: Int, a3: Int) -> Int in a0 + a1 + a2 + a3 }
-                },
+                }
             ]
 
         for factory in factories {
@@ -695,7 +695,7 @@ extension ObservableZipTest {
                 },
                 { e0, e1, e2, e3, e4 in
                     Observable.zip(e0, e1, e2, e3, e4) { (a0: Int, a1: Int, a2: Int, a3: Int, a4: Int) -> Int in a0 + a1 + a2 + a3 + a4 }
-                },
+                }
             ]
 
         for factory in factories {
@@ -723,7 +723,7 @@ extension ObservableZipTest {
                 },
                 { e0, e1, e2, e3, e4 in
                     Observable.zip(e0, e1, e2, e3, e4) { (_: Int, _: Int, _: Int, _: Int, _: Int) -> Int in 42 }
-                },
+                }
             ]
 
         for factory in factories {
@@ -776,7 +776,7 @@ extension ObservableZipTest {
                 },
                 { e0, e1, e2, e3, e4 in
                     Observable.zip(e0, e1, e2, e3, e4) { (a0: Int, a1: Int, a2: Int, a3: Int, a4: Int) -> Int in a0 + a1 + a2 + a3 + a4 }
-                },
+                }
             ]
         for factory in factories {
             let scheduler = TestScheduler(initialClock: 0)
@@ -828,7 +828,7 @@ extension ObservableZipTest {
                 },
                 { e0, e1, e2, e3, e4 in
                     Observable.zip(e0, e1, e2, e3, e4) { (a0: Int, a1: Int, a2: Int, a3: Int, a4: Int) -> Int in a0 + a1 + a2 + a3 + a4 }
-                },
+                }
             ]
 
         for factory in factories {
@@ -892,7 +892,7 @@ extension ObservableZipTest {
                 },
                 { e0, e1, e2, e3, e4 in
                     Observable.zip(e0, e1, e2, e3, e4) { (a0: Int, a1: Int, a2: Int, a3: Int, a4: Int) -> Int in a0 + a1 + a2 + a3 + a4 }
-                },
+                }
             ]
 
         for factory in factories {
@@ -977,7 +977,7 @@ extension ObservableZipTest {
                 },
                 { e0, e1, e2, e3, e4, e5 in
                     Observable.zip(e0, e1, e2, e3, e4, e5) { (a0: Int, a1: Int, a2: Int, a3: Int, a4: Int, a5: Int) -> Int in a0 + a1 + a2 + a3 + a4 + a5 }
-                },
+                }
             ]
 
         for factory in factories {
@@ -1006,7 +1006,7 @@ extension ObservableZipTest {
                 },
                 { e0, e1, e2, e3, e4, e5 in
                     Observable.zip(e0, e1, e2, e3, e4, e5) { (_: Int, _: Int, _: Int, _: Int, _: Int, _: Int) -> Int in 42 }
-                },
+                }
             ]
 
         for factory in factories {
@@ -1064,7 +1064,7 @@ extension ObservableZipTest {
                 },
                 { e0, e1, e2, e3, e4, e5 in
                     Observable.zip(e0, e1, e2, e3, e4, e5) { (a0: Int, a1: Int, a2: Int, a3: Int, a4: Int, a5: Int) -> Int in a0 + a1 + a2 + a3 + a4 + a5 }
-                },
+                }
             ]
         for factory in factories {
             let scheduler = TestScheduler(initialClock: 0)
@@ -1121,7 +1121,7 @@ extension ObservableZipTest {
                 },
                 { e0, e1, e2, e3, e4, e5 in
                     Observable.zip(e0, e1, e2, e3, e4, e5) { (a0: Int, a1: Int, a2: Int, a3: Int, a4: Int, a5: Int) -> Int in a0 + a1 + a2 + a3 + a4 + a5 }
-                },
+                }
             ]
 
         for factory in factories {
@@ -1192,7 +1192,7 @@ extension ObservableZipTest {
                 },
                 { e0, e1, e2, e3, e4, e5 in
                     Observable.zip(e0, e1, e2, e3, e4, e5) { (a0: Int, a1: Int, a2: Int, a3: Int, a4: Int, a5: Int) -> Int in a0 + a1 + a2 + a3 + a4 + a5 }
-                },
+                }
             ]
 
         for factory in factories {
@@ -1290,7 +1290,7 @@ extension ObservableZipTest {
                 },
                 { e0, e1, e2, e3, e4, e5, e6 in
                     Observable.zip(e0, e1, e2, e3, e4, e5, e6) { (a0: Int, a1: Int, a2: Int, a3: Int, a4: Int, a5: Int, a6: Int) -> Int in a0 + a1 + a2 + a3 + a4 + a5 + a6 }
-                },
+                }
             ]
 
         for factory in factories {
@@ -1320,7 +1320,7 @@ extension ObservableZipTest {
                 },
                 { e0, e1, e2, e3, e4, e5, e6 in
                     Observable.zip(e0, e1, e2, e3, e4, e5, e6) { (_: Int, _: Int, _: Int, _: Int, _: Int, _: Int, _: Int) -> Int in 42 }
-                },
+                }
             ]
 
         for factory in factories {
@@ -1383,7 +1383,7 @@ extension ObservableZipTest {
                 },
                 { e0, e1, e2, e3, e4, e5, e6 in
                     Observable.zip(e0, e1, e2, e3, e4, e5, e6) { (a0: Int, a1: Int, a2: Int, a3: Int, a4: Int, a5: Int, a6: Int) -> Int in a0 + a1 + a2 + a3 + a4 + a5 + a6 }
-                },
+                }
             ]
         for factory in factories {
             let scheduler = TestScheduler(initialClock: 0)
@@ -1445,7 +1445,7 @@ extension ObservableZipTest {
                 },
                 { e0, e1, e2, e3, e4, e5, e6 in
                     Observable.zip(e0, e1, e2, e3, e4, e5, e6) { (a0: Int, a1: Int, a2: Int, a3: Int, a4: Int, a5: Int, a6: Int) -> Int in a0 + a1 + a2 + a3 + a4 + a5 + a6 }
-                },
+                }
             ]
 
         for factory in factories {
@@ -1523,7 +1523,7 @@ extension ObservableZipTest {
                 },
                 { e0, e1, e2, e3, e4, e5, e6 in
                     Observable.zip(e0, e1, e2, e3, e4, e5, e6) { (a0: Int, a1: Int, a2: Int, a3: Int, a4: Int, a5: Int, a6: Int) -> Int in a0 + a1 + a2 + a3 + a4 + a5 + a6 }
-                },
+                }
             ]
 
         for factory in factories {
@@ -1635,7 +1635,7 @@ extension ObservableZipTest {
                 },
                 { e0, e1, e2, e3, e4, e5, e6, e7 in
                     Observable.zip(e0, e1, e2, e3, e4, e5, e6, e7) { (a0: Int, a1: Int, a2: Int, a3: Int, a4: Int, a5: Int, a6: Int, a7: Int) -> Int in a0 + a1 + a2 + a3 + a4 + a5 + a6 + a7 }
-                },
+                }
             ]
 
         for factory in factories {
@@ -1666,7 +1666,7 @@ extension ObservableZipTest {
                 },
                 { e0, e1, e2, e3, e4, e5, e6, e7 in
                     Observable.zip(e0, e1, e2, e3, e4, e5, e6, e7) { (_: Int, _: Int, _: Int, _: Int, _: Int, _: Int, _: Int, _: Int) -> Int in 42 }
-                },
+                }
             ]
 
         for factory in factories {
@@ -1734,7 +1734,7 @@ extension ObservableZipTest {
                 },
                 { e0, e1, e2, e3, e4, e5, e6, e7 in
                     Observable.zip(e0, e1, e2, e3, e4, e5, e6, e7) { (a0: Int, a1: Int, a2: Int, a3: Int, a4: Int, a5: Int, a6: Int, a7: Int) -> Int in a0 + a1 + a2 + a3 + a4 + a5 + a6 + a7 }
-                },
+                }
             ]
         for factory in factories {
             let scheduler = TestScheduler(initialClock: 0)
@@ -1801,7 +1801,7 @@ extension ObservableZipTest {
                 },
                 { e0, e1, e2, e3, e4, e5, e6, e7 in
                     Observable.zip(e0, e1, e2, e3, e4, e5, e6, e7) { (a0: Int, a1: Int, a2: Int, a3: Int, a4: Int, a5: Int, a6: Int, a7: Int) -> Int in a0 + a1 + a2 + a3 + a4 + a5 + a6 + a7 }
-                },
+                }
             ]
 
         for factory in factories {
@@ -1886,7 +1886,7 @@ extension ObservableZipTest {
                 },
                 { e0, e1, e2, e3, e4, e5, e6, e7 in
                     Observable.zip(e0, e1, e2, e3, e4, e5, e6, e7) { (a0: Int, a1: Int, a2: Int, a3: Int, a4: Int, a5: Int, a6: Int, a7: Int) -> Int in a0 + a1 + a2 + a3 + a4 + a5 + a6 + a7 }
-                },
+                }
             ]
 
         for factory in factories {

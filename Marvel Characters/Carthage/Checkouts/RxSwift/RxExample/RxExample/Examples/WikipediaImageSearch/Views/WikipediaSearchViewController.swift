@@ -57,7 +57,7 @@ class WikipediaSearchViewController: ViewController {
             }
 
         results
-            .drive(resultsTableView.rx.items(cellIdentifier: "WikipediaSearchCell", cellType: WikipediaSearchCell.self)) { (_, viewModel, cell) in
+            .drive(resultsTableView.rx.items(cellIdentifier: "WikipediaSearchCell", cellType: WikipediaSearchCell.self)) { _, viewModel, cell in
                 cell.viewModel = viewModel
             }
             .disposed(by: disposeBag)

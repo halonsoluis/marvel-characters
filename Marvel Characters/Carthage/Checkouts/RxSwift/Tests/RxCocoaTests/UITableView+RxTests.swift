@@ -34,7 +34,7 @@ final class UITableViewTests : RxTest {
     func test_itemSelected() {
         let tableView = UITableView(frame: CGRect(x: 0, y: 0, width: 1, height: 1))
 
-        var resultIndexPath: IndexPath? = nil
+        var resultIndexPath: IndexPath?
 
         let subscription = tableView.rx.itemSelected
             .subscribe(onNext: { indexPath in
@@ -51,7 +51,7 @@ final class UITableViewTests : RxTest {
     func test_itemDeselected() {
         let tableView = UITableView(frame: CGRect(x: 0, y: 0, width: 1, height: 1))
 
-        var resultIndexPath: IndexPath? = nil
+        var resultIndexPath: IndexPath?
 
         let subscription = tableView.rx.itemDeselected
             .subscribe(onNext: { indexPath in
@@ -68,7 +68,7 @@ final class UITableViewTests : RxTest {
     func test_itemAccessoryButtonTapped() {
         let tableView = UITableView(frame: CGRect(x: 0, y: 0, width: 1, height: 1))
 
-        var resultIndexPath: IndexPath? = nil
+        var resultIndexPath: IndexPath?
 
         let subscription = tableView.rx.itemAccessoryButtonTapped
             .subscribe(onNext: { indexPath in
@@ -87,7 +87,7 @@ final class UITableViewTests : RxTest {
 
         let createView: () -> (UITableView, Disposable) = {
             let tableView = UITableView(frame: CGRect(x: 0, y: 0, width: 1, height: 1))
-            let dataSourceSubscription = items.bind(to: tableView.rx.items) { (tv, index: Int, item: Int) -> UITableViewCell in
+            let dataSourceSubscription = items.bind(to: tableView.rx.items) { (_, _: Int, _: Int) -> UITableViewCell in
                 return UITableViewCell(style: .default, reuseIdentifier: "Identity")
             }
 
@@ -96,7 +96,7 @@ final class UITableViewTests : RxTest {
         
         let (tableView, dataSourceSubscription) = createView()
 
-        var resultIndexPath: IndexPath? = nil
+        var resultIndexPath: IndexPath?
 
         let subscription = tableView.rx.itemDeleted
             .subscribe(onNext: { indexPath in
@@ -116,7 +116,7 @@ final class UITableViewTests : RxTest {
 
         let createView: () -> (UITableView, Disposable) = {
             let tableView = UITableView(frame: CGRect(x: 0, y: 0, width: 1, height: 1))
-            let dataSourceSubscription = items.bind(to: tableView.rx.items) { (tv, index: Int, item: Int) -> UITableViewCell in
+            let dataSourceSubscription = items.bind(to: tableView.rx.items) { (_, _: Int, _: Int) -> UITableViewCell in
                 return UITableViewCell(style: .default, reuseIdentifier: "Identity")
             }
 
@@ -125,7 +125,7 @@ final class UITableViewTests : RxTest {
 
         let (tableView, dataSourceSubscription) = createView()
 
-        var resultIndexPath: IndexPath? = nil
+        var resultIndexPath: IndexPath?
 
         let subscription = tableView.rx.itemInserted
             .subscribe(onNext: { indexPath in
@@ -143,8 +143,8 @@ final class UITableViewTests : RxTest {
     func test_willDisplayCell() {
         let tableView = UITableView(frame: CGRect(x: 0, y: 0, width: 1, height: 1))
 
-        var resultIndexPath: IndexPath? = nil
-        var resultCell: UITableViewCell? = nil
+        var resultIndexPath: IndexPath?
+        var resultCell: UITableViewCell?
 
         let subscription = tableView.rx.willDisplayCell
             .subscribe(onNext: { cellInfo in
@@ -165,8 +165,8 @@ final class UITableViewTests : RxTest {
     func test_didEndDisplayingCell() {
         let tableView = UITableView(frame: CGRect(x: 0, y: 0, width: 1, height: 1))
 
-        var resultIndexPath: IndexPath? = nil
-        var resultCell: UITableViewCell? = nil
+        var resultIndexPath: IndexPath?
+        var resultCell: UITableViewCell?
 
         let subscription = tableView.rx.didEndDisplayingCell
             .subscribe(onNext: { cellInfo in
@@ -189,7 +189,7 @@ final class UITableViewTests : RxTest {
 
         let createView: () -> (UITableView, Disposable) = {
             let tableView = UITableView(frame: CGRect(x: 0, y: 0, width: 1, height: 1))
-            let dataSourceSubscription = items.bind(to: tableView.rx.items) { (tv, index: Int, item: Int) -> UITableViewCell in
+            let dataSourceSubscription = items.bind(to: tableView.rx.items) { (_, _: Int, _: Int) -> UITableViewCell in
                 return UITableViewCell(style: .default, reuseIdentifier: "Identity")
             }
 
@@ -198,8 +198,8 @@ final class UITableViewTests : RxTest {
 
         let (tableView, dataSourceSubscription) = createView()
 
-        var resultIndexPath: IndexPath? = nil
-        var resultIndexPath2: IndexPath? = nil
+        var resultIndexPath: IndexPath?
+        var resultIndexPath2: IndexPath?
 
         let subscription = tableView.rx.itemMoved
             .subscribe(onNext: { indexPaths in
@@ -267,7 +267,7 @@ final class UITableViewTests : RxTest {
 
         let createView: () -> (UITableView, Disposable) = {
             let tableView = UITableView(frame: CGRect(x: 0, y: 0, width: 1, height: 1))
-            let dataSourceSubscription = items.bind(to: tableView.rx.items) { (tv, index: Int, item: Int) -> UITableViewCell in
+            let dataSourceSubscription = items.bind(to: tableView.rx.items) { (_, _: Int, _: Int) -> UITableViewCell in
                 return UITableViewCell(style: .default, reuseIdentifier: "Identity")
             }
 
@@ -282,7 +282,7 @@ final class UITableViewTests : RxTest {
         let createView: () -> (UITableView, Disposable) = {
             let tableView = UITableView(frame: CGRect(x: 0, y: 0, width: 1, height: 1))
             tableView.register(NSClassFromString("UITableViewCell"), forCellReuseIdentifier: "a")
-            let dataSourceSubscription = items.bind(to: tableView.rx.items(cellIdentifier: "a")) { (index: Int, item: Int, cell) in
+            let dataSourceSubscription = items.bind(to: tableView.rx.items(cellIdentifier: "a")) { (_: Int, _: Int, _) in
 
             }
 
@@ -297,7 +297,7 @@ final class UITableViewTests : RxTest {
         let createView: () -> (UITableView, Disposable) = {
             let tableView = UITableView(frame: CGRect(x: 0, y: 0, width: 1, height: 1))
             tableView.register(NSClassFromString("UITableViewCell"), forCellReuseIdentifier: "a")
-            let dataSourceSubscription = items.bind(to: tableView.rx.items(cellIdentifier: "a", cellType: UITableViewCell.self)) { (index: Int, item: Int, cell) in
+            let dataSourceSubscription = items.bind(to: tableView.rx.items(cellIdentifier: "a", cellType: UITableViewCell.self)) { (_: Int, _: Int, _) in
 
             }
 
@@ -311,7 +311,7 @@ final class UITableViewTests : RxTest {
         
         let createView: () -> (UITableView, Disposable) = {
             let tableView = UITableView(frame: CGRect(x: 0, y: 0, width: 1, height: 1))
-            let dataSourceSubscription = items.bind(to: tableView.rx.items) { (tv, index: Int, item: Int) -> UITableViewCell in
+            let dataSourceSubscription = items.bind(to: tableView.rx.items) { (_, _: Int, _: Int) -> UITableViewCell in
                 return UITableViewCell(style: .default, reuseIdentifier: "Identity")
             }
             
@@ -320,7 +320,7 @@ final class UITableViewTests : RxTest {
         
         let (tableView, dataSourceSubscription) = createView()
         
-        var selectedItem: Int? = nil
+        var selectedItem: Int?
         
         let s = tableView.rx.modelSelected(Int.self)
             .subscribe(onNext: { item in
@@ -341,7 +341,7 @@ final class UITableViewTests : RxTest {
         let createView: () -> (UITableView, Disposable) = {
             let tableView = UITableView(frame: CGRect(x: 0, y: 0, width: 1, height: 1))
             tableView.register(NSClassFromString("UITableViewCell"), forCellReuseIdentifier: "a")
-            let dataSourceSubscription = items.bind(to: tableView.rx.items(cellIdentifier: "a")) { (index: Int, item: Int, cell) in
+            let dataSourceSubscription = items.bind(to: tableView.rx.items(cellIdentifier: "a")) { (_: Int, _: Int, _) in
 
             }
 
@@ -350,7 +350,7 @@ final class UITableViewTests : RxTest {
 
         let (tableView, dataSourceSubscription) = createView()
 
-        var selectedItem: Int? = nil
+        var selectedItem: Int?
 
         let s = tableView.rx.modelSelected(Int.self)
             .subscribe(onNext: { item in
@@ -370,7 +370,7 @@ final class UITableViewTests : RxTest {
 
         let createView: () -> (UITableView, Disposable) = {
             let tableView = UITableView(frame: CGRect(x: 0, y: 0, width: 1, height: 1))
-            let dataSourceSubscription = items.bind(to: tableView.rx.items) { (tv, index: Int, item: Int) -> UITableViewCell in
+            let dataSourceSubscription = items.bind(to: tableView.rx.items) { (_, _: Int, _: Int) -> UITableViewCell in
                 return UITableViewCell(style: .default, reuseIdentifier: "Identity")
             }
 
@@ -379,7 +379,7 @@ final class UITableViewTests : RxTest {
 
         let (tableView, dataSourceSubscription) = createView()
 
-        var selectedItem: Int? = nil
+        var selectedItem: Int?
 
         let s = tableView.rx.modelDeselected(Int.self)
             .subscribe(onNext: { item in
@@ -399,7 +399,7 @@ final class UITableViewTests : RxTest {
         
         let createView: () -> (UITableView, Disposable) = {
             let tableView = UITableView(frame: CGRect(x: 0, y: 0, width: 1, height: 1))
-            let dataSourceSubscription = items.bind(to: tableView.rx.items) { (tv, index: Int, item: Int) -> UITableViewCell in
+            let dataSourceSubscription = items.bind(to: tableView.rx.items) { (_, _: Int, _: Int) -> UITableViewCell in
                 return UITableViewCell(style: .default, reuseIdentifier: "Identity")
             }
             
@@ -408,7 +408,7 @@ final class UITableViewTests : RxTest {
         
         let (tableView, dataSourceSubscription) = createView()
         
-        var deletedItem: Int? = nil
+        var deletedItem: Int?
         
         let s = tableView.rx.modelDeleted(Int.self)
             .subscribe(onNext: { item in
@@ -429,7 +429,7 @@ final class UITableViewTests : RxTest {
         let createView: () -> (UITableView, Disposable) = {
             let tableView = UITableView(frame: CGRect(x: 0, y: 0, width: 1, height: 1))
             tableView.register(NSClassFromString("UITableViewCell"), forCellReuseIdentifier: "a")
-            let dataSourceSubscription = items.bind(to: tableView.rx.items(cellIdentifier: "a")) { (index: Int, item: Int, cell) in
+            let dataSourceSubscription = items.bind(to: tableView.rx.items(cellIdentifier: "a")) { (_: Int, _: Int, _) in
 
             }
 
@@ -438,7 +438,7 @@ final class UITableViewTests : RxTest {
 
         let (tableView, dataSourceSubscription) = createView()
 
-        var selectedItem: Int? = nil
+        var selectedItem: Int?
 
         let s = tableView.rx.modelDeselected(Int.self)
             .subscribe(onNext: { item in
@@ -480,7 +480,7 @@ final class UITableViewTests : RxTest {
 
             let createView: () -> (UITableView, Disposable) = {
                 let tableView = UITableView(frame: CGRect(x: 0, y: 0, width: 1, height: 1))
-                let dataSourceSubscription = items.bind(to: tableView.rx.items) { (tv, index: Int, item: Int) -> UITableViewCell in
+                let dataSourceSubscription = items.bind(to: tableView.rx.items) { (_, _: Int, _: Int) -> UITableViewCell in
                     return UITableViewCell(style: .default, reuseIdentifier: "Identity")
                 }
 
@@ -489,8 +489,8 @@ final class UITableViewTests : RxTest {
 
             let (tableView, dataSourceSubscription) = createView()
 
-            var resultContext: UITableViewFocusUpdateContext? = nil
-            var resultAnimationCoordinator: UIFocusAnimationCoordinator? = nil
+            var resultContext: UITableViewFocusUpdateContext?
+            var resultAnimationCoordinator: UIFocusAnimationCoordinator?
 
             let subscription = tableView.rx.didUpdateFocusInContextWithAnimationCoordinator
                 .subscribe(onNext: { args in
@@ -521,7 +521,7 @@ extension UITableViewTests {
 
         var dataSourceDeallocated = false
 
-        var outerTableView: UITableView? = nil
+        var outerTableView: UITableView?
         outerTableView?.beginUpdates()
 
         var dataSourceSubscription: Disposable!

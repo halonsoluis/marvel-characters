@@ -630,7 +630,7 @@ class DownloadResponseFlatMapTestCase: BaseTestCase {
 
         // When
         Alamofire.download(urlString, parameters: ["foo": "bar"]).responseJSON { resp in
-            response = resp.flatMap { json in
+            response = resp.flatMap { _ in
                 throw TransformError()
             }
 

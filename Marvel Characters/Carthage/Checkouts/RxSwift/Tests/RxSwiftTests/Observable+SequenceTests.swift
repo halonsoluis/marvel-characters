@@ -52,7 +52,7 @@ extension ObservableSequenceTest {
 
         XCTAssertEqual(res.events, [
             .next(201, 3),
-            .next(202, 1),
+            .next(202, 1)
             ])
     }
 
@@ -104,7 +104,7 @@ extension ObservableSequenceTest {
 
         XCTAssertEqual(res.events, [
             .next(201, 3),
-            .next(202, 1),
+            .next(202, 1)
             ])
     }
 

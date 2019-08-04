@@ -15,15 +15,15 @@ public class Observable<Element> : ObservableType {
         _ = Resources.incrementTotal()
 #endif
     }
-    
+
     public func subscribe<Observer: ObserverType>(_ observer: Observer) -> Disposable where Observer.Element == Element {
         rxAbstractMethod()
     }
-    
+
     public func asObservable() -> Observable<Element> {
         return self
     }
-    
+
     deinit {
 #if TRACE_RESOURCES
         _ = Resources.decrementTotal()
@@ -38,4 +38,3 @@ public class Observable<Element> : ObservableType {
         return _map(source: self, transform: transform)
     }
 }
-

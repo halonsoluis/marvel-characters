@@ -135,7 +135,7 @@ extension ObservableUsingTest {
         XCTAssert(disposable === _d)
 
         XCTAssertEqual(res.events, [
-            .next(300, 200),
+            .next(300, 200)
             ])
 
         XCTAssertEqual(1, createInvoked)
@@ -169,7 +169,7 @@ extension ObservableUsingTest {
         }
 
         XCTAssertEqual(res.events, [
-            .error(200, testError),
+            .error(200, testError)
             ])
 
         XCTAssertEqual(0, createInvoked)
@@ -196,7 +196,7 @@ extension ObservableUsingTest {
         }
 
         XCTAssertEqual(res.events, [
-            .error(200, testError),
+            .error(200, testError)
             ])
 
         XCTAssertEqual(1, createInvoked)

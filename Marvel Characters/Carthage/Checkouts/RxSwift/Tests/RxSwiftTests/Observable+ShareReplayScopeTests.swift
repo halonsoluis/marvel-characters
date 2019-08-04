@@ -201,7 +201,7 @@ extension ObservableShareReplayScopeTests {
                 .next(320, 6),
                 .error(330, testError),
                 .next(340, -1),
-                .next(550, 7),
+                .next(550, 7)
                 ])
 
             var subscription1: Disposable! = nil
@@ -271,7 +271,7 @@ extension ObservableShareReplayScopeTests {
             XCTAssertEqual(res3.events, replayedEvents3 + [.error(500, testError)])
 
             XCTAssertEqual(xs.subscriptions, [
-                Subscription(200, 330),
+                Subscription(200, 330)
                 ])
         }
     }
@@ -289,7 +289,7 @@ extension ObservableShareReplayScopeTests {
                 .next(320, 6),
                 .error(330, testError),
                 .next(340, -1),
-                .next(550, 7),
+                .next(550, 7)
                 ])
 
             var subscription1: Disposable! = nil
@@ -374,7 +374,7 @@ extension ObservableShareReplayScopeTests {
                 .next(320, 6),
                 .completed(330),
                 .next(340, -1),
-                .next(550, 7),
+                .next(550, 7)
                 ])
 
             var subscription1: Disposable! = nil
@@ -444,7 +444,7 @@ extension ObservableShareReplayScopeTests {
             XCTAssertEqual(res3.events, replayedEvents3 + [.completed(500)])
 
             XCTAssertEqual(xs.subscriptions, [
-                Subscription(200, 330),
+                Subscription(200, 330)
                 ])
         }
     }
@@ -462,7 +462,7 @@ extension ObservableShareReplayScopeTests {
                 .next(320, 6),
                 .completed(330),
                 .next(340, -1),
-                .next(550, 7),
+                .next(550, 7)
                 ])
 
             var subscription1: Disposable! = nil

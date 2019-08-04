@@ -78,12 +78,12 @@ extension SignalTests {
 
         XCTAssertEqual(observer3.events, [
             .next(270, 0),
-            .next(280, 1),
+            .next(280, 1)
             ])
 
         XCTAssertEqual(coldObservable.subscriptions, [
             Subscription(200, 250),
-            Subscription(260, 285),
+            Subscription(260, 285)
             ])
     }
 
@@ -149,12 +149,12 @@ extension SignalTests {
 
         XCTAssertEqual(observer3.events, [
             .next(270, 0),
-            .next(280, 1),
+            .next(280, 1)
             ])
 
         XCTAssertEqual(coldObservable.subscriptions, [
             Subscription(200, 250),
-            Subscription(260, 285),
+            Subscription(260, 285)
             ])
     }
 }
@@ -344,7 +344,7 @@ extension SignalTests {
     func testSignalOptionalRelay1() {
         let relay = PublishRelay<Int?>()
 
-        var latest: Int? = nil
+        var latest: Int?
         _ = relay.subscribe(onNext: { latestElement in
             latest = latestElement
         })
@@ -370,7 +370,7 @@ extension SignalTests {
     func testDriveRelayNoAmbiguity() {
         let relay = PublishRelay<Int?>()
 
-        var latest: Int? = nil
+        var latest: Int?
         _ = relay.subscribe(onNext: { latestElement in
             latest = latestElement
         })

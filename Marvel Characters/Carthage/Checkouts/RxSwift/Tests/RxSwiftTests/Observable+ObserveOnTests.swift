@@ -203,7 +203,7 @@ extension ObservableObserveOnTest {
                     ])
                 XCTAssert(xs.subscriptions == [UnsunscribedFromHotObservable])
                 return Disposables.create()
-            },
+            }
             ])
     }
 
@@ -267,7 +267,7 @@ extension ObservableObserveOnTest {
                     ])
                 XCTAssert(xs.subscriptions == [UnsunscribedFromHotObservable])
                 return Disposables.create()
-            },
+            }
             ])
     }
 
@@ -299,7 +299,7 @@ extension ObservableObserveOnTest {
             },
             { scheduler in
                 XCTAssertEqual(observer.events, [
-                    .next(0),
+                    .next(0)
                     ])
                 XCTAssert(xs.subscriptions == [UnsunscribedFromHotObservable])
                 return Disposables.create()
@@ -672,7 +672,7 @@ class ObservableObserveOnTestConcurrentSchedulerTest: ObservableObserveOnTestBas
         sleep(0.1)
 
         XCTAssertEqual(observer.events, [
-            .next(0),
+            .next(0)
             ])
         XCTAssert(xs.subscriptions == [UnsunscribedFromHotObservable])
     }

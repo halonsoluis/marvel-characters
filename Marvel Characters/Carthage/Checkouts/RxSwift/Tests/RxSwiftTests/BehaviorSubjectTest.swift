@@ -241,7 +241,7 @@ class BehaviorSubjectTest : RxTest {
         scheduler.start()
         
         XCTAssertEqual(results1.events, [
-            .next(300, 100),
+            .next(300, 100)
         ])
         
         XCTAssertEqual(results2.events, [

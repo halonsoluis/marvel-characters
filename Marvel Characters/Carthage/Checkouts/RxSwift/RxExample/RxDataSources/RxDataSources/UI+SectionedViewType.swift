@@ -95,7 +95,7 @@ extension UICollectionView : SectionedViewType {
   public func performBatchUpdates<S>(_ changes: Changeset<S>, animationConfiguration: AnimationConfiguration) {
         self.performBatchUpdates({ () -> Void in
             _performBatchUpdates(self, changes: changes, animationConfiguration: animationConfiguration)
-        }, completion: { (completed: Bool) -> Void in
+        }, completion: { (_: Bool) -> Void in
         })
     }
 }

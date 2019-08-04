@@ -9,7 +9,7 @@
 import RxSwift
 
 /// A protocol that extends `ControlEvent`.
-public protocol ControlEventType : ObservableType {
+public protocol ControlEventType: ObservableType {
 
     /// - returns: `ControlEvent` interface
     func asControlEvent() -> ControlEvent<Element>

@@ -23,9 +23,8 @@ extension ObservableType {
 }
 
 final private class TakeWhileSink<Observer: ObserverType>
-    : Sink<Observer>
-    , ObserverType {
-    typealias Element = Observer.Element 
+    : Sink<Observer>, ObserverType {
+    typealias Element = Observer.Element
     typealias Parent = TakeWhile<Element>
 
     fileprivate let _parent: Parent
@@ -36,14 +35,14 @@ final private class TakeWhileSink<Observer: ObserverType>
         self._parent = parent
         super.init(observer: observer, cancel: cancel)
     }
-    
+
     func on(_ event: Event<Element>) {
         switch event {
         case .next(let value):
             if !self._running {
                 return
             }
-            
+
             do {
                 self._running = try self._parent._predicate(value)
             } catch let e {
@@ -51,7 +50,7 @@ final private class TakeWhileSink<Observer: ObserverType>
                 self.dispose()
                 return
             }
-            
+
             if self._running {
                 self.forwardOn(.next(value))
             } else {
@@ -63,7 +62,7 @@ final private class TakeWhileSink<Observer: ObserverType>
             self.dispose()
         }
     }
-    
+
 }
 
 final private class TakeWhile<Element>: Producer<Element> {

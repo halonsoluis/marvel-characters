@@ -610,7 +610,7 @@ class RequestDebugDescriptionTestCase: BaseTestCase {
             HTTPCookiePropertyKey.domain: "httpbin.org",
             HTTPCookiePropertyKey.path: "/post",
             HTTPCookiePropertyKey.name: "foo",
-            HTTPCookiePropertyKey.value: "bar",
+            HTTPCookiePropertyKey.value: "bar"
         ]
 
         let cookie = HTTPCookie(properties: properties)!
@@ -635,7 +635,7 @@ class RequestDebugDescriptionTestCase: BaseTestCase {
             HTTPCookiePropertyKey.domain: "httpbin.org",
             HTTPCookiePropertyKey.path: "/post",
             HTTPCookiePropertyKey.name: "foo",
-            HTTPCookiePropertyKey.value: "bar",
+            HTTPCookiePropertyKey.value: "bar"
         ]
 
         let cookie = HTTPCookie(properties: properties)!

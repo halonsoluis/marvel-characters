@@ -75,7 +75,7 @@ extension DisposableTest {
             .next(270, 4),
             .next(340, 5),
             .next(380, 6),
-            .next(390, 7),
+            .next(390, 7)
             ])
         
         XCTAssertEqual(xs.subscriptions, [

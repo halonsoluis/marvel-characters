@@ -174,7 +174,7 @@ class RxExample_iOSTests
 extension RxExample_iOSTests {
     func mockGithubAPI(scheduler: TestScheduler) -> GitHubAPI {
         return MockGitHubAPI(
-            usernameAvailable: scheduler.mock(values: booleans, errors: errors) { (username) -> String in
+            usernameAvailable: scheduler.mock(values: booleans, errors: errors) { username -> String in
                 if username == "secretusername" {
                     return "---t"
                 }

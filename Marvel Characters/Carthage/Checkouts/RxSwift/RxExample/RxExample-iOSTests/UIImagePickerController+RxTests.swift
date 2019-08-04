@@ -32,7 +32,7 @@ extension UIImagePickerControllerTests {
             let imagePickerController = UIImagePickerController()
             
             _ = imagePickerController.rx.didFinishPickingMediaWithInfo
-                .subscribe(onNext: { (i) -> Void in
+                .subscribe(onNext: { i -> Void in
                     info = i
                 }, onCompleted: {
                     completed = true
@@ -57,7 +57,7 @@ extension UIImagePickerControllerTests {
             let imagePickerController = UIImagePickerController()
             
             _ = imagePickerController.rx.didCancel
-                .subscribe(onNext: { (i) -> Void in
+                .subscribe(onNext: { _ -> Void in
                         canceled = true
                     }, onCompleted: {
                         completed = true

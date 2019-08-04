@@ -421,7 +421,7 @@ class SessionDelegateTestCase: BaseTestCase {
         let urlString = "https://httpbin.org/redirect-to?url=\(redirectURLString)"
         let headers = [
             "Authorization": "1234",
-            "Custom-Header": "foobar",
+            "Custom-Header": "foobar"
         ]
 
         // NOTE: It appears that most headers are maintained during a redirect with the exception of the `Authorization`
@@ -548,7 +548,7 @@ class SessionDelegateTestCase: BaseTestCase {
         }
 
         // When
-        manager.request("https://httpbin.org/get").responseJSON { resp in }
+        manager.request("https://httpbin.org/get").responseJSON { _ in }
 
         wait(for: [expectation], timeout: timeout)
 
@@ -581,7 +581,7 @@ class SessionDelegateTestCase: BaseTestCase {
         }
 
         // When
-        manager.download("https://httpbin.org/get").response { resp in }
+        manager.download("https://httpbin.org/get").response { _ in }
 
         wait(for: [expectation], timeout: timeout)
 

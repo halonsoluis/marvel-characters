@@ -21,8 +21,8 @@ extension NSControlTests {
         ensurePropertyDeallocated(createView, "1") { (view: NSControl) in
             var value = "1"
             return view.rx.controlProperty(
-                getter: { (_) -> String in value },
-                setter: { (_, newValue) in value = newValue }
+                getter: { _ -> String in value },
+                setter: { _, newValue in value = newValue }
             )
         }
     }
@@ -67,7 +67,7 @@ extension NSControlTests {
 
         let property = control.rx.controlProperty(getter: { (_: NSControl) in
             value
-        }, setter: { (_: NSControl, newValue) in
+        }, setter: { (_: NSControl, _) in
             fatalError()
         })
 

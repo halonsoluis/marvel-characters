@@ -26,15 +26,15 @@ extension ControlPropertyTests {
             XCTAssertTrue(DispatchQueue.isMain)
             observedOnMainQueue = true
             return hotObservable.asObservable()
-        }, valueSink: AnyObserver { n in
+        }, valueSink: AnyObserver { _ in
             
         })
 
         doOnBackgroundQueue {
-            let d = controlProperty.asObservable().subscribe { n in
+            let d = controlProperty.asObservable().subscribe { _ in
 
             }
-            let d2 = controlProperty.subscribe { n in
+            let d2 = controlProperty.subscribe { _ in
 
             }
             doOnMainQueue {

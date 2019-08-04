@@ -60,7 +60,7 @@ extension ObservableTimeoutTest {
         let scheduler = TestScheduler(initialClock: 0)
         
         let xs = scheduler.createHotObservable([
-            .next(150, 0),
+            .next(150, 0)
             ])
         
         let res = scheduler.start {
@@ -319,7 +319,7 @@ extension ObservableTimeoutTest {
         }
         
         XCTAssertEqual(res.events, [
-            .next(400, -1),
+            .next(400, -1)
             ])
         
         XCTAssertEqual(xs.subscriptions, [
@@ -347,7 +347,7 @@ extension ObservableTimeoutTest {
         }
 
         XCTAssertEqual(res.events, [
-            .next(400, -1),
+            .next(400, -1)
             ])
 
         XCTAssertEqual(xs.subscriptions, [

@@ -51,13 +51,13 @@ extension ObservableConcatTest {
             .next(10, 1),
             .next(20, 2),
             .next(30, 3),
-            .completed(40),
+            .completed(40)
         ])
         
         let xs2 = scheduler.createColdObservable([
             .next(10, 4),
             .next(20, 5),
-            .completed(30),
+            .completed(30)
         ])
         
         let xs3 = scheduler.createColdObservable([
@@ -88,15 +88,15 @@ extension ObservableConcatTest {
         XCTAssertEqual(res.events, messages)
         
         XCTAssertEqual(xs1.subscriptions, [
-            Subscription(200, 240),
+            Subscription(200, 240)
         ])
 
         XCTAssertEqual(xs2.subscriptions, [
-            Subscription(240, 270),
+            Subscription(240, 270)
         ])
         
         XCTAssertEqual(xs3.subscriptions, [
-            Subscription(270, 320),
+            Subscription(270, 320)
         ])
     }
     
@@ -105,12 +105,12 @@ extension ObservableConcatTest {
         
         let xs1 = scheduler.createHotObservable([
             .next(150, 1),
-            .completed(230),
+            .completed(230)
             ])
         
         let xs2 = scheduler.createHotObservable([
             .next(150, 1),
-            .completed(250),
+            .completed(250)
             ])
         
         let res = scheduler.start {
@@ -124,11 +124,11 @@ extension ObservableConcatTest {
         XCTAssertEqual(res.events, messages)
 
         XCTAssertEqual(xs1.subscriptions, [
-            Subscription(200, 230),
+            Subscription(200, 230)
             ])
         
         XCTAssertEqual(xs2.subscriptions, [
-            Subscription(230, 250),
+            Subscription(230, 250)
             ])
     }
     
@@ -137,11 +137,11 @@ extension ObservableConcatTest {
         
         let xs1 = scheduler.createHotObservable([
             .next(150, 1),
-            .completed(230),
+            .completed(230)
             ])
         
         let xs2 = scheduler.createHotObservable([
-            .next(150, 1),
+            .next(150, 1)
             ])
         
         let res = scheduler.start {
@@ -154,11 +154,11 @@ extension ObservableConcatTest {
         XCTAssertEqual(res.events, messages)
         
         XCTAssertEqual(xs1.subscriptions, [
-            Subscription(200, 230),
+            Subscription(200, 230)
             ])
         
         XCTAssertEqual(xs2.subscriptions, [
-            Subscription(230, 1000),
+            Subscription(230, 1000)
             ])
     }
     
@@ -166,11 +166,11 @@ extension ObservableConcatTest {
         let scheduler = TestScheduler(initialClock: 0)
         
         let xs1 = scheduler.createHotObservable([
-            .next(150, 1),
+            .next(150, 1)
             ])
         
         let xs2 = scheduler.createHotObservable([
-            .next(150, 1),
+            .next(150, 1)
             ])
         
         let res = scheduler.start {
@@ -183,7 +183,7 @@ extension ObservableConcatTest {
         XCTAssertEqual(res.events, messages)
         
         XCTAssertEqual(xs1.subscriptions, [
-            Subscription(200, 1000),
+            Subscription(200, 1000)
             ])
         
         XCTAssertEqual(xs2.subscriptions, [
@@ -195,7 +195,7 @@ extension ObservableConcatTest {
         
         let xs1 = scheduler.createHotObservable([
             .next(150, 1),
-            .completed(230),
+            .completed(230)
             ])
         
         let xs2 = scheduler.createHotObservable([
@@ -214,11 +214,11 @@ extension ObservableConcatTest {
         XCTAssertEqual(res.events, messages)
         
         XCTAssertEqual(xs1.subscriptions, [
-            Subscription(200, 230),
+            Subscription(200, 230)
             ])
 
         XCTAssertEqual(xs2.subscriptions, [
-            Subscription(230, 250),
+            Subscription(230, 250)
             ])
     }
     
@@ -227,7 +227,7 @@ extension ObservableConcatTest {
         
         let xs1 = scheduler.createHotObservable([
             .next(150, 1),
-            .error(230, testError),
+            .error(230, testError)
             ])
         
         let xs2 = scheduler.createHotObservable([
@@ -246,7 +246,7 @@ extension ObservableConcatTest {
         XCTAssertEqual(res.events, messages)
         
         XCTAssertEqual(xs1.subscriptions, [
-            Subscription(200, 230),
+            Subscription(200, 230)
             ])
         
         XCTAssertEqual(xs2.subscriptions, [
@@ -258,7 +258,7 @@ extension ObservableConcatTest {
         
         let xs1 = scheduler.createHotObservable([
             .next(150, 1),
-            .error(230, testError1),
+            .error(230, testError1)
             ])
         
         let xs2 = scheduler.createHotObservable([
@@ -277,7 +277,7 @@ extension ObservableConcatTest {
         XCTAssertEqual(res.events, messages)
         
         XCTAssertEqual(xs1.subscriptions, [
-            Subscription(200, 230),
+            Subscription(200, 230)
             ])
         
         XCTAssertEqual(xs2.subscriptions, [
@@ -290,7 +290,7 @@ extension ObservableConcatTest {
         let xs1 = scheduler.createHotObservable([
             .next(150, 1),
             .next(210, 2),
-            .completed(230),
+            .completed(230)
             ])
         
         let xs2 = scheduler.createHotObservable([
@@ -310,11 +310,11 @@ extension ObservableConcatTest {
         XCTAssertEqual(res.events, messages)
         
         XCTAssertEqual(xs1.subscriptions, [
-            Subscription(200, 230),
+            Subscription(200, 230)
             ])
         
         XCTAssertEqual(xs2.subscriptions, [
-            Subscription(230, 250),
+            Subscription(230, 250)
             ])
     }
     
@@ -323,7 +323,7 @@ extension ObservableConcatTest {
         
         let xs1 = scheduler.createHotObservable([
             .next(150, 1),
-            .completed(230),
+            .completed(230)
             ])
         
         let xs2 = scheduler.createHotObservable([
@@ -344,11 +344,11 @@ extension ObservableConcatTest {
         XCTAssertEqual(res.events, messages)
         
         XCTAssertEqual(xs1.subscriptions, [
-            Subscription(200, 230),
+            Subscription(200, 230)
             ])
         
         XCTAssertEqual(xs2.subscriptions, [
-            Subscription(230, 250),
+            Subscription(230, 250)
             ])
     }
     
@@ -358,11 +358,11 @@ extension ObservableConcatTest {
         let xs1 = scheduler.createHotObservable([
             .next(150, 1),
             .next(210, 2),
-            .completed(230),
+            .completed(230)
             ])
         
         let xs2 = scheduler.createHotObservable([
-            .next(150, 1),
+            .next(150, 1)
             ])
         
         let res = scheduler.start {
@@ -370,17 +370,17 @@ extension ObservableConcatTest {
         }
         
         let messages = [
-            Recorded.next(210, 2),
+            Recorded.next(210, 2)
         ]
 
         XCTAssertEqual(res.events, messages)
         
         XCTAssertEqual(xs1.subscriptions, [
-            Subscription(200, 230),
+            Subscription(200, 230)
             ])
         
         XCTAssertEqual(xs2.subscriptions, [
-            Subscription(230, 1000),
+            Subscription(230, 1000)
             ])
     }
     
@@ -388,13 +388,13 @@ extension ObservableConcatTest {
         let scheduler = TestScheduler(initialClock: 0)
         
         let xs1 = scheduler.createHotObservable([
-            .next(150, 1),
+            .next(150, 1)
             ])
         
         let xs2 = scheduler.createHotObservable([
             .next(150, 1),
             .next(210, 2),
-            .completed(230),
+            .completed(230)
             ])
         
         let res = scheduler.start {
@@ -407,7 +407,7 @@ extension ObservableConcatTest {
         XCTAssertEqual(res.events, messages)
         
         XCTAssertEqual(xs1.subscriptions, [
-            Subscription(200, 1000),
+            Subscription(200, 1000)
             ])
         
         XCTAssertEqual(xs2.subscriptions, [
@@ -426,7 +426,7 @@ extension ObservableConcatTest {
         let xs2 = scheduler.createHotObservable([
             .next(150, 1),
             .next(240, 3),
-            .completed(250),
+            .completed(250)
             ])
         
         let res = scheduler.start {
@@ -442,11 +442,11 @@ extension ObservableConcatTest {
         XCTAssertEqual(res.events, messages)
         
         XCTAssertEqual(xs1.subscriptions, [
-            Subscription(200, 230),
+            Subscription(200, 230)
             ])
         
         XCTAssertEqual(xs2.subscriptions, [
-            Subscription(230, 250),
+            Subscription(230, 250)
             ])
     }
     
@@ -461,7 +461,7 @@ extension ObservableConcatTest {
         let xs2 = scheduler.createHotObservable([
             .next(150, 1),
             .next(240, 2),
-            .completed(250),
+            .completed(250)
             ])
         
         let res = scheduler.start {
@@ -475,7 +475,7 @@ extension ObservableConcatTest {
         XCTAssertEqual(res.events, messages)
         
         XCTAssertEqual(xs1.subscriptions, [
-            Subscription(200, 230),
+            Subscription(200, 230)
             ])
         
         XCTAssertEqual(xs2.subscriptions, [
@@ -493,7 +493,7 @@ extension ObservableConcatTest {
         
         let xs2 = scheduler.createHotObservable([
             .next(150, 1),
-            .error(250, testError2),
+            .error(250, testError2)
             ])
         
         let res = scheduler.start {
@@ -508,11 +508,11 @@ extension ObservableConcatTest {
         XCTAssertEqual(res.events, messages)
         
         XCTAssertEqual(xs1.subscriptions, [
-            Subscription(200, 230),
+            Subscription(200, 230)
             ])
         
         XCTAssertEqual(xs2.subscriptions, [
-            Subscription(230, 250),
+            Subscription(230, 250)
             ])
     }
     
@@ -548,11 +548,11 @@ extension ObservableConcatTest {
         XCTAssertEqual(res.events, messages)
         
         XCTAssertEqual(xs1.subscriptions, [
-            Subscription(200, 225),
+            Subscription(200, 225)
             ])
         
         XCTAssertEqual(xs2.subscriptions, [
-            Subscription(225, 250),
+            Subscription(225, 250)
             ])
     }
     
@@ -606,16 +606,16 @@ extension ObservableConcatTest {
         XCTAssertEqual(res.events, messages)
         
         XCTAssertEqual(xs1.subscriptions, [
-            Subscription(200, 230),
+            Subscription(200, 230)
             ])
         
         XCTAssertEqual(xs2.subscriptions, [
             Subscription(230, 310),
-            Subscription(340, 420),
+            Subscription(340, 420)
             ])
         
         XCTAssertEqual(xs3.subscriptions, [
-            Subscription(310, 340),
+            Subscription(310, 340)
             ])
         
     }

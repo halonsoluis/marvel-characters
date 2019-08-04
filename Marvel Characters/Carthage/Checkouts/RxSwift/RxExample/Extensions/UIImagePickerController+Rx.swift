@@ -21,7 +21,7 @@
         public var didFinishPickingMediaWithInfo: Observable<[String : AnyObject]> {
             return delegate
                 .methodInvoked(#selector(UIImagePickerControllerDelegate.imagePickerController(_:didFinishPickingMediaWithInfo:)))
-                .map({ (a) in
+                .map({ a in
                     return try castOrThrow(Dictionary<String, AnyObject>.self, a[1])
                 })
         }
@@ -32,7 +32,7 @@
         public var didCancel: Observable<()> {
             return delegate
                 .methodInvoked(#selector(UIImagePickerControllerDelegate.imagePickerControllerDidCancel(_:)))
-                .map {_ in () }
+                .map { _ in () }
         }
         
     }

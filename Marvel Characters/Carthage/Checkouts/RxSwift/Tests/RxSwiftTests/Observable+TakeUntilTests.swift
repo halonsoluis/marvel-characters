@@ -65,7 +65,7 @@ extension ObservableTakeUntilTest {
         
         let r = scheduler.createHotObservable([
             .next(150, 1),
-            .error(225, testError),
+            .error(225, testError)
             ])
         
         let res = scheduler.start {
@@ -138,7 +138,7 @@ extension ObservableTakeUntilTest {
             ])
         
         let r = scheduler.createHotObservable([
-            .next(150, 1),
+            .next(150, 1)
             ])
         
         let res = scheduler.start {
@@ -166,7 +166,7 @@ extension ObservableTakeUntilTest {
         let scheduler = TestScheduler(initialClock: 0)
         
         let l = scheduler.createHotObservable([
-            .next(150, 1),
+            .next(150, 1)
             ])
         
         let r = scheduler.createHotObservable([
@@ -196,7 +196,7 @@ extension ObservableTakeUntilTest {
         let scheduler = TestScheduler(initialClock: 0)
         
         let l = scheduler.createHotObservable([
-            .next(150, 1),
+            .next(150, 1)
             ])
         
         let r = scheduler.createHotObservable([
@@ -225,7 +225,7 @@ extension ObservableTakeUntilTest {
         let scheduler = TestScheduler(initialClock: 0)
         
         let l = scheduler.createHotObservable([
-            .next(150, 1),
+            .next(150, 1)
             ])
         
         let r = scheduler.createHotObservable([
@@ -253,11 +253,11 @@ extension ObservableTakeUntilTest {
         let scheduler = TestScheduler(initialClock: 0)
         
         let l = scheduler.createHotObservable([
-            .next(150, 1),
+            .next(150, 1)
             ])
         
         let r = scheduler.createHotObservable([
-            .next(150, 1),
+            .next(150, 1)
             ])
         
         let res = scheduler.start {
@@ -375,7 +375,7 @@ extension ObservableTakeUntilTest {
         
         let r = scheduler.createHotObservable([
             .next(150, 1),
-            .next(240, 2),
+            .next(240, 2)
             ])
         
         let sourceNotDisposed = false
@@ -385,7 +385,7 @@ extension ObservableTakeUntilTest {
         }
         
         XCTAssertEqual(res.events, [
-            .error(225, testError),
+            .error(225, testError)
             ])
         
         XCTAssertFalse(sourceNotDisposed)

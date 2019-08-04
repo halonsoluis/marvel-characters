@@ -26,7 +26,7 @@ extension ObservableMaterializeTest {
         let scheduler = TestScheduler(initialClock: 0)
         let xs = scheduler.createHotObservable([
             .completed(201, Int.self),
-            .completed(202, Int.self),
+            .completed(202, Int.self)
             ])
         let res = scheduler.start {
             return xs.materialize()
@@ -46,7 +46,7 @@ extension ObservableMaterializeTest {
             .next(150, 1),
             .next(210, 2),
             .completed(250),
-            .completed(251),
+            .completed(251)
             ])
         let res = scheduler.start {
             return xs.materialize()
@@ -66,7 +66,7 @@ extension ObservableMaterializeTest {
         let xs = scheduler.createHotObservable([
             .next(150, 1),
             .error(250, testError),
-            .error(251, testError),
+            .error(251, testError)
             ])
         let res = scheduler.start {
             return xs.materialize()

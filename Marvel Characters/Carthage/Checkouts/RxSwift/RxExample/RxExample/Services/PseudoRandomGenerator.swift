@@ -19,8 +19,8 @@ class PseudoRandomGenerator {
     }
     
     func get_random() -> Int {
-        m_z = 36969 &* (m_z & 65535) &+ (m_z >> 16);
-        m_w = 18000 &* (m_w & 65535) &+ (m_w >> 16);
+        m_z = 36969 &* (m_z & 65535) &+ (m_z >> 16)
+        m_w = 18000 &* (m_w & 65535) &+ (m_w >> 16)
         let val = ((m_z << 16) &+ m_w)
         return Int(val % (1 << 30))  /* 32-bit result */
     }

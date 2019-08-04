@@ -63,7 +63,7 @@ class APIWrappersViewController: ViewController {
         // MARK: UIBarButtonItem
 
         bbitem.rx.tap
-            .subscribe(onNext: { [weak self] x in
+            .subscribe(onNext: { [weak self] _ in
                 self?.debug("UIBarButtonItem Tapped")
             })
             .disposed(by: disposeBag)
@@ -102,7 +102,7 @@ class APIWrappersViewController: ViewController {
         // MARK: UIButton
 
         button.rx.tap
-            .subscribe(onNext: { [weak self] x in
+            .subscribe(onNext: { [weak self] _ in
                 self?.debug("UIButton Tapped")
             })
             .disposed(by: disposeBag)

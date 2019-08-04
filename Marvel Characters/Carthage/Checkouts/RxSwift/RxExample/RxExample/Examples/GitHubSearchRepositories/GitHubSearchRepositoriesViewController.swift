@@ -23,7 +23,7 @@ class GitHubSearchRepositoriesViewController: ViewController, UITableViewDelegat
     @IBOutlet weak var searchBar: UISearchBar!
 
     let dataSource = RxTableViewSectionedReloadDataSource<SectionModel<String, Repository>>(
-        configureCell: { (_, tv, ip, repository: Repository) in
+        configureCell: { (_, tv, _, repository: Repository) in
             let cell = tv.dequeueReusableCell(withIdentifier: "Cell")!
             cell.textLabel?.text = repository.name
             cell.detailTextLabel?.text = repository.url.absoluteString
@@ -83,7 +83,7 @@ class GitHubSearchRepositoriesViewController: ViewController, UITableViewDelegat
             .map { $0.isLimitExceeded }
             .distinctUntilChanged()
             .filter { $0 }
-            .drive(onNext: { n in
+            .drive(onNext: { _ in
                 showAlert("Exceeded limit of 10 non authenticated requests per minute for GitHub API. Please wait a minute. :(\nhttps://developer.github.com/v3/#rate-limiting") 
             })
             .disposed(by: disposeBag)

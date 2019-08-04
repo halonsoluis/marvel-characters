@@ -59,7 +59,7 @@ final class Child : NSObject {
 final class ParentWithChild : NSObject {
     @objc dynamic var val: String = ""
     
-    var child: Child? = nil
+    var child: Child?
     
     init(callback: @escaping (String?) -> Void) {
         super.init()
@@ -99,7 +99,7 @@ final class ParentWithChild : NSObject {
 }
 
 final class HasStrongProperty : NSObject {
-    @objc dynamic var property: NSObject? = nil
+    @objc dynamic var property: NSObject?
     @objc dynamic var frame: CGRect
     @objc dynamic var point: CGPoint
     @objc dynamic var size: CGSize
@@ -125,7 +125,7 @@ final class HasStrongProperty : NSObject {
 }
 
 final class HasWeakProperty : NSObject {
-    @objc dynamic weak var property: NSObject? = nil
+    @objc dynamic weak var property: NSObject?
     
     override init() {
         super.init()
@@ -518,7 +518,7 @@ extension KVOObservableTests {
     func _testObserveWeak_Strong_Weak_Observe_NilLastPropertyBecauseOfWeak() -> (HasWeakProperty, NSObject?, Observable<Void>) {
         var dealloc: Observable<Void>! = nil
         let child: HasWeakProperty! = HasWeakProperty()
-        var latest: NSObject? = nil
+        var latest: NSObject?
         
         autoreleasepool {
             let root: HasStrongProperty! = HasStrongProperty()
@@ -552,7 +552,7 @@ extension KVOObservableTests {
         var gone = false
         let (child, latest, dealloc) = _testObserveWeak_Strong_Weak_Observe_NilLastPropertyBecauseOfWeak()
         _ = dealloc
-            .subscribe(onNext: { n in
+            .subscribe(onNext: { _ in
                 gone = true
             })
         
@@ -564,7 +564,7 @@ extension KVOObservableTests {
     func _testObserveWeak_Weak_Weak_Weak_middle_NilifyCorrectly() -> (HasWeakProperty, NSObject?, Observable<Void>) {
         var dealloc: Observable<Void>! = nil
         var middle: HasWeakProperty! = HasWeakProperty()
-        var latest: NSObject? = nil
+        var latest: NSObject?
         let root: HasWeakProperty! = HasWeakProperty()
         
         autoreleasepool {
@@ -613,7 +613,7 @@ extension KVOObservableTests {
     func testObserveWeak_TargetDeallocated() {
         var root: HasStrongProperty! = HasStrongProperty()
         
-        var latest: String? = nil
+        var latest: String?
         
         root.property = "a".duplicate()
         
@@ -644,7 +644,7 @@ extension KVOObservableTests {
     func testObserveWeakWithOptions_ObserveNotInitialValue() {
         var root: HasStrongProperty! = HasStrongProperty()
         
-        var latest: String? = nil
+        var latest: String?
         
         root.property = "a".duplicate()
         
@@ -681,7 +681,7 @@ extension KVOObservableTests {
     func testObserve_ObserveNSRect() {
         var root: HasStrongProperty! = HasStrongProperty()
         
-        var latest: NSRect? = nil
+        var latest: NSRect?
         
         XCTAssertTrue(latest == nil)
         
@@ -717,7 +717,7 @@ extension KVOObservableTests {
     func testObserve_ObserveCGRectForBiggerStructureDoesntCrashPropertyTypeReturnsNil() {
         var root: HasStrongProperty! = HasStrongProperty()
         
-        var latest: CGSize? = nil
+        var latest: CGSize?
         
         XCTAssertTrue(latest == nil)
         
@@ -753,7 +753,7 @@ extension KVOObservableTests {
     func testObserve_ObserveCGRect() {
         var root: HasStrongProperty! = HasStrongProperty()
         
-        var latest: CGRect? = nil
+        var latest: CGRect?
         
         XCTAssertTrue(latest == nil)
         
@@ -789,7 +789,7 @@ extension KVOObservableTests {
     func testObserve_ObserveCGSize() {
         var root: HasStrongProperty! = HasStrongProperty()
         
-        var latest: CGSize? = nil
+        var latest: CGSize?
         
         XCTAssertTrue(latest == nil)
         
@@ -825,7 +825,7 @@ extension KVOObservableTests {
     func testObserve_ObserveCGPoint() {
         var root: HasStrongProperty! = HasStrongProperty()
         
-        var latest: CGPoint? = nil
+        var latest: CGPoint?
         
         XCTAssertTrue(latest == nil)
         
@@ -861,7 +861,7 @@ extension KVOObservableTests {
     func testObserveWeak_ObserveCGRect() {
         var root: HasStrongProperty! = HasStrongProperty()
         
-        var latest: CGRect? = nil
+        var latest: CGRect?
         
         XCTAssertTrue(latest == nil)
         
@@ -893,7 +893,7 @@ extension KVOObservableTests {
     func testObserveWeak_ObserveCGSize() {
         var root: HasStrongProperty! = HasStrongProperty()
         
-        var latest: CGSize? = nil
+        var latest: CGSize?
         
         XCTAssertTrue(latest == nil)
         
@@ -925,7 +925,7 @@ extension KVOObservableTests {
     func testObserveWeak_ObserveCGPoint() {
         var root: HasStrongProperty! = HasStrongProperty()
         
-        var latest: CGPoint? = nil
+        var latest: CGPoint?
         
         XCTAssertTrue(latest == nil)
         
@@ -958,7 +958,7 @@ extension KVOObservableTests {
     func testObserveWeak_ObserveInt() {
         var root: HasStrongProperty! = HasStrongProperty()
         
-        var latest: Int? = nil
+        var latest: Int?
         
         XCTAssertTrue(latest == nil)
         
@@ -990,7 +990,7 @@ extension KVOObservableTests {
     func testObserveWeak_PropertyDoesntExist() {
         var root: HasStrongProperty! = HasStrongProperty()
         
-        var lastError: Swift.Error? = nil
+        var lastError: Swift.Error?
         
         _ = root.rx.observeWeakly(NSNumber.self, "notExist")
             .subscribe(onError: { error in
@@ -1016,7 +1016,7 @@ extension KVOObservableTests {
     func testObserveWeak_HierarchyPropertyDoesntExist() {
         var root: HasStrongProperty! = HasStrongProperty()
         
-        var lastError: Swift.Error? = nil
+        var lastError: Swift.Error?
         
         _ = root.rx.observeWeakly(NSNumber.self, "property.notExist")
             .subscribe(onError: { error in

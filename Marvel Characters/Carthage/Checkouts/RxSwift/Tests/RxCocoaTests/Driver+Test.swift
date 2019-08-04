@@ -80,12 +80,12 @@ extension DriverTest {
 
         XCTAssertEqual(observer3.events, [
             .next(270, 0),
-            .next(280, 1),
+            .next(280, 1)
         ])
 
         XCTAssertEqual(coldObservable.subscriptions, [
            Subscription(200, 250),
-           Subscription(260, 285),
+           Subscription(260, 285)
         ])
     }
 
@@ -152,12 +152,12 @@ extension DriverTest {
 
         XCTAssertEqual(observer3.events, [
             .next(270, 0),
-            .next(280, 1),
+            .next(280, 1)
         ])
 
         XCTAssertEqual(coldObservable.subscriptions, [
             Subscription(200, 250),
-            Subscription(260, 285),
+            Subscription(260, 285)
             ])
     }
 }

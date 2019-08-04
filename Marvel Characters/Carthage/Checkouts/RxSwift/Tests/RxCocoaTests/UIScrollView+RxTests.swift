@@ -143,8 +143,8 @@ extension UIScrollViewTests {
             let negativeVelocity = CGPoint(x: 1.5, y: 2.5)
             var zeroOffset = CGPoint.zero
 
-            var velocity: CGPoint? = nil
-            var offset: CGPoint? = nil
+            var velocity: CGPoint?
+            var offset: CGPoint?
 
             _ = scrollView.rx.willEndDragging.subscribe(onNext: {
                 velocity = $0

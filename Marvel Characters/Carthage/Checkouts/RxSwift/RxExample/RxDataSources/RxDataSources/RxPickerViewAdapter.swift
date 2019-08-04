@@ -208,7 +208,7 @@ open class RxPickerViewDataSource<T>: NSObject, UIPickerViewDataSource {
     private let numberOfComponents: NumberOfComponents
     private let numberOfRowsInComponent: NumberOfRowsInComponent
     
-    //MARK: UIPickerViewDataSource
+    // MARK: UIPickerViewDataSource
     
     public func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return numberOfComponents(self, pickerView, components)
@@ -221,7 +221,7 @@ open class RxPickerViewDataSource<T>: NSObject, UIPickerViewDataSource {
 
 extension RxPickerViewDataSource: RxPickerViewDataSourceType {
     public func pickerView(_ pickerView: UIPickerView, observedEvent: Event<T>) {
-        Binder(self) { (dataSource, components) in
+        Binder(self) { dataSource, components in
             dataSource.components = components
             pickerView.reloadAllComponents()
         }.on(observedEvent)

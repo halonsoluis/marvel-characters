@@ -35,7 +35,7 @@ extension MainSchedulerTest {
 
         var messages = [Int]()
         var executedImmediately = false
-        _ = MainScheduler.instance.schedule(()) { s in
+        _ = MainScheduler.instance.schedule(()) { _ in
             executedImmediately = true
             messages.append(1)
             _ = MainScheduler.instance.schedule(()) { _ in
@@ -61,7 +61,7 @@ extension MainSchedulerTest {
     func testMainScheduler_disposing1() {
 
         var messages = [Int]()
-        _ = MainScheduler.instance.schedule(()) { s in
+        _ = MainScheduler.instance.schedule(()) { _ in
             messages.append(1)
             let disposable = MainScheduler.instance.schedule(()) { _ in
                 messages.append(3)
@@ -85,7 +85,7 @@ extension MainSchedulerTest {
     func testMainScheduler_disposing2() {
 
         var messages = [Int]()
-        _ = MainScheduler.instance.schedule(()) { s in
+        _ = MainScheduler.instance.schedule(()) { _ in
             messages.append(1)
             let disposable = MainScheduler.instance.schedule(()) { _ in
                 messages.append(3)

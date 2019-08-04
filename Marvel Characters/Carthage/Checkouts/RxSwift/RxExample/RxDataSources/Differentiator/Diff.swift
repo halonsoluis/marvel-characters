@@ -638,7 +638,7 @@ public enum Diff {
                     }
                 }
 
-                afterDeleteState.append(try Section.init(safeOriginal: initialSections[i], safeItems: afterDeleteItems))
+                afterDeleteState.append(try Section(safeOriginal: initialSections[i], safeItems: afterDeleteItems))
             }
             // }
 
@@ -715,7 +715,7 @@ public enum Diff {
                         items.append(finalItemCache[finalIndex.sectionIndex][finalIndex.itemIndex])
                     }
                     
-                    let modifiedSection = try Section.init(safeOriginal: s, safeItems: items)
+                    let modifiedSection = try Section(safeOriginal: s, safeItems: items)
                     
                     return modifiedSection
                 }

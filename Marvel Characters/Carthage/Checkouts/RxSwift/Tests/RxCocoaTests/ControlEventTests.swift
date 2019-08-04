@@ -25,10 +25,10 @@ final class ControlEventTests : RxTest {
         })
 
         doOnBackgroundQueue {
-            let d = controlProperty.asObservable().subscribe { n in
+            let d = controlProperty.asObservable().subscribe { _ in
 
             }
-            let d2 = controlProperty.subscribe { n in
+            let d2 = controlProperty.subscribe { _ in
 
             }
             doOnMainQueue {

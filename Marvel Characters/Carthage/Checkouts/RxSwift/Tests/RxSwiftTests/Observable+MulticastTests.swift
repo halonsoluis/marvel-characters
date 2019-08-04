@@ -68,7 +68,7 @@ extension ObservableMulticastTest {
         XCTAssertEqual(res.events, [
             .next(430, 2),
             .next(450, 9),
-            .next(520, 11),
+            .next(520, 11)
             ])
 
         XCTAssertEqual(xs.subscriptions, [
@@ -131,7 +131,7 @@ extension ObservableMulticastTest {
 
         XCTAssertEqual(res.events, [
             .next(470, 9),
-            .next(520, 11),
+            .next(520, 11)
             ])
 
         XCTAssertEqual(xs.subscriptions, [
@@ -202,14 +202,14 @@ extension ObservableMulticastTest {
             .next(430, 2),
             .completed(435),
             .next(450, 9),
-            .next(520, 11),
+            .next(520, 11)
             ])
 
         XCTAssertEqual(xs.subscriptions, [
             Subscription(300, 400),
             Subscription(420, 435),
             Subscription(435, 530),
-            Subscription(575, 621),
+            Subscription(575, 621)
             ])
     }
 
@@ -274,14 +274,14 @@ extension ObservableMulticastTest {
             .next(430, 2),
             .error(435, testError),
             .next(450, 9),
-            .next(520, 11),
+            .next(520, 11)
             ])
 
         XCTAssertEqual(xs.subscriptions, [
             Subscription(300, 400),
             Subscription(420, 435),
             Subscription(435, 530),
-            Subscription(575, 621),
+            Subscription(575, 621)
             ])
     }
 
@@ -347,7 +347,7 @@ extension ObservableMulticastTest {
             .next(590, 24),
             .next(600, 25),
             .next(610, 26),
-            .next(620, 27),
+            .next(620, 27)
             ])
 
         XCTAssertEqual(xs.subscriptions, [
@@ -415,7 +415,7 @@ extension ObservableMulticastTest {
             .next(590, 24),
             .next(600, 25),
             .next(610, 26),
-            .next(620, 27),
+            .next(620, 27)
             ])
 
         XCTAssertEqual(xs.subscriptions, [
@@ -487,14 +487,14 @@ extension ObservableMulticastTest {
             .next(430, 2),
             .next(435, 2),
             .completed(435),
-            .completed(435),
+            .completed(435)
             ])
 
         XCTAssertEqual(xs.subscriptions, [
             Subscription(300, 400),
             Subscription(420, 435),
             Subscription(435, 530),
-            Subscription(575, 621),
+            Subscription(575, 621)
             ])
     }
 
@@ -560,14 +560,14 @@ extension ObservableMulticastTest {
             .next(430, 2),
             .next(435, 2),
             .error(435, testError),
-            .error(435, testError),
+            .error(435, testError)
             ])
 
         XCTAssertEqual(xs.subscriptions, [
             Subscription(300, 400),
             Subscription(420, 435),
             Subscription(435, 530),
-            Subscription(575, 621),
+            Subscription(575, 621)
             ])
     }
 
@@ -676,7 +676,7 @@ extension ObservableMulticastTest {
             .next(240, 4),
             .next(270, 5),
             .next(330, 6),
-            .next(340, 7),
+            .next(340, 7)
             ])
 
         let res = scheduler.start {
@@ -688,7 +688,7 @@ extension ObservableMulticastTest {
             .next(240, 4),
             .next(270, 5),
             .next(330, 6),
-            .next(340, 7),
+            .next(340, 7)
             ])
 
         XCTAssertEqual(xs.subscriptions, [
@@ -910,7 +910,7 @@ extension ObservableMulticastTest {
         let scheduler = TestScheduler(initialClock: 0)
 
         let xs = scheduler.createHotObservable([
-            .next(210, 1),
+            .next(210, 1)
             ])
 
         let subject = PublishSubject<Int>()
@@ -931,7 +931,7 @@ extension ObservableMulticastTest {
         let scheduler = TestScheduler(initialClock: 0)
 
         let xs = scheduler.createHotObservable([
-            .next(210, 1),
+            .next(210, 1)
             ])
 
         let subject = PublishSubject<Int>()
@@ -1168,13 +1168,13 @@ extension ObservableMulticastTest {
             ])
 
         XCTAssertEqual(xs1.subscriptions, [
-            Subscription(215, 235),
+            Subscription(215, 235)
             ])
         XCTAssertEqual(xs2.subscriptions, [
-            Subscription(235, 265),
+            Subscription(235, 265)
             ])
         XCTAssertEqual(xs3.subscriptions, [
-            Subscription(400, 440),
+            Subscription(400, 440)
             ])
     }
 
@@ -1255,17 +1255,17 @@ extension ObservableMulticastTest {
 
         XCTAssertEqual(o3.events, [
             .next(410, 3),
-            .completed(440),
+            .completed(440)
             ])
 
         XCTAssertEqual(xs1.subscriptions, [
-            Subscription(215, 235),
+            Subscription(215, 235)
             ])
         XCTAssertEqual(xs2.subscriptions, [
-            Subscription(235, 265),
+            Subscription(235, 265)
             ])
         XCTAssertEqual(xs3.subscriptions, [
-            Subscription(400, 440),
+            Subscription(400, 440)
             ])
     }
 
@@ -1320,7 +1320,7 @@ extension ObservableMulticastTest {
             .next(450, 22),
             .next(460, 23),
             .next(470, 24),
-            .next(480, 25),
+            .next(480, 25)
             ])
 
         XCTAssertEqual(xs.subscriptions, [
@@ -1369,7 +1369,7 @@ extension ObservableMulticastTest {
             .next(460, 23),
             .next(470, 24),
             .next(480, 25),
-            .error(490, testError),
+            .error(490, testError)
             ])
 
         XCTAssertEqual(xs.subscriptions, [
@@ -1418,7 +1418,7 @@ extension ObservableMulticastTest {
             .next(460, 23),
             .next(470, 24),
             .next(480, 25),
-            .completed(490),
+            .completed(490)
             ])
 
         XCTAssertEqual(xs.subscriptions, [
@@ -1465,7 +1465,7 @@ extension ObservableMulticastTest {
             .next(450, 20),
             .next(450, 22),
             .next(460, 23),
-            .next(470, 24),
+            .next(470, 24)
             ])
 
         XCTAssertEqual(xs.subscriptions, [
@@ -1511,7 +1511,7 @@ extension ObservableMulticastTest {
             .next(450, 22),
             .next(460, 23),
             .next(470, 24),
-            .next(480, 25),
+            .next(480, 25)
             ])
 
         XCTAssertEqual(xs.subscriptions, [
@@ -1650,7 +1650,7 @@ extension ObservableMulticastTest {
             .next(450, 20),
             .next(450, 22),
             .next(460, 23),
-            .next(470, 24),
+            .next(470, 24)
             ])
 
         XCTAssertEqual(xs.subscriptions, [
@@ -1699,7 +1699,7 @@ extension ObservableMulticastTest {
             .next(450, 22),
             .next(460, 23),
             .next(470, 24),
-            .next(480, 25),
+            .next(480, 25)
             ])
 
         XCTAssertEqual(xs.subscriptions, [
@@ -1848,7 +1848,7 @@ extension ObservableMulticastTest {
             .next(450, 20),
             .next(450, 22),
             .next(460, 23),
-            .next(470, 24),
+            .next(470, 24)
             ])
 
         XCTAssertEqual(xs.subscriptions, [

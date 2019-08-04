@@ -40,7 +40,7 @@ extension KeyPathBinderTests {
             bindingObserver.on(.next(1))
         }
         
-        self.waitForExpectations(timeout: 1.0) { (e) in
+        self.waitForExpectations(timeout: 1.0) { e in
             XCTAssertNil(e)
         }
     }
@@ -58,7 +58,7 @@ extension KeyPathBinderTests {
         
         bindingObserver.on(.next(1))
         
-        self.waitForExpectations(timeout: 1.0) { (e) in
+        self.waitForExpectations(timeout: 1.0) { e in
             XCTAssertNil(e)
         }
     }

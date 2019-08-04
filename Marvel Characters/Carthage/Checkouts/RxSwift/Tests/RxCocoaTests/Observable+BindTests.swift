@@ -120,7 +120,7 @@ extension ObservableBindTest {
 
 extension ObservableBindTest {
     func testBindToCurried1() {
-        var result: Int? = nil
+        var result: Int?
         let binder: (Observable<Int>) -> Disposable =  { obs in
             return obs.subscribe(onNext: { element in
                 result = element
@@ -136,7 +136,7 @@ extension ObservableBindTest {
     }
 
     func testBindToCurried2() {
-        var result: Int? = nil
+        var result: Int?
         let binder: (Observable<Int>) -> (Int) -> Disposable =  { obs in
             return { other in
                 return obs.subscribe(onNext: { element in

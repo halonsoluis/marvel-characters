@@ -43,7 +43,7 @@ extension KingfisherWrapper where Base == String {
             return CC_MD5(bytes, CC_LONG(data.count), &digest)
         }
         #endif
-        
+
         return digest.reduce(into: "") { $0 += String(format: "%02x", $1) }
     }
 }

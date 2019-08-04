@@ -31,28 +31,28 @@ class ProgressiveJPEGViewController: UIViewController {
 
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var progressLabel: UILabel!
-    
+
     private var isBlur = true
     private var isFastestScan = true
-    
+
     private let processor = RoundCornerImageProcessor(cornerRadius: 30)
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Progressive JPEG"
         setupOperationNavigationBar()
         loadImage()
     }
-    
+
     private func loadImage() {
         progressLabel.text = "- / -"
-        
+
         let progressive = ImageProgressive(
             isBlur: isBlur,
             isFastestScan: isFastestScan,
             scanInterval: 0.1
         )
-        
+
         imageView.kf.setImage(
             with: ImageLoader.progressiveImageURL,
             placeholder: nil,
@@ -69,10 +69,10 @@ class ProgressiveJPEGViewController: UIViewController {
             }
         )
     }
-    
+
     override func alertPopup(_ sender: Any) -> UIAlertController {
         let alert = super.alertPopup(sender)
-        
+
         func reloadImage() {
             // Cancel
             imageView.kf.cancelDownloadTask()
@@ -86,7 +86,7 @@ class ProgressiveJPEGViewController: UIViewController {
                 }
             )
         }
-        
+
         do {
             let title = isBlur ? "Disable Blur" : "Enable Blur"
             alert.addAction(UIAlertAction(title: title, style: .default) { _ in
@@ -94,7 +94,7 @@ class ProgressiveJPEGViewController: UIViewController {
                 reloadImage()
             })
         }
-        
+
         do {
             let title = isFastestScan ? "Disable Fastest Scan" : "Enable Fastest Scan"
             alert.addAction(UIAlertAction(title: title, style: .default) { _ in

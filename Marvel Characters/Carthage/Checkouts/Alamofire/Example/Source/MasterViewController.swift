@@ -31,7 +31,7 @@ class MasterViewController: UITableViewController {
 
     @IBOutlet weak var titleImageView: UIImageView!
 
-    var detailViewController: DetailViewController? = nil
+    var detailViewController: DetailViewController?
     var objects = NSMutableArray()
 
     private var reachability: NetworkReachabilityManager!

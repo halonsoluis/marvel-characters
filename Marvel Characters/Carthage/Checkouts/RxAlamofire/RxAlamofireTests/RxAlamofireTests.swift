@@ -25,32 +25,32 @@ private struct Dummy {
 }
 
 class RxAlamofireSpec: XCTestCase {
-	
+
 	var manager: SessionManager!
-	
+
 	let testError = NSError(domain: "RxAlamofire Test Error", code: -1, userInfo: nil)
 	let disposeBag = DisposeBag()
-	
-	//MARK: Configuration
+
+	// MARK: Configuration
 	override func setUp() {
 		super.setUp()
 		manager = SessionManager()
-		
+
 		_ = stub(condition: isHost("mywebservice.com")) { _ in
-			return OHHTTPStubsResponse(data: Dummy.DataStringData, statusCode:200, headers:nil)
+			return OHHTTPStubsResponse(data: Dummy.DataStringData, statusCode: 200, headers: nil)
 		}
-		
+
 		_ = stub(condition: isHost("myjsondata.com")) { _ in
-			return OHHTTPStubsResponse(data: Dummy.DataJSON, statusCode:200, headers:["Content-Type":"application/json"])
+			return OHHTTPStubsResponse(data: Dummy.DataJSON, statusCode: 200, headers: ["Content-Type": "application/json"])
 		}
 	}
-	
+
 	override func tearDown() {
 		super.tearDown()
 		OHHTTPStubs.removeAllStubs()
 	}
-	
-	//MARK: Tests
+
+	// MARK: Tests
 	func testBasicRequest() {
         do {
             let (result, string) = try requestString(HTTPMethod.get, "http://mywebservice.com").toBlocking().first()!
@@ -60,11 +60,11 @@ class RxAlamofireSpec: XCTestCase {
             XCTFail("\(error)")
         }
 	}
-	
+
 	func testJSONRequest() {
         do {
             let (result, obj) = try requestJSON(HTTPMethod.get, "http://myjsondata.com").toBlocking().first()!
-            let json = obj as! [String : Any]
+            let json = obj as! [String: Any]
             XCTAssertEqual(result.statusCode, 200)
             XCTAssertEqual(json["hello"] as! String, "world")
         } catch {
@@ -76,7 +76,7 @@ class RxAlamofireSpec: XCTestCase {
         do {
             let dataRequest = try request(HTTPMethod.get, "http://myjsondata.com").toBlocking().first()!
             let progressObservable = dataRequest.rx.progress().share(replay: 100, scope: .forever)
-            let _ = progressObservable.subscribe { }
+            _ = progressObservable.subscribe { }
             let delegate = dataRequest.delegate as! DataTaskDelegate
             let progressHandler = delegate.progressHandler!
             [(1000, 4000), (4000, 4000)].forEach { completed, total in
@@ -89,7 +89,7 @@ class RxAlamofireSpec: XCTestCase {
             let expectedEvents = [
                 RxProgress(bytesWritten: 0, totalBytes: 0),
                 RxProgress(bytesWritten: 1000, totalBytes: 4000),
-                RxProgress(bytesWritten: 4000, totalBytes: 4000),
+                RxProgress(bytesWritten: 4000, totalBytes: 4000)
             ]
             XCTAssertEqual(actualEvents.count, expectedEvents.count)
             for i in 0..<actualEvents.count {

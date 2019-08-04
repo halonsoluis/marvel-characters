@@ -93,7 +93,7 @@ extension AnomaliesTest {
             { $0.share(replay: 1, scope: .whileConnected) },
             { $0.share(replay: 1, scope: .forever) },
             { $0.share(replay: 2, scope: .whileConnected) },
-            { $0.share(replay: 2, scope: .forever) },
+            { $0.share(replay: 2, scope: .forever) }
             ] as [(Observable<Int>) -> Observable<Int>] {
             performSharingOperatorsTest(share: op)
         }
@@ -171,7 +171,7 @@ extension AnomaliesTest {
             { $0.share(replay: 1, scope: .whileConnected) },
             { $0.share(replay: 1, scope: .forever) },
             { $0.share(replay: 2, scope: .whileConnected) },
-            { $0.share(replay: 2, scope: .forever) },
+            { $0.share(replay: 2, scope: .forever) }
             ] as [(Observable<Int>) -> Observable<Int>] {
             performSharingOperatorsTest(share: op)
         }

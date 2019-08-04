@@ -30,7 +30,7 @@ final class UICollectionViewTests : RxTest {
         let layout = UICollectionViewFlowLayout()
         let collectionView = UICollectionView(frame: CGRect(x: 0, y: 0, width: 1, height: 1), collectionViewLayout: layout)
 
-        var resultIndexPath: IndexPath? = nil
+        var resultIndexPath: IndexPath?
 
         let subscription = collectionView.rx.itemSelected
             .subscribe(onNext: { indexPath in
@@ -48,7 +48,7 @@ final class UICollectionViewTests : RxTest {
         let layout = UICollectionViewFlowLayout()
         let collectionView = UICollectionView(frame: CGRect(x: 0, y: 0, width: 1, height: 1), collectionViewLayout: layout)
 
-        var resultIndexPath: IndexPath? = nil
+        var resultIndexPath: IndexPath?
 
         let subscription = collectionView.rx.itemDeselected
             .subscribe(onNext: { indexPath in
@@ -66,7 +66,7 @@ final class UICollectionViewTests : RxTest {
         let layout = UICollectionViewFlowLayout()
         let collectionView = UICollectionView(frame: CGRect(x: 0, y: 0, width: 1, height: 1), collectionViewLayout: layout)
 
-        var resultIndexPath: IndexPath? = nil
+        var resultIndexPath: IndexPath?
 
         let subscription = collectionView.rx.itemHighlighted
             .subscribe(onNext: { indexPath in
@@ -84,7 +84,7 @@ final class UICollectionViewTests : RxTest {
         let layout = UICollectionViewFlowLayout()
         let collectionView = UICollectionView(frame: CGRect(x: 0, y: 0, width: 1, height: 1), collectionViewLayout: layout)
 
-        var resultIndexPath: IndexPath? = nil
+        var resultIndexPath: IndexPath?
 
         let subscription = collectionView.rx.itemUnhighlighted
             .subscribe(onNext: { indexPath in
@@ -102,8 +102,8 @@ final class UICollectionViewTests : RxTest {
         let layout = UICollectionViewFlowLayout()
         let collectionView = UICollectionView(frame: CGRect(x: 0, y: 0, width: 1, height: 1), collectionViewLayout: layout)
 
-        var resultCell: UICollectionViewCell? = nil
-        var resultIndexPath: IndexPath? = nil
+        var resultCell: UICollectionViewCell?
+        var resultIndexPath: IndexPath?
 
         let subscription = collectionView.rx.willDisplayCell
             .subscribe(onNext: {
@@ -125,9 +125,9 @@ final class UICollectionViewTests : RxTest {
         let layout = UICollectionViewFlowLayout()
         let collectionView = UICollectionView(frame: CGRect(x: 0, y: 0, width: 1, height: 1), collectionViewLayout: layout)
 
-        var resultSupplementaryView: UICollectionReusableView? = nil
-        var resultElementKind: String? = nil
-        var resultIndexPath: IndexPath? = nil
+        var resultSupplementaryView: UICollectionReusableView?
+        var resultElementKind: String?
+        var resultIndexPath: IndexPath?
 
         let subscription = collectionView.rx.willDisplaySupplementaryView
             .subscribe(onNext: {
@@ -153,8 +153,8 @@ final class UICollectionViewTests : RxTest {
         let layout = UICollectionViewFlowLayout()
         let collectionView = UICollectionView(frame: CGRect(x: 0, y: 0, width: 1, height: 1), collectionViewLayout: layout)
 
-        var resultCell: UICollectionViewCell? = nil
-        var resultIndexPath: IndexPath? = nil
+        var resultCell: UICollectionViewCell?
+        var resultIndexPath: IndexPath?
 
         let subscription = collectionView.rx.didEndDisplayingCell
             .subscribe(onNext: {
@@ -176,9 +176,9 @@ final class UICollectionViewTests : RxTest {
         let layout = UICollectionViewFlowLayout()
         let collectionView = UICollectionView(frame: CGRect(x: 0, y: 0, width: 1, height: 1), collectionViewLayout: layout)
 
-        var resultSupplementaryView: UICollectionReusableView? = nil
-        var resultElementKind: String? = nil
-        var resultIndexPath: IndexPath? = nil
+        var resultSupplementaryView: UICollectionReusableView?
+        var resultElementKind: String?
+        var resultIndexPath: IndexPath?
 
         let subscription = collectionView.rx.didEndDisplayingSupplementaryView
             .subscribe(onNext: {
@@ -252,7 +252,7 @@ final class UICollectionViewTests : RxTest {
         let layout = UICollectionViewFlowLayout()
         let createView: () -> (UICollectionView, Disposable) = {
             let collectionView = UICollectionView(frame: CGRect(x: 0, y: 0, width: 1, height: 1), collectionViewLayout: layout)
-            let s = items.bind(to: collectionView.rx.items) { (cv, index: Int, item: Int) -> UICollectionViewCell in
+            let s = items.bind(to: collectionView.rx.items) { (_, _: Int, _: Int) -> UICollectionViewCell in
                 return UICollectionViewCell(frame: CGRect(x: 1, y: 1, width: 1, height: 1))
             }
 
@@ -269,7 +269,7 @@ final class UICollectionViewTests : RxTest {
         let createView: () -> (UICollectionView, Disposable) = {
             let collectionView = UICollectionView(frame: CGRect(x: 0, y: 0, width: 1, height: 1), collectionViewLayout: layout)
             collectionView.register(NSClassFromString("UICollectionViewCell"), forCellWithReuseIdentifier: "a")
-            let s = items.bind(to: collectionView.rx.items(cellIdentifier: "a")) { (index: Int, item: Int, cell) in
+            let s = items.bind(to: collectionView.rx.items(cellIdentifier: "a")) { (_: Int, _: Int, _) in
 
             }
 
@@ -286,7 +286,7 @@ final class UICollectionViewTests : RxTest {
         let createView: () -> (UICollectionView, Disposable) = {
             let collectionView = UICollectionView(frame: CGRect(x: 0, y: 0, width: 1, height: 1), collectionViewLayout: layout)
             collectionView.register(NSClassFromString("UICollectionViewCell"), forCellWithReuseIdentifier: "a")
-            let s = items.bind(to: collectionView.rx.items(cellIdentifier: "a", cellType: UICollectionViewCell.self)) { (index: Int, item: Int, cell) in
+            let s = items.bind(to: collectionView.rx.items(cellIdentifier: "a", cellType: UICollectionViewCell.self)) { (_: Int, _: Int, _) in
 
             }
 
@@ -304,7 +304,7 @@ final class UICollectionViewTests : RxTest {
         let createView: () -> (UICollectionView, Disposable) = {
             let collectionView = UICollectionView(frame: CGRect(x: 0, y: 0, width: 100, height: 100), collectionViewLayout: layout)
             collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "a")
-            let s = items.bind(to: collectionView.rx.items) { (cv, index: Int, item: Int) -> UICollectionViewCell in
+            let s = items.bind(to: collectionView.rx.items) { (_, index: Int, item: Int) -> UICollectionViewCell in
                 return collectionView.dequeueReusableCell(withReuseIdentifier: "a", for: IndexPath(item: index, section: 0))
             }
 
@@ -313,7 +313,7 @@ final class UICollectionViewTests : RxTest {
 
         let (collectionView, dataSourceSubscription) = createView()
 
-        var selectedItem: Int? = nil
+        var selectedItem: Int?
 
         let s = collectionView.rx.modelSelected(Int.self)
             .subscribe(onNext: { (item: Int) in
@@ -335,7 +335,7 @@ final class UICollectionViewTests : RxTest {
         let createView: () -> (UICollectionView, Disposable) = {
             let collectionView = UICollectionView(frame: CGRect(x: 0, y: 0, width: 1, height: 1), collectionViewLayout: layout)
             collectionView.register(NSClassFromString("UICollectionViewCell"), forCellWithReuseIdentifier: "a")
-            let dataSourceSubscription = items.bind(to: collectionView.rx.items(cellIdentifier: "a")) { (index: Int, item: Int, cell) in
+            let dataSourceSubscription = items.bind(to: collectionView.rx.items(cellIdentifier: "a")) { (_: Int, _: Int, _) in
 
             }
 
@@ -344,7 +344,7 @@ final class UICollectionViewTests : RxTest {
         }
         let (collectionView, dataSourceSubscription) = createView()
 
-        var selectedItem: Int? = nil
+        var selectedItem: Int?
 
         let s = collectionView.rx.modelSelected(Int.self)
             .subscribe(onNext: { item in
@@ -369,7 +369,7 @@ final class UICollectionViewTests : RxTest {
             let collectionView = UICollectionView(frame: CGRect(x: 0, y: 0, width: 100, height: 100), collectionViewLayout: layout)
             collectionView.register(NSClassFromString("UICollectionViewCell"), forCellWithReuseIdentifier: "a")
 
-            let s = items.bind(to: collectionView.rx.items) { (cv, index: Int, item: Int) -> UICollectionViewCell in
+            let s = items.bind(to: collectionView.rx.items) { (_, index: Int, item: Int) -> UICollectionViewCell in
                 return collectionView.dequeueReusableCell(withReuseIdentifier: "a", for: IndexPath(item: index, section: 0))
             }
 
@@ -378,7 +378,7 @@ final class UICollectionViewTests : RxTest {
 
         let (collectionView, dataSourceSubscription) = createView()
 
-        var selectedItem: Int? = nil
+        var selectedItem: Int?
 
         let s = collectionView.rx.modelDeselected(Int.self)
             .subscribe(onNext: { (item: Int) in
@@ -400,7 +400,7 @@ final class UICollectionViewTests : RxTest {
         let createView: () -> (UICollectionView, Disposable) = {
             let collectionView = UICollectionView(frame: CGRect(x: 0, y: 0, width: 1, height: 1), collectionViewLayout: layout)
             collectionView.register(NSClassFromString("UICollectionViewCell"), forCellWithReuseIdentifier: "a")
-            let dataSourceSubscription = items.bind(to: collectionView.rx.items(cellIdentifier: "a")) { (index: Int, item: Int, cell) in
+            let dataSourceSubscription = items.bind(to: collectionView.rx.items(cellIdentifier: "a")) { (_: Int, _: Int, _) in
 
             }
 
@@ -409,7 +409,7 @@ final class UICollectionViewTests : RxTest {
         }
         let (collectionView, dataSourceSubscription) = createView()
 
-        var selectedItem: Int? = nil
+        var selectedItem: Int?
 
         let s = collectionView.rx.modelDeselected(Int.self)
             .subscribe(onNext: { item in
@@ -464,8 +464,8 @@ final class UICollectionViewTests : RxTest {
 
             let (collectionView, dataSourceSubscription) = createView()
 
-            var resultContext: UICollectionViewFocusUpdateContext? = nil
-            var resultAnimationCoordinator: UIFocusAnimationCoordinator? = nil
+            var resultContext: UICollectionViewFocusUpdateContext?
+            var resultAnimationCoordinator: UIFocusAnimationCoordinator?
 
             let subscription = collectionView.rx.didUpdateFocusInContextWithAnimationCoordinator
                 .subscribe(onNext: { args in
@@ -495,7 +495,7 @@ extension UICollectionViewTests {
     func testDataSourceIsBeingRetainedUntilDispose() {
         var dataSourceDeallocated = false
 
-        var collectionViewOuter: UICollectionView? = nil
+        var collectionViewOuter: UICollectionView?
         var dataSourceSubscription: Disposable!
         collectionViewOuter?.becomeFirstResponder()
         autoreleasepool {

@@ -67,7 +67,7 @@ extension ObservableReduceTest {
 
         let xs = scheduler.createHotObservable([
             .next(150, 1),
-            .error(210, testError),
+            .error(210, testError)
             ])
 
         let res = scheduler.start { xs.reduce(42, accumulator: +) }
@@ -88,7 +88,7 @@ extension ObservableReduceTest {
         let scheduler = TestScheduler(initialClock: 0)
 
         let xs = scheduler.createHotObservable([
-            .next(150, 1),
+            .next(150, 1)
             ])
 
         let res = scheduler.start { xs.reduce(42, accumulator: +) }
@@ -220,7 +220,7 @@ extension ObservableReduceTest {
 
         let xs = scheduler.createHotObservable([
             .next(150, 1),
-            .error(210, testError),
+            .error(210, testError)
             ])
 
         let res = scheduler.start { xs.reduce(42, accumulator: +, mapResult: { $0 * 5 }) }
@@ -241,7 +241,7 @@ extension ObservableReduceTest {
         let scheduler = TestScheduler(initialClock: 0)
 
         let xs = scheduler.createHotObservable([
-            .next(150, 1),
+            .next(150, 1)
             ])
 
         let res = scheduler.start { xs.reduce(42, accumulator: +, mapResult: { $0 * 5 }) }

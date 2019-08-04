@@ -251,7 +251,6 @@ class SessionManagerTestCase: BaseTestCase {
             return "Alamofire/\(build)"
         }()
 
-        
         XCTAssertTrue(userAgent?.contains(alamofireVersion) == true)
         XCTAssertTrue(userAgent?.contains(osNameVersion) == true)
         XCTAssertTrue(userAgent?.contains("Unknown/Unknown") == true)

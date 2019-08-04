@@ -28,7 +28,7 @@ let fileManager = FileManager.default
 let allowedExtensions = [
     ".swift",
     ".h",
-    ".m",
+    ".m"
 ]
 
 let excludedRootPaths = [

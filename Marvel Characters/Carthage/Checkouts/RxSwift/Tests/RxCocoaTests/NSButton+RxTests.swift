@@ -42,8 +42,8 @@ extension NSButtonTests {
 
     func testButton_multipleObservers() {
         let button = NSButton(frame: CGRect(x: 0, y: 0, width: 1, height: 1))
-        var value1: NSControl.StateValue? = nil
-        var value2: NSControl.StateValue? = nil
+        var value1: NSControl.StateValue?
+        var value2: NSControl.StateValue?
 
         var numberOfTimesReceivedValue = 0
 

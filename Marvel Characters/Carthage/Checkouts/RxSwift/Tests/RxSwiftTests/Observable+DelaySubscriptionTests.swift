@@ -78,7 +78,7 @@ extension ObservableDelaySubscriptionTest {
 
         XCTAssertEqual(res.events, [
             .next(280, 42),
-            .next(290, 43),
+            .next(290, 43)
             ])
 
         XCTAssertEqual(xs.subscriptions, [

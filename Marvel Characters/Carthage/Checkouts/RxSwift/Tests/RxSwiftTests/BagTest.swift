@@ -52,7 +52,7 @@ extension BagTest {
                 )
                 numberOfActionsAfter(i,
                     deletionsFromStart: j,
-                    createNew: { () -> (Event<Int>) -> Void in { _ in numberObservers += 1 } },
+                    createNew: { ) -> (Event<Int> -> Void in { _ in numberObservers += 1 } },
                     bagAction: { (bag: RxMutableBox<Bag<(Event<Int>) -> Void>>) in dispatch(bag.value, .next(1)); XCTAssertTrue(bag.value.count == i - j) }
                 )
                 numberOfActionsAfter(i,
@@ -99,7 +99,7 @@ extension BagTest {
                 )
                 numberOfActionsAfter(i,
                     deletionsFromStart: j,
-                    createNew: { () -> (Event<Int>) -> Void in { _ in numberObservers += 1 } },
+                    createNew: { ) -> (Event<Int> -> Void in { _ in numberObservers += 1 } },
                     bagAction: { (bag: RxMutableBox<Bag<(Event<Int>) -> Void>>) in dispatch(bag.value, .next(1)); XCTAssertTrue(bag.value.count == i - j) }
                 )
                 numberOfActionsAfter(i,
@@ -172,7 +172,7 @@ extension BagTest {
         )
         numberOfActionsAfter(100,
             deletionsFromStart: 0,
-            createNew: { () -> (Event<Int>) -> Void in { _ in numberObservers += 1 } },
+            createNew: { ) -> (Event<Int> -> Void in { _ in numberObservers += 1 } },
             bagAction: { (bag: RxMutableBox<Bag<(Event<Int>) -> Void>>) in bag.value.removeAll(); dispatch(bag.value, .next(1)); }
         )
         numberOfActionsAfter(100,

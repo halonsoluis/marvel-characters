@@ -91,7 +91,7 @@ extension ObservableCompactMapTest {
         XCTAssertEqual(res.events, [
             .next(230, 3),
             .next(340, 5),
-            .completed(400),
+            .completed(400)
             ])
 
         XCTAssertEqual(xs.subscriptions, [

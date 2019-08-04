@@ -17,7 +17,7 @@ extension BinderTests {
     func testBindingOnNonMainQueueDispatchesToMainQueue() {
         let waitForElement = self.expectation(description: "wait until element arrives")
         let target = NSObject()
-        let bindingObserver = Binder(target) { (_, element: Int) in
+        let bindingObserver = Binder(target) { (_, _: Int) in
             MainScheduler.ensureRunningOnMainThread()
             waitForElement.fulfill()
         }
@@ -26,7 +26,7 @@ extension BinderTests {
             bindingObserver.on(.next(1))
         }
 
-        self.waitForExpectations(timeout: 1.0) { (e) in
+        self.waitForExpectations(timeout: 1.0) { e in
             XCTAssertNil(e)
         }
     }
@@ -34,14 +34,14 @@ extension BinderTests {
     func testBindingOnMainQueueDispatchesToNonMainQueue() {
         let waitForElement = self.expectation(description: "wait until element arrives")
         let target = NSObject()
-        let bindingObserver = Binder(target, scheduler: ConcurrentDispatchQueueScheduler(qos: .default)) { (_, element: Int) in
+        let bindingObserver = Binder(target, scheduler: ConcurrentDispatchQueueScheduler(qos: .default)) { (_, _: Int) in
             XCTAssert(!DispatchQueue.isMain)
             waitForElement.fulfill()
         }
 
         bindingObserver.on(.next(1))
 
-        self.waitForExpectations(timeout: 1.0) { (e) in
+        self.waitForExpectations(timeout: 1.0) { e in
             XCTAssertNil(e)
         }
     }

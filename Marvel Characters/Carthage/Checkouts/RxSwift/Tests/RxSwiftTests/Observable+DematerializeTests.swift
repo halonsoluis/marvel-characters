@@ -22,7 +22,7 @@ extension ObservableDematerializeTest {
             .next(210, Event.next(42)),
             .next(220, Event.next(43)),
             .completed(250),
-            .completed(251),
+            .completed(251)
         ])
         
         let res = scheduler.start {
@@ -49,7 +49,7 @@ extension ObservableDematerializeTest {
             .next(210, Event.next(42)),
             .next(220, Event.next(43)),
             .next(230, Event.completed),
-            .next(231, Event.completed),
+            .next(231, Event.completed)
             ])
         
         let res = scheduler.start {
@@ -77,7 +77,7 @@ extension ObservableDematerializeTest {
                 .next(210, Event.next(42)),
                 .next(220, Event.next(43)),
                 .error(230, TestError.dummyError),
-                .error(231, TestError.dummyError),
+                .error(231, TestError.dummyError)
             ])
         
         let res = scheduler.start {

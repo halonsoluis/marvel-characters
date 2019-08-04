@@ -156,7 +156,7 @@ extension ObservableTakeWhileTest {
             .next(410, 17),
             .next(450, 8),
             .next(500, 23),
-            .error(600, testError),
+            .error(600, testError)
             ])
         
         var invoked = 0
@@ -199,7 +199,7 @@ extension ObservableTakeWhileTest {
             .next(410, 17),
             .next(450, 8),
             .next(500, 23),
-            .error(600, testError),
+            .error(600, testError)
             ])
         
         var invoked = 0
@@ -239,7 +239,7 @@ extension ObservableTakeWhileTest {
             .next(410, 17),
             .next(450, 8),
             .next(500, 23),
-            .error(600, testError),
+            .error(600, testError)
             ])
         
         var invoked = 0
@@ -283,7 +283,7 @@ extension ObservableTakeWhileTest {
             .next(410, 17),
             .next(450, 8),
             .next(500, 23),
-            .error(600, testError),
+            .error(600, testError)
             ])
         
         var invoked = 0

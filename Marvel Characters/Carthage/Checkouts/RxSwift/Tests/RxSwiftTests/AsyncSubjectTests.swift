@@ -57,7 +57,7 @@ class AsyncSubjectTests: RxTest {
             .next(710, 9),
             .next(870, 10),
             .next(940, 11),
-            .next(1020, 12),
+            .next(1020, 12)
             ])
 
         var subject: AsyncSubject<Int>! = nil

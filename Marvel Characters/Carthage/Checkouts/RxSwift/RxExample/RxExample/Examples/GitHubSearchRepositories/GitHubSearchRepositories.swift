@@ -62,8 +62,8 @@ import RxSwift
 import RxCocoa
 
 struct GithubQuery: Equatable {
-    let searchText: String;
-    let shouldLoadNextPage: Bool;
+    let searchText: String
+    let shouldLoadNextPage: Bool
     let nextURL: URL?
 }
 
@@ -80,7 +80,7 @@ func githubSearchRepositories(
 
 
     let searchPerformerFeedback: (Driver<GitHubSearchRepositoriesState>) -> Signal<GitHubCommand> = react(
-        query: { (state) in
+        query: { state in
             GithubQuery(searchText: state.searchText, shouldLoadNextPage: state.shouldLoadNextPage, nextURL: state.nextURL)
         },
         effects: { query -> Signal<GitHubCommand> in

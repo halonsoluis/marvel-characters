@@ -100,7 +100,7 @@ class TableViewWithEditingCommandsViewController: ViewController, UITableViewDel
                     }
                     .subscribe(onNext: { [weak this] user in
                         this?.showDetailsForUser(user)
-                    }),
+                    })
             ]
 
             let events: [Observable<TableViewEditingCommand>] = [
@@ -174,7 +174,7 @@ class TableViewWithEditingCommandsViewController: ViewController, UITableViewDel
             titleForHeaderInSection: { dataSource, sectionIndex in
                 return dataSource[sectionIndex].model
             },
-            canEditRowAtIndexPath: { (ds, ip) in
+            canEditRowAtIndexPath: { _, _ in
                 return true
             },
             canMoveRowAtIndexPath: { _, _ in

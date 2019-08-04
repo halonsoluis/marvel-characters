@@ -570,7 +570,7 @@ extension ObservablePrimitiveSequenceTest {
             [
                 { ys1, ys2 in Completable.zip(ys1, ys2) },
                 { ys1, ys2 in Completable.zip([ys1, ys2]) },
-                { ys1, ys2 in Completable.zip(AnyCollection([ys1, ys2])) },
+                { ys1, ys2 in Completable.zip(AnyCollection([ys1, ys2])) }
             ]
 
         for factory in factories {
@@ -595,11 +595,11 @@ extension ObservablePrimitiveSequenceTest {
                 ])
 
             XCTAssertEqual(ys1.subscriptions, [
-                Subscription(200, 250),
+                Subscription(200, 250)
                 ])
 
             XCTAssertEqual(ys2.subscriptions, [
-                Subscription(200, 300),
+                Subscription(200, 300)
                 ])
         }
     }
@@ -635,11 +635,11 @@ extension ObservablePrimitiveSequenceTest {
                 ])
 
             XCTAssertEqual(ys1.subscriptions, [
-                Subscription(200, 250),
+                Subscription(200, 250)
                 ])
 
             XCTAssertEqual(ys2.subscriptions, [
-                Subscription(250, 300),
+                Subscription(250, 300)
                 ])
         }
     }

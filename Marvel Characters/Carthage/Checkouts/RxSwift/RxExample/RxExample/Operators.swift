@@ -44,7 +44,7 @@ func <-> <Base>(textInput: TextInput<Base>, relay: BehaviorRelay<String>) -> Dis
     let bindToUIDisposable = relay.bind(to: textInput.text)
 
     let bindToRelay = textInput.text
-        .subscribe(onNext: { [weak base = textInput.base] n in
+        .subscribe(onNext: { [weak base = textInput.base] _ in
             guard let base = base else {
                 return
             }

@@ -136,7 +136,7 @@ extension ObservableZipTest {
         let scheduler = TestScheduler(initialClock: 0)
 
         let n = scheduler.createHotObservable([
-            .next(150, 1),
+            .next(150, 1)
         ])
 
         let o = scheduler.createHotObservable([
@@ -165,7 +165,7 @@ extension ObservableZipTest {
         let scheduler = TestScheduler(initialClock: 0)
 
         let n = scheduler.createHotObservable([
-            .next(150, 1),
+            .next(150, 1)
         ])
 
         let o = scheduler.createHotObservable([
@@ -293,7 +293,7 @@ extension ObservableZipTest {
         let scheduler = TestScheduler(initialClock: 0)
 
         let o1 = scheduler.createHotObservable([
-            .next(150, 1),
+            .next(150, 1)
         ])
 
         let o2 = scheduler.createHotObservable([
@@ -324,7 +324,7 @@ extension ObservableZipTest {
         let scheduler = TestScheduler(initialClock: 0)
 
         let o1 = scheduler.createHotObservable([
-            .next(150, 1),
+            .next(150, 1)
         ])
 
         let o2 = scheduler.createHotObservable([
@@ -530,7 +530,7 @@ extension ObservableZipTest {
 
         let o2 = scheduler.createHotObservable([
             .next(150, 1),
-            .next(210, 4),
+            .next(210, 4)
         ])
 
         let res = scheduler.start {
@@ -563,7 +563,7 @@ extension ObservableZipTest {
 
         let o2 = scheduler.createHotObservable([
             .next(150, 1),
-            .next(210, 4),
+            .next(210, 4)
         ])
 
         let res = scheduler.start {
@@ -610,7 +610,7 @@ extension ObservableZipTest {
         let factories: [() -> Observable<EquatableArray<Int>>] =
             [
                 { Observable.zip(([] as [Observable<Int>]).map { $0.asObservable() }) { EquatableArray($0) } },
-                { Observable.zip(([] as [Observable<Int>]).map { $0.asObservable() }).map { EquatableArray($0) } },
+                { Observable.zip(([] as [Observable<Int>]).map { $0.asObservable() }).map { EquatableArray($0) } }
                 ]
 
         for factory in factories {
@@ -630,7 +630,7 @@ extension ObservableZipTest {
         let factories: [(TestableObservable<Int>, TestableObservable<Int>, TestableObservable<Int>) -> Observable<EquatableArray<Int>>] =
             [
                 { e0, e1, e2 in Observable.zip([e0, e1, e2].map { $0.asObservable() }) { EquatableArray($0) } },
-                { e0, e1, e2 in Observable.zip([e0, e1, e2].map { $0.asObservable() }).map { EquatableArray($0) } },
+                { e0, e1, e2 in Observable.zip([e0, e1, e2].map { $0.asObservable() }).map { EquatableArray($0) } }
             ]
 
         for factory in factories {
@@ -675,7 +675,7 @@ extension ObservableZipTest {
         let factories: [(TestableObservable<Int>, TestableObservable<Int>, TestableObservable<Int>) -> Observable<EquatableArray<Int>>] =
             [
                 { e0, e1, e2 in Observable.zip([e0, e1, e2].map { $0.asObservable() }) { EquatableArray($0) } },
-                { e0, e1, e2 in Observable.zip([e0, e1, e2].map { $0.asObservable() }).map { EquatableArray($0) } },
+                { e0, e1, e2 in Observable.zip([e0, e1, e2].map { $0.asObservable() }).map { EquatableArray($0) } }
             ]
 
         for factory in factories {
@@ -723,7 +723,7 @@ extension ObservableZipTest {
         let factories: [(TestableObservable<Int>, TestableObservable<Int>, TestableObservable<Int>) -> Observable<EquatableArray<Int>>] =
             [
                 { e0, e1, e2 in Observable.zip([e0, e1, e2].map { $0.asObservable() }) { EquatableArray($0) } },
-                { e0, e1, e2 in Observable.zip([e0, e1, e2].map { $0.asObservable() }).map { EquatableArray($0) } },
+                { e0, e1, e2 in Observable.zip([e0, e1, e2].map { $0.asObservable() }).map { EquatableArray($0) } }
             ]
 
         for factory in factories {
@@ -732,7 +732,7 @@ extension ObservableZipTest {
             let e0 = scheduler.createHotObservable([
                 .next(150, 1),
                 .next(210, 1),
-                .error(250, testError),
+                .error(250, testError)
                 ])
             let e1 = scheduler.createHotObservable([
                 .next(150, 1),
@@ -767,7 +767,7 @@ extension ObservableZipTest {
             -> Observable<Int>] =
             [
                 { e0, e1, e2, e3 in Observable.zip([e0, e1, e2, e3].map { $0.asObservable() }) { _ in 42 } },
-                { e0, e1, e2, e3 in Observable.zip([e0, e1, e2, e3].map { $0.asObservable() }).map { _ in 42 } },
+                { e0, e1, e2, e3 in Observable.zip([e0, e1, e2, e3].map { $0.asObservable() }).map { _ in 42 } }
             ]
 
         for factory in factories {

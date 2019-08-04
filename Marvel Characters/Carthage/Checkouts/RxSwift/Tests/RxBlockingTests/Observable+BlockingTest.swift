@@ -234,7 +234,7 @@ extension ObservableBlockingTest {
             let element = try Observable.of(42, 43, 44, 45).toBlocking().single( { e in
                 predicateVals.append(e)
                 return e == 44
-            } )
+            })
             XCTAssertEqual(element, 44)
         }
         catch _ {
@@ -249,7 +249,7 @@ extension ObservableBlockingTest {
             _ = try Observable.of(42, 43, 44, 45).toBlocking().single( { e in
                 predicateVals.append(e)
                 return e >= 43
-            } )
+            })
             XCTFail()
         }
         catch let e {
@@ -281,7 +281,7 @@ extension ObservableBlockingTest {
                 predicateVals.append(e)
                 if e < 43 { return false }
                 throw testError
-            } )
+            })
             XCTFail()
         }
         catch let e {
@@ -300,7 +300,7 @@ extension ObservableBlockingTest {
         let element = try! Observable<Int64>.interval(.milliseconds(1), scheduler: scheduler)
             .take(4)
             .toBlocking()
-            .single( { $0 == 3 } )
+            .single( { $0 == 3 })
         
         XCTAssertEqual(element, 3)
     }

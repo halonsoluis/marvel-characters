@@ -16,7 +16,7 @@ class SimpleTableViewExampleSectionedViewController
     @IBOutlet weak var tableView: UITableView!
 
     let dataSource = RxTableViewSectionedReloadDataSource<SectionModel<String, Double>>(
-        configureCell: { (_, tv, indexPath, element) in
+        configureCell: { _, tv, indexPath, element in
             let cell = tv.dequeueReusableCell(withIdentifier: "Cell")!
             cell.textLabel?.text = "\(element) @ row \(indexPath.row)"
             return cell

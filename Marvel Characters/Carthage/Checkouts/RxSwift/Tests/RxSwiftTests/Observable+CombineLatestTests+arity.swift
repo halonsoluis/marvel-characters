@@ -29,7 +29,7 @@ extension ObservableCombineLatestTest {
                     Observable.combineLatest(e0, e1).map { _, _ -> Int in
                         return (42)
                     }
-                },
+                }
             ]
         for factory in factories {
             let scheduler = TestScheduler(initialClock: 0)
@@ -70,7 +70,7 @@ extension ObservableCombineLatestTest {
                     Observable.combineLatest(e0, e1).map { _, _ -> Int in
                         return (42)
                     }
-                },
+                }
             ]
 
         for factory in factories {
@@ -148,7 +148,7 @@ extension ObservableCombineLatestTest {
                     Observable.combineLatest(e0, e1).map { _, _ -> Int in
                         return (42)
                     }
-                },
+                }
             ]
         for factory in factories {
             let scheduler = TestScheduler(initialClock: 0)
@@ -192,7 +192,7 @@ extension ObservableCombineLatestTest {
                     Observable.combineLatest(e0, e1).map { (e0: Int, e1: Int) -> Int in
                         return (e0 + e1)
                     }
-                },
+                }
             ]
         for factory in factories {
             let scheduler = TestScheduler(initialClock: 0)
@@ -250,7 +250,7 @@ extension ObservableCombineLatestTest {
                     Observable.combineLatest(e0, e1, e2).map { _, _, _ -> Int in
                         return (42)
                     }
-                },
+                }
             ]
         for factory in factories {
             let scheduler = TestScheduler(initialClock: 0)
@@ -296,7 +296,7 @@ extension ObservableCombineLatestTest {
                     Observable.combineLatest(e0, e1, e2).map { _, _, _ -> Int in
                         return (42)
                     }
-                },
+                }
             ]
 
         for factory in factories {
@@ -389,7 +389,7 @@ extension ObservableCombineLatestTest {
                     Observable.combineLatest(e0, e1, e2).map { _, _, _ -> Int in
                         return (42)
                     }
-                },
+                }
             ]
         for factory in factories {
             let scheduler = TestScheduler(initialClock: 0)
@@ -440,7 +440,7 @@ extension ObservableCombineLatestTest {
                     Observable.combineLatest(e0, e1, e2).map { (e0: Int, e1: Int, e2: Int) -> Int in
                         return (e0 + e1 + e2)
                     }
-                },
+                }
             ]
         for factory in factories {
             let scheduler = TestScheduler(initialClock: 0)
@@ -508,7 +508,7 @@ extension ObservableCombineLatestTest {
                     Observable.combineLatest(e0, e1, e2, e3).map { _, _, _, _ -> Int in
                         return (42)
                     }
-                },
+                }
             ]
         for factory in factories {
             let scheduler = TestScheduler(initialClock: 0)
@@ -559,7 +559,7 @@ extension ObservableCombineLatestTest {
                     Observable.combineLatest(e0, e1, e2, e3).map { _, _, _, _ -> Int in
                         return (42)
                     }
-                },
+                }
             ]
 
         for factory in factories {
@@ -667,7 +667,7 @@ extension ObservableCombineLatestTest {
                     Observable.combineLatest(e0, e1, e2, e3).map { _, _, _, _ -> Int in
                         return (42)
                     }
-                },
+                }
             ]
         for factory in factories {
             let scheduler = TestScheduler(initialClock: 0)
@@ -725,7 +725,7 @@ extension ObservableCombineLatestTest {
                     Observable.combineLatest(e0, e1, e2, e3).map { (e0: Int, e1: Int, e2: Int, e3: Int) -> Int in
                         return (e0 + e1 + e2 + e3)
                     }
-                },
+                }
             ]
         for factory in factories {
             let scheduler = TestScheduler(initialClock: 0)
@@ -803,7 +803,7 @@ extension ObservableCombineLatestTest {
                     Observable.combineLatest(e0, e1, e2, e3, e4).map { _, _, _, _, _ -> Int in
                         return (42)
                     }
-                },
+                }
             ]
         for factory in factories {
             let scheduler = TestScheduler(initialClock: 0)
@@ -859,7 +859,7 @@ extension ObservableCombineLatestTest {
                     Observable.combineLatest(e0, e1, e2, e3, e4).map { _, _, _, _, _ -> Int in
                         return (42)
                     }
-                },
+                }
             ]
 
         for factory in factories {
@@ -982,7 +982,7 @@ extension ObservableCombineLatestTest {
                     Observable.combineLatest(e0, e1, e2, e3, e4).map { _, _, _, _, _ -> Int in
                         return (42)
                     }
-                },
+                }
             ]
         for factory in factories {
             let scheduler = TestScheduler(initialClock: 0)
@@ -1047,7 +1047,7 @@ extension ObservableCombineLatestTest {
                     Observable.combineLatest(e0, e1, e2, e3, e4).map { (e0: Int, e1: Int, e2: Int, e3: Int, e4: Int) -> Int in
                         return (e0 + e1 + e2 + e3 + e4)
                     }
-                },
+                }
             ]
         for factory in factories {
             let scheduler = TestScheduler(initialClock: 0)
@@ -1135,7 +1135,7 @@ extension ObservableCombineLatestTest {
                     Observable.combineLatest(e0, e1, e2, e3, e4, e5).map { _, _, _, _, _, _ -> Int in
                         return (42)
                     }
-                },
+                }
             ]
         for factory in factories {
             let scheduler = TestScheduler(initialClock: 0)
@@ -1196,7 +1196,7 @@ extension ObservableCombineLatestTest {
                     Observable.combineLatest(e0, e1, e2, e3, e4, e5).map { _, _, _, _, _, _ -> Int in
                         return (42)
                     }
-                },
+                }
             ]
 
         for factory in factories {
@@ -1334,7 +1334,7 @@ extension ObservableCombineLatestTest {
                     Observable.combineLatest(e0, e1, e2, e3, e4, e5).map { _, _, _, _, _, _ -> Int in
                         return (42)
                     }
-                },
+                }
             ]
         for factory in factories {
             let scheduler = TestScheduler(initialClock: 0)
@@ -1406,7 +1406,7 @@ extension ObservableCombineLatestTest {
                     Observable.combineLatest(e0, e1, e2, e3, e4, e5).map { (e0: Int, e1: Int, e2: Int, e3: Int, e4: Int, e5: Int) -> Int in
                         return (e0 + e1 + e2 + e3 + e4 + e5)
                     }
-                },
+                }
             ]
         for factory in factories {
             let scheduler = TestScheduler(initialClock: 0)
@@ -1504,7 +1504,7 @@ extension ObservableCombineLatestTest {
                     Observable.combineLatest(e0, e1, e2, e3, e4, e5, e6).map { _, _, _, _, _, _, _ -> Int in
                         return (42)
                     }
-                },
+                }
             ]
         for factory in factories {
             let scheduler = TestScheduler(initialClock: 0)
@@ -1570,7 +1570,7 @@ extension ObservableCombineLatestTest {
                     Observable.combineLatest(e0, e1, e2, e3, e4, e5, e6).map { _, _, _, _, _, _, _ -> Int in
                         return (42)
                     }
-                },
+                }
             ]
 
         for factory in factories {
@@ -1723,7 +1723,7 @@ extension ObservableCombineLatestTest {
                     Observable.combineLatest(e0, e1, e2, e3, e4, e5, e6).map { _, _, _, _, _, _, _ -> Int in
                         return (42)
                     }
-                },
+                }
             ]
         for factory in factories {
             let scheduler = TestScheduler(initialClock: 0)
@@ -1802,7 +1802,7 @@ extension ObservableCombineLatestTest {
                     Observable.combineLatest(e0, e1, e2, e3, e4, e5, e6).map { (e0: Int, e1: Int, e2: Int, e3: Int, e4: Int, e5: Int, e6: Int) -> Int in
                         return (e0 + e1 + e2 + e3 + e4 + e5 + e6)
                     }
-                },
+                }
             ]
         for factory in factories {
             let scheduler = TestScheduler(initialClock: 0)
@@ -1910,7 +1910,7 @@ extension ObservableCombineLatestTest {
                     Observable.combineLatest(e0, e1, e2, e3, e4, e5, e6, e7).map { _, _, _, _, _, _, _, _ -> Int in
                         return (42)
                     }
-                },
+                }
             ]
         for factory in factories {
             let scheduler = TestScheduler(initialClock: 0)
@@ -1981,7 +1981,7 @@ extension ObservableCombineLatestTest {
                     Observable.combineLatest(e0, e1, e2, e3, e4, e5, e6, e7).map { _, _, _, _, _, _, _, _ -> Int in
                         return (42)
                     }
-                },
+                }
             ]
 
         for factory in factories {
@@ -2149,7 +2149,7 @@ extension ObservableCombineLatestTest {
                     Observable.combineLatest(e0, e1, e2, e3, e4, e5, e6, e7).map { _, _, _, _, _, _, _, _ -> Int in
                         return (42)
                     }
-                },
+                }
             ]
         for factory in factories {
             let scheduler = TestScheduler(initialClock: 0)
@@ -2235,7 +2235,7 @@ extension ObservableCombineLatestTest {
                     Observable.combineLatest(e0, e1, e2, e3, e4, e5, e6, e7).map { (e0: Int, e1: Int, e2: Int, e3: Int, e4: Int, e5: Int, e6: Int, e7: Int) -> Int in
                         return (e0 + e1 + e2 + e3 + e4 + e5 + e6 + e7)
                     }
-                },
+                }
             ]
         for factory in factories {
             let scheduler = TestScheduler(initialClock: 0)

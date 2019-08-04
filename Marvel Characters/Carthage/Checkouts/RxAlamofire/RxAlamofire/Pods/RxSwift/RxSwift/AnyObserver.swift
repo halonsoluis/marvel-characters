@@ -21,14 +21,14 @@ public struct AnyObserver<Element> : ObserverType {
     public init(eventHandler: @escaping EventHandler) {
         self.observer = eventHandler
     }
-    
+
     /// Construct an instance whose `on(event)` calls `observer.on(event)`
     ///
     /// - parameter observer: Observer that receives sequence events.
     public init<Observer: ObserverType>(_ observer: Observer) where Observer.Element == Element {
         self.observer = observer.on
     }
-    
+
     /// Send `event` to this observer.
     ///
     /// - parameter event: Event instance.

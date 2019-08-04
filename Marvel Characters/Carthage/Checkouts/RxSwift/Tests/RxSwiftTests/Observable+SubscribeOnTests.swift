@@ -84,7 +84,7 @@ extension ObservableSubscribeOnTest {
 
         let xs = scheduler.createHotObservable([
             .next(150, 1),
-            .next(210, 2),
+            .next(210, 2)
             ])
 
         let res = scheduler.start {
@@ -92,7 +92,7 @@ extension ObservableSubscribeOnTest {
         }
 
         XCTAssertEqual(res.events, [
-            .next(210, 2),
+            .next(210, 2)
             ])
 
         XCTAssertEqual(xs.subscriptions, [

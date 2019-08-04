@@ -118,7 +118,7 @@ final class DelegateProxyTest : RxTest {
         XCTAssertEqual(responds, [true])
 
         _ = methodInvoked
-            .subscribe(onNext: { n in
+            .subscribe(onNext: { _ in
                 observedMessageInvoked = true
                 events.append(.methodInvoked)
             })
@@ -131,7 +131,7 @@ final class DelegateProxyTest : RxTest {
         }
         
         _ = sentMessage
-            .subscribe(onNext: { n in
+            .subscribe(onNext: { _ in
                 observedFeedRequestSentMessage = true
                 events.append(.sentMessage)
             })
@@ -159,12 +159,12 @@ final class DelegateProxyTest : RxTest {
         var invoked = false
         
         let d = view.rx.proxy.sentMessage(#selector(ThreeDSectionedViewProtocol.threeDView(_:didLearnSomething:)))
-            .subscribe(onNext: { n in
+            .subscribe(onNext: { _ in
                 nMessages += 1
             })
 
         let d2 = view.rx.proxy.methodInvoked(#selector(ThreeDSectionedViewProtocol.threeDView(_:didLearnSomething:)))
-            .subscribe(onNext: { n in
+            .subscribe(onNext: { _ in
                 nMessages += 1
             })
 
@@ -209,8 +209,8 @@ final class DelegateProxyTest : RxTest {
         
         let sentArgument = IndexPath(index: 0)
         
-        var receivedArgumentSentMessage: IndexPath? = nil
-        var receivedArgumentMethodInvoked: IndexPath? = nil
+        var receivedArgumentSentMessage: IndexPath?
+        var receivedArgumentMethodInvoked: IndexPath?
 
         var events: [MessageProcessingStage] = []
 
@@ -359,7 +359,7 @@ extension DelegateProxyTest {
         XCTAssertTrue(view.delegate === proxy)
         XCTAssertTrue(view.rx.proxy.forwardToDelegate() === mock)
 
-        var latestValue: Int? = nil
+        var latestValue: Int?
         _ = view.rx.testIt.subscribe(onNext: {
             latestValue = $0
         })
@@ -673,7 +673,7 @@ class PureSwiftDelegateProxy
     }
     
     static func registerKnownImplementations() {
-        self.register { PureSwiftDelegateProxy.init(parentObject: $0) }
+        self.register { PureSwiftDelegateProxy(parentObject: $0) }
     }
     
     static func currentDelegate(for object: ParentObject) -> PureSwiftDelegate? {

@@ -132,7 +132,7 @@ extension SharedSequenceOperatorTests {
         let signals: [Signal<Int>] = [
             hotObservable1.asSignal(onErrorJustReturn: -2),
             hotObservable2.asSignal(onErrorJustReturn: -3),
-            errorHotObservable.asSignal(onErrorJustReturn: -4),
+            errorHotObservable.asSignal(onErrorJustReturn: -4)
         ]
 
         let xs: Signal<Int> = hotObservable.asDriver(onErrorJustReturn: 2).flatMapLatest { signals[$0] }
@@ -178,7 +178,7 @@ extension SharedSequenceOperatorTests {
         let signals: [Signal<Int>] = [
             hotObservable1.asSignal(onErrorJustReturn: -2),
             hotObservable2.asSignal(onErrorJustReturn: -3),
-            errorHotObservable.asSignal(onErrorJustReturn: -4),
+            errorHotObservable.asSignal(onErrorJustReturn: -4)
         ]
 
         let xs: Signal<Int> = hotObservable.asDriver(onErrorJustReturn: 2).flatMapFirst { signals[$0] }
@@ -206,7 +206,7 @@ extension SharedSequenceOperatorTests {
         }
 
         XCTAssertEqual(results, [
-            1, 2, -2,
+            1, 2, -2
             ])
     }
 }
@@ -457,7 +457,7 @@ extension SharedSequenceOperatorTests {
             [
                 { source in Driver.merge(source) },
                 { source in Driver.merge([source]) },
-                { source in Driver.merge(AnyCollection([source])) },
+                { source in Driver.merge(AnyCollection([source])) }
             ]
 
         for factory in factories {
@@ -683,7 +683,7 @@ extension SharedSequenceOperatorTests {
                 },
                 { e0 in
                     Driver.combineLatest(e0).map { a in a.reduce(0, +) }
-                },
+                }
             ]
 
         for factory in factories {
@@ -721,7 +721,7 @@ extension SharedSequenceOperatorTests {
                 },
                 { e0, e1 in
                     Driver.combineLatest(e0, e1).map(+)
-                },
+                }
             ]
         for factory in factories {
             let hotObservable1 = BackgroundThreadPrimitiveHotObservable<Int>()
@@ -761,7 +761,7 @@ extension SharedSequenceOperatorTests {
                 },
                 { e0 in
                     Driver.zip(e0).map { a in a.reduce(0, +) }
-                },
+                }
             ]
 
         for factory in factories {
@@ -799,7 +799,7 @@ extension SharedSequenceOperatorTests {
                 },
                 { e0, e1 in
                     Driver.zip(e0, e1).map(+)
-                },
+                }
             ]
         for factory in factories {
             let hotObservable1 = BackgroundThreadPrimitiveHotObservable<Int>()

@@ -18,7 +18,7 @@ extension ObservableCombineLatestTest {
         let factories: [(TestableObservable<Int>, TestableObservable<Int>) -> Observable<Int>] =
             [
                 { e0, e1 in Observable.combineLatest(e0, e1) { x1, x2 in x1 + x2 } },
-                { e0, e1 in Observable.combineLatest(e0, e1).map { x1, x2 in x1 + x2 } },
+                { e0, e1 in Observable.combineLatest(e0, e1).map { x1, x2 in x1 + x2 } }
             ]
         for factory in factories {
             let scheduler = TestScheduler(initialClock: 0)
@@ -47,7 +47,7 @@ extension ObservableCombineLatestTest {
         let factories: [(TestableObservable<Int>, TestableObservable<Int>) -> Observable<Int>] =
             [
                 { e0, e1 in Observable.combineLatest(e0, e1) { x1, x2 in x1 + x2 } },
-                { e0, e1 in Observable.combineLatest(e0, e1).map { x1, x2 in x1 + x2 } },
+                { e0, e1 in Observable.combineLatest(e0, e1).map { x1, x2 in x1 + x2 } }
             ]
         for factory in factories {
             let scheduler = TestScheduler(initialClock: 0)
@@ -77,7 +77,7 @@ extension ObservableCombineLatestTest {
         let factories: [(TestableObservable<Int>, TestableObservable<Int>) -> Observable<Int>] =
             [
                 { e0, e1 in Observable.combineLatest(e0, e1) { x1, x2 in x1 + x2 } },
-                { e0, e1 in Observable.combineLatest(e0, e1).map { x1, x2 in x1 + x2 } },
+                { e0, e1 in Observable.combineLatest(e0, e1).map { x1, x2 in x1 + x2 } }
             ]
 
         for factory in factories {
@@ -109,7 +109,7 @@ extension ObservableCombineLatestTest {
         let factories: [(TestableObservable<Int>, TestableObservable<Int>) -> Observable<Int>] =
             [
                 { e0, e1 in Observable.combineLatest(e0, e1) { x1, x2 in x1 + x2 } },
-                { e0, e1 in Observable.combineLatest(e0, e1).map { x1, x2 in x1 + x2 } },
+                { e0, e1 in Observable.combineLatest(e0, e1).map { x1, x2 in x1 + x2 } }
             ]
 
         for factory in factories {
@@ -141,7 +141,7 @@ extension ObservableCombineLatestTest {
         let factories: [(TestableObservable<Int>, TestableObservable<Int>) -> Observable<Int>] =
             [
                 { e0, e1 in Observable.combineLatest(e0, e1) { x1, x2 in x1 + x2 } },
-                { e0, e1 in Observable.combineLatest(e0, e1).map { x1, x2 in x1 + x2 } },
+                { e0, e1 in Observable.combineLatest(e0, e1).map { x1, x2 in x1 + x2 } }
             ]
 
         for factory in factories {
@@ -154,7 +154,7 @@ extension ObservableCombineLatestTest {
                 ])
             
             let e1 = scheduler.createHotObservable([
-                .next(150, 1),
+                .next(150, 1)
                 ])
             
             let res = scheduler.start {
@@ -172,14 +172,14 @@ extension ObservableCombineLatestTest {
         let factories: [(TestableObservable<Int>, TestableObservable<Int>) -> Observable<Int>] =
             [
                 { e0, e1 in Observable.combineLatest(e0, e1) { x1, x2 in x1 + x2 } },
-                { e0, e1 in Observable.combineLatest(e0, e1).map { x1, x2 in x1 + x2 } },
+                { e0, e1 in Observable.combineLatest(e0, e1).map { x1, x2 in x1 + x2 } }
             ]
 
         for factory in factories {
             let scheduler = TestScheduler(initialClock: 0)
 
             let e0 = scheduler.createHotObservable([
-                .next(150, 1),
+                .next(150, 1)
                 ])
             
             let e1 = scheduler.createHotObservable([
@@ -203,7 +203,7 @@ extension ObservableCombineLatestTest {
         let factories: [(TestableObservable<Int>, TestableObservable<Int>) -> Observable<Int>] =
             [
                 { e0, e1 in Observable.combineLatest(e0, e1) { x1, x2 in x1 + x2 } },
-                { e0, e1 in Observable.combineLatest(e0, e1).map { x1, x2 in x1 + x2 } },
+                { e0, e1 in Observable.combineLatest(e0, e1).map { x1, x2 in x1 + x2 } }
             ]
 
         for factory in factories {
@@ -236,7 +236,7 @@ extension ObservableCombineLatestTest {
         let factories: [(TestableObservable<Int>, TestableObservable<Int>) -> Observable<Int>] =
             [
                 { e0, e1 in Observable.combineLatest(e0, e1) { x1, x2 in x1 + x2 } },
-                { e0, e1 in Observable.combineLatest(e0, e1).map { x1, x2 in x1 + x2 } },
+                { e0, e1 in Observable.combineLatest(e0, e1).map { x1, x2 in x1 + x2 } }
             ]
 
         for factory in factories {
@@ -269,7 +269,7 @@ extension ObservableCombineLatestTest {
         let factories: [(TestableObservable<Int>, TestableObservable<Int>) -> Observable<Int>] =
             [
                 { e0, e1 in Observable.combineLatest(e0, e1) { x1, x2 in x1 + x2 } },
-                { e0, e1 in Observable.combineLatest(e0, e1).map { x1, x2 in x1 + x2 } },
+                { e0, e1 in Observable.combineLatest(e0, e1).map { x1, x2 in x1 + x2 } }
             ]
 
         for factory in factories {
@@ -300,7 +300,7 @@ extension ObservableCombineLatestTest {
         let factories: [(TestableObservable<Int>, TestableObservable<Int>) -> Observable<Int>] =
             [
                 { e0, e1 in Observable.combineLatest(e0, e1) { x1, x2 in x1 + x2 } },
-                { e0, e1 in Observable.combineLatest(e0, e1).map { x1, x2 in x1 + x2 } },
+                { e0, e1 in Observable.combineLatest(e0, e1).map { x1, x2 in x1 + x2 } }
             ]
 
         for factory in factories {
@@ -331,7 +331,7 @@ extension ObservableCombineLatestTest {
         let factories: [(TestableObservable<Int>, TestableObservable<Int>) -> Observable<Int>] =
             [
                 { e0, e1 in Observable.combineLatest(e0, e1) { x1, x2 in x1 + x2 } },
-                { e0, e1 in Observable.combineLatest(e0, e1).map { x1, x2 in x1 + x2 } },
+                { e0, e1 in Observable.combineLatest(e0, e1).map { x1, x2 in x1 + x2 } }
             ]
 
         for factory in factories {
@@ -363,7 +363,7 @@ extension ObservableCombineLatestTest {
         let factories: [(TestableObservable<Int>, TestableObservable<Int>) -> Observable<Int>] =
             [
                 { e0, e1 in Observable.combineLatest(e0, e1) { x1, x2 in x1 + x2 } },
-                { e0, e1 in Observable.combineLatest(e0, e1).map { x1, x2 in x1 + x2 } },
+                { e0, e1 in Observable.combineLatest(e0, e1).map { x1, x2 in x1 + x2 } }
             ]
 
         for factory in factories {
@@ -395,7 +395,7 @@ extension ObservableCombineLatestTest {
         let factories: [(TestableObservable<Int>, TestableObservable<Int>) -> Observable<Int>] =
             [
                 { e0, e1 in Observable.combineLatest(e0, e1) { x1, x2 in x1 + x2 } },
-                { e0, e1 in Observable.combineLatest(e0, e1).map { x1, x2 in x1 + x2 } },
+                { e0, e1 in Observable.combineLatest(e0, e1).map { x1, x2 in x1 + x2 } }
             ]
 
         for factory in factories {
@@ -403,12 +403,12 @@ extension ObservableCombineLatestTest {
 
             let e0 = scheduler.createHotObservable([
                 .next(150, 1),
-                .error(220, testError1),
+                .error(220, testError1)
                 ])
             
             let e1 = scheduler.createHotObservable([
                 .next(150, 1),
-                .error(230, testError2),
+                .error(230, testError2)
                 ])
             
             let res = scheduler.start {
@@ -426,7 +426,7 @@ extension ObservableCombineLatestTest {
         let factories: [(TestableObservable<Int>, TestableObservable<Int>) -> Observable<Int>] =
             [
                 { e0, e1 in Observable.combineLatest(e0, e1) { x1, x2 in x1 + x2 } },
-                { e0, e1 in Observable.combineLatest(e0, e1).map { x1, x2 in x1 + x2 } },
+                { e0, e1 in Observable.combineLatest(e0, e1).map { x1, x2 in x1 + x2 } }
             ]
 
         for factory in factories {
@@ -434,12 +434,12 @@ extension ObservableCombineLatestTest {
 
             let e0 = scheduler.createHotObservable([
                 .next(150, 1),
-                .error(230, testError1),
+                .error(230, testError1)
                 ])
             
             let e1 = scheduler.createHotObservable([
                 .next(150, 1),
-                .error(220, testError2),
+                .error(220, testError2)
                 ])
             
             let res = scheduler.start {
@@ -457,7 +457,7 @@ extension ObservableCombineLatestTest {
         let factories: [(TestableObservable<Int>, TestableObservable<Int>) -> Observable<Int>] =
             [
                 { e0, e1 in Observable.combineLatest(e0, e1) { x1, x2 in x1 + x2 } },
-                { e0, e1 in Observable.combineLatest(e0, e1).map { x1, x2 in x1 + x2 } },
+                { e0, e1 in Observable.combineLatest(e0, e1).map { x1, x2 in x1 + x2 } }
             ]
 
         for factory in factories {
@@ -466,12 +466,12 @@ extension ObservableCombineLatestTest {
             let e0 = scheduler.createHotObservable([
                 .next(150, 1),
                 .next(210, 2),
-                .error(220, testError1),
+                .error(220, testError1)
                 ])
             
             let e1 = scheduler.createHotObservable([
                 .next(150, 1),
-                .error(230, testError2),
+                .error(230, testError2)
                 ])
             
             let res = scheduler.start {
@@ -489,7 +489,7 @@ extension ObservableCombineLatestTest {
         let factories: [(TestableObservable<Int>, TestableObservable<Int>) -> Observable<Int>] =
             [
                 { e0, e1 in Observable.combineLatest(e0, e1) { x1, x2 in x1 + x2 } },
-                { e0, e1 in Observable.combineLatest(e0, e1).map { x1, x2 in x1 + x2 } },
+                { e0, e1 in Observable.combineLatest(e0, e1).map { x1, x2 in x1 + x2 } }
             ]
 
         for factory in factories {
@@ -497,13 +497,13 @@ extension ObservableCombineLatestTest {
 
             let e0 = scheduler.createHotObservable([
                 .next(150, 1),
-                .error(230, testError2),
+                .error(230, testError2)
                 ])
             
             let e1 = scheduler.createHotObservable([
                 .next(150, 1),
                 .next(210, 2),
-                .error(220, testError1),
+                .error(220, testError1)
                 ])
             
             let res = scheduler.start {
@@ -521,7 +521,7 @@ extension ObservableCombineLatestTest {
         let factories: [(TestableObservable<Int>, TestableObservable<Int>) -> Observable<Int>] =
             [
                 { e0, e1 in Observable.combineLatest(e0, e1) { x1, x2 in x1 + x2 } },
-                { e0, e1 in Observable.combineLatest(e0, e1).map { x1, x2 in x1 + x2 } },
+                { e0, e1 in Observable.combineLatest(e0, e1).map { x1, x2 in x1 + x2 } }
             ]
 
         for factory in factories {
@@ -535,7 +535,7 @@ extension ObservableCombineLatestTest {
             
             let e1 = scheduler.createHotObservable([
                 .next(150, 1),
-                .error(220, testError),
+                .error(220, testError)
                 ])
             
             let res = scheduler.start {
@@ -553,7 +553,7 @@ extension ObservableCombineLatestTest {
         let factories: [(TestableObservable<Int>, TestableObservable<Int>) -> Observable<Int>] =
             [
                 { e0, e1 in Observable.combineLatest(e0, e1) { x1, x2 in x1 + x2 } },
-                { e0, e1 in Observable.combineLatest(e0, e1).map { x1, x2 in x1 + x2 } },
+                { e0, e1 in Observable.combineLatest(e0, e1).map { x1, x2 in x1 + x2 } }
             ]
 
         for factory in factories {
@@ -561,7 +561,7 @@ extension ObservableCombineLatestTest {
 
             let e0 = scheduler.createHotObservable([
                 .next(150, 1),
-                .error(220, testError),
+                .error(220, testError)
                 ])
             
             let e1 = scheduler.createHotObservable([
@@ -585,7 +585,7 @@ extension ObservableCombineLatestTest {
         let factories: [(TestableObservable<Int>, TestableObservable<Int>) -> Observable<Int>] =
             [
                 { e0, e1 in Observable.combineLatest(e0, e1) { x1, x2 in x1 + x2 } },
-                { e0, e1 in Observable.combineLatest(e0, e1).map { x1, x2 in x1 + x2 } },
+                { e0, e1 in Observable.combineLatest(e0, e1).map { x1, x2 in x1 + x2 } }
             ]
 
         for factory in factories {
@@ -599,7 +599,7 @@ extension ObservableCombineLatestTest {
             
             let e1 = scheduler.createHotObservable([
                 .next(150, 1),
-                .error(230, testError),
+                .error(230, testError)
                 ])
             
             let res = scheduler.start {
@@ -617,7 +617,7 @@ extension ObservableCombineLatestTest {
         let factories: [(TestableObservable<Int>, TestableObservable<Int>) -> Observable<Int>] =
             [
                 { e0, e1 in Observable.combineLatest(e0, e1) { x1, x2 in x1 + x2 } },
-                { e0, e1 in Observable.combineLatest(e0, e1).map { x1, x2 in x1 + x2 } },
+                { e0, e1 in Observable.combineLatest(e0, e1).map { x1, x2 in x1 + x2 } }
             ]
 
         for factory in factories {
@@ -625,7 +625,7 @@ extension ObservableCombineLatestTest {
 
             let e0 = scheduler.createHotObservable([
                 .next(150, 1),
-                .error(230, testError),
+                .error(230, testError)
                 ])
             
             let e1 = scheduler.createHotObservable([
@@ -649,7 +649,7 @@ extension ObservableCombineLatestTest {
         let factories: [(TestableObservable<Int>, TestableObservable<Int>) -> Observable<Int>] =
             [
                 { e0, e1 in Observable.combineLatest(e0, e1) { x1, x2 in x1 + x2 } },
-                { e0, e1 in Observable.combineLatest(e0, e1).map { x1, x2 in x1 + x2 } },
+                { e0, e1 in Observable.combineLatest(e0, e1).map { x1, x2 in x1 + x2 } }
             ]
 
         for factory in factories {
@@ -695,7 +695,7 @@ extension ObservableCombineLatestTest {
         let factories: [(TestableObservable<Int>, TestableObservable<Int>) -> Observable<Int>] =
             [
                 { e0, e1 in Observable.combineLatest(e0, e1) { x1, x2 in x1 + x2 } },
-                { e0, e1 in Observable.combineLatest(e0, e1).map { x1, x2 in x1 + x2 } },
+                { e0, e1 in Observable.combineLatest(e0, e1).map { x1, x2 in x1 + x2 } }
             ]
 
         for factory in factories {
@@ -736,7 +736,7 @@ extension ObservableCombineLatestTest {
         let factories: [(TestableObservable<Int>, TestableObservable<Int>) -> Observable<Int>] =
             [
                 { e0, e1 in Observable.combineLatest(e0, e1) { x1, x2 in x1 + x2 } },
-                { e0, e1 in Observable.combineLatest(e0, e1).map { x1, x2 in x1 + x2 } },
+                { e0, e1 in Observable.combineLatest(e0, e1).map { x1, x2 in x1 + x2 } }
             ]
 
         for factory in factories {
@@ -771,7 +771,7 @@ extension ObservableCombineLatestTest {
         let factories: [(TestableObservable<Int>, TestableObservable<Int>) -> Observable<Int>] =
             [
                 { e0, e1 in Observable.combineLatest(e0, e1) { x1, x2 in x1 + x2 } },
-                { e0, e1 in Observable.combineLatest(e0, e1).map { x1, x2 in x1 + x2 } },
+                { e0, e1 in Observable.combineLatest(e0, e1).map { x1, x2 in x1 + x2 } }
             ]
 
         for factory in factories {
@@ -850,7 +850,7 @@ extension ObservableCombineLatestTest {
             Observable.of(0, 1, 2)
         ) { $0 + $1 }
 
-        _ = observable.subscribe(onError: { n in
+        _ = observable.subscribe(onError: { _ in
             nEvents += 1
         })
         
@@ -894,7 +894,7 @@ extension ObservableCombineLatestTest {
                 },
                 {
                     Observable.combineLatest(([] as [Observable<Int>]).map { $0.asObservable() }) { $0.reduce(0, +) }
-                },
+                }
             ]
         for factory in factories {
             let scheduler = TestScheduler(initialClock: 0)
@@ -918,7 +918,7 @@ extension ObservableCombineLatestTest {
                 },
                 { e0, e1, e2 in
                     Observable.combineLatest([e0, e1, e2].map { $0.asObservable() }) { $0.reduce(0, +) }
-                },
+                }
             ]
         for factory in factories {
             let scheduler = TestScheduler(initialClock: 0)
@@ -955,7 +955,7 @@ extension ObservableCombineLatestTest {
                 },
                 { e0, e1 in
                     Observable.combineLatest([e0, e1].map { $0.asObservable() }) { $0.reduce(0, +) }
-                },
+                }
             ]
         for factory in factories {
             let scheduler = TestScheduler(initialClock: 0)
@@ -988,7 +988,7 @@ extension ObservableCombineLatestTest {
                 },
                 { e0, e1 in
                     Observable.combineLatest([e0, e1].map { $0.asObservable() }) { $0.reduce(0, +) }
-                },
+                }
             ]
         for factory in factories {
             let scheduler = TestScheduler(initialClock: 0)
@@ -1021,7 +1021,7 @@ extension ObservableCombineLatestTest {
                 },
                 { e0, e1 in
                     Observable.combineLatest([e0, e1].map { $0.asObservable() }) { $0.reduce(0, +) }
-                },
+                }
             ]
         for factory in factories {
             let scheduler = TestScheduler(initialClock: 0)
@@ -1058,7 +1058,7 @@ extension ObservableCombineLatestTest {
                 },
                 { e0, e1 in
                     Observable.combineLatest([e0, e1].map { $0.asObservable() }) { $0.reduce(0, +) }
-                },
+                }
             ]
         for factory in factories {
             let scheduler = TestScheduler(initialClock: 0)
@@ -1097,7 +1097,7 @@ extension ObservableCombineLatestTest {
                 },
                 { e0, e1 in
                     Observable.combineLatest([e0, e1].map { $0.asObservable() }) { $0.reduce(0, +) }
-                },
+                }
             ]
 
         for factory in factories {
@@ -1110,7 +1110,7 @@ extension ObservableCombineLatestTest {
             
             let e1 = scheduler.createHotObservable([
                 .next(150, 1),
-                .error(220, testError),
+                .error(220, testError)
                 ])
             
             let res = scheduler.start {
@@ -1134,7 +1134,7 @@ extension ObservableCombineLatestTest {
                 },
                 { e0, e1 in
                     Observable.combineLatest([e0, e1].map { $0.asObservable() }) { $0.reduce(0, +) }
-                },
+                }
             ]
 
         for factory in factories {
@@ -1148,7 +1148,7 @@ extension ObservableCombineLatestTest {
             
             let e1 = scheduler.createHotObservable([
                 .next(150, 1),
-                .error(220, testError),
+                .error(220, testError)
                 ])
             
             let res = scheduler.start {
@@ -1172,7 +1172,7 @@ extension ObservableCombineLatestTest {
                 },
                 { e0, e1 in
                     Observable.combineLatest([e0, e1].map { $0.asObservable() }) { $0.reduce(0, +) }
-                },
+                }
             ]
         for factory in factories {
             let scheduler = TestScheduler(initialClock: 0)
@@ -1184,7 +1184,7 @@ extension ObservableCombineLatestTest {
             
             let e1 = scheduler.createHotObservable([
                 .next(150, 1),
-                .error(230, testError2),
+                .error(230, testError2)
                 ])
             
             let res = scheduler.start {
@@ -1208,19 +1208,19 @@ extension ObservableCombineLatestTest {
                 },
                 { e0, e1 in
                     Observable.combineLatest([e0, e1].map { $0.asObservable() }) { $0.reduce(0, +) }
-                },
+                }
             ]
 
         for factory in factories {
             let scheduler = TestScheduler(initialClock: 0)
 
             let e0 = scheduler.createHotObservable([
-                .next(150, 1),
+                .next(150, 1)
                 ])
             
             let e1 = scheduler.createHotObservable([
                 .next(150, 1),
-                .error(220, testError2),
+                .error(220, testError2)
                 ])
             
             let res = scheduler.start {
@@ -1244,7 +1244,7 @@ extension ObservableCombineLatestTest {
                 },
                 { e0, e1 in
                     Observable.combineLatest([e0, e1].map { $0.asObservable() }) { $0.reduce(0, +) }
-                },
+                }
             ]
 
         for factory in factories {
@@ -1258,7 +1258,7 @@ extension ObservableCombineLatestTest {
             
             let e1 = scheduler.createHotObservable([
                 .next(150, 1),
-                .error(220, testError2),
+                .error(220, testError2)
                 ])
             
             let res = scheduler.start {
@@ -1282,7 +1282,7 @@ extension ObservableCombineLatestTest {
                 },
                 { e0, e1 in
                     Observable.combineLatest([e0, e1].map { $0.asObservable() }) { $0.reduce(0, +) }
-                },
+                }
             ]
 
         for factory in factories {
@@ -1296,7 +1296,7 @@ extension ObservableCombineLatestTest {
             
             let e1 = scheduler.createHotObservable([
                 .next(150, 1),
-                .error(230, testError2),
+                .error(230, testError2)
                 ])
             
             let res = scheduler.start {
@@ -1320,7 +1320,7 @@ extension ObservableCombineLatestTest {
                 },
                 { e0, e1 in
                     Observable.combineLatest([e0, e1].map { $0.asObservable() }) { $0.reduce(0, +) }
-                },
+                }
             ]
 
         for factory in factories {
@@ -1368,7 +1368,7 @@ extension ObservableCombineLatestTest {
                 },
                 { e0, e1 in
                     Observable.combineLatest([e0, e1].map { $0.asObservable() }) { $0.reduce(0, +) }
-                },
+                }
             ]
 
         for factory in factories {
@@ -1411,7 +1411,7 @@ extension ObservableCombineLatestTest {
                 },
                 { e0, e1 in
                     Observable.combineLatest([e0, e1].map { $0.asObservable() }) { $0.reduce(0, +) }
-                },
+                }
             ]
 
         for factory in factories {
@@ -1452,7 +1452,7 @@ extension ObservableCombineLatestTest {
                 },
                 { e0, e1 in
                     Observable.combineLatest([e0, e1].map { $0.asObservable() }) { $0.reduce(0, +) }
-                },
+                }
             ]
 
         for factory in factories {
@@ -1524,7 +1524,7 @@ extension ObservableCombineLatestTest {
                 },
                 { e0, e1, e2 in
                     Observable.combineLatest([e0, e1, e2].map { $0.asObservable() }) { _ in 42 }
-                },
+                }
             ]
 
         for factory in factories {
@@ -1568,7 +1568,7 @@ extension ObservableCombineLatestTest {
                 },
                 { e0, e1, e2 in
                     Observable.combineLatest([e0, e1, e2].map { $0.asObservable() }) { $0.reduce(0, +) }
-                },
+                }
             ]
         for factory in factories {
             let scheduler = TestScheduler(initialClock: 0)
@@ -1618,7 +1618,7 @@ extension ObservableCombineLatestTest {
                 },
                 { e0, e1, e2 in
                     Observable.combineLatest([e0, e1, e2].map { $0.asObservable() }) { EquatableArray($0) }
-                },
+                }
             ]
         for factory in factories {
             let scheduler = TestScheduler(initialClock: 0)
@@ -1668,7 +1668,7 @@ extension ObservableCombineLatestTest {
                 },
                 { e0, e1, e2 in
                     Observable.combineLatest([e0, e1, e2].map { $0.asObservable() }) { EquatableArray($0) }
-                },
+                }
             ]
         for factory in factories {
             let scheduler = TestScheduler(initialClock: 0)

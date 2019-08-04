@@ -23,7 +23,7 @@ class PartialUpdatesViewController : ViewController {
     @IBOutlet weak var partialUpdatesTableViewOutlet: UITableView!
     @IBOutlet weak var partialUpdatesCollectionViewOutlet: UICollectionView!
 
-    var timer: Foundation.Timer? = nil
+    var timer: Foundation.Timer?
 
     static let initialValue: [AnimatableSectionModel<String, Int>] = [
         NumberSection(model: "section 1", items: [1, 2, 3]),
@@ -167,12 +167,12 @@ extension PartialUpdatesViewController {
         TableViewSectionedDataSource<NumberSection>.TitleForHeaderInSection
         ) {
         return (
-            { (_, tv, ip, i) in
+            { _, tv, ip, i in
                 let cell = tv.dequeueReusableCell(withIdentifier: "Cell") ?? UITableViewCell(style:.default, reuseIdentifier: "Cell")
                 cell.textLabel!.text = "\(i)"
                 return cell
             },
-            { (ds, section) -> String? in
+            { ds, section -> String? in
                 return ds[section].model
             }
         )
@@ -183,13 +183,13 @@ extension PartialUpdatesViewController {
         CollectionViewSectionedDataSource<NumberSection>.ConfigureSupplementaryView
         ) {
         return (
-            { (_, cv, ip, i) in
+            { _, cv, ip, i in
                 let cell = cv.dequeueReusableCell(withReuseIdentifier: "Cell", for: ip) as! NumberCell
                 cell.value!.text = "\(i)"
                 return cell
 
             },
-            { (ds ,cv, kind, ip) in
+            { ds ,cv, kind, ip in
                 let section = cv.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "Section", for: ip) as! NumberSectionView
                 section.value!.text = "\(ds[ip.section].model)"
                 return section

@@ -13,9 +13,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
 
     var window: UIWindow?
 
-
     func applicationDidFinishLaunching(_ application: UIApplication) {
-        
+
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
@@ -41,4 +40,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     }
 
 }
-
