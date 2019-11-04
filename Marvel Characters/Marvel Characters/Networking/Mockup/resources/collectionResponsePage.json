@@ -1,0 +1,3404 @@
+{
+  "code": 200,
+  "status": "Ok",
+  "copyright": "© 2016 MARVEL",
+  "attributionText": "Data provided by Marvel. © 2016 MARVEL",
+  "attributionHTML": "<a href=\"http://marvel.com\">Data provided by Marvel. © 2016 MARVEL</a>",
+  "etag": "92a53ff4f6f2c00edf066c7532c623e9554f897c",
+  "data": {
+    "offset": 0,
+    "limit": 20,
+    "total": 33,
+    "count": 20,
+    "results": [
+      {
+        "id": 50769,
+        "digitalId": 0,
+        "title": "Original Sin (2014) #6 (Dell'otto Variant)",
+        "issueNumber": 6,
+        "variantDescription": "Dell'otto Variant",
+        "description": "Who Pulled The Trigger?",
+        "modified": "2014-07-08T16:45:06-0400",
+        "isbn": "",
+        "upc": "75960608034200621",
+        "diamondCode": "",
+        "ean": "",
+        "issn": "",
+        "format": "Comic",
+        "pageCount": 32,
+        "textObjects": [
+          {
+            "type": "issue_solicit_text",
+            "language": "en-us",
+            "text": "Who Pulled The Trigger?"
+          }
+        ],
+        "resourceURI": "http://gateway.marvel.com/v1/public/comics/50769",
+        "urls": [
+          {
+            "type": "detail",
+            "url": "http://marvel.com/comics/issue/50769/original_sin_2014_6_dellotto_variant/dellotto_variant?utm_campaign=apiRef&utm_source=19972fbcfc8ba75736070bc42fbca671"
+          }
+        ],
+        "series": {
+          "resourceURI": "http://gateway.marvel.com/v1/public/series/18681",
+          "name": "Original Sin (2014 - Present)"
+        },
+        "variants": [
+          {
+            "resourceURI": "http://gateway.marvel.com/v1/public/comics/49522",
+            "name": "Original Sin (2014) #6"
+          }
+        ],
+        "collections": [],
+        "collectedIssues": [],
+        "dates": [
+          {
+            "type": "onsaleDate",
+            "date": "2014-07-16T00:00:00-0400"
+          },
+          {
+            "type": "focDate",
+            "date": "2014-07-02T00:00:00-0400"
+          }
+        ],
+        "prices": [
+          {
+            "type": "printPrice",
+            "price": 3.99
+          }
+        ],
+        "thumbnail": {
+          "path": "http://i.annihil.us/u/prod/marvel/i/mg/e/c0/53bc4fe3aa62b",
+          "extension": "jpg"
+        },
+        "images": [
+          {
+            "path": "http://i.annihil.us/u/prod/marvel/i/mg/e/c0/53bc4fe3aa62b",
+            "extension": "jpg"
+          },
+          {
+            "path": "http://i.annihil.us/u/prod/marvel/i/mg/c/10/53a85a37ad4bd",
+            "extension": "jpg"
+          }
+        ],
+        "creators": {
+          "available": 3,
+          "collectionURI": "http://gateway.marvel.com/v1/public/comics/50769/creators",
+          "items": [
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/creators/11463",
+              "name": "Jason Aaron",
+              "role": "writer"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/creators/8522",
+              "name": "Gabriele Dell'Otto",
+              "role": "penciller (cover)"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/creators/312",
+              "name": "Mike Deodato",
+              "role": "artist"
+            }
+          ],
+          "returned": 3
+        },
+        "characters": {
+          "available": 1,
+          "collectionURI": "http://gateway.marvel.com/v1/public/comics/50769/characters",
+          "items": [
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1010802",
+              "name": "Ant-Man (Eric O'Grady)"
+            }
+          ],
+          "returned": 1
+        },
+        "stories": {
+          "available": 2,
+          "collectionURI": "http://gateway.marvel.com/v1/public/comics/50769/stories",
+          "items": [
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/stories/113596",
+              "name": "cover from Original Sin (2014) #6 (DELL'OTTO VARIANT)",
+              "type": "cover"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/stories/113597",
+              "name": "story from Original Sin (2014) #6 (DELL'OTTO VARIANT)",
+              "type": "interiorStory"
+            }
+          ],
+          "returned": 2
+        },
+        "events": {
+          "available": 1,
+          "collectionURI": "http://gateway.marvel.com/v1/public/comics/50769/events",
+          "items": [
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/events/319",
+              "name": "Original Sin"
+            }
+          ],
+          "returned": 1
+        }
+      },
+      {
+        "id": 39955,
+        "digitalId": 24715,
+        "title": "Fear Itself: The Fearless (2011) #3",
+        "issueNumber": 3,
+        "variantDescription": "",
+        "description": "Sin, Crossbones, and Valkeryie race across the globe in search of the missing hammers! The Secret Avengers guest-star in a battle against Raizo and an army of zombies!",
+        "modified": "2015-11-12T12:35:39-0500",
+        "isbn": "",
+        "upc": "5960607686-00311",
+        "diamondCode": "SEP110504",
+        "ean": "",
+        "issn": "",
+        "format": "Comic",
+        "pageCount": 32,
+        "textObjects": [
+          {
+            "type": "issue_solicit_text",
+            "language": "en-us",
+            "text": "Sin, Crossbones, and Valkeryie race across the globe in search of the missing hammers! The Secret Avengers guest-star in a battle against Raizo and an army of zombies!"
+          },
+          {
+            "type": "issue_preview_text",
+            "language": "en-us",
+            "text": "Sin, Crossbones, and Valkeryie race across the globe in search of the missing hammers! The Secret Avengers guest-star in a battle against Raizo and an army of zombies!"
+          }
+        ],
+        "resourceURI": "http://gateway.marvel.com/v1/public/comics/39955",
+        "urls": [
+          {
+            "type": "detail",
+            "url": "http://marvel.com/comics/issue/39955/fear_itself_the_fearless_2011_3?utm_campaign=apiRef&utm_source=19972fbcfc8ba75736070bc42fbca671"
+          },
+          {
+            "type": "purchase",
+            "url": "http://comicstore.marvel.com/Fear-Itself-The-Fearless-3/digital-comic/24715?utm_campaign=apiRef&utm_source=19972fbcfc8ba75736070bc42fbca671"
+          },
+          {
+            "type": "reader",
+            "url": "http://marvel.com/digitalcomics/view.htm?iid=24715&utm_campaign=apiRef&utm_source=19972fbcfc8ba75736070bc42fbca671"
+          },
+          {
+            "type": "inAppLink",
+            "url": "http://applink.marvel.com/issue/24715?utm_campaign=apiRef&utm_source=19972fbcfc8ba75736070bc42fbca671"
+          }
+        ],
+        "series": {
+          "resourceURI": "http://gateway.marvel.com/v1/public/series/14804",
+          "name": "Fear Itself: The Fearless (2011 - 2012)"
+        },
+        "variants": [],
+        "collections": [],
+        "collectedIssues": [],
+        "dates": [
+          {
+            "type": "onsaleDate",
+            "date": "2011-11-16T00:00:00-0500"
+          },
+          {
+            "type": "focDate",
+            "date": "2011-11-02T00:00:00-0400"
+          },
+          {
+            "type": "unlimitedDate",
+            "date": "2012-11-06T00:00:00-0500"
+          },
+          {
+            "type": "digitalPurchaseDate",
+            "date": "2011-11-16T00:00:00-0500"
+          }
+        ],
+        "prices": [
+          {
+            "type": "printPrice",
+            "price": 2.99
+          },
+          {
+            "type": "digitalPurchasePrice",
+            "price": 1.99
+          }
+        ],
+        "thumbnail": {
+          "path": "http://i.annihil.us/u/prod/marvel/i/mg/c/90/52c5aaf7b6f66",
+          "extension": "jpg"
+        },
+        "images": [
+          {
+            "path": "http://i.annihil.us/u/prod/marvel/i/mg/c/90/52c5aaf7b6f66",
+            "extension": "jpg"
+          },
+          {
+            "path": "http://i.annihil.us/u/prod/marvel/i/mg/9/d0/4e656960cedb5",
+            "extension": "jpg"
+          }
+        ],
+        "creators": {
+          "available": 0,
+          "collectionURI": "http://gateway.marvel.com/v1/public/comics/39955/creators",
+          "items": [],
+          "returned": 0
+        },
+        "characters": {
+          "available": 5,
+          "collectionURI": "http://gateway.marvel.com/v1/public/comics/39955/characters",
+          "items": [
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1010802",
+              "name": "Ant-Man (Eric O'Grady)"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1009189",
+              "name": "Black Widow"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1009538",
+              "name": "Iron Patriot (James Rhodes)"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1009577",
+              "name": "Shang-Chi"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1009228",
+              "name": "Sharon Carter"
+            }
+          ],
+          "returned": 5
+        },
+        "stories": {
+          "available": 2,
+          "collectionURI": "http://gateway.marvel.com/v1/public/comics/39955/stories",
+          "items": [
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/stories/90677",
+              "name": "Cover #90677",
+              "type": "cover"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/stories/90678",
+              "name": "Interior #90678",
+              "type": "interiorStory"
+            }
+          ],
+          "returned": 2
+        },
+        "events": {
+          "available": 1,
+          "collectionURI": "http://gateway.marvel.com/v1/public/comics/39955/events",
+          "items": [
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/events/309",
+              "name": "Shattered Heroes"
+            }
+          ],
+          "returned": 1
+        }
+      },
+      {
+        "id": 37655,
+        "digitalId": 0,
+        "title": "Ant-Man & Wasp: Small World (Trade Paperback)",
+        "issueNumber": 1,
+        "variantDescription": "",
+        "description": "The world's smallest heroes must join forces! Eric O'Grady once stole the Ant-Man suit from Hank Pym. But now, Eric is the only one who knows about a secret AIM plot to steal Pym's greatest invention! Can the two men get along long enough to save the day?\n",
+        "modified": "2011-06-02T17:24:53-0400",
+        "isbn": "978-0-7851-5567-6",
+        "upc": "5960615567-00111",
+        "diamondCode": "APR110726",
+        "ean": "9780785 155676 51499",
+        "issn": "",
+        "format": "Trade Paperback",
+        "pageCount": 152,
+        "textObjects": [
+          {
+            "type": "issue_preview_text",
+            "language": "en-us",
+            "text": "The world's smallest heroes must join forces! Eric O'Grady once stole the Ant-Man suit from Hank Pym. But now, Eric is the only one who knows about a secret AIM plot to steal Pym's greatest invention! Can the two men get along long enough to save the day?\n"
+          },
+          {
+            "type": "issue_solicit_text",
+            "language": "en-us",
+            "text": "Two of Marvel's smallest heroes must join forces and get over one big elephant-in-the-room! Eric O'Grady once stole the Ant-Man suit from Hank Pym. But now, Eric is the only one who knows about a secret A.I.M. plot to steal Pym's greatest invention! Can these two mighty mites get along long enough to save the soul of former Goliath Bill Foster? Tim Seeley, creator of Hack/Slash, brings you the big story of the two smallest Avengers! Plus: early Marvel Age action featuring the original Ant-Man and Wasp! Collecting ANT-MAN & WASP #1-3 and material from TALES TO ASTONISH #44-48."
+          }
+        ],
+        "resourceURI": "http://gateway.marvel.com/v1/public/comics/37655",
+        "urls": [
+          {
+            "type": "detail",
+            "url": "http://marvel.com/comics/collection/37655/ant-man_wasp_small_world_trade_paperback?utm_campaign=apiRef&utm_source=19972fbcfc8ba75736070bc42fbca671"
+          },
+          {
+            "type": "purchase",
+            "url": "http://comicstore.marvel.com/Ant-Man-Wasp-Small-World-1/digital-comic/27673?utm_campaign=apiRef&utm_source=19972fbcfc8ba75736070bc42fbca671"
+          }
+        ],
+        "series": {
+          "resourceURI": "http://gateway.marvel.com/v1/public/series/13540",
+          "name": "Ant-Man & Wasp: Small World (2010 - Present)"
+        },
+        "variants": [],
+        "collections": [],
+        "collectedIssues": [],
+        "dates": [
+          {
+            "type": "onsaleDate",
+            "date": "2011-06-08T00:00:00-0400"
+          },
+          {
+            "type": "focDate",
+            "date": "2011-05-25T00:00:00-0400"
+          }
+        ],
+        "prices": [
+          {
+            "type": "printPrice",
+            "price": 14.99
+          }
+        ],
+        "thumbnail": {
+          "path": "http://i.annihil.us/u/prod/marvel/i/mg/6/40/4d791cfa73114",
+          "extension": "jpg"
+        },
+        "images": [
+          {
+            "path": "http://i.annihil.us/u/prod/marvel/i/mg/6/40/4d791cfa73114",
+            "extension": "jpg"
+          }
+        ],
+        "creators": {
+          "available": 7,
+          "collectionURI": "http://gateway.marvel.com/v1/public/comics/37655/creators",
+          "items": [
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/creators/9394",
+              "name": "Salvador Espin",
+              "role": "penciller (cover)"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/creators/9983",
+              "name": "Ernie Hart",
+              "role": "writer"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/creators/30",
+              "name": "Stan Lee",
+              "role": "writer"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/creators/305",
+              "name": "Don Heck",
+              "role": "penciller"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/creators/196",
+              "name": "Jack Kirby",
+              "role": "penciller"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/creators/9550",
+              "name": "Tim Seeley",
+              "role": "penciller"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/creators/4430",
+              "name": "Jeff Youngquist",
+              "role": "editor"
+            }
+          ],
+          "returned": 7
+        },
+        "characters": {
+          "available": 2,
+          "collectionURI": "http://gateway.marvel.com/v1/public/comics/37655/characters",
+          "items": [
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1010802",
+              "name": "Ant-Man (Eric O'Grady)"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1009707",
+              "name": "Wasp"
+            }
+          ],
+          "returned": 2
+        },
+        "stories": {
+          "available": 2,
+          "collectionURI": "http://gateway.marvel.com/v1/public/comics/37655/stories",
+          "items": [
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/stories/83238",
+              "name": "Ant-Man & Wasp (2010) #1",
+              "type": "cover"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/stories/83239",
+              "name": "Ant-Man & Wasp (2010) #1",
+              "type": "interiorStory"
+            }
+          ],
+          "returned": 2
+        },
+        "events": {
+          "available": 0,
+          "collectionURI": "http://gateway.marvel.com/v1/public/comics/37655/events",
+          "items": [],
+          "returned": 0
+        }
+      },
+      {
+        "id": 39222,
+        "digitalId": 0,
+        "title": "Secret Avengers (2010) #13 (X-Men Art Variant)",
+        "issueNumber": 13,
+        "variantDescription": "X-Men Art Variant",
+        "description": "FEAR ITSELF TIE-IN! Armies are mounting against the Avengers on every side, and even the Gods have turned their backs on Earth. With humanity facing it's gravest threat yet, Steve Rogers and his Secret Avengers will make some hard choices about what's just in times of war. And even as they do, a new danger of a different kind emerges-- one that confronts them not in the name of evil or fear, but freedom and liberty.",
+        "modified": "2011-05-20T14:11:38-0400",
+        "isbn": "",
+        "upc": "5960607014-01321",
+        "diamondCode": "",
+        "ean": "",
+        "issn": "2153-9898",
+        "format": "Comic",
+        "pageCount": 32,
+        "textObjects": [
+          {
+            "type": "issue_solicit_text",
+            "language": "en-us",
+            "text": "FEAR ITSELF TIE-IN! Armies are mounting against the Avengers on every side, and even the Gods have turned their backs on Earth. With humanity facing it's gravest threat yet, Steve Rogers and his Secret Avengers will make some hard choices about what's just in times of war. And even as they do, a new danger of a different kind emerges-- one that confronts them not in the name of evil or fear, but freedom and liberty."
+          }
+        ],
+        "resourceURI": "http://gateway.marvel.com/v1/public/comics/39222",
+        "urls": [
+          {
+            "type": "detail",
+            "url": "http://marvel.com/comics/issue/39222/secret_avengers_2010_13_x-men_art_variant/x-men_art_variant?utm_campaign=apiRef&utm_source=19972fbcfc8ba75736070bc42fbca671"
+          }
+        ],
+        "series": {
+          "resourceURI": "http://gateway.marvel.com/v1/public/series/9799",
+          "name": "Secret Avengers (2010 - 2012)"
+        },
+        "variants": [
+          {
+            "resourceURI": "http://gateway.marvel.com/v1/public/comics/35154",
+            "name": "Secret Avengers (2010) #13"
+          }
+        ],
+        "collections": [],
+        "collectedIssues": [],
+        "dates": [
+          {
+            "type": "onsaleDate",
+            "date": "2011-05-25T00:00:00-0400"
+          },
+          {
+            "type": "focDate",
+            "date": "2011-05-02T00:00:00-0400"
+          }
+        ],
+        "prices": [
+          {
+            "type": "printPrice",
+            "price": 3.99
+          }
+        ],
+        "thumbnail": {
+          "path": "http://i.annihil.us/u/prod/marvel/i/mg/d/d0/4db96e789cdf9",
+          "extension": "jpg"
+        },
+        "images": [
+          {
+            "path": "http://i.annihil.us/u/prod/marvel/i/mg/d/d0/4db96e789cdf9",
+            "extension": "jpg"
+          },
+          {
+            "path": "http://i.annihil.us/u/prod/marvel/i/mg/c/50/4db96ddc117e2",
+            "extension": "jpg"
+          },
+          {
+            "path": "http://i.annihil.us/u/prod/marvel/i/mg/c/e0/4db96d6e2dd92",
+            "extension": "jpg"
+          },
+          {
+            "path": "http://i.annihil.us/u/prod/marvel/i/mg/9/80/4db96d0a6e707",
+            "extension": "jpg"
+          }
+        ],
+        "creators": {
+          "available": 6,
+          "collectionURI": "http://gateway.marvel.com/v1/public/comics/39222/creators",
+          "items": [
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/creators/2133",
+              "name": "Tom Brevoort",
+              "role": "editor"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/creators/8504",
+              "name": "Frank D'Armata",
+              "role": "colorist"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/creators/5106",
+              "name": "Scot Eaton",
+              "role": "penciller"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/creators/878",
+              "name": "Dave Lanphear",
+              "role": "letterer"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/creators/11434",
+              "name": "Nick Spencer",
+              "role": "writer"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/creators/8991",
+              "name": "Lee Weeks",
+              "role": "penciller (cover)"
+            }
+          ],
+          "returned": 6
+        },
+        "characters": {
+          "available": 3,
+          "collectionURI": "http://gateway.marvel.com/v1/public/comics/39222/characters",
+          "items": [
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1010802",
+              "name": "Ant-Man (Eric O'Grady)"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1009175",
+              "name": "Beast"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1009538",
+              "name": "Iron Patriot (James Rhodes)"
+            }
+          ],
+          "returned": 3
+        },
+        "stories": {
+          "available": 2,
+          "collectionURI": "http://gateway.marvel.com/v1/public/comics/39222/stories",
+          "items": [
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/stories/77768",
+              "name": "Secret Avengers #13",
+              "type": "interiorStory"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/stories/89016",
+              "name": "Secret Avengers #13 (X-Men Evolutions Variant)",
+              "type": "cover"
+            }
+          ],
+          "returned": 2
+        },
+        "events": {
+          "available": 0,
+          "collectionURI": "http://gateway.marvel.com/v1/public/comics/39222/events",
+          "items": [],
+          "returned": 0
+        }
+      },
+      {
+        "id": 35154,
+        "digitalId": 21222,
+        "title": "Secret Avengers (2010) #13",
+        "issueNumber": 13,
+        "variantDescription": "",
+        "description": "FEAR ITSELF TIE IN With little hope of winning the war, Earth turns to Steve Rogers and his SECRET AVENGERS for a chance of survival! Now the team must make some hard decisions on how far they are really willing to go to defeat FEAR ITSELF! \n",
+        "modified": "2012-04-10T11:11:37-0400",
+        "isbn": "",
+        "upc": "5960607014-01311",
+        "diamondCode": "",
+        "ean": "",
+        "issn": "2153-9898",
+        "format": "Comic",
+        "pageCount": 32,
+        "textObjects": [
+          {
+            "type": "issue_solicit_text",
+            "language": "en-us",
+            "text": "FEAR ITSELF TIE-IN! Armies are mounting against the Avengers on every side, and even the Gods have turned their backs on Earth. With humanity facing it's gravest threat yet, Steve Rogers and his Secret Avengers will make some hard choices about what's just in times of war. And even as they do, a new danger of a different kind emerges-- one that confronts them not in the name of evil or fear, but freedom and liberty."
+          },
+          {
+            "type": "issue_preview_text",
+            "language": "en-us",
+            "text": "FEAR ITSELF TIE IN With little hope of winning the war, Earth turns to Steve Rogers and his SECRET AVENGERS for a chance of survival! Now the team must make some hard decisions on how far they are really willing to go to defeat FEAR ITSELF! \n"
+          }
+        ],
+        "resourceURI": "http://gateway.marvel.com/v1/public/comics/35154",
+        "urls": [
+          {
+            "type": "detail",
+            "url": "http://marvel.com/comics/issue/35154/secret_avengers_2010_13?utm_campaign=apiRef&utm_source=19972fbcfc8ba75736070bc42fbca671"
+          },
+          {
+            "type": "purchase",
+            "url": "http://comicstore.marvel.com/Secret-Avengers-13/digital-comic/21222?utm_campaign=apiRef&utm_source=19972fbcfc8ba75736070bc42fbca671"
+          },
+          {
+            "type": "reader",
+            "url": "http://marvel.com/digitalcomics/view.htm?iid=21222&utm_campaign=apiRef&utm_source=19972fbcfc8ba75736070bc42fbca671"
+          },
+          {
+            "type": "inAppLink",
+            "url": "http://applink.marvel.com/issue/21222?utm_campaign=apiRef&utm_source=19972fbcfc8ba75736070bc42fbca671"
+          }
+        ],
+        "series": {
+          "resourceURI": "http://gateway.marvel.com/v1/public/series/9799",
+          "name": "Secret Avengers (2010 - 2012)"
+        },
+        "variants": [
+          {
+            "resourceURI": "http://gateway.marvel.com/v1/public/comics/39222",
+            "name": "Secret Avengers (2010) #13 (X-Men Art Variant)"
+          }
+        ],
+        "collections": [],
+        "collectedIssues": [],
+        "dates": [
+          {
+            "type": "onsaleDate",
+            "date": "2011-05-25T00:00:00-0400"
+          },
+          {
+            "type": "focDate",
+            "date": "2011-05-02T00:00:00-0400"
+          },
+          {
+            "type": "unlimitedDate",
+            "date": "2012-05-30T00:00:00-0400"
+          },
+          {
+            "type": "digitalPurchaseDate",
+            "date": "2012-05-08T00:00:00-0400"
+          }
+        ],
+        "prices": [
+          {
+            "type": "printPrice",
+            "price": 3.99
+          },
+          {
+            "type": "digitalPurchasePrice",
+            "price": 1.99
+          }
+        ],
+        "thumbnail": {
+          "path": "http://i.annihil.us/u/prod/marvel/i/mg/3/d0/518973d6141fe",
+          "extension": "jpg"
+        },
+        "images": [
+          {
+            "path": "http://i.annihil.us/u/prod/marvel/i/mg/3/d0/518973d6141fe",
+            "extension": "jpg"
+          },
+          {
+            "path": "http://i.annihil.us/u/prod/marvel/i/mg/c/50/4db96ddc117e2",
+            "extension": "jpg"
+          },
+          {
+            "path": "http://i.annihil.us/u/prod/marvel/i/mg/c/e0/4db96d6e2dd92",
+            "extension": "jpg"
+          },
+          {
+            "path": "http://i.annihil.us/u/prod/marvel/i/mg/9/80/4db96d0a6e707",
+            "extension": "jpg"
+          },
+          {
+            "path": "http://i.annihil.us/u/prod/marvel/i/mg/9/20/4d5573da710dd",
+            "extension": "jpg"
+          }
+        ],
+        "creators": {
+          "available": 6,
+          "collectionURI": "http://gateway.marvel.com/v1/public/comics/35154/creators",
+          "items": [
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/creators/2133",
+              "name": "Tom Brevoort",
+              "role": "editor"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/creators/8504",
+              "name": "Frank D'Armata",
+              "role": "colorist"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/creators/5106",
+              "name": "Scot Eaton",
+              "role": "penciller"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/creators/436",
+              "name": "Adi Granov",
+              "role": "penciller (cover)"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/creators/878",
+              "name": "Dave Lanphear",
+              "role": "letterer"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/creators/11434",
+              "name": "Nick Spencer",
+              "role": "writer"
+            }
+          ],
+          "returned": 6
+        },
+        "characters": {
+          "available": 3,
+          "collectionURI": "http://gateway.marvel.com/v1/public/comics/35154/characters",
+          "items": [
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1010802",
+              "name": "Ant-Man (Eric O'Grady)"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1009175",
+              "name": "Beast"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1009538",
+              "name": "Iron Patriot (James Rhodes)"
+            }
+          ],
+          "returned": 3
+        },
+        "stories": {
+          "available": 2,
+          "collectionURI": "http://gateway.marvel.com/v1/public/comics/35154/stories",
+          "items": [
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/stories/77767",
+              "name": "Secret Avengers #13",
+              "type": "cover"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/stories/77768",
+              "name": "Secret Avengers #13",
+              "type": "interiorStory"
+            }
+          ],
+          "returned": 2
+        },
+        "events": {
+          "available": 1,
+          "collectionURI": "http://gateway.marvel.com/v1/public/comics/35154/events",
+          "items": [
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/events/302",
+              "name": "Fear Itself"
+            }
+          ],
+          "returned": 1
+        }
+      },
+      {
+        "id": 38842,
+        "digitalId": 0,
+        "title": "X-MEN: GOD LOVES, MAN KILLS (Trade Paperback)",
+        "issueNumber": 1,
+        "variantDescription": "",
+        "description": "The Uncanny X-Men. Magneto, Master of Magnetism. The bitterest of enemies for years. Now, they must join forces against a new adversary who threatens them all and the entire world besides - in the name of God. The members of the Stryker Crusade are poised to cleanse the earth, no matter how much blood stains their hands. With Professor X as their enemy and Magneto as their ally, the X-Men undergo an apocalyptic ordeal ordained by a minister gone mad! One of Chris Claremont's most powerful and influential stories, the partial basis for X2 is reprinted in softcover for the first time in years. ",
+        "modified": "2011-07-06T12:32:51-0400",
+        "isbn": "978-0-7851-5726-7",
+        "upc": "5960615726-00111",
+        "diamondCode": "FEB110662",
+        "ean": "9780785 157267 51499",
+        "issn": "",
+        "format": "Trade Paperback",
+        "pageCount": 96,
+        "textObjects": [
+          {
+            "type": "issue_solicit_text",
+            "language": "en-us",
+            "text": "The Uncanny X-Men. Magneto, Master of Magnetism. The bitterest of enemies for years. Now, they must join forces against a new adversary who threatens them all and the entire world besides - in the name of God. The members of the Stryker Crusade are poised to cleanse the earth, no matter how much blood stains their hands. With Professor X as their enemy and Magneto as their ally, the X-Men undergo an apocalyptic ordeal ordained by a minister gone mad! One of Chris Claremont's most powerful and influential stories, the partial basis for X2 is reprinted in softcover for the first time in years. "
+          }
+        ],
+        "resourceURI": "http://gateway.marvel.com/v1/public/comics/38842",
+        "urls": [
+          {
+            "type": "detail",
+            "url": "http://marvel.com/comics/collection/38842/x-men_god_loves_man_kills_trade_paperback?utm_campaign=apiRef&utm_source=19972fbcfc8ba75736070bc42fbca671"
+          }
+        ],
+        "series": {
+          "resourceURI": "http://gateway.marvel.com/v1/public/series/14016",
+          "name": "X-MEN: GOD LOVES, MAN KILLS (2011 - Present)"
+        },
+        "variants": [],
+        "collections": [],
+        "collectedIssues": [],
+        "dates": [
+          {
+            "type": "onsaleDate",
+            "date": "2011-04-27T00:00:00-0400"
+          },
+          {
+            "type": "focDate",
+            "date": "2011-04-13T00:00:00-0400"
+          }
+        ],
+        "prices": [
+          {
+            "type": "printPrice",
+            "price": 14.99
+          }
+        ],
+        "thumbnail": {
+          "path": "http://i.annihil.us/u/prod/marvel/i/mg/9/70/4d51e9f1d53c4",
+          "extension": "jpg"
+        },
+        "images": [
+          {
+            "path": "http://i.annihil.us/u/prod/marvel/i/mg/9/70/4d51e9f1d53c4",
+            "extension": "jpg"
+          },
+          {
+            "path": "http://i.annihil.us/u/prod/marvel/i/mg/9/40/4d66c7f1b4a34",
+            "extension": "jpg"
+          }
+        ],
+        "creators": {
+          "available": 1,
+          "collectionURI": "http://gateway.marvel.com/v1/public/comics/38842/creators",
+          "items": [
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/creators/8924",
+              "name": "Lauren Sankovitch",
+              "role": "editor"
+            }
+          ],
+          "returned": 1
+        },
+        "characters": {
+          "available": 4,
+          "collectionURI": "http://gateway.marvel.com/v1/public/comics/38842/characters",
+          "items": [
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1010802",
+              "name": "Ant-Man (Eric O'Grady)"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1009189",
+              "name": "Black Widow"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1009306",
+              "name": "Firestar"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1010702",
+              "name": "Gravity"
+            }
+          ],
+          "returned": 4
+        },
+        "stories": {
+          "available": 3,
+          "collectionURI": "http://gateway.marvel.com/v1/public/comics/38842/stories",
+          "items": [
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/stories/85244",
+              "name": "Marvel Zombies Supreme (2010) #1, SUYDAM VARIANT",
+              "type": "cover"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/stories/85245",
+              "name": "Onslaught Unleashed (2010) #2  ",
+              "type": "cover"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/stories/88732",
+              "name": "Interior #88732",
+              "type": "interiorStory"
+            }
+          ],
+          "returned": 3
+        },
+        "events": {
+          "available": 0,
+          "collectionURI": "http://gateway.marvel.com/v1/public/comics/38842/events",
+          "items": [],
+          "returned": 0
+        }
+      },
+      {
+        "id": 29091,
+        "digitalId": 20243,
+        "title": "Secret Avengers (2010) #11",
+        "issueNumber": 11,
+        "variantDescription": "",
+        "description": "The secrets of John Steele and his link to the Shadow Council are revealed! What link does John Steele have with Captain America and the Prince of Orphans?\n",
+        "modified": "2012-03-20T12:56:48-0400",
+        "isbn": "",
+        "upc": "5960607014-01111",
+        "diamondCode": "JAN110696",
+        "ean": "",
+        "issn": "2153-9898",
+        "format": "Comic",
+        "pageCount": 32,
+        "textObjects": [
+          {
+            "type": "issue_solicit_text",
+            "language": "en-us",
+            "text": "The secrets of John Steele and his link to the Shadow Council are revealed in a special two-part World War Two espionage adventure! Also starring Captain America and the Prince of Orphans, deep behind enemy lines!\n"
+          },
+          {
+            "type": "issue_preview_text",
+            "language": "en-us",
+            "text": "The secrets of John Steele and his link to the Shadow Council are revealed! What link does John Steele have with Captain America and the Prince of Orphans?\n"
+          }
+        ],
+        "resourceURI": "http://gateway.marvel.com/v1/public/comics/29091",
+        "urls": [
+          {
+            "type": "detail",
+            "url": "http://marvel.com/comics/issue/29091/secret_avengers_2010_11?utm_campaign=apiRef&utm_source=19972fbcfc8ba75736070bc42fbca671"
+          },
+          {
+            "type": "purchase",
+            "url": "http://comicstore.marvel.com/Secret-Avengers-11/digital-comic/20243?utm_campaign=apiRef&utm_source=19972fbcfc8ba75736070bc42fbca671"
+          },
+          {
+            "type": "reader",
+            "url": "http://marvel.com/digitalcomics/view.htm?iid=20243&utm_campaign=apiRef&utm_source=19972fbcfc8ba75736070bc42fbca671"
+          },
+          {
+            "type": "inAppLink",
+            "url": "http://applink.marvel.com/issue/20243?utm_campaign=apiRef&utm_source=19972fbcfc8ba75736070bc42fbca671"
+          }
+        ],
+        "series": {
+          "resourceURI": "http://gateway.marvel.com/v1/public/series/9799",
+          "name": "Secret Avengers (2010 - 2012)"
+        },
+        "variants": [
+          {
+            "resourceURI": "http://gateway.marvel.com/v1/public/comics/38613",
+            "name": "Secret Avengers (2010) #11 (CAPTAIN AMERICA 70TH ANNIVERSARY VARIANT)"
+          }
+        ],
+        "collections": [],
+        "collectedIssues": [],
+        "dates": [
+          {
+            "type": "onsaleDate",
+            "date": "2011-03-30T00:00:00-0400"
+          },
+          {
+            "type": "focDate",
+            "date": "2011-03-07T00:00:00-0500"
+          },
+          {
+            "type": "unlimitedDate",
+            "date": "2012-10-10T00:00:00-0400"
+          },
+          {
+            "type": "digitalPurchaseDate",
+            "date": "2012-04-17T00:00:00-0400"
+          }
+        ],
+        "prices": [
+          {
+            "type": "printPrice",
+            "price": 3.99
+          },
+          {
+            "type": "digitalPurchasePrice",
+            "price": 1.99
+          }
+        ],
+        "thumbnail": {
+          "path": "http://i.annihil.us/u/prod/marvel/i/mg/6/03/51897326f40b0",
+          "extension": "jpg"
+        },
+        "images": [
+          {
+            "path": "http://i.annihil.us/u/prod/marvel/i/mg/6/03/51897326f40b0",
+            "extension": "jpg"
+          },
+          {
+            "path": "http://i.annihil.us/u/prod/marvel/i/mg/9/70/4d90b75d2ca94",
+            "extension": "jpg"
+          },
+          {
+            "path": "http://i.annihil.us/u/prod/marvel/i/mg/c/50/4d90b5ce448bb",
+            "extension": "jpg"
+          },
+          {
+            "path": "http://i.annihil.us/u/prod/marvel/i/mg/c/60/4d90b4c73bd8c",
+            "extension": "jpg"
+          },
+          {
+            "path": "http://i.annihil.us/u/prod/marvel/i/mg/c/50/4d90b6ddd14b8",
+            "extension": "jpg"
+          },
+          {
+            "path": "http://i.annihil.us/u/prod/marvel/i/mg/b/d0/4d90b62badf04",
+            "extension": "jpg"
+          },
+          {
+            "path": "http://i.annihil.us/u/prod/marvel/i/mg/1/10/4d88d26327394",
+            "extension": "jpg"
+          }
+        ],
+        "creators": {
+          "available": 4,
+          "collectionURI": "http://gateway.marvel.com/v1/public/comics/29091/creators",
+          "items": [
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/creators/2133",
+              "name": "Tom Brevoort",
+              "role": "editor"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/creators/367",
+              "name": "Ed Brubaker",
+              "role": "writer"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/creators/11421",
+              "name": "Roberto Delatorre",
+              "role": "penciller"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/creators/312",
+              "name": "Mike Deodato",
+              "role": "penciller (cover)"
+            }
+          ],
+          "returned": 4
+        },
+        "characters": {
+          "available": 7,
+          "collectionURI": "http://gateway.marvel.com/v1/public/comics/29091/characters",
+          "items": [
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1010802",
+              "name": "Ant-Man (Eric O'Grady)"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1009175",
+              "name": "Beast"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1009189",
+              "name": "Black Widow"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1009220",
+              "name": "Captain America"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1009538",
+              "name": "Iron Patriot (James Rhodes)"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1009452",
+              "name": "Moon Knight"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1010350",
+              "name": "Valkyrie (Samantha Parrington)"
+            }
+          ],
+          "returned": 7
+        },
+        "stories": {
+          "available": 4,
+          "collectionURI": "http://gateway.marvel.com/v1/public/comics/29091/stories",
+          "items": [
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/stories/63373",
+              "name": "SECRET AVENGERS 11",
+              "type": "cover"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/stories/63374",
+              "name": "Cover #63374",
+              "type": "cover"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/stories/76409",
+              "name": "SECRET AVENGERS 11",
+              "type": "interiorStory"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/stories/76410",
+              "name": "Interior #76410",
+              "type": "interiorStory"
+            }
+          ],
+          "returned": 4
+        },
+        "events": {
+          "available": 0,
+          "collectionURI": "http://gateway.marvel.com/v1/public/comics/29091/events",
+          "items": [],
+          "returned": 0
+        }
+      },
+      {
+        "id": 38069,
+        "digitalId": 19937,
+        "title": "Onslaught Unleashed (2010) #2",
+        "issueNumber": 2,
+        "variantDescription": "",
+        "description": "Onslaught is back--and no one is safe! As the Secret Avengers and Young Allies contend with murderous child soldiers and their remorseless leader, the Marvel Universe's baddest bad makes the heroes an offer--and you'll be surprised who takes him up on it!",
+        "modified": "2012-01-26T11:52:45-0500",
+        "isbn": "",
+        "upc": "5960607555-00211",
+        "diamondCode": "JAN110759",
+        "ean": "",
+        "issn": "",
+        "format": "Comic",
+        "pageCount": 40,
+        "textObjects": [
+          {
+            "type": "issue_solicit_text",
+            "language": "en-us",
+            "text": "Onslaught is back--and no one is safe! As the Secret Avengers and Young Allies contend with murderous child soldiers and their remorseless leader, the Marvel Universe's baddest bad makes the heroes an offer--and you'll be surprised who takes him up on it!"
+          }
+        ],
+        "resourceURI": "http://gateway.marvel.com/v1/public/comics/38069",
+        "urls": [
+          {
+            "type": "detail",
+            "url": "http://marvel.com/comics/issue/38069/onslaught_unleashed_2010_2?utm_campaign=apiRef&utm_source=19972fbcfc8ba75736070bc42fbca671"
+          },
+          {
+            "type": "purchase",
+            "url": "http://comicstore.marvel.com/Onslaught-Unleashed-2/digital-comic/19937?utm_campaign=apiRef&utm_source=19972fbcfc8ba75736070bc42fbca671"
+          },
+          {
+            "type": "reader",
+            "url": "http://marvel.com/digitalcomics/view.htm?iid=19937&utm_campaign=apiRef&utm_source=19972fbcfc8ba75736070bc42fbca671"
+          },
+          {
+            "type": "inAppLink",
+            "url": "http://applink.marvel.com/issue/19937?utm_campaign=apiRef&utm_source=19972fbcfc8ba75736070bc42fbca671"
+          }
+        ],
+        "series": {
+          "resourceURI": "http://gateway.marvel.com/v1/public/series/13602",
+          "name": "Onslaught Unleashed (2010 - 2011)"
+        },
+        "variants": [],
+        "collections": [],
+        "collectedIssues": [],
+        "dates": [
+          {
+            "type": "onsaleDate",
+            "date": "2011-03-09T00:00:00-0500"
+          },
+          {
+            "type": "focDate",
+            "date": "2011-02-22T00:00:00-0500"
+          },
+          {
+            "type": "unlimitedDate",
+            "date": "2012-02-02T00:00:00-0500"
+          },
+          {
+            "type": "digitalPurchaseDate",
+            "date": "2013-07-16T00:00:00-0400"
+          }
+        ],
+        "prices": [
+          {
+            "type": "printPrice",
+            "price": 3.99
+          },
+          {
+            "type": "digitalPurchasePrice",
+            "price": 1.99
+          }
+        ],
+        "thumbnail": {
+          "path": "http://i.annihil.us/u/prod/marvel/i/mg/9/70/4d51e9f1d53c4",
+          "extension": "jpg"
+        },
+        "images": [
+          {
+            "path": "http://i.annihil.us/u/prod/marvel/i/mg/9/70/4d51e9f1d53c4",
+            "extension": "jpg"
+          }
+        ],
+        "creators": {
+          "available": 4,
+          "collectionURI": "http://gateway.marvel.com/v1/public/comics/38069/creators",
+          "items": [
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/creators/12203",
+              "name": "Filipe Daniel Moreno De Andrade",
+              "role": "penciller"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/creators/9429",
+              "name": "Sean McKeever",
+              "role": "writer"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/creators/72",
+              "name": "Humberto Ramos",
+              "role": "penciller (cover)"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/creators/8924",
+              "name": "Lauren Sankovitch",
+              "role": "editor"
+            }
+          ],
+          "returned": 4
+        },
+        "characters": {
+          "available": 4,
+          "collectionURI": "http://gateway.marvel.com/v1/public/comics/38069/characters",
+          "items": [
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1010802",
+              "name": "Ant-Man (Eric O'Grady)"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1009189",
+              "name": "Black Widow"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1009306",
+              "name": "Firestar"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1010702",
+              "name": "Gravity"
+            }
+          ],
+          "returned": 4
+        },
+        "stories": {
+          "available": 3,
+          "collectionURI": "http://gateway.marvel.com/v1/public/comics/38069/stories",
+          "items": [
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/stories/85245",
+              "name": "Onslaught Unleashed (2010) #2  ",
+              "type": "cover"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/stories/90044",
+              "name": "Interior #90044",
+              "type": "interiorStory"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/stories/90095",
+              "name": "Cover #90095",
+              "type": "cover"
+            }
+          ],
+          "returned": 3
+        },
+        "events": {
+          "available": 0,
+          "collectionURI": "http://gateway.marvel.com/v1/public/comics/38069/events",
+          "items": [],
+          "returned": 0
+        }
+      },
+      {
+        "id": 29090,
+        "digitalId": 19720,
+        "title": "Secret Avengers (2010) #10",
+        "issueNumber": 10,
+        "variantDescription": "",
+        "description": "Steve Rogers comes face-to-face with an old friend turned enemy! Meanwhile, a Secret Avenger is held captive by the hands of the Shadow Council! \n",
+        "modified": "2013-11-19T16:51:00-0500",
+        "isbn": "",
+        "upc": "5960607014-01011",
+        "diamondCode": "DEC100553",
+        "ean": "",
+        "issn": "2153-9898",
+        "format": "Comic",
+        "pageCount": 32,
+        "textObjects": [
+          {
+            "type": "issue_solicit_text",
+            "language": "en-us",
+            "text": "The action-packed conclusion of our Secret Avengers second secret mission!  Steve Rogers face-to-face with an old friend turned enemy! A Secret Avenger in the hands of the Shadow Council!  This story may be over, but things are just heating up!"
+          },
+          {
+            "type": "issue_preview_text",
+            "language": "en-us",
+            "text": "Steve Rogers comes face-to-face with an old friend turned enemy! Meanwhile, a Secret Avenger is held captive by the hands of the Shadow Council! \n"
+          }
+        ],
+        "resourceURI": "http://gateway.marvel.com/v1/public/comics/29090",
+        "urls": [
+          {
+            "type": "detail",
+            "url": "http://marvel.com/comics/issue/29090/secret_avengers_2010_10?utm_campaign=apiRef&utm_source=19972fbcfc8ba75736070bc42fbca671"
+          },
+          {
+            "type": "purchase",
+            "url": "http://comicstore.marvel.com/Secret-Avengers-10/digital-comic/19720?utm_campaign=apiRef&utm_source=19972fbcfc8ba75736070bc42fbca671"
+          },
+          {
+            "type": "reader",
+            "url": "http://marvel.com/digitalcomics/view.htm?iid=19720&utm_campaign=apiRef&utm_source=19972fbcfc8ba75736070bc42fbca671"
+          },
+          {
+            "type": "inAppLink",
+            "url": "http://applink.marvel.com/issue/19720?utm_campaign=apiRef&utm_source=19972fbcfc8ba75736070bc42fbca671"
+          }
+        ],
+        "series": {
+          "resourceURI": "http://gateway.marvel.com/v1/public/series/9799",
+          "name": "Secret Avengers (2010 - 2012)"
+        },
+        "variants": [],
+        "collections": [],
+        "collectedIssues": [],
+        "dates": [
+          {
+            "type": "onsaleDate",
+            "date": "2011-02-23T00:00:00-0500"
+          },
+          {
+            "type": "focDate",
+            "date": "2011-02-09T00:00:00-0500"
+          },
+          {
+            "type": "unlimitedDate",
+            "date": "2012-01-26T00:00:00-0500"
+          },
+          {
+            "type": "digitalPurchaseDate",
+            "date": "2012-04-17T00:00:00-0400"
+          }
+        ],
+        "prices": [
+          {
+            "type": "printPrice",
+            "price": 3.99
+          },
+          {
+            "type": "digitalPurchasePrice",
+            "price": 1.99
+          }
+        ],
+        "thumbnail": {
+          "path": "http://i.annihil.us/u/prod/marvel/i/mg/d/03/5189731b2783d",
+          "extension": "jpg"
+        },
+        "images": [
+          {
+            "path": "http://i.annihil.us/u/prod/marvel/i/mg/d/03/5189731b2783d",
+            "extension": "jpg"
+          },
+          {
+            "path": "http://i.annihil.us/u/prod/marvel/i/mg/9/60/4d5adc7d44148",
+            "extension": "jpg"
+          }
+        ],
+        "creators": {
+          "available": 3,
+          "collectionURI": "http://gateway.marvel.com/v1/public/comics/29090/creators",
+          "items": [
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/creators/2133",
+              "name": "Tom Brevoort",
+              "role": "editor"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/creators/367",
+              "name": "Ed Brubaker",
+              "role": "writer"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/creators/312",
+              "name": "Mike Deodato",
+              "role": "penciller"
+            }
+          ],
+          "returned": 3
+        },
+        "characters": {
+          "available": 5,
+          "collectionURI": "http://gateway.marvel.com/v1/public/comics/29090/characters",
+          "items": [
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1010802",
+              "name": "Ant-Man (Eric O'Grady)"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1009175",
+              "name": "Beast"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1009220",
+              "name": "Captain America"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1009577",
+              "name": "Shang-Chi"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1010326",
+              "name": "Steve Rogers"
+            }
+          ],
+          "returned": 5
+        },
+        "stories": {
+          "available": 2,
+          "collectionURI": "http://gateway.marvel.com/v1/public/comics/29090/stories",
+          "items": [
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/stories/63371",
+              "name": "Secret Avengers #10",
+              "type": "cover"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/stories/76407",
+              "name": "Secret Avengers #10",
+              "type": "interiorStory"
+            }
+          ],
+          "returned": 2
+        },
+        "events": {
+          "available": 0,
+          "collectionURI": "http://gateway.marvel.com/v1/public/comics/29090/events",
+          "items": [],
+          "returned": 0
+        }
+      },
+      {
+        "id": 38067,
+        "digitalId": 19181,
+        "title": "Onslaught Unleashed (2010) #1",
+        "issueNumber": 1,
+        "variantDescription": "",
+        "description": "THE SECRET AVENGERS AND YOUNG ALLIES CO-STAR IN THIS SENSES-SHATTERING SAGA!\nDeep in the heart of Colombia, an immense and unmarked engine hums at a steady, ominous pace. Its purpose: to exploit a tear in the barrier between this world and another; to harvest and refine an exotic energy source for Roxxon Energy Corp. But just on the other side of that tear, inside the Negative Zone, a dark entity of vast power has been waiting for what has seemed like centuries, preparing for the moment when he can finally reach through the tear and once again cast his judgment on humans and mutants alike. For the psychomagnetic abomination called ONSLAUGHT, that moment is about to arrive...and he'll have the girl without a world--NOMAD--to thank for it! Eisner winner Sean McKeever and Filipe Andrade (X-23) team to bring you to the heart of terror and the edge of sanity in this hotly-anticipated epic!\n",
+        "modified": "2012-01-11T13:56:02-0500",
+        "isbn": "",
+        "upc": "5960607555-00111",
+        "diamondCode": "DEC100596",
+        "ean": "",
+        "issn": "",
+        "format": "Comic",
+        "pageCount": 40,
+        "textObjects": [
+          {
+            "type": "issue_solicit_text",
+            "language": "en-us",
+            "text": "THE SECRET AVENGERS AND YOUNG ALLIES CO-STAR IN THIS SENSES-SHATTERING SAGA!\nDeep in the heart of Colombia, an immense and unmarked engine hums at a steady, ominous pace. Its purpose: to exploit a tear in the barrier between this world and another; to harvest and refine an exotic energy source for Roxxon Energy Corp. But just on the other side of that tear, inside the Negative Zone, a dark entity of vast power has been waiting for what has seemed like centuries, preparing for the moment when he can finally reach through the tear and once again cast his judgment on humans and mutants alike. For the psychomagnetic abomination called ONSLAUGHT, that moment is about to arrive...and he'll have the girl without a world--NOMAD--to thank for it! Eisner winner Sean McKeever and Filipe Andrade (X-23) team to bring you to the heart of terror and the edge of sanity in this hotly-anticipated epic!\n"
+          }
+        ],
+        "resourceURI": "http://gateway.marvel.com/v1/public/comics/38067",
+        "urls": [
+          {
+            "type": "detail",
+            "url": "http://marvel.com/comics/issue/38067/onslaught_unleashed_2010_1?utm_campaign=apiRef&utm_source=19972fbcfc8ba75736070bc42fbca671"
+          },
+          {
+            "type": "purchase",
+            "url": "http://comicstore.marvel.com/Onslaught-Unleashed-1/digital-comic/19181?utm_campaign=apiRef&utm_source=19972fbcfc8ba75736070bc42fbca671"
+          },
+          {
+            "type": "reader",
+            "url": "http://marvel.com/digitalcomics/view.htm?iid=19181&utm_campaign=apiRef&utm_source=19972fbcfc8ba75736070bc42fbca671"
+          },
+          {
+            "type": "inAppLink",
+            "url": "http://applink.marvel.com/issue/19181?utm_campaign=apiRef&utm_source=19972fbcfc8ba75736070bc42fbca671"
+          }
+        ],
+        "series": {
+          "resourceURI": "http://gateway.marvel.com/v1/public/series/13602",
+          "name": "Onslaught Unleashed (2010 - 2011)"
+        },
+        "variants": [
+          {
+            "resourceURI": "http://gateway.marvel.com/v1/public/comics/37960",
+            "name": "Onslaught Unleashed (2010) #1 (LIEFELD VARIANT B)"
+          },
+          {
+            "resourceURI": "http://gateway.marvel.com/v1/public/comics/38057",
+            "name": "Onslaught Unleashed (2010) #1 (LIEFELD VARIANT A)"
+          }
+        ],
+        "collections": [],
+        "collectedIssues": [],
+        "dates": [
+          {
+            "type": "onsaleDate",
+            "date": "2011-02-09T00:00:00-0500"
+          },
+          {
+            "type": "focDate",
+            "date": "2011-01-25T00:00:00-0500"
+          },
+          {
+            "type": "unlimitedDate",
+            "date": "2012-01-06T00:00:00-0500"
+          },
+          {
+            "type": "digitalPurchaseDate",
+            "date": "2013-07-16T00:00:00-0400"
+          }
+        ],
+        "prices": [
+          {
+            "type": "printPrice",
+            "price": 3.99
+          },
+          {
+            "type": "digitalPurchasePrice",
+            "price": 1.99
+          }
+        ],
+        "thumbnail": {
+          "path": "http://i.annihil.us/u/prod/marvel/i/mg/8/e0/4f0b271b7cb81",
+          "extension": "jpg"
+        },
+        "images": [
+          {
+            "path": "http://i.annihil.us/u/prod/marvel/i/mg/8/e0/4f0b271b7cb81",
+            "extension": "jpg"
+          },
+          {
+            "path": "http://i.annihil.us/u/prod/marvel/i/mg/6/80/4d51e909246ae",
+            "extension": "jpg"
+          },
+          {
+            "path": "http://i.annihil.us/u/prod/marvel/i/mg/9/e0/4d51e728d7d5e",
+            "extension": "jpg"
+          }
+        ],
+        "creators": {
+          "available": 4,
+          "collectionURI": "http://gateway.marvel.com/v1/public/comics/38067/creators",
+          "items": [
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/creators/12203",
+              "name": "Filipe Daniel Moreno De Andrade",
+              "role": "penciller"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/creators/9429",
+              "name": "Sean McKeever",
+              "role": "writer"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/creators/72",
+              "name": "Humberto Ramos",
+              "role": "penciller (cover)"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/creators/8924",
+              "name": "Lauren Sankovitch",
+              "role": "editor"
+            }
+          ],
+          "returned": 4
+        },
+        "characters": {
+          "available": 11,
+          "collectionURI": "http://gateway.marvel.com/v1/public/comics/38067/characters",
+          "items": [
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1010802",
+              "name": "Ant-Man (Eric O'Grady)"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1009175",
+              "name": "Beast"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1009189",
+              "name": "Black Widow"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1009220",
+              "name": "Captain America"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1009306",
+              "name": "Firestar"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1010702",
+              "name": "Gravity"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1009452",
+              "name": "Moon Knight"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1011427",
+              "name": "Nomad (Rikki Barnes)"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1009483",
+              "name": "Onslaught"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1009228",
+              "name": "Sharon Carter"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1009157",
+              "name": "Spider-Girl (Anya Corazon)"
+            }
+          ],
+          "returned": 11
+        },
+        "stories": {
+          "available": 2,
+          "collectionURI": "http://gateway.marvel.com/v1/public/comics/38067/stories",
+          "items": [
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/stories/85232",
+              "name": "Onslaught Unleashed (2010) #1",
+              "type": "cover"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/stories/89189",
+              "name": "Interior #89189",
+              "type": "interiorStory"
+            }
+          ],
+          "returned": 2
+        },
+        "events": {
+          "available": 0,
+          "collectionURI": "http://gateway.marvel.com/v1/public/comics/38067/events",
+          "items": [],
+          "returned": 0
+        }
+      },
+      {
+        "id": 37960,
+        "digitalId": 0,
+        "title": "Onslaught Unleashed (2010) #1 (LIEFELD VARIANT B)",
+        "issueNumber": 1,
+        "variantDescription": "LIEFELD VARIANT B",
+        "description": "THE SECRET AVENGERS AND YOUNG ALLIES CO-STAR IN THIS SENSES-SHATTERING SAGA! Deep in the heart of Colombia, an immense and unmarked engine hums at a steady, ominous pace. Its purpose: to exploit a tear in the barrier between this world and another; to harvest and refine an exotic energy source for Roxxon Energy Corp. But just on the other side of that tear, inside the Negative Zone, a dark entity of vast power has been waiting for what has seemed like centuries, preparing for the moment when he can finally reach through the tear and once again cast his judgment on humans and mutants alike. For the psychomagnetic abomination called ONSLAUGHT, that moment is about to arrive...and he'll have the girl without a world--NOMAD--to thank for it! Eisner winner Sean McKeever and Filipe Andrade (X-23) team to bring you to the heart of terror and the edge of sanity in this hotly-anticipated epic! ",
+        "modified": "2011-07-05T12:33:58-0400",
+        "isbn": "",
+        "upc": "5960607555-00131",
+        "diamondCode": "DEC108117",
+        "ean": "",
+        "issn": "",
+        "format": "Comic",
+        "pageCount": 40,
+        "textObjects": [
+          {
+            "type": "issue_solicit_text",
+            "language": "en-us",
+            "text": "THE SECRET AVENGERS AND YOUNG ALLIES CO-STAR IN THIS SENSES-SHATTERING SAGA! Deep in the heart of Colombia, an immense and unmarked engine hums at a steady, ominous pace. Its purpose: to exploit a tear in the barrier between this world and another; to harvest and refine an exotic energy source for Roxxon Energy Corp. But just on the other side of that tear, inside the Negative Zone, a dark entity of vast power has been waiting for what has seemed like centuries, preparing for the moment when he can finally reach through the tear and once again cast his judgment on humans and mutants alike. For the psychomagnetic abomination called ONSLAUGHT, that moment is about to arrive...and he'll have the girl without a world--NOMAD--to thank for it! Eisner winner Sean McKeever and Filipe Andrade (X-23) team to bring you to the heart of terror and the edge of sanity in this hotly-anticipated epic! "
+          }
+        ],
+        "resourceURI": "http://gateway.marvel.com/v1/public/comics/37960",
+        "urls": [
+          {
+            "type": "detail",
+            "url": "http://marvel.com/comics/issue/37960/onslaught_unleashed_2010_1_liefeld_variant_b/liefeld_variant_b?utm_campaign=apiRef&utm_source=19972fbcfc8ba75736070bc42fbca671"
+          }
+        ],
+        "series": {
+          "resourceURI": "http://gateway.marvel.com/v1/public/series/13602",
+          "name": "Onslaught Unleashed (2010 - 2011)"
+        },
+        "variants": [
+          {
+            "resourceURI": "http://gateway.marvel.com/v1/public/comics/38057",
+            "name": "Onslaught Unleashed (2010) #1 (LIEFELD VARIANT A)"
+          },
+          {
+            "resourceURI": "http://gateway.marvel.com/v1/public/comics/38067",
+            "name": "Onslaught Unleashed (2010) #1"
+          }
+        ],
+        "collections": [],
+        "collectedIssues": [],
+        "dates": [
+          {
+            "type": "onsaleDate",
+            "date": "2011-02-09T00:00:00-0500"
+          },
+          {
+            "type": "focDate",
+            "date": "2011-01-25T00:00:00-0500"
+          }
+        ],
+        "prices": [
+          {
+            "type": "printPrice",
+            "price": 3.99
+          }
+        ],
+        "thumbnail": {
+          "path": "http://i.annihil.us/u/prod/marvel/i/mg/9/10/4d52e73bb602f",
+          "extension": "jpg"
+        },
+        "images": [
+          {
+            "path": "http://i.annihil.us/u/prod/marvel/i/mg/9/10/4d52e73bb602f",
+            "extension": "jpg"
+          }
+        ],
+        "creators": {
+          "available": 4,
+          "collectionURI": "http://gateway.marvel.com/v1/public/comics/37960/creators",
+          "items": [
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/creators/12203",
+              "name": "Filipe Daniel Moreno De Andrade",
+              "role": "penciller"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/creators/571",
+              "name": "Rob Liefeld",
+              "role": "penciller (cover)"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/creators/9429",
+              "name": "Sean McKeever",
+              "role": "writer"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/creators/8924",
+              "name": "Lauren Sankovitch",
+              "role": "editor"
+            }
+          ],
+          "returned": 4
+        },
+        "characters": {
+          "available": 11,
+          "collectionURI": "http://gateway.marvel.com/v1/public/comics/37960/characters",
+          "items": [
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1010802",
+              "name": "Ant-Man (Eric O'Grady)"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1009175",
+              "name": "Beast"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1009189",
+              "name": "Black Widow"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1009220",
+              "name": "Captain America"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1009306",
+              "name": "Firestar"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1010702",
+              "name": "Gravity"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1009452",
+              "name": "Moon Knight"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1011427",
+              "name": "Nomad (Rikki Barnes)"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1009483",
+              "name": "Onslaught"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1009228",
+              "name": "Sharon Carter"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1009157",
+              "name": "Spider-Girl (Anya Corazon)"
+            }
+          ],
+          "returned": 11
+        },
+        "stories": {
+          "available": 1,
+          "collectionURI": "http://gateway.marvel.com/v1/public/comics/37960/stories",
+          "items": [
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/stories/89279",
+              "name": "Onslaught Unleashed (2010) #1, LIEFELD VARIANT B",
+              "type": "cover"
+            }
+          ],
+          "returned": 1
+        },
+        "events": {
+          "available": 0,
+          "collectionURI": "http://gateway.marvel.com/v1/public/comics/37960/events",
+          "items": [],
+          "returned": 0
+        }
+      },
+      {
+        "id": 38057,
+        "digitalId": 0,
+        "title": "Onslaught Unleashed (2010) #1 (LIEFELD VARIANT A)",
+        "issueNumber": 1,
+        "variantDescription": "LIEFELD VARIANT A",
+        "description": "THE SECRET AVENGERS AND YOUNG ALLIES CO-STAR IN THIS SENSES-SHATTERING SAGA! Deep in the heart of Colombia, an immense and unmarked engine hums at a steady, ominous pace. Its purpose: to exploit a tear in the barrier between this world and another; to harvest and refine an exotic energy source for Roxxon Energy Corp. But just on the other side of that tear, inside the Negative Zone, a dark entity of vast power has been waiting for what has seemed like centuries, preparing for the moment when he can finally reach through the tear and once again cast his judgment on humans and mutants alike. For the psychomagnetic abomination called ONSLAUGHT, that moment is about to arrive...and he'll have the girl without a world--NOMAD--to thank for it! Eisner winner Sean McKeever and Filipe Andrade (X-23) team to bring you to the heart of terror and the edge of sanity in this hotly-anticipated epic! ",
+        "modified": "2011-07-05T12:26:31-0400",
+        "isbn": "",
+        "upc": "5960607555-00121",
+        "diamondCode": "DEC100597",
+        "ean": "",
+        "issn": "",
+        "format": "Comic",
+        "pageCount": 40,
+        "textObjects": [
+          {
+            "type": "issue_solicit_text",
+            "language": "en-us",
+            "text": "THE SECRET AVENGERS AND YOUNG ALLIES CO-STAR IN THIS SENSES-SHATTERING SAGA! Deep in the heart of Colombia, an immense and unmarked engine hums at a steady, ominous pace. Its purpose: to exploit a tear in the barrier between this world and another; to harvest and refine an exotic energy source for Roxxon Energy Corp. But just on the other side of that tear, inside the Negative Zone, a dark entity of vast power has been waiting for what has seemed like centuries, preparing for the moment when he can finally reach through the tear and once again cast his judgment on humans and mutants alike. For the psychomagnetic abomination called ONSLAUGHT, that moment is about to arrive...and he'll have the girl without a world--NOMAD--to thank for it! Eisner winner Sean McKeever and Filipe Andrade (X-23) team to bring you to the heart of terror and the edge of sanity in this hotly-anticipated epic! "
+          }
+        ],
+        "resourceURI": "http://gateway.marvel.com/v1/public/comics/38057",
+        "urls": [
+          {
+            "type": "detail",
+            "url": "http://marvel.com/comics/issue/38057/onslaught_unleashed_2010_1_liefeld_variant_a/liefeld_variant_a?utm_campaign=apiRef&utm_source=19972fbcfc8ba75736070bc42fbca671"
+          }
+        ],
+        "series": {
+          "resourceURI": "http://gateway.marvel.com/v1/public/series/13602",
+          "name": "Onslaught Unleashed (2010 - 2011)"
+        },
+        "variants": [
+          {
+            "resourceURI": "http://gateway.marvel.com/v1/public/comics/37960",
+            "name": "Onslaught Unleashed (2010) #1 (LIEFELD VARIANT B)"
+          },
+          {
+            "resourceURI": "http://gateway.marvel.com/v1/public/comics/38067",
+            "name": "Onslaught Unleashed (2010) #1"
+          }
+        ],
+        "collections": [],
+        "collectedIssues": [],
+        "dates": [
+          {
+            "type": "onsaleDate",
+            "date": "2011-02-09T00:00:00-0500"
+          },
+          {
+            "type": "focDate",
+            "date": "2011-01-25T00:00:00-0500"
+          }
+        ],
+        "prices": [
+          {
+            "type": "printPrice",
+            "price": 3.99
+          }
+        ],
+        "thumbnail": {
+          "path": "http://i.annihil.us/u/prod/marvel/i/mg/6/d0/4d52e8892a2d6",
+          "extension": "jpg"
+        },
+        "images": [
+          {
+            "path": "http://i.annihil.us/u/prod/marvel/i/mg/6/d0/4d52e8892a2d6",
+            "extension": "jpg"
+          }
+        ],
+        "creators": {
+          "available": 4,
+          "collectionURI": "http://gateway.marvel.com/v1/public/comics/38057/creators",
+          "items": [
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/creators/12203",
+              "name": "Filipe Daniel Moreno De Andrade",
+              "role": "penciller"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/creators/571",
+              "name": "Rob Liefeld",
+              "role": "penciller (cover)"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/creators/9429",
+              "name": "Sean McKeever",
+              "role": "writer"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/creators/8924",
+              "name": "Lauren Sankovitch",
+              "role": "editor"
+            }
+          ],
+          "returned": 4
+        },
+        "characters": {
+          "available": 11,
+          "collectionURI": "http://gateway.marvel.com/v1/public/comics/38057/characters",
+          "items": [
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1010802",
+              "name": "Ant-Man (Eric O'Grady)"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1009175",
+              "name": "Beast"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1009189",
+              "name": "Black Widow"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1009220",
+              "name": "Captain America"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1009306",
+              "name": "Firestar"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1010702",
+              "name": "Gravity"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1009452",
+              "name": "Moon Knight"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1011427",
+              "name": "Nomad (Rikki Barnes)"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1009483",
+              "name": "Onslaught"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1009228",
+              "name": "Sharon Carter"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1009157",
+              "name": "Spider-Girl (Anya Corazon)"
+            }
+          ],
+          "returned": 11
+        },
+        "stories": {
+          "available": 1,
+          "collectionURI": "http://gateway.marvel.com/v1/public/comics/38057/stories",
+          "items": [
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/stories/89280",
+              "name": "Onslaught Unleashed (2010) #1, LIEFELD VARIANT A",
+              "type": "cover"
+            }
+          ],
+          "returned": 1
+        },
+        "events": {
+          "available": 0,
+          "collectionURI": "http://gateway.marvel.com/v1/public/comics/38057/events",
+          "items": [],
+          "returned": 0
+        }
+      },
+      {
+        "id": 34543,
+        "digitalId": 18862,
+        "title": "I Am an Avenger (2010) #5",
+        "issueNumber": 5,
+        "variantDescription": "",
+        "description": "The grand finale is here as Captain America faces off against a very nasty HYDRA horde...and unwittingly holds the fate of a young boy in the balance! The newest Ant-Man, Eric O'Grady, has never been a team player but will his new position amidst the ranks of Earth's Mightiest Heroes be his redemption...or a one way ticket to the bench?! And Thor brightens up the Young Avengers day in a very special story brought to you by the legendary Alan Davis!",
+        "modified": "2012-03-15T16:17:45-0400",
+        "isbn": "",
+        "upc": "5960607364-00511",
+        "diamondCode": "NOV100532",
+        "ean": "",
+        "issn": "",
+        "format": "Comic",
+        "pageCount": 32,
+        "textObjects": [
+          {
+            "type": "issue_solicit_text",
+            "language": "en-us",
+            "text": "The grand finale is here as Captain America faces off against a very nasty HYDRA horde...and unwittingly holds the fate of a young boy in the balance! The newest Ant-Man, Eric O'Grady, has never been a team player but will his new position amidst the ranks of Earth's Mightiest Heroes be his redemption...or a one way ticket to the bench?! And Thor brightens up the Young Avengers day in a very special story brought to you by the legendary Alan Davis!"
+          }
+        ],
+        "resourceURI": "http://gateway.marvel.com/v1/public/comics/34543",
+        "urls": [
+          {
+            "type": "detail",
+            "url": "http://marvel.com/comics/issue/34543/i_am_an_avenger_2010_5?utm_campaign=apiRef&utm_source=19972fbcfc8ba75736070bc42fbca671"
+          },
+          {
+            "type": "reader",
+            "url": "http://marvel.com/digitalcomics/view.htm?iid=18862&utm_campaign=apiRef&utm_source=19972fbcfc8ba75736070bc42fbca671"
+          }
+        ],
+        "series": {
+          "resourceURI": "http://gateway.marvel.com/v1/public/series/11872",
+          "name": "I Am an Avenger (2010 - 2011)"
+        },
+        "variants": [],
+        "collections": [],
+        "collectedIssues": [],
+        "dates": [
+          {
+            "type": "onsaleDate",
+            "date": "2011-01-12T00:00:00-0500"
+          },
+          {
+            "type": "focDate",
+            "date": "2010-12-28T00:00:00-0500"
+          },
+          {
+            "type": "unlimitedDate",
+            "date": "2011-12-20T00:00:00-0500"
+          }
+        ],
+        "prices": [
+          {
+            "type": "printPrice",
+            "price": 3.99
+          }
+        ],
+        "thumbnail": {
+          "path": "http://i.annihil.us/u/prod/marvel/i/mg/e/03/4f624e4608817",
+          "extension": "jpg"
+        },
+        "images": [
+          {
+            "path": "http://i.annihil.us/u/prod/marvel/i/mg/e/03/4f624e4608817",
+            "extension": "jpg"
+          },
+          {
+            "path": "http://i.annihil.us/u/prod/marvel/i/mg/9/40/4cb60bb5b7891",
+            "extension": "jpg"
+          }
+        ],
+        "creators": {
+          "available": 6,
+          "collectionURI": "http://gateway.marvel.com/v1/public/comics/34543/creators",
+          "items": [
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/creators/16",
+              "name": "Alan Davis",
+              "role": "penciller (cover)"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/creators/12203",
+              "name": "Filipe Daniel Moreno De Andrade",
+              "role": "penciller"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/creators/1064",
+              "name": "Nick Dragotta",
+              "role": "penciller"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/creators/11333",
+              "name": "BRIAN CLAY MOORE",
+              "role": "writer"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/creators/8009",
+              "name": "Alex Zalben",
+              "role": "writer"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/creators/8924",
+              "name": "Lauren Sankovitch",
+              "role": "editor"
+            }
+          ],
+          "returned": 6
+        },
+        "characters": {
+          "available": 5,
+          "collectionURI": "http://gateway.marvel.com/v1/public/comics/34543/characters",
+          "items": [
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1010802",
+              "name": "Ant-Man (Eric O'Grady)"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1009165",
+              "name": "Avengers"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1009220",
+              "name": "Captain America"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1009664",
+              "name": "Thor"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1010698",
+              "name": "Young Avengers"
+            }
+          ],
+          "returned": 5
+        },
+        "stories": {
+          "available": 2,
+          "collectionURI": "http://gateway.marvel.com/v1/public/comics/34543/stories",
+          "items": [
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/stories/80359",
+              "name": "Cover #80359",
+              "type": "cover"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/stories/80360",
+              "name": "Interior #80360 ",
+              "type": "interiorStory"
+            }
+          ],
+          "returned": 2
+        },
+        "events": {
+          "available": 0,
+          "collectionURI": "http://gateway.marvel.com/v1/public/comics/34543/events",
+          "items": [],
+          "returned": 0
+        }
+      },
+      {
+        "id": 36763,
+        "digitalId": 18813,
+        "title": "Ant-Man & the Wasp (2010) #3",
+        "issueNumber": 3,
+        "variantDescription": "",
+        "description": "The first team up of Marvel's most unlikely duo may be their last! While his body lay dying, it's up to Ant-Man to save Bill Foster from a burning heaven! And The Wasp is on his own against Monica Rappacini, her elite AIM troops, and the half-sleepwalker villainess ANESTHESIA!  See how the smallest Avengers get out of their over-sized jam in the conclusion to this miniseries by writer/artist Tim Seeley (Hack/Slash)!",
+        "modified": "2011-01-03T13:19:55-0500",
+        "isbn": "",
+        "upc": "5960607434-00311",
+        "diamondCode": "NOV100533",
+        "ean": "",
+        "issn": "",
+        "format": "Comic",
+        "pageCount": 32,
+        "textObjects": [
+          {
+            "type": "issue_solicit_text",
+            "language": "en-us",
+            "text": "The first team up of Marvel's most unlikely duo may be their last! While his body lay dying, it's up to Ant-Man to save Bill Foster from a burning heaven! And The Wasp is on his own against Monica Rappacini, her elite AIM troops, and the half-sleepwalker villainess ANESTHESIA!  See how the smallest Avengers get out of their over-sized jam in the conclusion to this miniseries by writer/artist Tim Seeley (Hack/Slash)!"
+          }
+        ],
+        "resourceURI": "http://gateway.marvel.com/v1/public/comics/36763",
+        "urls": [
+          {
+            "type": "detail",
+            "url": "http://marvel.com/comics/issue/36763/ant-man_the_wasp_2010_3?utm_campaign=apiRef&utm_source=19972fbcfc8ba75736070bc42fbca671"
+          },
+          {
+            "type": "purchase",
+            "url": "http://comicstore.marvel.com/Ant-Man-the-Wasp-3/digital-comic/18813?utm_campaign=apiRef&utm_source=19972fbcfc8ba75736070bc42fbca671"
+          },
+          {
+            "type": "reader",
+            "url": "http://marvel.com/digitalcomics/view.htm?iid=18813&utm_campaign=apiRef&utm_source=19972fbcfc8ba75736070bc42fbca671"
+          },
+          {
+            "type": "inAppLink",
+            "url": "http://applink.marvel.com/issue/18813?utm_campaign=apiRef&utm_source=19972fbcfc8ba75736070bc42fbca671"
+          }
+        ],
+        "series": {
+          "resourceURI": "http://gateway.marvel.com/v1/public/series/13082",
+          "name": "Ant-Man & the Wasp (2010 - 2011)"
+        },
+        "variants": [],
+        "collections": [],
+        "collectedIssues": [],
+        "dates": [
+          {
+            "type": "onsaleDate",
+            "date": "2011-01-05T00:00:00-0500"
+          },
+          {
+            "type": "focDate",
+            "date": "2010-12-12T00:00:00-0500"
+          },
+          {
+            "type": "unlimitedDate",
+            "date": "2011-12-05T00:00:00-0500"
+          },
+          {
+            "type": "digitalPurchaseDate",
+            "date": "2011-02-16T00:00:00-0500"
+          }
+        ],
+        "prices": [
+          {
+            "type": "printPrice",
+            "price": 3.99
+          },
+          {
+            "type": "digitalPurchasePrice",
+            "price": 1.99
+          }
+        ],
+        "thumbnail": {
+          "path": "http://i.annihil.us/u/prod/marvel/i/mg/f/f0/56ddd896e1ddb",
+          "extension": "jpg"
+        },
+        "images": [
+          {
+            "path": "http://i.annihil.us/u/prod/marvel/i/mg/f/f0/56ddd896e1ddb",
+            "extension": "jpg"
+          }
+        ],
+        "creators": {
+          "available": 3,
+          "collectionURI": "http://gateway.marvel.com/v1/public/comics/36763/creators",
+          "items": [
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/creators/9394",
+              "name": "Salvador Espin",
+              "role": "penciller"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/creators/9550",
+              "name": "Tim Seeley",
+              "role": "penciller"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/creators/8822",
+              "name": "Jordan White",
+              "role": "editor"
+            }
+          ],
+          "returned": 3
+        },
+        "characters": {
+          "available": 3,
+          "collectionURI": "http://gateway.marvel.com/v1/public/comics/36763/characters",
+          "items": [
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1009144",
+              "name": "A.I.M."
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1010802",
+              "name": "Ant-Man (Eric O'Grady)"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1011490",
+              "name": "Hank Pym"
+            }
+          ],
+          "returned": 3
+        },
+        "stories": {
+          "available": 2,
+          "collectionURI": "http://gateway.marvel.com/v1/public/comics/36763/stories",
+          "items": [
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/stories/81526",
+              "name": "Ant-Man & the Wasp (2010) #3 cover",
+              "type": "cover"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/stories/81527",
+              "name": "Ant-Man & the Wasp (2010) #3 interior",
+              "type": "interiorStory"
+            }
+          ],
+          "returned": 2
+        },
+        "events": {
+          "available": 0,
+          "collectionURI": "http://gateway.marvel.com/v1/public/comics/36763/events",
+          "items": [],
+          "returned": 0
+        }
+      },
+      {
+        "id": 36764,
+        "digitalId": 18118,
+        "title": "Ant-Man & the Wasp (2010) #2",
+        "issueNumber": 2,
+        "variantDescription": "",
+        "description": "Ant-Man & Wasp have no time to make nice as they're tossed into the bizarre realm of the MINDSCAPE! A.I.M has the doorway to the afterlife, and it's up to the Tiny Twosome to jump from the land of dreams, to the land of heavily armed A.I.M soldiers! But Bill Foster's soul may not be the only thing Monica Rappacini wants as Scientist Supreme faces off with Supreme Scientist! Hop on for Hank Pym's last adventure as Wasp (did you not see the solicit for AVENGERS ACADEMY #7?!) in this mini-series by acclaimed writer/artist Tim Seeley (Hack/Slash)! 32 PGS./Rated T  ...$3.99",
+        "modified": "2013-03-06T10:11:54-0500",
+        "isbn": "",
+        "upc": "5960607434-00211",
+        "diamondCode": "OCT100577",
+        "ean": "",
+        "issn": "",
+        "format": "Comic",
+        "pageCount": 32,
+        "textObjects": [
+          {
+            "type": "issue_solicit_text",
+            "language": "en-us",
+            "text": "Ant-Man & Wasp have no time to make nice as they're tossed into the bizarre realm of the MINDSCAPE! A.I.M has the doorway to the afterlife, and it's up to the Tiny Twosome to jump from the land of dreams, to the land of heavily armed A.I.M soldiers! But Bill Foster's soul may not be the only thing Monica Rappacini wants as Scientist Supreme faces off with Supreme Scientist! Hop on for Hank Pym's last adventure as Wasp (did you not see the solicit for AVENGERS ACADEMY #7?!) in this mini-series by acclaimed writer/artist Tim Seeley (Hack/Slash)! 32 PGS./Rated T  ...$3.99"
+          }
+        ],
+        "resourceURI": "http://gateway.marvel.com/v1/public/comics/36764",
+        "urls": [
+          {
+            "type": "detail",
+            "url": "http://marvel.com/comics/issue/36764/ant-man_the_wasp_2010_2?utm_campaign=apiRef&utm_source=19972fbcfc8ba75736070bc42fbca671"
+          },
+          {
+            "type": "purchase",
+            "url": "http://comicstore.marvel.com/Ant-Man-the-Wasp-2/digital-comic/18118?utm_campaign=apiRef&utm_source=19972fbcfc8ba75736070bc42fbca671"
+          },
+          {
+            "type": "reader",
+            "url": "http://marvel.com/digitalcomics/view.htm?iid=18118&utm_campaign=apiRef&utm_source=19972fbcfc8ba75736070bc42fbca671"
+          },
+          {
+            "type": "inAppLink",
+            "url": "http://applink.marvel.com/issue/18118?utm_campaign=apiRef&utm_source=19972fbcfc8ba75736070bc42fbca671"
+          }
+        ],
+        "series": {
+          "resourceURI": "http://gateway.marvel.com/v1/public/series/13082",
+          "name": "Ant-Man & the Wasp (2010 - 2011)"
+        },
+        "variants": [],
+        "collections": [],
+        "collectedIssues": [],
+        "dates": [
+          {
+            "type": "onsaleDate",
+            "date": "2010-12-02T00:00:00-0500"
+          },
+          {
+            "type": "focDate",
+            "date": "2010-11-19T00:00:00-0500"
+          },
+          {
+            "type": "unlimitedDate",
+            "date": "2011-11-08T00:00:00-0500"
+          },
+          {
+            "type": "digitalPurchaseDate",
+            "date": "2011-02-16T00:00:00-0500"
+          }
+        ],
+        "prices": [
+          {
+            "type": "printPrice",
+            "price": 3.99
+          },
+          {
+            "type": "digitalPurchasePrice",
+            "price": 1.99
+          }
+        ],
+        "thumbnail": {
+          "path": "http://i.annihil.us/u/prod/marvel/i/mg/7/50/56ddd7d888253",
+          "extension": "jpg"
+        },
+        "images": [
+          {
+            "path": "http://i.annihil.us/u/prod/marvel/i/mg/7/50/56ddd7d888253",
+            "extension": "jpg"
+          }
+        ],
+        "creators": {
+          "available": 2,
+          "collectionURI": "http://gateway.marvel.com/v1/public/comics/36764/creators",
+          "items": [
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/creators/9394",
+              "name": "Salvador Espin",
+              "role": "penciller"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/creators/9550",
+              "name": "Tim Seeley",
+              "role": "penciller"
+            }
+          ],
+          "returned": 2
+        },
+        "characters": {
+          "available": 2,
+          "collectionURI": "http://gateway.marvel.com/v1/public/comics/36764/characters",
+          "items": [
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1010802",
+              "name": "Ant-Man (Eric O'Grady)"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1011490",
+              "name": "Hank Pym"
+            }
+          ],
+          "returned": 2
+        },
+        "stories": {
+          "available": 2,
+          "collectionURI": "http://gateway.marvel.com/v1/public/comics/36764/stories",
+          "items": [
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/stories/81528",
+              "name": "Cover #81528",
+              "type": "cover"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/stories/81529",
+              "name": "Interior #81529",
+              "type": "interiorStory"
+            }
+          ],
+          "returned": 2
+        },
+        "events": {
+          "available": 0,
+          "collectionURI": "http://gateway.marvel.com/v1/public/comics/36764/events",
+          "items": [],
+          "returned": 0
+        }
+      },
+      {
+        "id": 36765,
+        "digitalId": 17485,
+        "title": "Ant-Man & the Wasp (2010) #1",
+        "issueNumber": 1,
+        "variantDescription": "",
+        "description": "Two of Marvel's smallest heroes must join forces and get over one BIG elephant-in-the-room!  Eric O'Grady once STOLE the Ant-Man suit from Hank Pym. But now, Eric is the only one who knows about a secret AIM plot to steal Pym's greatest invention! Can the two men get along long enough to save the soul of the former GOLIATH, Bill Foster?  Tim Seeley, creator of 'Hack/Slash' brings us the big story of the two smallest Avengers!  And make sure you check out this adventure before the astonishing events of AVENGERS ACADEMY #7 next month!   Rated T  '$3.99",
+        "modified": "2010-11-15T14:19:25-0500",
+        "isbn": "",
+        "upc": "5960607434-00111",
+        "diamondCode": "SEP100596",
+        "ean": "",
+        "issn": "",
+        "format": "Comic",
+        "pageCount": 32,
+        "textObjects": [
+          {
+            "type": "issue_solicit_text",
+            "language": "en-us",
+            "text": "Two of Marvel's smallest heroes must join forces and get over one BIG elephant-in-the-room!  Eric O'Grady once STOLE the Ant-Man suit from Hank Pym. But now, Eric is the only one who knows about a secret AIM plot to steal Pym's greatest invention! Can the two men get along long enough to save the soul of the former GOLIATH, Bill Foster?  Tim Seeley, creator of 'Hack/Slash' brings us the big story of the two smallest Avengers!  And make sure you check out this adventure before the astonishing events of AVENGERS ACADEMY #7 next month!   Rated T  '$3.99"
+          }
+        ],
+        "resourceURI": "http://gateway.marvel.com/v1/public/comics/36765",
+        "urls": [
+          {
+            "type": "detail",
+            "url": "http://marvel.com/comics/issue/36765/ant-man_the_wasp_2010_1?utm_campaign=apiRef&utm_source=19972fbcfc8ba75736070bc42fbca671"
+          },
+          {
+            "type": "purchase",
+            "url": "http://comicstore.marvel.com/Ant-Man-the-Wasp-1/digital-comic/17485?utm_campaign=apiRef&utm_source=19972fbcfc8ba75736070bc42fbca671"
+          },
+          {
+            "type": "reader",
+            "url": "http://marvel.com/digitalcomics/view.htm?iid=17485&utm_campaign=apiRef&utm_source=19972fbcfc8ba75736070bc42fbca671"
+          },
+          {
+            "type": "inAppLink",
+            "url": "http://applink.marvel.com/issue/17485?utm_campaign=apiRef&utm_source=19972fbcfc8ba75736070bc42fbca671"
+          }
+        ],
+        "series": {
+          "resourceURI": "http://gateway.marvel.com/v1/public/series/13082",
+          "name": "Ant-Man & the Wasp (2010 - 2011)"
+        },
+        "variants": [],
+        "collections": [],
+        "collectedIssues": [],
+        "dates": [
+          {
+            "type": "onsaleDate",
+            "date": "2010-11-10T00:00:00-0500"
+          },
+          {
+            "type": "focDate",
+            "date": "2010-10-14T00:00:00-0400"
+          },
+          {
+            "type": "unlimitedDate",
+            "date": "2011-01-17T10:29:28-0500"
+          },
+          {
+            "type": "digitalPurchaseDate",
+            "date": "2011-01-26T00:00:00-0500"
+          }
+        ],
+        "prices": [
+          {
+            "type": "printPrice",
+            "price": 2.99
+          },
+          {
+            "type": "digitalPurchasePrice",
+            "price": 1.99
+          }
+        ],
+        "thumbnail": {
+          "path": "http://i.annihil.us/u/prod/marvel/i/mg/f/10/56ddd6aca4b44",
+          "extension": "jpg"
+        },
+        "images": [
+          {
+            "path": "http://i.annihil.us/u/prod/marvel/i/mg/f/10/56ddd6aca4b44",
+            "extension": "jpg"
+          },
+          {
+            "path": "http://i.annihil.us/u/prod/marvel/i/mg/c/c0/4ca9ef60f278b",
+            "extension": "jpg"
+          },
+          {
+            "path": "http://i.annihil.us/u/prod/marvel/i/mg/c/40/4ca9ef5a3a562",
+            "extension": "jpg"
+          },
+          {
+            "path": "http://i.annihil.us/u/prod/marvel/i/mg/c/40/4ca9ef539a3b0",
+            "extension": "jpg"
+          },
+          {
+            "path": "http://i.annihil.us/u/prod/marvel/i/mg/c/b0/4ca9ef4c7f901",
+            "extension": "jpg"
+          },
+          {
+            "path": "http://i.annihil.us/u/prod/marvel/i/mg/9/20/4c606a073e6dd",
+            "extension": "jpg"
+          },
+          {
+            "path": "http://i.annihil.us/u/prod/marvel/i/mg/9/c0/4c6069fb8b37c",
+            "extension": "jpg"
+          },
+          {
+            "path": "http://i.annihil.us/u/prod/marvel/i/mg/6/50/4c6069f560b3b",
+            "extension": "jpg"
+          },
+          {
+            "path": "http://i.annihil.us/u/prod/marvel/i/mg/6/b0/4c6069ef2905c",
+            "extension": "jpg"
+          },
+          {
+            "path": "http://i.annihil.us/u/prod/marvel/i/mg/6/80/4c6069e909ac0",
+            "extension": "jpg"
+          }
+        ],
+        "creators": {
+          "available": 2,
+          "collectionURI": "http://gateway.marvel.com/v1/public/comics/36765/creators",
+          "items": [
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/creators/9394",
+              "name": "Salvador Espin",
+              "role": "penciller"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/creators/9550",
+              "name": "Tim Seeley",
+              "role": "writer"
+            }
+          ],
+          "returned": 2
+        },
+        "characters": {
+          "available": 1,
+          "collectionURI": "http://gateway.marvel.com/v1/public/comics/36765/characters",
+          "items": [
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1010802",
+              "name": "Ant-Man (Eric O'Grady)"
+            }
+          ],
+          "returned": 1
+        },
+        "stories": {
+          "available": 2,
+          "collectionURI": "http://gateway.marvel.com/v1/public/comics/36765/stories",
+          "items": [
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/stories/81530",
+              "name": "Cover #81530",
+              "type": "cover"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/stories/81531",
+              "name": "Interior #81531",
+              "type": "interiorStory"
+            }
+          ],
+          "returned": 2
+        },
+        "events": {
+          "available": 0,
+          "collectionURI": "http://gateway.marvel.com/v1/public/comics/36765/events",
+          "items": [],
+          "returned": 0
+        }
+      },
+      {
+        "id": 29834,
+        "digitalId": 13922,
+        "title": "Thunderbolts (2006) #141",
+        "issueNumber": 141,
+        "variantDescription": "",
+        "description": "Norman Osborn has unleashed his team of\r\npsycho killers and ordered them to the site of the biggest battle they will ever face: Asgard! Standing in their way are the Mighty Avengers. An epic clash begins here with no-holds-barred action. There will be blood! \r\nRated T  ...$2.99",
+        "modified": "2013-06-27T10:10:45-0400",
+        "isbn": "",
+        "upc": "5960605602-14111",
+        "diamondCode": "DEC090444",
+        "ean": "",
+        "issn": "",
+        "format": "Comic",
+        "pageCount": 32,
+        "textObjects": [
+          {
+            "type": "issue_solicit_text",
+            "language": "en-us",
+            "text": "Norman Osborn has unleashed his team of\r\npsycho killers and ordered them to the site of the biggest battle they will ever face: Asgard! Standing in their way are the Mighty Avengers. An epic clash begins here with no-holds-barred action. There will be blood! \r\nRated T  ...$2.99"
+          }
+        ],
+        "resourceURI": "http://gateway.marvel.com/v1/public/comics/29834",
+        "urls": [
+          {
+            "type": "detail",
+            "url": "http://marvel.com/comics/issue/29834/thunderbolts_2006_141?utm_campaign=apiRef&utm_source=19972fbcfc8ba75736070bc42fbca671"
+          },
+          {
+            "type": "purchase",
+            "url": "http://comicstore.marvel.com/Thunderbolts-141/digital-comic/13922?utm_campaign=apiRef&utm_source=19972fbcfc8ba75736070bc42fbca671"
+          },
+          {
+            "type": "reader",
+            "url": "http://marvel.com/digitalcomics/view.htm?iid=13922&utm_campaign=apiRef&utm_source=19972fbcfc8ba75736070bc42fbca671"
+          },
+          {
+            "type": "inAppLink",
+            "url": "http://applink.marvel.com/issue/13922?utm_campaign=apiRef&utm_source=19972fbcfc8ba75736070bc42fbca671"
+          }
+        ],
+        "series": {
+          "resourceURI": "http://gateway.marvel.com/v1/public/series/18527",
+          "name": "Thunderbolts (2006 - 2012)"
+        },
+        "variants": [
+          {
+            "resourceURI": "http://gateway.marvel.com/v1/public/comics/33563",
+            "name": "Thunderbolts (2006) #141 (2ND PRINTING VARIANT)"
+          }
+        ],
+        "collections": [],
+        "collectedIssues": [],
+        "dates": [
+          {
+            "type": "onsaleDate",
+            "date": "2010-02-24T00:00:00-0500"
+          },
+          {
+            "type": "focDate",
+            "date": "2010-02-04T00:00:00-0500"
+          },
+          {
+            "type": "unlimitedDate",
+            "date": "2010-12-06T00:00:00-0500"
+          },
+          {
+            "type": "digitalPurchaseDate",
+            "date": "2013-02-05T00:00:00-0500"
+          }
+        ],
+        "prices": [
+          {
+            "type": "printPrice",
+            "price": 2.99
+          },
+          {
+            "type": "digitalPurchasePrice",
+            "price": 1.99
+          }
+        ],
+        "thumbnail": {
+          "path": "http://i.annihil.us/u/prod/marvel/i/mg/9/70/517ea6ac5b774",
+          "extension": "jpg"
+        },
+        "images": [
+          {
+            "path": "http://i.annihil.us/u/prod/marvel/i/mg/9/70/517ea6ac5b774",
+            "extension": "jpg"
+          },
+          {
+            "path": "http://i.annihil.us/u/prod/marvel/i/mg/1/a0/4badac3e721bf",
+            "extension": "jpg"
+          }
+        ],
+        "creators": {
+          "available": 3,
+          "collectionURI": "http://gateway.marvel.com/v1/public/comics/29834/creators",
+          "items": [
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/creators/436",
+              "name": "Adi Granov",
+              "role": "penciller"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/creators/9123",
+              "name": "Miguel Angel Sepulveda",
+              "role": "penciller"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/creators/824",
+              "name": "Jeff Parker",
+              "role": "writer"
+            }
+          ],
+          "returned": 3
+        },
+        "characters": {
+          "available": 3,
+          "collectionURI": "http://gateway.marvel.com/v1/public/comics/29834/characters",
+          "items": [
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1010802",
+              "name": "Ant-Man (Eric O'Grady)"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1010828",
+              "name": "Stature"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1010360",
+              "name": "Thunderbolts"
+            }
+          ],
+          "returned": 3
+        },
+        "stories": {
+          "available": 2,
+          "collectionURI": "http://gateway.marvel.com/v1/public/comics/29834/stories",
+          "items": [
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/stories/64810",
+              "name": "Cover #64810",
+              "type": "cover"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/stories/64811",
+              "name": "Interior #64811",
+              "type": "interiorStory"
+            }
+          ],
+          "returned": 2
+        },
+        "events": {
+          "available": 1,
+          "collectionURI": "http://gateway.marvel.com/v1/public/comics/29834/events",
+          "items": [
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/events/273",
+              "name": "Siege"
+            }
+          ],
+          "returned": 1
+        }
+      },
+      {
+        "id": 22912,
+        "digitalId": 10950,
+        "title": "Avengers: The Initiative (2007) #20",
+        "issueNumber": 20,
+        "variantDescription": "",
+        "description": "Who is Mutant Zero? What does Taskmaster want with her? Plus, the Thor clone returns...\n",
+        "modified": "2011-08-23T15:06:24-0400",
+        "isbn": "",
+        "upc": "5960606084-02011",
+        "diamondCode": "OCT082341",
+        "ean": "",
+        "issn": "",
+        "format": "Comic",
+        "pageCount": 32,
+        "textObjects": [
+          {
+            "type": "issue_preview_text",
+            "language": "en-us",
+            "text": "Who is Mutant Zero? What does Taskmaster want with her? Plus, the Thor clone returns...\n"
+          },
+          {
+            "type": "issue_solicit_text",
+            "language": "en-us",
+            "text": "These solicits are classified until the release of Secret Invasion #8.\r<br>Pick up the free Marvel Previews: Dark Reign Edition in-stores the same day as Secret Invasion #8.\r<br>Rated T+ ...$3.99\r<br>"
+          }
+        ],
+        "resourceURI": "http://gateway.marvel.com/v1/public/comics/22912",
+        "urls": [
+          {
+            "type": "detail",
+            "url": "http://marvel.com/comics/issue/22912/avengers_the_initiative_2007_20?utm_campaign=apiRef&utm_source=19972fbcfc8ba75736070bc42fbca671"
+          },
+          {
+            "type": "purchase",
+            "url": "http://comicstore.marvel.com/Avengers-The-Initiative-20/digital-comic/10950?utm_campaign=apiRef&utm_source=19972fbcfc8ba75736070bc42fbca671"
+          },
+          {
+            "type": "reader",
+            "url": "http://marvel.com/digitalcomics/view.htm?iid=10950&utm_campaign=apiRef&utm_source=19972fbcfc8ba75736070bc42fbca671"
+          },
+          {
+            "type": "inAppLink",
+            "url": "http://applink.marvel.com/issue/10950?utm_campaign=apiRef&utm_source=19972fbcfc8ba75736070bc42fbca671"
+          }
+        ],
+        "series": {
+          "resourceURI": "http://gateway.marvel.com/v1/public/series/1945",
+          "name": "Avengers: The Initiative (2007 - 2010)"
+        },
+        "variants": [],
+        "collections": [],
+        "collectedIssues": [],
+        "dates": [
+          {
+            "type": "onsaleDate",
+            "date": "2008-12-31T00:00:00-0500"
+          },
+          {
+            "type": "focDate",
+            "date": "2008-12-11T00:00:00-0500"
+          },
+          {
+            "type": "unlimitedDate",
+            "date": "2009-08-25T00:00:00-0400"
+          },
+          {
+            "type": "digitalPurchaseDate",
+            "date": "2011-09-20T00:00:00-0400"
+          }
+        ],
+        "prices": [
+          {
+            "type": "printPrice",
+            "price": 2.99
+          },
+          {
+            "type": "digitalPurchasePrice",
+            "price": 1.99
+          }
+        ],
+        "thumbnail": {
+          "path": "http://i.annihil.us/u/prod/marvel/i/mg/b/d0/4e94ab1e440ad",
+          "extension": "jpg"
+        },
+        "images": [
+          {
+            "path": "http://i.annihil.us/u/prod/marvel/i/mg/b/d0/4e94ab1e440ad",
+            "extension": "jpg"
+          },
+          {
+            "path": "http://i.annihil.us/u/prod/marvel/i/mg/c/c0/4bb5c37fec793",
+            "extension": "jpg"
+          },
+          {
+            "path": "http://i.annihil.us/u/prod/marvel/i/mg/9/30/4bb3e74f4a534",
+            "extension": "jpg"
+          }
+        ],
+        "creators": {
+          "available": 8,
+          "collectionURI": "http://gateway.marvel.com/v1/public/comics/22912/creators",
+          "items": [
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/creators/2133",
+              "name": "Tom Brevoort",
+              "role": "editor"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/creators/694",
+              "name": "Mark Brooks",
+              "role": "colorist"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/creators/1405",
+              "name": "Matt Milla",
+              "role": "colorist"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/creators/5251",
+              "name": "Joe Caramagna",
+              "role": "letterer"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/creators/11765",
+              "name": "Christos Gage",
+              "role": "writer"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/creators/626",
+              "name": "Dan Slott",
+              "role": "writer"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/creators/548",
+              "name": "Andrew Hennessy",
+              "role": "inker"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/creators/4981",
+              "name": "Steve Kurth",
+              "role": "penciller"
+            }
+          ],
+          "returned": 8
+        },
+        "characters": {
+          "available": 10,
+          "collectionURI": "http://gateway.marvel.com/v1/public/comics/22912/characters",
+          "items": [
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1010802",
+              "name": "Ant-Man (Eric O'Grady)"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1009316",
+              "name": "Gauntlet (Joseph Green)"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1011490",
+              "name": "Hank Pym"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1010821",
+              "name": "Hardball"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1010818",
+              "name": "Komodo (Melati Kusuma)"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1009599",
+              "name": "Skrulls"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1009648",
+              "name": "Taskmaster"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1009670",
+              "name": "Tigra (Greer Nelson)"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1010822",
+              "name": "Trauma"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1009707",
+              "name": "Wasp"
+            }
+          ],
+          "returned": 10
+        },
+        "stories": {
+          "available": 2,
+          "collectionURI": "http://gateway.marvel.com/v1/public/comics/22912/stories",
+          "items": [
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/stories/50869",
+              "name": "Avengers: The Initiative (2007) #20",
+              "type": "cover"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/stories/50870",
+              "name": "Avengers: The Initiative (2007) #20 - Int",
+              "type": "interiorStory"
+            }
+          ],
+          "returned": 2
+        },
+        "events": {
+          "available": 1,
+          "collectionURI": "http://gateway.marvel.com/v1/public/comics/22912/events",
+          "items": [
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/events/318",
+              "name": "Dark Reign"
+            }
+          ],
+          "returned": 1
+        }
+      },
+      {
+        "id": 22954,
+        "digitalId": 11233,
+        "title": "Marvel Adventures Super Heroes (2008) #6",
+        "issueNumber": 6,
+        "variantDescription": "",
+        "description": "Here he comes, True Believers -- the astonishing\r<br>ANT-MAN! The man with two, count 'em, TWO super\r<br>powers! Who is he? How did he get both the ability to shrink to less than an inch tall and speak directly to ants? Why does he use those abilities to aid all mankind? SHUT UP -- Don't answer that! Those are rhetorical questions! Any answers you come up with can't possibly be as\r<br>awesome as the real ones ... SO BUY THIS COMIC NOW!!!\r<br>All Ages ...$2.99\r<br>",
+        "modified": "2011-04-25T20:03:48-0400",
+        "isbn": "",
+        "upc": "5960606408-00611",
+        "diamondCode": "OCT082420",
+        "ean": "",
+        "issn": "",
+        "format": "Comic",
+        "pageCount": 32,
+        "textObjects": [
+          {
+            "type": "issue_solicit_text",
+            "language": "en-us",
+            "text": "Here he comes, True Believers -- the astonishing\r<br>ANT-MAN! The man with two, count 'em, TWO super\r<br>powers! Who is he? How did he get both the ability to shrink to less than an inch tall and speak directly to ants? Why does he use those abilities to aid all mankind? SHUT UP -- Don't answer that! Those are rhetorical questions! Any answers you come up with can't possibly be as\r<br>awesome as the real ones ... SO BUY THIS COMIC NOW!!!\r<br>All Ages ...$2.99\r<br>"
+          }
+        ],
+        "resourceURI": "http://gateway.marvel.com/v1/public/comics/22954",
+        "urls": [
+          {
+            "type": "detail",
+            "url": "http://marvel.com/comics/issue/22954/marvel_adventures_super_heroes_2008_6?utm_campaign=apiRef&utm_source=19972fbcfc8ba75736070bc42fbca671"
+          },
+          {
+            "type": "reader",
+            "url": "http://marvel.com/digitalcomics/view.htm?iid=11233&utm_campaign=apiRef&utm_source=19972fbcfc8ba75736070bc42fbca671"
+          }
+        ],
+        "series": {
+          "resourceURI": "http://gateway.marvel.com/v1/public/series/5202",
+          "name": "Marvel Adventures Super Heroes (2008 - 2010)"
+        },
+        "variants": [],
+        "collections": [],
+        "collectedIssues": [],
+        "dates": [
+          {
+            "type": "onsaleDate",
+            "date": "2008-12-24T00:00:00-0500"
+          },
+          {
+            "type": "focDate",
+            "date": "2008-12-04T00:00:00-0500"
+          },
+          {
+            "type": "unlimitedDate",
+            "date": "2009-11-19T00:00:00-0500"
+          }
+        ],
+        "prices": [
+          {
+            "type": "printPrice",
+            "price": 2.99
+          }
+        ],
+        "thumbnail": {
+          "path": "http://i.annihil.us/u/prod/marvel/i/mg/c/70/4bb64ae7d527e",
+          "extension": "jpg"
+        },
+        "images": [
+          {
+            "path": "http://i.annihil.us/u/prod/marvel/i/mg/c/70/4bb64ae7d527e",
+            "extension": "jpg"
+          }
+        ],
+        "creators": {
+          "available": 6,
+          "collectionURI": "http://gateway.marvel.com/v1/public/comics/22954/creators",
+          "items": [
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/creators/8571",
+              "name": "Guru-eFX",
+              "role": "colorist"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/creators/295",
+              "name": "Clayton Henry",
+              "role": "inker"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/creators/8230",
+              "name": "Christian Dalla Vecchia",
+              "role": "inker"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/creators/9081",
+              "name": "Matteo Lolli",
+              "role": "penciller"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/creators/8429",
+              "name": "Dave Sharpe",
+              "role": "letterer"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/creators/7894",
+              "name": "Fred Van Lente",
+              "role": "writer"
+            }
+          ],
+          "returned": 6
+        },
+        "characters": {
+          "available": 1,
+          "collectionURI": "http://gateway.marvel.com/v1/public/comics/22954/characters",
+          "items": [
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1010802",
+              "name": "Ant-Man (Eric O'Grady)"
+            }
+          ],
+          "returned": 1
+        },
+        "stories": {
+          "available": 2,
+          "collectionURI": "http://gateway.marvel.com/v1/public/comics/22954/stories",
+          "items": [
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/stories/50955",
+              "name": "24XLS 6 of 24",
+              "type": "cover"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/stories/50956",
+              "name": "24XLS 6 of 24",
+              "type": "interiorStory"
+            }
+          ],
+          "returned": 2
+        },
+        "events": {
+          "available": 0,
+          "collectionURI": "http://gateway.marvel.com/v1/public/comics/22954/events",
+          "items": [],
+          "returned": 0
+        }
+      },
+      {
+        "id": 22506,
+        "digitalId": 10949,
+        "title": "Avengers: The Initiative (2007) #19",
+        "issueNumber": 19,
+        "variantDescription": "",
+        "description": "Join 3-D MAN, CLOUD 9, KOMODO, HARDBALL, and heroes around America in the battle that will decide the fate of the planet and the future of the Initiative program. Will the Kill Krew Army win the day?\n",
+        "modified": "2011-07-11T14:39:06-0400",
+        "isbn": "",
+        "upc": "5960606084-01911",
+        "diamondCode": "SEP082362",
+        "ean": "",
+        "issn": "",
+        "format": "Comic",
+        "pageCount": 32,
+        "textObjects": [
+          {
+            "type": "issue_preview_text",
+            "language": "en-us",
+            "text": "Join 3-D MAN, CLOUD 9, KOMODO, HARDBALL, and heroes around America in the battle that will decide the fate of the planet and the future of the Initiative program. Will the Kill Krew Army win the day?\n"
+          },
+          {
+            "type": "issue_solicit_text",
+            "language": "en-us",
+            "text": "SECRET INVASION Tie-In!\r<br>\"V-S DAY\"\r<br>It's been leading to this since the Hank Pym Skrull first came up with the idea for a Fifty State Initiative.  This is the final assault in the Secret Invasion, a nation-wide plan that will test the limits of 3-D MAN'S superhuman militia, THE KILL KREW ARMY! Join 3-D MAN, CLOUD 9, KOMODO, HARDBALL, and heroes around America in the battle that will decide the fate of the planet and the future of the Initiative program.  Win or lose, there's no turning back.  After today, everything changes.\r<br>Rated T+ ...$2.99\r<br>"
+          }
+        ],
+        "resourceURI": "http://gateway.marvel.com/v1/public/comics/22506",
+        "urls": [
+          {
+            "type": "detail",
+            "url": "http://marvel.com/comics/issue/22506/avengers_the_initiative_2007_19?utm_campaign=apiRef&utm_source=19972fbcfc8ba75736070bc42fbca671"
+          },
+          {
+            "type": "purchase",
+            "url": "http://comicstore.marvel.com/Avengers-The-Initiative-19/digital-comic/10949?utm_campaign=apiRef&utm_source=19972fbcfc8ba75736070bc42fbca671"
+          },
+          {
+            "type": "reader",
+            "url": "http://marvel.com/digitalcomics/view.htm?iid=10949&utm_campaign=apiRef&utm_source=19972fbcfc8ba75736070bc42fbca671"
+          },
+          {
+            "type": "inAppLink",
+            "url": "http://applink.marvel.com/issue/10949?utm_campaign=apiRef&utm_source=19972fbcfc8ba75736070bc42fbca671"
+          }
+        ],
+        "series": {
+          "resourceURI": "http://gateway.marvel.com/v1/public/series/1945",
+          "name": "Avengers: The Initiative (2007 - 2010)"
+        },
+        "variants": [],
+        "collections": [],
+        "collectedIssues": [],
+        "dates": [
+          {
+            "type": "onsaleDate",
+            "date": "2008-12-17T00:00:00-0500"
+          },
+          {
+            "type": "focDate",
+            "date": "2008-11-27T00:00:00-0500"
+          },
+          {
+            "type": "unlimitedDate",
+            "date": "2010-02-23T00:00:00-0500"
+          },
+          {
+            "type": "digitalPurchaseDate",
+            "date": "2011-08-09T00:00:00-0400"
+          }
+        ],
+        "prices": [
+          {
+            "type": "printPrice",
+            "price": 2.99
+          },
+          {
+            "type": "digitalPurchasePrice",
+            "price": 1.99
+          }
+        ],
+        "thumbnail": {
+          "path": "http://i.annihil.us/u/prod/marvel/i/mg/a/60/4e94a888dd6b6",
+          "extension": "jpg"
+        },
+        "images": [
+          {
+            "path": "http://i.annihil.us/u/prod/marvel/i/mg/a/60/4e94a888dd6b6",
+            "extension": "jpg"
+          }
+        ],
+        "creators": {
+          "available": 10,
+          "collectionURI": "http://gateway.marvel.com/v1/public/comics/22506/creators",
+          "items": [
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/creators/2133",
+              "name": "Tom Brevoort",
+              "role": "editor"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/creators/694",
+              "name": "Mark Brooks",
+              "role": "penciller"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/creators/1400",
+              "name": "Bong Dazo",
+              "role": "penciller"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/creators/452",
+              "name": "Chris Eliopoulos",
+              "role": "letterer"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/creators/11765",
+              "name": "Christos Gage",
+              "role": "writer"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/creators/626",
+              "name": "Dan Slott",
+              "role": "writer"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/creators/8706",
+              "name": "Jay David Ramos",
+              "role": "colorist"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/creators/500",
+              "name": "Chris Sotomayor",
+              "role": "colorist"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/creators/627",
+              "name": "Christina Strain",
+              "role": "colorist"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/creators/8584",
+              "name": "Harvey Tolibao",
+              "role": "inker"
+            }
+          ],
+          "returned": 10
+        },
+        "characters": {
+          "available": 7,
+          "collectionURI": "http://gateway.marvel.com/v1/public/comics/22506/characters",
+          "items": [
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1011334",
+              "name": "3-D Man"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1010802",
+              "name": "Ant-Man (Eric O'Grady)"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1009284",
+              "name": "Dum Dum Dugan"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1011490",
+              "name": "Hank Pym"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1010821",
+              "name": "Hardball"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1009376",
+              "name": "Jocasta"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/characters/1010818",
+              "name": "Komodo (Melati Kusuma)"
+            }
+          ],
+          "returned": 7
+        },
+        "stories": {
+          "available": 2,
+          "collectionURI": "http://gateway.marvel.com/v1/public/comics/22506/stories",
+          "items": [
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/stories/49888",
+              "name": "Avengers: The Initiative (2007) #19",
+              "type": "cover"
+            },
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/stories/49889",
+              "name": "Avengers: The Initiative (2007) #19 - Int",
+              "type": "interiorStory"
+            }
+          ],
+          "returned": 2
+        },
+        "events": {
+          "available": 1,
+          "collectionURI": "http://gateway.marvel.com/v1/public/comics/22506/events",
+          "items": [
+            {
+              "resourceURI": "http://gateway.marvel.com/v1/public/events/269",
+              "name": "Secret Invasion"
+            }
+          ],
+          "returned": 1
+        }
+      }
+    ]
+  }
+}

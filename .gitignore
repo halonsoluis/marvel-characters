@@ -36,6 +36,7 @@ Temporary Items
 
 ## Build generated
 build/
+builds/
 DerivedData/
 
 ## Various settings
@@ -180,3 +181,5 @@ xcuserdata/
 *.moved-aside
 *.xccheckout
 *.xcscmblueprint
+Marvel Characters/Pods
+Marvel Characters/Carthage
